@@ -1,0 +1,34 @@
+%!TEX root = l2kurz.tex
+% bilder.tex - Teil der LaTeX2e-Kurzbeschreibung
+% Siehe https://github.com/texdoc/l2kurz
+
+\section{Setzen von Bildern} \label{graphics}
+
+Lädt man im Vorspann des Dokuments das Paket \texttt{graphicx}, dann kann man
+Bilder, die mit einem anderen Programm erzeugt wurden,  mit dem Befehl
+\lstinline|\includegraphics| in das Dokument einfügen. Der Dateiname ist als
+Argument des Befehls anzugeben. Welche Dateiformate verarbeitet werden können,
+hängt vom jeweiligen \TeX-System ab. Das häufig benutzte PDF\TeX{} kann
+Grafiken in den Formaten PDF, PNG JPEG und JBIG2 verarbeiten.
+
+% http://openclipart.org/detail/104863/ocean-theme-papercut-by-last-dino
+% Public Domain (CC0)
+% http://creativecommons.org/publicdomain/zero/1.0/
+
+\begin{LTXexample}
+Hier \includegraphics
+       [width=3cm]{ozean}
+ist ein Bild.
+\end{LTXexample}
+
+\noindent Wird das Paket \texttt{graphicx} mit der Option \texttt{[draft]} geladen,
+dann erscheint anstelle des Bildes nur ein Rahmen entsprechend
+der tatsächlichen Bildgröße mit dem Namen des Grafikfiles, 
+was die Bearbeitung beschleunigt und für Probeausdrucke nützlich ist.
+
+Weitere Informationen zum Einbinden von Bildern finden Sie in der
+Online"=Dokumentation \cite{grfguide}, im \textit{Graphics Companion}
+\cite{grfcomp} und in K.~Reckdahls empfehlenswertem  Tutorium \cite{epslatex}.
+
+
+

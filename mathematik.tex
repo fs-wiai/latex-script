@@ -1,0 +1,455 @@
+%!TEX root = l2kurz.tex
+
+% master: l2kurz.tex
+% L2K3.TEX - 3.Teil der LaTeX2e-Kurzbeschreibung v2.2
+% L2K3.TEX - 3.Teil der LaTeX2e-Kurzbeschreibung Mainz 1994, 1995
+% LK3.TEX  - 3.Teil der LaTeX-Kurzbeschreibung Graz-Wien 1987
+% last changes: 2001-06-10
+
+\section{Setzen von mathematischen Formeln} \label{math}
+
+% \todo[inline]{MD: Ich habe angefangen, dies zu überarbeiten}
+
+\subsection{Allgemeines}
+
+\LaTeX{} verfügt über einen eigenen Modus für mathematische Formeln, der sich
+in einigen Punkten deutlich vom Textmodus unterscheidet. Formeln können sowohl
+im Fließtext als auch als eigenständige Elemente auf der Seite vorkommen.
+Trotz der unterschiedlichen Darstellung  unterscheidet sich die Eingabe der
+Formeln nur wenig voneinander.
+
+Die Fülle der Möglichkeiten ist u.\,a.\ in der Dokumentation \enquote{mathmode}
+zusammengefasst und soll hier als Referenz dienen \cite{mathmode}.
+
+Obwohl \LaTeX{} ohne Zusatzpakete viele Möglichkeiten bietet, wird häufig
+das Paket \texttt{amsmath} eingebunden. Es erweitert die in \LaTeX{}
+vorhandenen Möglichkeiten  um eine Vielzahl von Makros und Umgebungen. Im
+weiteren Verlauf wird daher auch vorausgesetzt, dass das Paket geladen ist. In
+dem genannten Dokument mit dem Titel \enquote{mathmode} wird \texttt{amsmath}
+ausführlich beschrieben.
+
+Mathematische Textteile innerhalb eines Absatzes werden zwischen
+\lstinline|\(| und~\lstinline|\)| oder zwischen \lstinline|$| und~\lstinline|$| oder
+zwischen \lstinline|\begin{math}| und \lstinline|\end{math}|
+eingeschlossen.
+Als mathematische Texte gelten sowohl komplette mathematische
+Formeln als auch einzelne Variablennamen, die sich auf Formeln
+beziehen, griechische Buchstaben und diverse Sonderzeichen.
+
+\begin{LTXexample}
+Seien $a$ und $b$ die Katheten
+und $c$ die Hypotenuse,
+dann gilt $c^{2}=a^{2}+b^{2}$
+(Satz des Pythagoras).
+\end{LTXexample}
+
+\begin{LTXexample}
+\TeX\ spricht man wie
+ $\tau\epsilon\chi$ aus.\\
+Mit $\heartsuit$-lichen
+ Grü\ss en
+\end{LTXexample}
+
+
+Größere mathematische Formeln oder Gleichungen setzt man besser
+in eigene Zeilen. Wenn sie \emph{keine} Gleichungsnummer erhalten
+sollen, stellt man sie dazu zwischen \lstinline|\begin{displaymath}| und
+\lstinline|\end{displaymath}| oder zwischen \lstinline|\[| und~\lstinline|\]|;
+wenn sie eine Gleichungsnummer erhalten sollen, stellt man sie
+zwischen \lstinline|\begin{equation}| und \lstinline|\end{equation}|.
+
+\begin{LTXexample}
+Seien $a$ und $b$ die Katheten
+und $c$ die Hypotenuse,
+dann gilt
+\begin{equation}
+c = \sqrt{  a^{2}+b^{2}  }
+\end{equation}
+(Satz des Pythagoras).
+\end{LTXexample}
+
+
+Mit \lstinline|\label| und \lstinline|\ref| kann man die Gleichungsnummern
+im Text ansprechen.
+
+\let\origlabel\label
+\begin{LTXexample}[preset=\let\label\origlabel]
+\begin{equation} \label{eps}
+\varepsilon > 0
+\end{equation}
+ Aus (\ref{eps}) folgt \dots
+\end{LTXexample}
+
+
+
+Das Setzen im mathematischen Modus unterscheidet sich vom
+Text-Modus vor allem durch folgende Punkte:
+\begin{enumerate}
+\item Leerzeilen sind verboten (Mathematische Formeln müssen
+  innerhalb eines Absatzes stehen).
+
+\item Leerstellen und Zeilenwechsel haben bei der Eingabe keine
+  Bedeutung, alle Abstände werden nach der Logik der
+  mathematischen Ausdrücke automatisch bestimmt oder müssen
+  durch spezielle Befehle wie \lstinline|\,| oder~\lstinline|\qquad|
+  angegeben werden.
+
+\begin{LTXexample}
+\begin{equation}
+\forall x \in \mathbf{R}:
+\qquad x^{2} \geq 0
+\end{equation}
+\end{LTXexample}
+
+
+\item Jeder einzelne Buchstabe wird als Name einer Variablen
+  betrachtet und entsprechend gesetzt (kursiv mit
+  zusätzlichem Abstand).  Will man innerhalb eines
+  mathematischen Textes normalen Text (in aufrechter Schrift, mit
+  Wortabständen) setzen, muss man diesen in
+  \lstinline|\text{...}|\footnote{Durch \texttt{amsmath} bereitgestellt} einschließen.
+
+\begin{LTXexample}
+\begin{equation}
+x^{2} \geq 0\qquad
+\text{f"ur alle }
+x \in \mathbf{R}
+\end{equation}
+\end{LTXexample}
+
+
+
+\end{enumerate}
+
+\subsection{Elemente in mathematischen Formeln}
+
+In diesem Abschnitt werden die wichtigsten Elemente, die in
+mathematischen Formeln verwendet werden, kurz beschrieben.  Eine
+Liste aller verfügbaren Symbole enthält
+Anhang~\vref{symbols}.
+
+\bigskip
+
+Kleine \textbf{griechische Buchstaben} werden als \lstinline|\alpha|,
+\lstinline|\beta|, \lstinline|\gamma|, \lstinline|\delta|, usw.\ eingegeben,
+große griechische Buchstaben als \lstinline|\mathrm{A}|,
+\lstinline|\mathrm{B}|, \lstinline|\Gamma|, \lstinline|\Delta|, usw.
+
+\begin{LTXexample}
+$\lambda, \xi, \pi, \mu,
+ \Phi, \Omega $
+\end{LTXexample}
+
+
+Des weiteren gibt es eine Vielzahl von \textbf{mathematischen Symbolen}:
+von $\in$ über $\Rightarrow$ bis~$\infty$ (siehe
+Anhang~\vref{symbols}).
+
+\bigskip
+
+Neben der voreingestellten Kursivschrift für die Variablen
+bietet \LaTeX\ eine Auswahl von mathematischen \textbf{Alphabeten} an:
+\begin{LTXexample}
+$\mathrm{ABCabc}$ \\
+$\mathbf{ABCabc}$ \\
+$\mathsf{ABCabc}$ \\
+$\mathtt{ABCabc}$ \\
+$\mathcal{ABC}$
+\end{LTXexample}
+
+Die kalligraphischen Buchstaben (\lstinline:\mathcal:) gibt es nur als
+Großbuchstaben. Mit dem Paket \texttt{amssymb} \cite{mathmode} stehen
+auch Alphabete für Mengenzeichen und Frakturschrift zur Verfügung.
+Lokal können noch weitere installiert sein.
+
+
+\bigskip
+
+\textbf{Exponenten und Indizes} können mit den Zeichen \lstinline|^|
+und \lstinline|_| hoch- bzw.\ tiefgestellt werden.
+
+\begin{LTXexample}
+\[
+a_{1} \qquad x^{2} \qquad
+ e^{-\alpha t} \qquad a^{3}_{ij}
+\]
+\end{LTXexample}
+
+
+Das \textbf{Wurzelzeichen} wird mit \lstinline|\sqrt|, \textit{n}-te
+Wurzeln werden mit \lstinline|\sqrt[|\textit{n}\lstinline|]| eingegeben.
+Die Größe des Wurzelzeichens wird von \LaTeX\ automatisch
+gewählt.
+
+\begin{LTXexample}
+\[
+\sqrt{x} \qquad  \sqrt{ x^{2}+\sqrt{y} }
+   \qquad \sqrt[3]{2}
+\]
+\end{LTXexample}
+
+Die Befehle \lstinline|\overline| und \lstinline|\underline| bewirken
+\textbf{waagrechte Striche} direkt über bzw.\ unter einem
+Ausdruck.
+\begin{LTXexample}
+$\overline{m+n}$
+\end{LTXexample}
+
+Die Befehle \lstinline|\overbrace| und \lstinline|\underbrace| bewirken
+\textbf{waagrechte Klammern} über bzw.\ unter einem Ausdruck.
+
+\begin{LTXexample}
+$\underbrace{a+b+\cdots+z}_{26}$
+\end{LTXexample}
+
+
+Um mathematische \textbf{Akzente} wie Pfeile oder Schlangen auf
+Variablen zu setzen, gibt es die in Tabelle~\ref{mathakz} auf
+Seite~\pageref{mathakz} angeführten Befehle.
+Längere Tilden und Dacherln, die sich über mehrere (bis zu~3)
+Zeichen erstrecken können, erhält man mit \lstinline|\widetilde|
+bzw.\ \lstinline|\widehat|.
+Ableitungszeichen werden mit \lstinline|'| (Apostroph) eingegeben.
+
+\begin{LTXexample}
+\[
+y=x^{2} \qquad y'=2x   \qquad y''=2
+\]
+\end{LTXexample}
+
+
+Mathematische \textbf{Funktionen} werden in der Literatur
+üblicherweise nicht kursiv (wie die Namen von Variablen),
+sondern in "`normaler"' Schrift dargestellt.
+\LaTeX\ stellt die folgenden Befehle für mathematische
+Funktionen zur Verfügung:
+
+\begin{LTXexample}[pos=b]
+\begin{tabular}{@{}*{8}{>{$}c<{$}}@{}}
+\arccos & \cos  & \csc & \exp & \ker    & \limsup & \min & \sinh \\
+\arcsin & \cosh & \deg & \gcd & \lg     & \ln     & \Pr  & \sup  \\
+\arctan & \cot  & \det & \hom & \lim    & \log    & \sec & \tan  \\
+\arg   & \coth & \dim & \inf & \liminf & \max    & \sin & \tanh \\
+\end{tabular}
+\end{LTXexample}
+
+Für die Modulo-Funktion gibt es zwei verschiedene Befehle:
+\lstinline|\bmod| für den binären Operator \(a \bmod b\) und
+\lstinline|\pmod{...}| für die Angabe in der Form \(x\equiv a
+\pmod{b}\).
+
+\begin{LTXexample}
+\[
+\lim_{x \to 0} \frac{\sin x}{x}
+=1
+\]
+\end{LTXexample}
+
+Ein \textbf{Bruch} (fraction) wird mit dem Befehl
+\lstinline|\frac{...}{...}| gesetzt.  Für einfache Brüche kann man
+aber auch den Operator~\lstinline|/| verwenden.
+
+\begin{LTXexample}
+$1\frac{1}{2}$~Stunden
+\[
+\frac{ x^{2} }{ k+1 } \qquad
+x^{ \frac{2}{k+1} } \qquad
+x^{ 1/2 }
+\]
+\end{LTXexample}
+
+
+\textbf{Binomial-Koeffizienten} können in der Form
+\lstinline|{...\choose...}| gesetzt werden.
+Mit dem Befehl~\lstinline|\atop| erhält man das Gleiche ohne
+Klammern.
+
+\begin{LTXexample}
+\[
+{ n \choose k } \qquad
+{ x\atop y+2 }
+\]
+\end{LTXexample}
+
+
+\medskip
+
+Das \textbf{Integralzeichen} wird mit \lstinline|\int| eingegeben, das
+\textbf{Summenzeichen} mit \lstinline|\sum|.
+Die obere und untere Grenze wird mit \lstinline|^| bzw.~\lstinline|_| wie
+beim \mbox{Hoch-}\slash Tiefstellen angegeben.
+
+Normalerweise werden die Grenzen neben das Integralzeichen
+gesetzt (um Platz zu sparen), durch Einfügen des Befehls
+\lstinline|\limits| wird erreicht, dass die Grenzen oberhalb und
+unterhalb des Integralzeichens gesetzt werden.
+
+Beim Summenzeichen hingegen werden die Grenzen bei der Angabe von
+\lstinline|\nolimits| oder im laufenden Text neben das Summenzeichen
+gesetzt, ansonsten aber unter- und oberhalb.
+
+\begin{LTXexample}
+\[
+\sum_{i=1}^{n} \qquad
+\int_{0}^{\frac{\pi}{2}} \qquad
+\int \limits_{-\infty}^{+\infty}
+\]
+\end{LTXexample}
+
+Für \textbf{Klammern} und andere Begrenzer gibt es in \TeX\
+viele verschiedene Symbole
+(z.\,B.~\([\;\langle\;\|\;\updownarrow\)).
+Runde und eckige Klammern können mit den entsprechenden Tasten
+eingegeben werden, geschwungene mit~\lstinline|\{|, die anderen mit
+speziellen Befehlen (z.\,B.~\lstinline|\updownarrow|).
+
+Setzt man den Befehl \lstinline|\left| vor öffnende Klammern und den
+Befehl \lstinline|\right| vor schließende, so wird automatisch die
+richtige Größe gewählt.
+
+\begin{LTXexample}
+\[
+1 + \left( \frac{1}{ 1-x^{2} }
+    \right) ^3
+\]
+\end{LTXexample}
+
+
+In manchen Fällen möchte man die Größe der Klammern lieber
+selbst festlegen, dazu sind die Befehle
+\lstinline|\bigl|,
+\lstinline|\Bigl|,
+\lstinline|\biggl| und
+\lstinline|\Biggl| anstelle von \lstinline|\left|
+und analog \lstinline|\bigr| etc.\ anstelle von \lstinline|\right|
+anzugeben.
+
+\begin{LTXexample}
+\[
+\Bigl( (x+1) (x-1) \Bigr) ^{2}
+\]
+\end{LTXexample}
+
+Um in Formeln \textbf{3~Punkte} (z.\,B.\ für \(1,2,\ldots,n\))
+auszugeben, gibt es die Befehle
+\lstinline|\ldots| und \lstinline|\cdots|.
+\lstinline|\ldots| setzt die Punkte auf die Grundlinie (low),
+\lstinline|\cdots| setzt sie in die Mitte der Zeilenhöhe
+(centered).
+Außerdem gibt es die Befehle
+\lstinline|\vdots| für vertikal und
+\lstinline|\ddots| für diagonal angeordnete Punkte.
+
+\begin{LTXexample}
+\[
+x_{1},\ldots,x_{n} \qquad
+x_{1}+\cdots+x_{n}
+\]
+\end{LTXexample}
+
+
+\subsection{Nebeneinander Setzen}
+
+Wenn man mit den von \TeX\ gewählten \textbf{Abständen}
+innerhalb von Formeln nicht zufrieden ist, kann man sie mit
+expliziten Befehlen verändern. Die wichtigsten sind
+\lstinline|\,| für einen sehr kleinen Abstand,
+\lstinline|\;| für einen mittleren,
+\lstinline|\quad| und \lstinline|\qquad| für große Abstände sowie
+\lstinline|\!| für die Verkleinerung eines Abstands. Die Vergrößerung des Abstandes
+durch die Anweisungen \lstinline|\quad| und \lstinline|\qquad| ist gleichbedeutend zu den Breiten 1\,em und 2\,em (siehe \vref{abst:horiz}).
+
+\begin{LTXexample}
+\[
+F_{n} = F_{n-1} + F_{n-2}
+ \qquad n \ge 2
+\]
+\end{LTXexample}
+
+
+\begin{LTXexample}
+\[
+\int\!\!\!\int_{D}
+\mathrm{d}x\,\mathrm{d}y
+\quad \textnormal{statt} \quad
+\int\int_{D}
+\mathrm{d}x \mathrm{d}y
+\]
+\end{LTXexample}
+
+
+
+\subsection{Übereinander Setzen}
+
+Für \textbf{Matrizen} u.\,ä.\ gibt es die
+\texttt{array}-Umgebung, die ähnlich wie die
+\texttt{tabular}-Umgebung funktioniert.
+Der Befehl~\lstinline|\\| trennt die Zeilen.
+
+\begin{LTXexample}
+\[
+\mathbf{X} =
+\left( \begin{array}{ccc}
+x_{11} & x_{12} & \ldots \\
+x_{21} & x_{22} & \ldots \\
+\vdots & \vdots & \ddots
+\end{array} \right)
+\]
+\end{LTXexample}
+
+
+Für \textbf{mehrzeilige} Formeln oder Gleichungssysteme bietet \LaTeX{} die
+Umgebung \texttt{eqnarray} an. Auf Grund verschiedener Defizite dieser
+Umgebung sei an dieser Stelle nur gesagt, dass diese Umgebung nicht genutzt
+werden soll. Das in der Einleitung zu diesem Kapitel genannte Paket
+\texttt{amsmath} bietet die wesentlich verbesserte Umgebung \texttt{align}.
+
+Bei \texttt{align} erhält jede Zeile eine eigene
+Gleichungsnummer, bei \texttt{align*} wird ebenso wie bei
+\lstinline|\[...\]| \emph{keine} Gleichungsnummer hinzugefügt.
+
+Für Gleichungssysteme, die \emph{eine} gemeinsame Gleichungsnummer
+erhalten sollen, kann auf die \texttt{array}-Umgebung oder die durch \texttt{amsmath}
+bereitgestellte Umgebung \texttt{gather} zurückgegriffen werden.
+
+Die Umgebungen \texttt{align} arbeitet nach dem Prinzip einer Tabelle, wobei \texttt{\&} als
+Ausrichtungssymbol verwendet wird. Entgegen einer Tabelle, muss die Anzahl der Spalten nicht vorher
+angegeben werden. Das Ausrichtungssymbol sollte stets \emph{vor} dem Relationszeichen stehen, so
+dass die korrekten Abstände ermittelt werden können.
+
+Der Befehl~\lstinline|\\| trennt die Zeilen.
+\begin{LTXexample}
+\begin{align}
+f(x) & =  \cos x       \\
+f'(x) & =  -\sin x     \\
+\int_{0}^{x} f(y)\,\mathrm{d}y &
+ =  \sin x
+\end{align}
+\end{LTXexample}
+
+
+
+\textbf{Zu lange Gleichungen} werden von \LaTeX\ \textit{nicht}
+automatisch abgeteilt.
+Der Autor muss bestimmen, an welcher Stelle abgeteilt und wie
+weit eingerückt werden soll.
+Meistens verwendet man dafür folgende Variante:
+
+\begin{LTXexample}
+\begin{align}
+\sin x & =  x -\frac{x^{3}}{3!}
+     +\frac{x^{5}}{5!} - {}
+                    \nonumber\\
+ &\mathrel{\phantom{=}}\negmedspace{}
+  -\frac{x^{7}}{7!} + \cdots
+\end{align}
+\end{LTXexample}
+
+Der Befehl \lstinline|\nonumber| bewirkt, dass an diese Stelle keine
+Gleichungsnummer gesetzt wird.
+
+Die Dokumentation mit dem Titel \enquote{mathmode} wurde bereits erwähnt, soll aber an dieser Stelle
+noch einmal ins Gedächtnis gerufen werden. Neben Zahlreichen Beispielen kann
+die Dokumentation als Nachschlagewerk für den mathematischen Satz genutzt werden.
+
+\endinput

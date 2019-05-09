@@ -1,0 +1,213 @@
+%!TEX root = l2kurz.tex
+
+% master: l2kurz.tex
+% l2k6.tex - 6.Teil der LaTeX2e-Kurzbeschreibung v2.3
+% 2003-04-10 (WaS)
+
+\section{Spezialitäten}
+
+Das komplette Menü der Spezialitäten, die von \LaTeX\ serviert
+werden, ist im \manual\ und in der Online-Dokumentation beschrieben.
+Hier soll nur auf einige besondere "`Schmankerln"' hingewiesen
+werden.
+
+\subsection{Abstände}
+
+\subsubsection{Zeilenabstand}
+
+Um in einem Schriftstück größere Zeilenabstände zu verwenden,
+als es in der Dokumentklasse vorgesehen ist, gibt es in
+\LaTeX\ den Befehl \lstinline:\linespread:, der im Vorspann stehen sollte
+und dann auf das gesamte Dokument wirkt.  Das kann beispielsweise
+dann notwendig werden, wenn eine Schrift benutzt wird, die eine größerer x-Höhe
+hat als die voreingestellte Computer-Modern.  Für die Schrift "`Palatino"' etwa
+ist eine Vergrößerung des Zeilenabstandes um ca.\ 5\,\% angemessen:
+\begin{quote}
+\lstinline|\usepackage{mathpazo}|\\
+\lstinline|\linespread{1.05}|
+\end{quote}
+
+Häufig wird ein anderthalbfacher Zeilenabstand gewünscht, wobei bspw. Fußnoten ausgenommen
+sein sollen. Der Befehle \lstinline:\linespread: macht diese Unterscheidung nicht. Zur
+Änderung des Zeilenabstandes sollte daher stets auf das Paket \texttt{setspace} zurückgegriffen werden.
+
+
+
+\subsubsection{Spezielle horizontale Abstände}\label{abst:horiz}
+
+Die Abstände zwischen Wörtern und Sätzen werden von \LaTeX\
+automatisch gesetzt.
+Sonstigen horizontalen Abstand kann man mit den Befehlen
+\begin{beispiel}
+\lstinline|\hspace{|\textit{länge}\lstinline|}|\\
+\lstinline|\hspace*{|\textit{länge}\lstinline|}|
+\end{beispiel}
+einfügen. Wenn der Abstand auch am Beginn oder Ende einer Zeile
+erhalten bleiben soll, muss \lstinline|\hspace*| statt \lstinline|\hspace|
+geschrieben werden.
+
+Die Längenangabe besteht im einfachsten Fall aus einer Zahl
+und einer Einheit.  Die wichtigsten Einheiten sind in
+Tabelle~\ref{units} angeführt.
+\begin{table}[!htb]
+\caption{Einheiten für Längenangaben} \label{units}
+\centering
+\def\arraystretch{1.25}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\texttt{mm} & Millimeter                               \\
+\texttt{cm} & Zentimeter = 10\,mm                            \\
+\texttt{in} & inch $= 25.4\,\mathrm{mm} $                 \\
+\texttt{pt} & point $ =(1/72.27)\,\mathrm{in}
+                        \approx 0.351\,\mathrm{mm}$         \\
+\texttt{bp} & big point $ =(1/72)\,\mathrm{in}
+                            \approx 0.353\,\mathrm{mm} $     \\
+%\texttt{dd} \> Didot-Punkt \( = (1238/1157)\,\mathrm{pt}
+%                              \approx 0.376\,\mathrm{mm} \)   \\
+% --- wegen unklarer Definition (0.375 ider 0.376mm) besser nicht benutzen!
+\texttt{em}  &  Geviert (doppelte Breite einer Ziffer der aktuellen Schrift)\\
+\texttt{ex}   & Höhe des Buchstabens x der aktuellen Schrift \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Die Befehle in Tabelle~\ref{hspace} sind Abkürzungen zum Einfügen
+besonderer horizontaler Abstände.
+
+\begin{table}[!htb]
+\caption{Befehle für horizontale Abstände} \label{hspace}
+\centering
+\def\arraystretch{1.25}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\lstinline|\,|       & ein sehr kleiner Abstand (siehe auch Abschnitt~\ref{abstaende})\\
+\lstinline|\enspace| & so breit wie eine Ziffer \\
+\lstinline|\quad|    & so breit, wie ein Buchstabe hoch ist
+                   ("`weißes Quadrat"') \\
+\lstinline|\qquad|   & doppelt so breit wie ein \lstinline|\quad| \\
+\lstinline|\hfill|   & ein Abstand, der sich von 0 bis \(\infty\)
+                   ausdehnen kann. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Der Befehl \lstinline|\hfill|  kann dazu dienen, einen vorgegebenen Platz auszufüllen.
+
+\begin{LTXexample}
+\raggedright
+Schafft mir\hspace{1.5cm}Raum! \\
+$\triangleleft$\hfill
+$\triangleright$
+\end{LTXexample}
+
+
+
+\subsubsection{Spezielle vertikale Abstände} \label{vabstaende}
+
+Die Abstände zwischen Absätzen, Kapiteln usw.\ werden von
+\LaTeX\ automatisch bestimmt.
+In Spezialfällen kann man zusätzlichen Abstand
+\emph{zwischen zwei Absätzen} mit dem Befehl
+\begin{beispiel}
+\lstinline|\vspace{|\textit{länge}\lstinline|}|
+\end{beispiel}
+bewirken.
+Dieser Befehl sollte immer zwischen zwei Leerzeilen angegeben
+werden.
+Wenn der Abstand auch am Beginn oder Ende einer Seite erhalten
+bleiben soll, muss \lstinline|\vspace*| statt \lstinline|\vspace|
+geschrieben werden.
+Die Befehle in Tabelle~\ref{vspace} sind Abkürzungen für
+bestimmte vertikale Abstände.
+\begin{table}[!htb]
+\caption{Befehle für vertikale Abstände} \label{vspace}
+\centering
+\def\arraystretch{1.25}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\lstinline|\smallskip| & etwa $\nfrac{1}{4}$ Zeile \\
+\lstinline|\medskip|   & etwa $\nfrac{1}{2}$ Zeile \\
+\lstinline|\bigskip|   & etwa 1 Zeile \\
+\lstinline|\vfill|     & ein Abstand, der sich von 0 bis $\infty$
+                     ausdehnen kann\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Der Befehl \lstinline|\vfill| in Verbindung mit \lstinline|\newpage|
+kann dazu dienen, Text an den unteren Rand einer Seite zu setzen
+oder vertikal zu zentrieren.  Beispielsweise enthält der Quelltext
+für die zweite Seite der vorliegenden Beschreibung:
+\clearpage
+\begin{example}
+\vfill
+
+Dieses Dokument wurde mit \LaTeX{} gesetzt.
+...
+\newpage
+\end{example}
+
+
+Zusätzlichen Abstand zwischen zwei Zeilen \emph{innerhalb}
+eines Absatzes oder einer Tabelle erreicht man mit dem Befehl
+\lstinline|\\[|\textit{länge}\lstinline|]|.
+
+\begin{LTXexample}
+Albano Cesara \\
+Lindenallee 10 \\[1.5ex]
+95632 Pestitz
+\end{LTXexample}
+
+
+% \subsection{\LaTeX-Zeichenprogramme}
+
+% \todo[inline]{PG: hier eine kurze Erwähnung von TikZ und anschließend ein Bild, ohne große Erklärung? Hast du ein griffiges Beispiel oder sollen wir auf tex.sx nach einem fragen? Mehr als eine Seite würde ich auf keinen Fall damit verbrauchen, lieber mit einer Aufzählung, welche Vorteile sowas hat (Schriftart/Farben wie im Dokument, Grafik und Quelle sind beieinander, oftmals genauer als Zeichenprogramme, Verbindungen mit dem Text möglich) - aber auch hier Nachteil: Einarbeitung}
+
+
+
+\subsection{Literaturangaben}
+
+Mit der \texttt{thebibliography}-Umgebung kann man ein
+Literaturverzeichnis erzeugen.
+Darin beginnt jede Literaturangabe mit \lstinline|\bibitem|.
+Als Parameter wird ein Name vereinbart, unter dem die
+Literaturstelle im Text zitiert werden kann, und
+dann folgt der Text der Literaturangabe.
+Die Nummerierung erfolgt automatisch.
+Der Parameter bei \lstinline|\begin{thebibliography}| gibt die
+maximale Breite dieser Nummernangabe an, also z.\,B.\
+\lstinline|{99}| für maximal zweistellige Nummern.
+
+Im Text zitiert man die Literaturstelle dann mit dem Befehl \lstinline|\cite|
+und dem vereinbarten Namen als Argument.
+
+\let\origcite\cite
+\begin{LTXexample}[preset=\let\cite\origcite]
+Partl~\cite{pa} hat
+vorgeschlagen ...
+
+\begin{thebibliography}{99}
+\bibitem{pa}
+H.~Partl: \textit{German \TeX,}
+TUGboat Vol.~9, No.~1 (1988)
+\end{thebibliography}
+\end{LTXexample}
+
+Werden viele Literatureinträge zitiert bzw. verwendet, bietet sich die Nutzung
+einer Datenbank an. Die Datenbank besitzt ihre eigene Syntax,
+um die benötigten Literatureinträge zu verwalten. Für die komfortable Verwaltung
+von Literaturdatenbanken existieren viele Programme wie beispielsweise JabRef (frei) oder
+Endnote (kommerziell). Die Datenbank ist im eigentlichen Sinne eine Textdatei mit
+Endung \lstinline|bib|.
+
+
+Für die Verarbeitung dieser Literaturdatenbanken bieten sich zwei verschiedene
+Hilfsmittel für \LaTeX{} an. Die klassische Variante ist \emph{Bib\TeX} in Verbindung
+mit einem Literaturverzeichnisstil. Die Anpassung an die eigenen Bedürfnisse
+gestaltet sich mehr als schwierig. Daher wurde in den letzten Jahren das \LaTeX{}
+Makropaket \emph{biblatex} entwickelt, das alternativ zu \emph{Bib\TeX} das mächtigere
+Programm \emph{biber} nutzen kann. Das Makropaket \emph{biblatex} erlaubt die Manipulation
+des Literaturverzeichnisses auf \LaTeX"=Ebene. Auf CTAN ist eine deutsche Übersetzung der Dokumenation
+verfügbar \cite{biblatex-de}.
+
+\endinput

@@ -1,0 +1,777 @@
+%!TEX root = l2kurz.tex
+% Siehe https://github.com/texdoc/l2kurz
+
+\section{Setzen von Text}
+
+
+\subsection{Deutschsprachige Texte}\label{deutsch}
+\LaTeX{} wurde ursprünglich für den englischen Sprachraum entwickelt.
+Für Texte, die in einer anderen Sprache als (amerikanischem)
+Englisch verfasst sind, muss deshalb ein zusätzliches Paket
+(siehe Abschnitt~\ref{packages}) zur Sprachanpassung geladen werden.
+Für deutschsprachige Texte ist das normalerweise das Paket \texttt{babel}
+\begin{lstlisting}
+ \usepackage[ngerman]{babel}
+\end{lstlisting}
+oder mit der Option \texttt{german} für traditionelle Rechtschreibung.
+Der Grund für diese Unterscheidung ist die unterschiedliche Silbentrennung.
+Eine ausführliche Beschreibung dieses Pakets findet man in \cite{babel}.
+
+
+
+\subsection{Zeilen- und Seiten-Umbruch}
+
+\subsubsection{Blocksatz}
+
+\LaTeX{} setzt Text standardmäßig im Blocksatz, d.\,h.~mit Randausgleich,
+wobei der Zeilen- und Seitenumbruch automatisch durchgeführt wird.
+Dabei wird für jeden Absatz die
+bestmögliche Aufteilung der Wörter auf die Zeilen bestimmt,
+und wenn notwendig werden Wörter automatisch abgeteilt.
+\begin{LTXexample}
+Das Ende von Wörtern und
+Sätzen wird durch Leerzeichen
+gekennzeichnet.
+Hierbei spielt es keine Rolle,
+ob man ein  oder           100
+Leerzeichen eingibt.
+
+Eine oder mehrere Leerzeilen
+kennzeichnen das Ende von
+Absätzen.
+\end{LTXexample}
+
+Üblicherweise werden in \LaTeX{} Absätze mit Einrückungen gekennzeichnet.
+Bei den Standardklassen kann dies mittels des Paketes \texttt{parskip}
+deaktiviert werden und Absätze mit Abstand dazwischen kenntlich machen.
+Die sogenannten KOMA-Klassen bieten hierfür extra Optionen (siehe \cite{scrguide}).
+
+Mit Hilfe der in Abschnitt~\ref{env} beschriebenen Umgebungen ist
+es möglich, spezielle Textteile jeweils anders zu setzen.
+
+Für Ausnahmefälle kann man den Umbruch außerdem mit den
+folgenden Befehlen beeinflussen:
+Der Befehl \lstinline|\\| oder \lstinline|\newline| bewirkt einen
+Zeilenwechsel ohne neuen Absatz, der Befehl~\lstinline|\\*| einen
+Zeilenwechsel, bei dem kein Seitenwechsel erfolgen darf.
+Der Befehl \lstinline|\newpage| bewirkt einen Seitenwechsel.
+Mit den Befehlen
+\lstinline|\linebreak[|\textit{n}\lstinline|]|,
+\lstinline|\nolinebreak[|\textit{n}\lstinline|]|,
+\lstinline|\pagebreak[|\textit{n}\lstinline|]|   und
+\lstinline|\nopagebreak[|\textit{n}\lstinline|]|
+kann man angeben, ob an bestimmten Stellen ein Zeilen- bzw.\ %
+Seitenwechsel eher günstig oder eher ungünstig ist, wobei
+\textit{n} die Stärke der Beeinflussung angibt (1, 2, 3 oder 4).
+
+Mit dem \LaTeX-Befehl \lstinline:\enlargethispage{:\textit{Länge}\lstinline:}:
+lässt sich eine gegebene Seite um einen festen Betrag
+verlängern oder verkürzen. Damit ist es möglich, noch
+eine Zeile mehr auf eine Seite zu bekommen.
+(Zur Schreibweise von Längenangaben siehe Abschnitt~\ref{abst:horiz}.)
+
+%PG: microtype erwähnt
+
+\LaTeX\ bemüht sich, den Zeilenumbruch besonders schön zu machen.  Falls es
+keine den strengen Regeln genügende Möglichkeit für einen glatten rechten Rand
+findet, lässt es eine Zeile zu lang und gibt eine entsprechende Warnmeldung
+aus (\texttt{over\-full hbox}). Das tritt insbesondere dann auf, wenn keine
+geeignete Stelle für die Silbentrennung gefunden wird. Innerhalb der
+\texttt{sloppypar}-Umgebung ist \LaTeX\ generell weniger streng in seinen
+Ansprüchen und vermeidet solche überlange Zeilen, indem es die Wortabstände
+stärker -- notfalls auch unschön~-- vergrößert. In diesem Fall werden zwar
+Warnungen gemeldet (\texttt{under\-full hbox}), das Ergebnis ist aber meistens
+durchaus brauchbar. Eine weitere Möglichkeit um \textit{schönere}  Absätze zu
+erzeugen ist das Paket \texttt{microtype} für PDF\TeX{} und neuere Programme.
+Es verändert einerseits die Breite der Buchstaben in einem so geringen Maß,
+dass das dem Leser nicht auf"|fällt. Weiterhin erlaubt es gewisse Zeichen
+etwas über den rechten Rand hinaus zu ragen (Trennstrich, Punkt, Komma,
+\dots), so dass \LaTeX{} bessere Umbruchpunkte findet.
+
+
+
+\subsubsection{Silbentrennung} \label{silb}
+
+Falls die automatische Silbentrennung in einzelnen Fällen nicht
+das richtige Ergebnis liefert, kann man diese Ausnahmen mit den
+folgenden Befehlen richtigstellen.
+
+Der Befehl \lstinline|\hyphenation| bewirkt, dass die darin
+angeführten Wörter jedes Mal an den und nur an den mit
+\lstinline|-| markierten Stellen abgeteilt werden können.
+Er sollte im Vorspann stehen und eignet sich
+\emph{nur} für Wörter, die keine indirekt kodierten Umlaute wie \lstinline|"a| enthalten.
+
+\begin{example}
+\hyphenation{ Eingabe-file
+   Eingabe-files FORTRAN }
+\end{example}
+
+Der Befehl~\lstinline|\-| innerhalb eines Wortes bewirkt, dass dieses Wort
+dieses eine Mal nur an den mit~\lstinline|\-| markierten Stellen  oder
+unmittelbar nach einem Bindestrich abgeteilt werden kann. Mit dem Paket
+\texttt{babel}\cite{babel} steht der Befehl~\lstinline:"-: zur
+Verfügung, der auch Trennungen an anderen (nicht markierten) Stellen im Wort
+erlaubt.
+
+\begin{LTXexample}
+Ein"-gabe"-file,
+\LaTeX"=Eingabe"-file,
+Häss"-lich"-keit
+\end{LTXexample}
+
+Der Befehl \lstinline|\mbox| bewirkt, dass das Argument überhaupt nicht
+abgeteilt werden kann.
+
+\begin{LTXexample}
+Die Telefonnummer ist nicht mehr
+\mbox{(02\,22) 56\,01-36\,94}. \\
+\mbox{\textit{filename}} gibt den
+Dateinamen an.
+\end{LTXexample}
+
+Innerhalb des von \lstinline|\mbox| eingeschlossenen Textes können
+Wortabstände für den notwendigen Randausgleich bei
+Blocksatz nicht mehr verändert werden.  Ist dies nicht
+erwünscht, sollte man besser einzelne Wörter oder Wortteile
+in \lstinline|\mbox| einschließen und diese mit einer Tilde~\lstinline|~|,
+einem untrennbaren Wortzwischenraum (siehe
+Abschnitt~\ref{abstaende}), verbinden.
+
+% PG: c-k Trennungen etc. rausgenommen, nicht mehr notwendig
+
+
+% Ich habe den ganzen Abschnitt über  nonfrenchspacing
+% rausgenomen, da das mit ngerman/babel sowieso nicht der Fall ist. Und wer
+% es schafft, mit babel nonfrenchspacing anzuschalten, der kann sich den Rest
+% auch anlesen. Es ist eine _kurz_anleitung
+
+
+\subsection{Wortabstand} \label{abstaende}
+
+In einigen Fällen kann man sich nicht auf die Automatik von \LaTeX{} verlassen: manchmal wird ein Umbruchpunkt eingefügt, an dem keiner sein soll und manchmal möchte man den Abstand zwischen zwei Wörtern (oder Buchstaben) verändern. Dafür werden unter anderem folgende Befehle bereit gestellt:
+
+Eine \lstinline|~| (Tilde) bedeutet eine Leerstelle, an der kein Zeilenwechsel
+erfolgen darf.
+
+Mit \lstinline|\,| lässt sich ein kurzer Abstand erzeugen, wie er z.\,B.\ in
+Abkürzungen vorkommt oder zwischen Zahlenwert und Maßeinheit.
+
+
+\begin{LTXexample}
+Das betrifft u.\,a.\ auch die \\
+wissenschaftl.\ Mitarbeiter. \\
+Dr.~Partl wohnt im 1.~Stock. \\
+\dots\ 5\,cm breit.
+\end{LTXexample}
+
+% Abschnitt über frenchspacing raus. Das hier ist l2kurz!
+
+\subsection{Spezielle Zeichen} \label{spezial}
+
+\subsubsection{Anführungszeichen} \label{quotes}
+
+Für Anführungszeichen ist \emph{nicht} das auf Schreibmaschinen
+übliche Zeichen (\lstinline|"|) zu verwenden.
+Im Buchdruck werden für öffnende und schließende
+Anführungszeichen jeweils verschiedene Zeichen bzw.\ %
+Zeichenkombinationen gesetzt.
+Öffnende Anführungszeichen, wie sie im amerikanischen Englisch
+üblich sind, erhält man durch Eingabe von zwei Grave-Akzenten,
+schließende durch zwei Apostrophe.
+\begin{LTXexample}
+``No,'' he said,
+``I don't know!''
+\end{LTXexample}
+"`Deutsche Gänsefüßchen"' sehen anders aus als ``amerikanische
+Quotes''.
+
+
+Bei Benutzung des Paketes \texttt{babel} (siehe \ref{deutsch})
+stehen die folgenden Befehle für
+deutsche Anführungszeichen zur Verfügung:
+\lstinline|"`| (Doublequote und Grave-Akzent) für Anführungszeichen
+unten,
+und
+\lstinline|"'| (Doublequote und Apostroph) für Anführungszeichen oben.
+\exa
+"`Nein,"' sagte er,
+"`ich weiß nichts!"'
+\exb
+\begin{verbatim}
+"`Nein,"' sagte er,
+"`ich weiß nichts!"'
+\end{verbatim}
+\exc
+In den Zeichensätzen mancher Rechner (z.\,B. Macintosh) sind die deutschen
+Anführungszeichen enthalten.  Das Paket \texttt{selinput} (siehe
+Abschnitt~\ref{inputenc}) erlaubt dann, sie auch direkt einzugeben.
+
+Das Paket \texttt{csquotes} erlaubt die indirekte Eingabe von Anführungszeichen, die automatisch korrekt geschachtelt werden. Zitate werden mit \lstinline|\enquote{|\textit{Text}\lstinline|}| ausgezeichnet:
+
+\begin{LTXexample}
+Er sagte \enquote{Da rief ich
+\enquote{Hallo}}
+\end{LTXexample}
+
+Benutzt man durchgängig diese Form der Zitate, kann man mit einer Paketoption zu \texttt{csquotes} die Art der Anführungszeichen leicht für das gesamte Dokument verändern.
+
+Eine gute Einführung in die Typographieregeln für Textsatz findet sich in der PDF"=Datei \emph{typokurz} von Christoph Bier\cite{typokurz}.
+
+\subsubsection{Binde- und Gedankenstriche}
+
+Im Schriftsatz werden unterschiedliche Striche für Bindestrich,
+Gedankenstrich und Minus-Zeichen verwendet.
+Die verschieden langen Striche werden in \LaTeX\ durch
+Kombinationen von Minus-Zeichen angegeben. Der ganz lange
+Gedankenstrich (\mbox{---}) wird im Deutschen nicht benutzt, im
+Englischen wird er ohne Leerzeichen eingefügt.
+\exa
+O-Beine \\
+10--18~Uhr \\
+Paris--Dakar \\
+Schalke 04 -- Hertha BSC \\
+ja -- oder nein? \\
+yes---or no? \\
+0, 1 und $-1$
+\exb
+\begin{verbatim}
+O-Beine
+10--18~Uhr
+Paris--Dakar
+Schalke 04 -- Hertha BSC
+ja -- oder nein?
+yes---or no?
+0, 1 und $-1$
+\end{verbatim}
+\exc
+
+\subsubsection{Punkte}
+
+Im Gegensatz zur Schreibmaschine, wo jeder Punkt und jedes Komma
+mit einem der Buchstabenbreite entsprechenden Abstand versehen
+ist, werden Punkte und Kommata im Buchdruck eng an das
+vorangehende Zeichen gesetzt. Für Fortsetzungspunkte (drei
+Punkte mit geeignetem Abstand) gibt es daher einen eigenen Befehl
+\lstinline|\ldots| oder~\lstinline|\dots|.
+
+\begin{LTXexample}
+Nicht so ... sondern so: \\
+Wien, Graz, \dots
+\end{LTXexample}
+
+
+\subsubsection{Ligaturen und Unterschneidungen}
+
+Im Buchdruck ist es üblich, manche Buchstabenkombinationen
+anders zu setzen als die Einzelbuchstaben.
+\begin{beispiel}
+{\large fi fl AV Te \dots}\quad
+statt\quad {\large f\/i f\/l A\/V T\/e \dots}
+\end{beispiel}
+Mit Rücksicht auf die Lesbarkeit des Textes sollten
+diese  Ligaturen und Unterschneidungen (kerning)
+unterdrückt werden, wenn die betreffenden Buchstabenkombinationen
+nach Vorsilben oder bei zusammengesetzten Wörtern zwischen den
+Wortteilen auftreten.  Dazu dient der Befehl~\lstinline|\/|.
+
+\begin{LTXexample}
+Nicht Auflage (Au-fl-age) \\
+sondern Auf\/lage (Auf-lage)
+\end{LTXexample}
+
+Mit dem Paket \texttt{babel} steht zusätzlich der  Befehl~\lstinline:"|: zur
+Verfügung, der gleichzeitig eine Trennhilfe darstellt.
+
+\begin{LTXexample}
+Auf"|lage (Auf-lage)
+\end{LTXexample}
+
+
+Das Paket \texttt{babel}\cite{babel} macht noch einige weitere Befehle
+verfügbar, die bestimmte Besonderheiten der deutschen Sprache
+berücksichtigen.  Die wichtigsten von ihnen sind:
+\lstinline|"~| für einen Bindestrich, an dem nicht umbrochen werden darf und
+\lstinline|"=| für einen Trennstrich, an dem ein Umbruch stattfinden darf, beispielsweise bei zusammengesetzten Hauptwörtern.
+
+
+\begin{LTXexample}[firstline=2]
+\obeylines
+x"~beliebig
+bergauf und "~ab
+Breisgau"=Hochschwarzwald
+\end{LTXexample}
+
+
+\subsubsection{Symbole, Akzente und besondere Buchstaben}\label{symbole}
+
+Einige der Zeichen, die bei der Eingabe eine Spezialbedeutung haben,
+können durch das Voranstellen des
+Zeichens \lstinline|\| (Backslash) ausgedruckt werden:
+\begin{LTXexample}
+\$ \& \% \# \_ \{ \}
+\end{LTXexample}
+Für andere gibt es besondere Befehle.  Sie gelten nur für normalen
+Text; wie derartige Symbole innerhalb von mathematischen
+Formeln gesetzt werden, erfahren Sie im Kapitel~\ref{math}:
+\begin{LTXexample}[firstline=2]
+\obeylines
+\textasciitilde
+\textasciicircum
+\textbackslash
+\textbar
+\textless
+\textgreater
+\end{LTXexample}
+
+\LaTeX\ ermöglicht darüber hinaus die Verwendung von Akzenten
+und speziellen Buchstaben aus zahlreichen verschiedenen Sprachen,
+siehe die Tabellen~\ref{akzente}  und \ref{specials}.
+Akzente werden darin jeweils am Beispiel
+des Buchstabens~o gezeigt, können aber prinzipiell auf jeden
+Buchstaben gesetzt werden.
+Wenn ein Akzent auf ein i oder~j gesetzt werden soll, muss der
+\mbox{i-Punkt} wegbleiben. Dies erreicht man mit den Befehlen
+\lstinline|\i| und~\lstinline|\j|.
+Es steht auch ein Befehl \lstinline|\textcircled| für
+eingekreiste Zeichen zur Verfügung.
+
+\begin{LTXexample}
+H\^otel, na\"\i ve, sm\o rebr\o d. \\
+Die h\"assliche Stra\ss{}e.\\
+!`Se\~norita!\\
+\textcircled{x}
+\end{LTXexample}
+
+
+\begin{table}[tbp]
+\caption{Akzente und spezielle Buchstaben} \label{akzente}
+\centering
+\begin{tabular}{@{}*{6}{l@{\quad}l@{\qquad}}@{}}
+\a`o  &   \lstinline|\`o| & \a'o  & \lstinline|\'o| & \^o   &   \lstinline|\^o| &
+\~o   &   \lstinline|\~o| & \a=o  & \lstinline|\=o| & \.o   &   \lstinline|\.o| \\
+\u o  &   \lstinline|\u o| & \v o  & \lstinline|\v o| & \H o  &   \lstinline|\H o| &
+\"o   &   \lstinline|\"o| & \c o  & \lstinline|\c o| & \d o  &   \lstinline|\d o| \\
+\b o  &   \lstinline|\b o| & \r o  & \lstinline|\r o| & \t oo &   \lstinline|\t oo| \\[6pt]
+\oe   &   \lstinline|\oe| & \OE   & \lstinline|\OE| & \ae   &   \lstinline|\ae| &
+\AE   &   \lstinline|\AE| & \aa   & \lstinline|\aa| & \AA   &   \lstinline|\AA| \\
+\o    &   \lstinline|\o| & \O    & \lstinline|\O| & \l    &   \lstinline|\l| &
+\L    &   \lstinline|\L| & \i    & \lstinline|\i| & \j    &   \lstinline|\j| \\
+\ss   &   \lstinline|\ss| \\
+\end{tabular}
+
+\end{table}
+
+\begin{table}[tbp]
+  \caption{Symbole} \label{specials}
+   \begin{tabbing}
+   \hspace{1cm}\=\hspace{3.15cm}\=  \hspace{1cm}\=\hspace{3.15cm}\=
+   \hspace{1cm}\=\hspace{3.5cm}\=  \kill
+!` \> \texttt{!{}`}      \> \dag \> \lstinline|\dag|            \> \texttrademark  \> \lstinline|\texttrademark|   \\
+?` \> \texttt{?{}`}      \> \ddag \> \lstinline|\ddag|          \> \textperiodcentered \> \lstinline|\textperiodcentered| \\
+\S \> \lstinline|\S|          \> \P \> \lstinline|\P|                \> \textbullet    \> \lstinline|\textbullet| \\
+\pounds\> \lstinline|\pounds| \> \copyright \> \lstinline|\copyright|\>\textregistered  \> \lstinline|\textregistered| \\
+   \end{tabbing}
+\end{table}
+
+
+Benutzt man das Paket \texttt{selinput} (siehe Abschnitt~\vref{inputenc}),
+dann darf man diese Zeichen -- soweit sie im Zeichensatz des Betriebssystems
+existieren -- auch direkt in das Eingabefile schreiben.
+
+Mit dem Paket \texttt{babel} und der Option \texttt{ngerman} bzw \texttt{german}
+können
+Umlaute auch durch einfaches Voranstellen eines doppelten Anführungszeichen (\verb|"|) geschrieben werden,
+also z.\,B.\ \lstinline|"o| für~"`ö"';
+für scharfes~s darf man \lstinline|"s| schreiben:
+
+\begin{LTXexample}
+Die h"assliche Stra"se
+muss sch"oner werden.
+\end{LTXexample}
+
+Diese Notation wurde eingeführt, als die direkte Eingabe und
+Anzeige von Umlauten auf vielen Rechnersystemen noch nicht möglich war.
+Als Quasi-Standard zum plattformübergreifenden Austausch von
+\TeX- und \LaTeX"=Dokumenten ist sie aber nach wie vor nützlich.
+
+\subsection{Kapitel und Überschriften}
+
+Der Beginn eines Kapitels bzw.\ Unterkapitels und seine
+Überschrift werden mit Befehlen der Form \lstinline|\section{...}|
+angegeben. Dabei muss die logische Hierarchie eingehalten werden.
+
+\pagebreak[3] %% Ansonsten sehr unschöner Seitenumbruch
+\noindent Bei der Klasse \texttt{article}:
+\begin{quote}
+\lstinline|\part \section  \subsection  \subsubsection|
+\end{quote}
+Bei den Klassen \texttt{report} und \texttt{book}:
+\begin{quote}
+\lstinline|\part \chapter  \section  \subsection  \subsubsection|
+\end{quote}
+Artikel können also relativ einfach als Kapitel in ein Buch
+eingebaut werden.  Die Abstände zwischen den Kapiteln, die
+Nummerierung und die Schriftgröße der Überschrift werden von
+\LaTeX\ automatisch bestimmt.
+
+%\todo{MD: Sollte \texttt{\string\part} ergänzt werden?\\PG: ja}
+
+
+Die Überschrift des gesamten Artikels bzw.\ die Titelseite des
+Schriftstücks wird mit dem Befehl \lstinline|\maketitle| gesetzt.
+Der Inhalt muss vorher mit den Befehlen \lstinline|\title|,
+\lstinline|\author| und \lstinline|\date| vereinbart werden (vgl.\
+Abbildung~\ref{dokument} auf Seite~\pageref{dokument}).
+
+
+Der Befehl \lstinline|\tableofcontents| bewirkt, dass ein
+Inhaltsverzeichnis ausgedruckt wird.
+\LaTeX\ nimmt dafür immer die Überschriften und Seitennummern
+von der jeweils letzten vorherigen Verarbeitung des Eingabefiles.
+Bei einem neu erstellten oder um neue Kapitel erweiterten
+Schriftstück muss man das Programms \LaTeX\ also mindestens
+zweimal aufrufen, damit man die richtigen Angaben erhält.
+
+Es gibt auch Befehle der Form \lstinline|\section*{...}|, bei denen
+keine Nummerierung und keine Eintragung ins Inhaltsverzeichnis
+erfolgen.
+
+Mit den Befehlen \lstinline|\label| und~\lstinline|\ref| ist es möglich,
+die von \LaTeX\ automatisch vergebenen Kapitelnummern im Text
+anzusprechen.
+Für \lstinline|\ref{...}| setzt \LaTeX\ die
+mit \lstinline|\label{...}| definierte Nummer ein.
+Auch hier wird immer die Nummer von der letzten vorherigen
+Verarbeitung des Eingabefiles genommen.
+Beispiel:
+\begin{beispiel}
+\begin{lstlisting}
+\section{Algorithmen}
+...
+Der Beweis findet sich in Abschnitt~\ref{bew}.
+...
+\section{Beweise} \label{bew}
+...
+\end{lstlisting}
+ \end{beispiel}
+
+\subsection{Fußnoten}
+
+Fußnoten\footnote{Das  ist eine Fußnote.} werden automatisch nummeriert und am
+unteren Ende der Seite ausgedruckt.   Innerhalb von Gleitobjekten (siehe
+Abschnitt~\ref{floats}),  Tabellen (\ref{tabular}) oder der
+\texttt{tabbing}-Umgebung (\ref{tabbing}) ist der Befehl \lstinline|\footnote|
+nicht erlaubt. Im \LaTeX{} Begleiter\cite{wonne} werden Möglichkeiten aufgezählt, diese
+Einschränkung zu umgehen.
+
+\begin{beispiel}
+\begin{lstlisting}
+Fußnoten\footnote{Das ist eine Fußnote.} werden \dots
+\end{lstlisting}
+\end{beispiel}
+
+
+\subsection{Hervorgehobener Text}
+
+In maschinengeschriebenen Texten werden hervorzuhebende Texte
+unterstrichen, im Buchdruck wird stattdessen ein auf"|fälliger
+Schriftschnitt verwendet.
+Der Befehl
+\begin{beispiel}
+\lstinline|\emph{|\textit{text}\lstinline|}|
+\end{beispiel}
+(emphasize) setzt seinen Parameter in einem auf"|fälligen Stil.
+\LaTeX\ verwendet für den hervorgehobenen Text \textit{kursive}
+Schrift.
+
+\begin{LTXexample}
+\emph{Werden innerhalb eines
+hervorgehobenen Textes
+\emph{nochmals} Passagen
+hervorgehoben, so setzt
+\LaTeX\ diese in einer
+\emph{aufrechten} Schrift.}
+\end{LTXexample}
+
+
+
+\subsection{Hochgestellter Text}
+Hochgestellten Text in passender Größe generiert folgender Befehl:
+\begin{quote}
+\lstinline|\textsuperscript{|\textit{text}\lstinline|}|
+\end{quote}
+
+\begin{LTXexample}
+le 2\textsuperscript{i\`eme}
+r\'egime
+\end{LTXexample}
+
+
+
+
+
+\subsection{Umgebungen} \label{env}
+
+Die Kennzeichnung von speziellen Textteilen, die anders als im
+normalen Blocksatz gesetzt werden sollen, erfolgt mittels
+sogenannter Umgebungen (environments) in der Form
+\begin{quote}
+\lstinline|\begin{|\textit{name}\lstinline|}|\quad
+   \textit{text}\quad
+   \lstinline|\end{|\textit{name}\lstinline|}|
+\end{quote}
+Umgebungen sind \emph{Gruppen}.
+Sie können auch ineinander geschachtelt werden, dabei muss aber
+die richtige Reihenfolge beachtet werden:
+\begin{beispiel}
+\begin{lstlisting}
+\begin{aaa}
+      \begin{bbb}
+      ......
+      \end{bbb}
+\end{aaa}
+\end{lstlisting}
+\end{beispiel}
+
+
+\subsubsection{Zitate (quote, quotation, verse)}
+
+Die \texttt{quote}-Umgebung eignet sich für kürzere Zitate,
+hervorgehobene Sätze und Beispiele.
+Der Text wird links und rechts eingerückt.
+%\exa
+%Eine typographische Faustregel
+%für die Zeilenlänge lautet:
+%\begin{quote}
+%
+%Keine Zeile soll mehr als
+%ca.\ 66~Buchstaben enthalten.
+%\end{quote}
+%Deswegen werden in Zeitungen
+%mehrere Spalten nebeneinander
+%verwendet.
+%\exb
+\begin{LTXexample}
+Eine typographische Faustregel
+für die Zeilenlänge lautet:
+\begin{quote}
+Keine Zeile soll mehr als
+ca.\ 66~Buchstaben enthalten.
+\end{quote}
+Deswegen werden in Zeitungen
+mehrere Spalten nebeneinander
+verwendet.
+\end{LTXexample}
+
+Die \texttt{quotation}-Umgebung unterscheidet sich in den
+Standardklassen (vgl.\ Tabelle~\ref{docstyles} auf
+Seite~\pageref{docstyles}) von der \texttt{quote}-Umgebung
+dadurch, dass Absätze durch Einzüge gekennzeichnet werden.
+Sie ist daher für längere Zitate, die aus mehreren Absätzen
+bestehen, geeignet.
+
+Die \texttt{verse}-Umgebung eignet sich für Gedichte und für
+Beispiele, bei denen die Zeilenaufteilung wesentlich ist.  Die
+Verse (Zeilen) werden durch~\lstinline|\\| getrennt, Strophen durch
+Leerzeilen.
+
+
+\subsubsection{Listen (itemize, enumerate, description)}
+Die Umgebung \texttt{itemize} eignet sich für einfache Listen
+(siehe Abbildung~\vref{item}).
+Die Umgebung \texttt{enumerate} eignet sich für nummerierte
+Aufzählungen (siehe Abbildung~\vref{enum}).
+Die Umgebung \texttt{description} eignet sich für Beschreibungen
+(siehe Abbildung~\vref{desc}). Mit dem Paket \texttt{enumitem} können die Umgebungen leicht den eigenen Bedürfnissen angepasst werden.
+
+\begin{figure}[!htbp]
+\begin{LTXexample}
+Listen:
+\begin{itemize}
+
+\item Bei \texttt{itemize}
+werden die Elemente ...
+
+\item Listen kann man auch
+verschachteln:
+  \begin{itemize}
+  \item Die maximale ...
+  \item Bezeichnung und ...
+  \end{itemize}
+
+\item usw.
+
+\end{itemize}
+\end{LTXexample}
+\caption{Beispiel für \texttt{itemize}} \label{item}
+%\end{figure}
+%
+%
+%\begin{figure}[!htbp]
+\begin{LTXexample}
+Nummerierte Listen:
+\begin{enumerate}
+
+\item Bei \texttt{enumerate}
+werden die Elemente ...
+
+\item Die Nummerierung ...
+
+\item Listen kann man auch
+verschachteln:
+  \begin{enumerate}
+  \item Die maximale ...
+  \item Bezeichnung und ...
+  \end{enumerate}
+
+\item usw.
+
+\end{enumerate}
+\end{LTXexample}
+\caption{Beispiel für \texttt{enumerate}} \label{enum}
+\end{figure}
+
+\begin{figure}[!htbp]  % <-------------           bang option of LaTeX2e
+\begin{LTXexample}
+Kleine Tierkunde:
+\begin{description}
+\item[Gelse:]
+   ein kleines Tier, das ...
+\item[Gemse:]
+   ein gro\ss es Tier, das ...
+\item[Gürteltier:]
+   ein mittelgro"ses Tier, das ...
+\end{description}
+\end{LTXexample}
+
+\caption{Beispiel für \texttt{description}} \label{desc}
+\end{figure}
+
+
+\subsubsection
+          [Flattersatz (flush\-left, flush\-right, center)]
+          {Linksbündig, rechtsbündig, zentriert
+                       (flush\-left, flush\-right, center)}
+
+Die Umgebungen \texttt{Center}, \texttt{FlushLeft} und \texttt{FlushRight} aus
+dem Paket \texttt{ragged2e} bewirken zentrierten, links"~, und rechtsbündigen
+Satz. Die Varianten dieser Umgebungen (\texttt{center}, \texttt{flushleft} und
+\texttt{flushright}), die ohne ein Zusatzpaket zur Verfügung stehen, bewirken
+im Prinzip dasselbe, nur schaltet \LaTeX\ die Trennung fast vollständig aus.
+Somit ergeben die letztgenannten Umgebungen einen sehr unruhigen Satz.
+
+\begin{LTXexample}
+% \usepackage{ragged2e}
+\begin{FlushLeft}
+Dies hier ist ein Blindtext zum
+Testen von Textausgaben. Wer
+diesen Text liest, ist selbst
+schuld. Der Text gibt lediglich
+den Grauwert der Schrift an.
+\end{FlushLeft}
+\end{LTXexample}
+
+
+\subsubsection{Direkte Ausgabe (verbatim, verb)}
+Zwischen \lstinline|\begin{verbatim}| und \lstinline|\end{verbatim}|
+stehende Zeilen werden genauso ausgedruckt, wie sie eingegeben
+wurden, d.\,h.\ mit allen Leerzeichen und Zeilenwechseln und ohne
+Interpretation von Spezialzeichen und \LaTeX-Befehlen.  Dies
+eignet sich z.\,B.\ für das Ausdrucken eines (kurzen)
+Computer-Programms.
+
+Innerhalb eines Absatzes können einzelne Zeichenkombinationen oder kurze
+Textstücke ebenso "`wörtlich"' ausgedruckt werden, indem man sie zwischen
+\lstinline.\verb|. und~\verb.|. einschließt.
+
+\begin{LTXexample}
+Der \verb|\dots|-Befehl \dots
+\end{LTXexample}
+
+Die \texttt{verbatim}-Umgebung und der Befehl~\lstinline|\verb|
+dürfen \emph{nicht} innerhalb von Parametern von anderen Befehlen
+% und auch nicht innerhalb der \texttt{tabular}-Umgebung %% ??(br)
+verwendet werden.
+
+
+
+\subsubsection{Tabulatoren (tabbing)} \label{tabbing}
+
+% PG: hehe, "Schreibmaschinen" - wer kennt die denn überhaupt noch?
+In der \texttt{tabbing}-Umgebung kann man Tabulatoren ähnlich wie
+an Schreibmaschinen setzen und verwenden.
+Der Befehl~\lstinline|\=| setzt eine Tabulatorposition,
+\lstinline|\kill| bedeutet, dass die "`Musterzeile"' nicht ausgedruckt werden
+soll,
+\lstinline|\>|~springt zur nächsten Tabulatorposition,
+und \lstinline|\\| trennt die Zeilen. Entgegen der im nächsten Abschnitt
+vorgestellten Umgebungen \texttt{array} und \texttt{tabular} erlaubt
+die \texttt{tabbing}-Umgebung einen Seitenumbruch.
+
+%
+%\exa
+%\begin{tabbing}
+%war einmal\quad \=
+% Mittelteil\quad \= \kill
+%links \> Mittelteil \> rechts\\
+%Es \\
+%war einmal \> und ist
+% \> nicht mehr\\
+%ein  \>  \> ausgestopfter\\
+% \>  \> Teddybär
+%\end{tabbing}
+%\exb
+\begin{LTXexample}
+\begin{tabbing}
+war einmal\quad \=
+ Mittelteil\quad \= \kill
+links \> Mittelteil \> rechts\\
+Es \\
+war einmal \> und ist
+ \> nicht mehr\\
+ein  \>  \> ausgestopfter\\
+ \>  \> Teddybär
+\end{tabbing}
+\end{LTXexample}
+%\exc
+
+
+\subsubsection{Tabellen (tabular)} \label{tabular}
+
+Tabellen lassen sich mit der \texttt{tabular}-Umgebung erzeugen. Dort kann man mit einer Tabellenpräambel bestimmen, wie die Spalten dargestellt werden. Die Spaltenbreite passt sich automatisch dem Inhalt der Tabelle an und muss nicht (außer bei p-Spalten) angegeben werden.
+
+Im Parameter des Befehls \lstinline|\begin{tabular}{...}| wird das
+Format der Tabelle angegeben.
+Dabei bedeutet
+\texttt{l}~eine Spalte mit linksbündigem Text,
+\texttt{r}~eine mit rechtsbündigem,
+\texttt{c}~eine mit zentriertem Text,
+\lstinline|p{|\textit{breite}\lstinline|}| eine Spalte der angegebenen
+Breite mit mehrzeiligem Text,
+\lstinline.|.~einen senkrechten Strich.
+
+Innerhalb der Tabelle bedeutet
+\lstinline|&|~den Sprung in die nächste Tabellenspalte,
+\lstinline|\\|~oder~\lstinline|\tabularnewline|~trennt die Zeilen,
+\lstinline|\hline| (an Stelle einer Zeile) setzt einen waagrechten
+Strich. Anstelle von \lstinline|\hline| bietet das Paket \texttt{booktabs} unterschiedliche Strichstärken, um den Tabellenkopf vom Tabellenkörper deutlicher zu trennen: \lstinline|\toprule|, \lstinline|\midrule|  und \lstinline|\bottomrule|.
+
+\begingroup
+\def\arraystretch{1.1}
+\begin{LTXexample}
+% \usepackage{booktabs}
+\begin{tabular}[t]{rl}
+\toprule
+Wert & Zahlensystem \\
+\midrule
+7C0 & hexadezimal \\
+3700 & oktal \\
+11111000000 & binär \\
+1984 & dezimal \\
+\bottomrule
+\end{tabular}
+\end{LTXexample}
+\endgroup
+
+\endinput

@@ -1,0 +1,373 @@
+%!TEX root = l2kurz.tex
+% Siehe https://github.com/texdoc/l2kurz
+
+
+\section{Eingabefile}
+
+Das Eingabefile für \LaTeX{} ist ein Textfile mit der Endung \lstinline+.tex+.
+Es  wird mit einem Editor erstellt und enthält sowohl den Text, der gedruckt
+werden  soll, als auch die Befehle, aus denen \LaTeX\ erfährt, wie der Text
+gesetzt  werden soll. Als Editor bietet sich ein spezieller \LaTeX-Editor an
+wie beispielsweise Texmaker (\href{http://www.xm1math.net/texmaker}{\nolinkurl
+{www.xm1math.net/texmaker}}). Diese Editoren bieten neben Syntaxhervorhebung
+und "=überprüfung auch vordefinierte Arbeitsabläufe, so dass der Benutzer sich
+auf die Erstellung des Texts konzentrieren kann. Es ist aber auch möglich und
+gängige Praxis, \emph{normale} Texteditoren wie emacs, vim oder notepad++ zu
+benutzen.
+
+
+\subsection{Leerstellen}
+
+"`Unsichtbare"' Zeichen wie das Leerzeichen, Tabulatoren und das Zeilenende
+werden von \LaTeX{} einheitlich als Leerzeichen behandelt. \emph{Mehrere}
+Leerzeichen werden wie \emph{ein} Leerzeichen behandelt. Wenn man andere als
+die normalen Wort- und Zeilenabstände will, kann man dies also nicht durch die
+Eingabe von zusätzlichen Leerzeichen oder Leerzeilen erreichen, sondern nur mit
+entsprechenden \LaTeX-Befehlen.
+
+Eine Leerzeile zwischen Textzeilen bedeutet das Ende eines Absatzes.
+\emph{Mehrere} Leerzeilen werden wie \emph{eine} Leerzeile behandelt.
+
+
+\subsection{\LaTeX-Befehle und Gruppen}
+
+Die meisten \LaTeX-Befehle haben eines der beiden folgenden Formate: Entweder
+sie beginnen mit einem Backslash~(\lstinline|\|) und haben dann einen nur aus
+Buchstaben bestehenden Namen, der durch ein oder mehrere Leerzeichen oder
+durch ein nachfolgendes Sonderzeichen beendet wird; oder sie bestehen aus
+einem Backslash und genau einem Sonderzeichen. Groß- und Kleinbuchstaben haben
+auch in Befehlsnamen \emph{verschiedene}  Bedeutung. Wenn man nach einem
+Befehlsnamen eine Leerstelle erhalten will, muss  man~\lstinline|{}| zur
+Beendigung des Befehlsnamens oder einen eigenen Befehl für die Leerstelle
+verwenden.
+
+% PG: würde ich drin lassen
+%\renewcommand{\today}{31.~Mai 2012}  % to make sure that the
+% line breaks look good, regardless of the date of printing.
+%MD: obeylines zu besseren Darstellung eingefuegt
+%MD: Redefinition von \today lokal halten
+\begin{LTXexample}[firstline=4]
+\renewcommand*\today{%
+  \the\numexpr\year-1978\relax.~Mai \the\year}
+\obeylines
+Heute ist der \today.
+Oder: Heute ist der \today .
+Falsch ist:
+ Am \today regnet es.
+Richtig ist:
+ Am \today{} scheint die Sonne.
+ Oder: Am \today\ schneit es.
+\end{LTXexample}
+
+
+
+Manche Befehle haben Parameter, die zwischen geschwungenen Klammern angegeben
+werden müssen. Manche Befehle haben Parameter, die weggelassen oder zwischen
+eckigen Klammern angegeben werden können. Manche Befehle haben Varianten, die
+durch das Hinzufügen eines Sterns an den Befehlsnamen unterschieden werden.
+
+Geschwungene Klammern können auch dazu verwendet werden, Gruppen (\emph{groups})
+zu bilden. Die Wirkung von Befehlen, die innerhalb von Gruppen oder Umgebungen
+(\emph{environments}) angegeben werden, endet immer mit dem Ende der Gruppe
+bzw.\ der Umgebung.  Im obigen Beispiel ist~\lstinline|{}| eine leere Gruppe, die
+außer der Beendigung des Befehlsnamens \texttt{today} keine Wirkung hat.
+
+\subsection{Kommentare}
+
+Alles, was hinter einem Prozentzeichen (\lstinline|%|) steht (bis zum Ende der
+Eingabezeile), wird von \LaTeX{} ignoriert. Dies kann für Notizen des Autors
+verwendet werden, die nicht oder noch nicht ausgedruckt werden sollen.
+\begin{LTXexample}
+Das ist ein % dummes
+% Besser: ein lehrreiches <----
+Beispiel.
+\end{LTXexample}
+
+\subsection{Aufbau}
+
+Der erste Befehl in einem \LaTeX-Eingabefile muss der Befehl
+\begin{lstlisting}
+ \documentclass
+\end{lstlisting}
+sein. Er legt fest, welche Art von Schriftstück überhaupt erzeugt werden soll
+(Bericht, Buch, Brief usw.). Danach können weitere Befehle folgen bzw.
+deklariert werden, die für das gesamte Dokument gelten sollen.  Dieser Teil des
+Dokuments wird auch als \emph{Vorspann} oder \emph{Präambel} bezeichnet. Mit dem
+Befehl
+\begin{lstlisting}
+ \begin{document}
+\end{lstlisting}
+endet der Vorspann, und es beginnt das Setzen des Schriftstücks. Nun folgen der
+Text und alle \LaTeX-Befehle, die das Ausdrucken des Schriftstücks bewirken.
+Die Eingabe muss mit dem Befehl
+\begin{lstlisting}
+ \end{document}
+\end{lstlisting}
+beendet werden. Falls nach diesem Befehl noch Eingaben folgen, werden sie von
+\LaTeX{} ignoriert.
+
+Listing~\ref{mini} zeigt ein \emph{minimales} \LaTeX-File. Ein etwas
+komplizierteres File ist in Listing~\ref{dokument} skizziert.
+
+\begin{example}[caption={Ein minimales \LaTeX-File},label={mini}]
+\documentclass{article}
+\begin{document}
+ Small is beautiful.
+\end{document}
+\end{example}
+
+\begin{example}[caption={Aufbau eines Artikels},label={dokument}]
+\documentclass[11pt,a4paper,ngerman]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+\date{29. Februar 1998}
+\author{H.~Partl}
+\title{Über kurz oder lang}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Start}
+Hier beginnt mein schönes Werk ...
+
+\section{Ende}
+... und hier endet es.
+
+\end{document}
+\end{example}
+
+
+\subsection{Dokumentklassen}\label{docsty}
+
+Die am Beginn des Eingabefiles  mit
+\begin{lstlisting}
+ \documentclass[<optionen>]{<klasse>}
+\end{lstlisting}
+definierte "`Klasse"' eines Dokumentes enthält Vereinbarungen über das Layout
+und die logischen Strukturen, z.\,B.\ die Gliederungseinheiten (Kapitel etc.\@),
+die für alle Dokumente dieses Typs gemeinsam sind.
+
+Zwischen den geschwungenen Klammern \emph{muss} genau eine Dokumentklasse
+angegeben werden.  Tabelle~\vref{docstyles} führt
+Klassen auf, die in jeder vollständigen \LaTeX-Installation existieren.
+
+Zwischen den eckigen Klammern \emph{können}, durch Kommas getrennt, eine oder
+mehrere Optionen für das Klassenlayout angegeben werden. Die wichtigsten
+Optionen für die Standardklassen sind in der Tabelle~\vref{options} angeführt.
+Das Eingabefile für diese Beschreibung beginnt z.\,B.\ mit:
+\begin{lstlisting}
+ \documentclass[11pt,a4paper]{article}
+\end{lstlisting}
+
+
+\begin{longtable}[c]{@{}>{\raggedright\arraybackslash\ttfamily}p{2.2cm}%
+                         p{\dimexpr 0.95\linewidth-2.2cm-2\tabcolsep\relax}@{}}
+ \caption{Dokumentklassen}\label{docstyles} \\\toprule
+\endfirsthead
+ \caption[]{Dokumentklassen}\\\toprule
+\endhead
+ \multicolumn{2}{r}{\small Forsetzung nächste Seite}\\
+\endfoot
+\endlastfoot
+ article &
+ für Artikel in wissenschaftlichen Zeitschriften,  kürzere Berichte u.\,v.\,a.
+\\
+ report &
+ für längere Berichte, die aus mehreren Kapiteln bestehen, Diplomarbeiten,
+ Dissertationen u.\,ä.
+\\
+ book   &
+ für Bücher
+\\
+ scrartcl, scrreprt, scrbook &
+ Die sog. KOMA-Klassen sind Varianten der o.\,g. Klassen mit besserer Anpassung
+ an DIN-Papierformate und "`europäische"' Typographie. Zudem erlauben sie
+ mittels Optionen die Anpassung des Layouts. Entgegen den Standardklassen
+ existiert eine deutsche und englische Dokumenation (siehe \cite{scrguide})
+\\
+ beamer &
+ für Präsentationen
+\\
+\bottomrule
+\end{longtable}
+
+
+
+\begin{longtable}[c]{@{}>{\raggedright\arraybackslash\ttfamily}p{2.2cm}%
+                         p{\dimexpr 0.95\linewidth-2.2cm-2\tabcolsep\relax}@{}}
+ \caption[Klassenoptionen]{Klassenoptionen für die Standardklassen}\label{options} \\\toprule
+\endfirsthead
+ \caption[]{Klassenoptionen für die Standardklassen}\\\toprule
+\endhead
+ \multicolumn{2}{r}{\small Forsetzung nächste Seite}\\
+\endfoot
+\endlastfoot
+ 10pt 11pt  12pt &
+ wählt die normale Schriftgröße des Dokuments aus. 10\,pt hohe Schrift ist die
+ Voreinstellung; diese Beschreibung benutzt 11\,pt.
+\\
+ a4paper &
+ für Papier im DIN\,A4-Format. Ohne diese Option nehmen die Standardklassen das
+ amerikanisches Papierformat.
+\\
+ fleqn &
+ für linksbündige statt zentrierte mathematische Gleichungen
+\\
+ leqno &
+ für Gleichungsnummern links statt rechts von jeder   nummerierten Gleichung
+\\
+ titlepage  notitlepage &
+ legt fest, ob Titel und Zusammenfassung auf einer eigenen Seite erscheinen
+ sollen.  \texttt{titlepage} ist die Voreinstellung für die Klassen
+ \texttt{report} und \texttt{book}.
+\\
+ onecolumn   twocolumn &
+ für ein- oder zweispaltigen Satz.  Die Voreinstellung ist immer
+ \texttt{onecolumn}.
+\\
+ oneside   twoside &
+ legt fest, ob die Seiten für ein- oder zweiseitigen  Druck gestaltet werden
+ sollen. \texttt{oneside} ist die Voreinstellung für alle Klassen außer
+ \texttt{book}.
+\\\bottomrule
+\end{longtable}
+
+
+
+
+\subsection{Pakete}\label{packages}
+
+Mit dem Befehl
+\begin{lstlisting}
+ \usepackage[<optionen>]{<paket>}
+\end{lstlisting}
+können im Vorspann ergänzende Makropakete (\emph{packages}) geladen werden, die das
+Layout der Dokumentklasse modifizieren oder zusätzliche Funktionalität
+bereitstellen. Eine Auswahl von Paketen findet sich in der Tabelle~\vref{pack}. Der Befehl \lstinline+\usepackage+ erlaubt das Laden
+mehrerer Pakete, wobei eine Optionenübergabe nicht möglich ist, bzw. die Optionen für alle Pakete gelten.
+
+
+
+\begin{longtable}[c]{@{}>{\raggedright\arraybackslash\ttfamily}p{2.2cm}%
+                         p{\dimexpr 0.95\linewidth-2.2cm-2\tabcolsep\relax}@{}}
+ \caption{Pakete (eine Auswahl)}\label{pack} \\\toprule
+\endfirsthead
+ \caption[]{Pakete (eine Auswahl)}\\\toprule
+\endhead
+ \multicolumn{2}{r}{\small Fortsetzung nächste Seite}\\
+\endfoot
+\endlastfoot
+ amsmath, amssymb &
+ Mathematischer Formelsatz mit erweiterten Fähigkeiten, zusätzliche
+ mathematische Schriften und Symbole; Beschreibung siehe \cite{mathmode}.
+\\
+ array &
+ Verbesserte und erweiterte Versionen der Umgebungen  \texttt{array},
+ \texttt{tabular} und \texttt{tabular*}.
+\\
+ babel &
+ Anpassungen für viele verschiedene Sprachen. Die  gewählten Sprachen werden
+ als Optionen angegeben.
+\\
+csquotes  & Mächtiges Paket zum korrekten Setzen (fremdsprachlicher) Anführungszeichen \\
+ fontenc &
+ Erlaubt die Verwendung von Schriften mit  unterschiedlicher Kodierung
+ (Zeichenvorrat, Anordnung).
+\\
+ geometry &
+ Manipulation des Seitenlayouts.\\
+ graphicx &
+ Einbindung von extern erzeugten Graphiken. Die umfangreichen Möglichkeiten
+ dieses Pakets werden in~\cite{grfguide} und~\cite{grfcomp} beschrieben.
+\\
+ hyperref &
+ Ermöglicht Hyperlinks zwischen Textstellen und zu externen Dokumenten;
+ besonders sinnvoll einsetzbar, wenn mit \TeX\ eine Ausgabedatei im
+ \textsc{pdf}- oder \textsc{html}-Format erzeugt wird.
+\\
+ imakeidx &
+ Unterstützt das Erstellen eines Index.
+\\
+ listings & Flexible Erweiterung der \texttt{verbatim}-Umgebung.
+\\
+ longtable &
+ für Tabellen über mehrere Seiten mit automatischem Seitenumbruch.
+\\
+microtype & Verändert den Absatzumbruch leicht, um bessere Zeilenumbrüche zu erzeugen; optischer Randausgleich. \\
+ multicol &
+ Mehrspaltiger Satz mit Kolumnenausgleich.
+\\
+ selinput &
+ Deklaration der Zeichenkodierung im Eingabefile.
+\\
+siunitx   & Formatierung von Zahlen und physikalischen Einheiten  \\
+ tabularx &
+ für Tabellen mit automatisch an den vorhandenen Platz angepasster Breite der
+ Spalten.
+\\
+ textcomp &
+ Bindet Schriften mit zusätzlichen Textsymbolen ein.
+ \\
+ xcolor &
+ Unterstützung für Farbausgabe;  Beschreibung  siehe~\cite{grfguide}
+ und~\cite{grfcomp}.
+\\
+\bottomrule
+\end{longtable}
+
+
+\subsection{Eingabezeichensatz}\label{inputenc}
+
+Bei jedem \LaTeX-System dürfen mindestens die folgenden Zeichen zur Eingabe von
+Text verwendet werden:
+\begin{quote}
+  \ttfamily
+  a\dots z A\dots Z 0\dots 9 \\
+  . : ; , ? ! ` ' ( ) [ ] - / * @ + =
+\end{quote}
+Die folgenden Eingabezeichen haben für \LaTeX{} eine Spezialbedeutung oder sind
+nur innerhalb von mathematischen Formeln erlaubt:
+\begin{quote}
+\verb.$ & % # _ { }  ~  ^  "  \  | < >.
+\end{quote}
+Für Zeichen, die über obige Liste hinausgehen, beispielsweise die Umlaute, sind
+unterschiedliche Kodierungen in
+Gebrauch. Die Kodierung ist hierbei vom Betriebssystem sowie vom Editor
+abhängig. Um Umlaute direkt zu nutzen ohne auf spezielle Kodierung einzugehen,
+bietet sich das Paket \texttt{selinput} an. Es ermittelt während des
+Kompilierungsvorgangs die verwendete Kodierung. Um dies sicher zu stellen, muss
+das Paket wie folgt in der Präambel eingebunden werden:
+\begin{example}[caption={Bestimmung der Kodierung für die Nutzung von Umlauten},]
+ \usepackage{selinput}
+ \SelectInputMappings{
+  adieresis={ä},
+  germandbls={ß},
+ }
+ % Wörter mit Umlauten werden getrennt:
+ \usepackage[T1]{fontenc}
+\end{example}
+
+Neben dem Paket \texttt{selinput} existiert auch das Paket \texttt{inputenc}.
+Hier gibt man die zu verwendende Kodierung als Paketoption vor, diese muss man
+jedoch dafür in Erfahrung bringen, was nicht immer einfach ist. Im Falle von
+UTF-8 als Eingabekodierung ist das:
+
+\begin{beispiel}
+	\lstinline+\usepackage[utf8]{inputenc}+
+\end{beispiel}
+
+Falls \LaTeX{} ein eingegebenes Zeichen nicht darstellen kann, was meist für die
+sogenannten "`Pseudografik-Zeichen"' gilt,  bekommt man eine entsprechende
+Fehlermeldung. Auch sind manche Zeichen nur im Text, andere nur in
+mathematischen Formeln erlaubt.
+
+Man beachte, dass der in der \emph{Ausgabe} darstellbare Zeichenvorrat von
+\LaTeX{} nicht davon abhängt, welche Zeichen als \emph{Eingabe} erlaubt sind:
+Für jedes überhaupt darstellbare Zeichen -- also auch diejenigen, die nicht im
+Zeichensatz des jeweiligen Betriebssystems enthalten sind -- gibt es einen
+\LaTeX-Befehl oder eine Ersatzdarstellung, die ausschließlich mit ASCII-Zeichen
+auskommt.  Näheres darüber erfahren Sie in Abschnitt \ref{spezial}.
+
+\endinput

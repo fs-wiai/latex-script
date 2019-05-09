@@ -1,0 +1,270 @@
+%!TEX root = l2kurz.tex
+
+% master: l2kurz.tex
+% l2k5.tex - 5.Teil der LaTeX2e-Kurzbeschreibung v2.3
+% 2001-04-10 (WaS)
+
+\section{Schriften}
+Normalerweise wählt \LaTeX\ die Größe und den Stil der Schrift
+aufgrund der Befehle aus, die die logische Struktur des Textes angeben:
+Überschriften, Fußnoten, Hervorhebungen usw.
+Im folgenden werden Befehle und Makropakete beschrieben, mit denen
+die Schrift auch explizit beeinflusst werden kann.
+Ausführlichere Erläuterungen zum Umgang mit Schriften in \LaTeX{}
+findet man im \textit{\LaTeX-Begleiter} \cite{wonne}
+und in der Online-Dokumentation \cite{fntguide}. Für \XeLaTeX{} und \LuaLaTeX{} steht das Paket
+\texttt{fontspec} zur Verfügung, mit dem beliebige OpenType und TrueType Schriftarten eingebunden werden können, ohne dass sie für \LaTeX{} angepasst werden müssen. 
+
+\begin{lstlisting}
+\documentclass{article}
+\usepackage[ngerman]{babel}
+% Nur XeLaTeX und LuaLaTeX:
+\usepackage{fontspec}
+\setmainfont{Linux Libertine O}
+\begin{document}
+Das ist ein Text in der Schriftart Linux Libertine mit den Schnitten
+\textit{Kursiv}, \textbf{\textit{Fett Kursiv}} und \textsc{Kapitälchen}.
+\end{document}
+\end{lstlisting}
+
+Ergibt einen Text in der Schriftart Linux Libertine:
+
+\medskip
+
+\noindent\includegraphics{fontspec}
+
+\subsection{Schriftgrößen}
+ 
+Die in der Tabelle~\ref{sizes} angeführten Befehlen 
+wechseln die Schriftgröße.
+Sie spezifizieren die Größe relativ
+zu der von \lstinline:\documentclass: festgelegten Grundschrift.
+Ihr Wirkung reicht bis zum Ende der aktuellen Gruppe oder Umgebung.
+
+
+\begin{table}[!htb]
+\caption{Schriftgrößen} \label{sizes}
+\def\arraystretch{1.25}
+\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+\lstinline|\tiny|         & \tiny        winzig kleine Schrift \\
+\lstinline|\scriptsize|   & \scriptsize  sehr kleine Schrift (wie Indizes)\\
+\lstinline|\footnotesize| & \footnotesize     kleine Schrift (wie Fußnoten)\\
+\lstinline|\small|        & \small            kleine Schrift \\
+\lstinline|\normalsize|   & \normalsize  normale Schrift \\
+\lstinline|\large|        & \large       große Schrift \\
+\lstinline|\Large|        & \Large       größere Schrift \\
+\lstinline|\LARGE|        & \LARGE       sehr große Schrift \\[3pt]
+\lstinline|\huge|         & \huge        riesig groß \\[3pt]
+\lstinline|\Huge|        & \Huge        gigantisch \\
+\bottomrule
+\end{tabular}
+\end{table}
+ 
+Die Größen-Befehle verändern auch die Zeilenabstände auf
+die jeweils passenden Werte -- aber nur, wenn die
+Leerzeile, die den Absatz beendet, innerhalb des
+Gültigkeitsbereichs des Größen-Befehls liegt:
+
+\begin{LTXexample}
+{\Large zu enger \\
+Abstand}\par
+\end{LTXexample}
+
+\begin{LTXexample}
+{\Large richtiger\\
+Abstand\par}
+\end{LTXexample}
+
+Für korrekte Zeilenabstände darf die
+schließende geschwungene Klammer also nicht zu früh kommen,
+sondern erst nach einem Absatzende, das übrigens nicht nur als
+Leerzeile, sondern auch als Befehl \lstinline|\par|  eingegeben werden 
+kann.
+
+
+\subsection{Schriftstil}
+Der Schriftstil wird in \LaTeX{} durch 3~Merkmale definiert:
+\begin{description}
+\item[Familie] Standardmäßig stehen 3~Familien zur Wahl:
+  "`roman"' (Antiqua), "`sans serif"' (Serifenlose) und "`typewriter"'
+  (Schreibmaschinenschrift).
+\item[Serie] Die Serie gibt Stärke und Laufweite der
+  Schrift an: "`medium"' (normale Schrift), "`boldface extended"'
+  (fett und breiter).
+\item[Form] Die Form der Buchstaben: "`upright"'
+  (aufrecht), "`slanted"' (geneigt), "`italic"' (kursiv),
+  "`caps and small caps"' (Kapitälchen).
+\end{description}
+Tabelle~\ref{fonts} zeigt die Befehle, mit denen diese Attribute 
+explizit beeinflusst werden können.  
+Die Befehle der Form \lstinline|\text...| setzen nur ihr Argument im 
+gewünschten  Stil.  Zu jedem dieser Befehle ist ein Gegenstück angegeben, 
+das von seinem Auf\/treten an bis zum Ende der laufenden Gruppe oder Umgebung 
+wirkt.
+
+Zu beachten ist, dass Wörter in Schreibmaschinenschrift nicht automatisch
+getrennt werden.\par
+
+\begin{table}[hbp]
+\caption{Schriftstile} \label{fonts}
+\def\arraystretch{1.25}
+\centering
+\begin{tabular}{@{}lll@{}}
+\toprule
+\lstinline|\textrm|\{\textit{text}\}     &\lstinline|\rmfamily|   &\textrm{Antiqua}\\
+\lstinline|\textsf|\{\textit{text}\}     &\lstinline|\sffamily|   &\textsf{Serifenlose}\\
+\lstinline|\texttt|\{\textit{text}\}     &\lstinline|\ttfamily|   &\texttt{Maschinenschrift}\\
+\lstinline|\textmd|\{\textit{text}\}     &\lstinline|\mdseries|   &\textmd{normal}\\
+\lstinline|\textbf|\{\textit{text}\}     &\lstinline|\bfseries|   &\textbf{fett, breiter laufend}\\
+\lstinline|\textup|\{\textit{text}\}     &\lstinline|\upshape|    &\textup{aufrecht}\\
+\lstinline|\textsl|\{\textit{text}\}     &\lstinline|\slshape|    &\textsl{geneigt}\\
+\lstinline|\textit|\{\textit{text}\}     &\lstinline|\itshape|    &\textit{kursiv}\\
+\lstinline|\textsc|\{\textit{text}\}     &\lstinline|\scshape|    &\textsc{Kapitälchen}\\
+\lstinline|\textnormal|\{\textit{text}\} &\lstinline|\normalfont| &\textnormal{Die Grundschrift des Dokuments}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Die Befehle für Familie, Serie und Form können untereinander und mit den
+Größen-Befehlen kombiniert werden;  allerdings muss nicht jede
+mögliche Kombination tatsächlich als reale Schrift (Font)
+zur Verfügung stehen.
+
+\begin{LTXexample}
+{\small Die kleinen \textbf{fetten}
+Römer
+beherrschten }{\large das
+ganze gro"se \textit{Italien}.}
+{\Large\sffamily\slshape plakativ}
+\end{LTXexample}
+
+
+Je \emph{weniger} verschiedene Schriftarten man verwendet, desto
+lesbarer und schöner wird das Schriftstück!
+
+
+\subsection{Andere Schriftfamilien}
+Mit den im vorigen Abschnitt eingeführten Befehlen kann man nicht beeinflussen,
+welche Schriftfamilien tatsächlich als Antiqua, Serifenlose und
+Maschinenschrift benutzt werden.  \LaTeX{} verwendet als Voreinstellung
+die sog.\ Computer-Modern-Schriftfamilien (CM), siehe Tabelle~\ref{families};
+der Stil der mathematischen Zeichensätze passt dabei zu CM~Roman.
+
+Will man andere Schriften benutzen, dann ist der einfachste Weg 
+das Laden eines Pakets, das eine oder mehrere dieser Schriftfamilien 
+komplett ersetzt.
+Tabelle~\ref{families} führt einige derartige Pakete auf%,
+% die allerdings nicht in jeder \LaTeX-Installation verfügbar sein müssen
+.
+
+Die Dokumentation der \TeX"=Distributionen sollte darüber
+informieren, welche Schriften verfügbar sind
+und wie Sie weitere installieren und verwenden können.
+Insbesondere sollte eine Anzahl von verbreiteten PostScript-Schriften
+mit jedem aktuellen \LaTeX-System verwendbar sein \cite{postscript}.
+
+
+\begin{table}[htb]
+\caption[Pakete für alternative Schriftfamilien]
+{Pakete für alternative Schriftfamilien \newline\small(Eine leere
+Tabellenspalte bedeutet, dass das Paket die betreffende Schriftfamilie nicht 
+verändert; * kennzeichnet die jeweils als Grundschrift eingestellte Familie.)}
+\label{families}
+{\footnotesize
+\medskip
+\renewcommand{\arraystretch}{1.5}
+\newcolumntype{x}{>{\RaggedRight\hspace{0pt}}X}
+\begin{tabularx}{\textwidth}{@{}lxxxx@{}}
+\toprule
+Paket            & Antiqua    & Serifenlose   & Schreibmaschine  & math.\ Formeln\tabularnewline\midrule
+(keines)         & CM Roman * & CM Sans Serif & CM Typewriter    & $\approx$ CM Roman\tabularnewline
+% \texttt{ccfonts} & Concrete *
+%                  &
+%                  &
+%                  & $\approx$ Concrete\\
+% \texttt{cmbright}&
+%                  & CM Bright *
+%                  & {\raggedright CM\ Typewriter\\ Light}
+%                  & $\approx$ CM Bright\\
+\texttt{courier} &
+                 &
+                 & Courier 
+                 & \tabularnewline
+\texttt{droid}   & Droid Serif~*  & Droid Sans    & Droid Sans Mono &                  \tabularnewline
+\texttt{fourier} & Utopia Regular~*    &               &                 & Fourier          \tabularnewline
+\texttt{helvet}  & 
+                 & Helvetica
+                 &
+                 & \tabularnewline
+\texttt{inconsolata} &                 &                & Inconsolata    &                  \tabularnewline
+\texttt{libertine} & Linux Libertine~* & Linux Biolinum &                &                  \tabularnewline
+\texttt{lmodern} & LM Roman *          & LM Sans Serif & LM Typewriter & $\approx$ LM Roman \tabularnewline
+\texttt{mathptmx}& Times *
+                 &
+                 &
+                 & $\approx$ Times\tabularnewline
+\texttt{mathpazo}& Palatino *
+                 &
+                 &
+                 & $\approx$ Palatino\tabularnewline
+\bottomrule                
+\end{tabularx}
+}
+\end{table}
+
+
+\subsection{Die "`europäischen"' Zeichensätze}
+\LaTeX{} verwendet standardmäßig  Schriften mit einem Umfang von
+128~Zeichen.  Umlaute oder akzentuierte Buchstaben sind darin nicht
+enthalten; sie werden jeweils aus dem Grundsymbol und dem Akzent
+zusammengesetzt.  
+
+Inzwischen stehen die meisten der mit \LaTeX\ verwendbaren Schriften
+auch mit einem erweiterten "`europäischen"' Zeichenvorrat bereit.
+Sie enthalten jetzt 256 Zeichen, welche fast
+alle europäischen Sprachen abdecken, d.\,h., jedes benötigte
+Zeichen ist vorgefertigt in ihnen enthalten.
+Das hat nicht nur eine
+höhere typographische Qualität zur Folge; aufgrund der inneren Arbeitsweise
+von \TeX{} entfallen damit auch die Einschränkungen im Zusammenhang mit
+der Silbentrennung, die im Abschnitt~\ref{silb} erwähnt wurden:
+Wörter mit Umlauten werden nun besser getrennt, und im Argument des
+Befehls \lstinline|\hyphenation| dürfen auch Umlaute und das scharfe~s stehen.
+
+%% stimmt nur fuer EC
+%Weiterhin sind die Unterschneidungen im Vergleich zu den amerikanischen
+%\TeX-Originalschriften stark verbessert und nun auch auf häufige
+%Buchstabenpaarungen in nicht-englischen Sprachen optimiert.
+
+% <------- Formulierung ????
+Die europäischen Schriften bestehen aus zwei Teilen: Der T1-Zeichensatz
+enthält Buchstaben, ASCII-Zeichen sowie verschiedene Anführungszeichen
+und Striche, 
+während ein ergänzender TS1-Zeichensatz zusätzliche Textsymbole bereitstellt.
+% <------- Formulierung ????
+
+\LaTeX{} wird veranlasst, T1-Schriften zu verwenden,
+indem man das Paket \texttt{fontenc} mit der Option \texttt{T1} lädt:
+\begin{quote}
+  \lstinline|\usepackage[T1]{fontenc}|
+\end{quote}
+Das Paket \texttt{textcomp} ermöglicht den Zugriff auf die Textsymbole:
+\begin{quote}
+  \lstinline|\usepackage{textcomp}|
+\end{quote}
+Welche zusätzlichen Zeichen mit den T1-Schriften
+bereitgestellt werden, ist in \cite{usrguide} zusammengefasst;
+Anhang~\ref{textsymbols} der vorliegenden Kurzbeschreibung
+enthält eine Liste aller TS1-Textsymbole.  Einige der Textsymbole sind
+auch ohne das Paket \texttt{textcomp} verfügbar, siehe Abschnitt~\ref{symbole},
+dann aber nicht immer in einem zur laufenden Schrift passenden Stil.
+
+Beachten Sie, dass in Fonts, die nicht speziell für die Verwendung 
+mit \TeX\ entworfen wurden, 
+nur ein Teil der TS1-Textsymbole enthalten ist.
+Das betrifft vor allem die "`handelsüblichen"' PostScript-Schriften.
+
+\endinput
+
