@@ -1,4 +1,4 @@
-\input{setup.tex} % Präambel
+\input{praeambel.tex} % Präambel
 % \addbibresource{literature.bib}
 
 
@@ -7,16 +7,16 @@
 
 \begin{document}
 
-\frontmatter
 % Titelseite
-%\input{content/titlepage.tex}
+\input{content/titlepage.tex}
 % oder einfach
 %\maketitle
+\thispagestyle{empty}
+\newpage
 
 \setcounter{page}{1} % Titelseite soll nicht mitgezählt werden
 \tableofcontents
 
-\mainmatter
 \input{content/Was-ist-LaTeX.tex}
 \input{content/Wie-funktioniert-LaTeX.tex}
 \input{content/Grundstruktur.tex}

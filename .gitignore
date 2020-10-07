@@ -72,3 +72,6 @@ _minted*
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
+
+
+main.pdf
