@@ -1,0 +1,53 @@
+\section{Grafiken einbinden} % (fold)
+\label{sec:grafiken_einbinden}
+Aufgrund der Natur (What you see is what you mean) von \LaTeX \  stellt die Einbindung von Grafiken in ein Dokument eine interessante Aufgabe dar. Mit textuellen Befehlen zum dargestellten Bild -- wie üblich kommen bestimmte Befehle und Pakete zum Einsatz. In diesem Abschnitt werden diese Bestandteile näher erläutert.
+
+\subsection{Grafiken abbilden} % (fold)
+\label{sub:grafiken_abbilden}
+Um Grafiken darzustellen, muss das Paket \texttt{graphicx} eingebunden werden. Zum Einfügen können dann folgende Befehle verwendet werden:  
+
+\begin{verbatim}
+	\begin{figure}
+    	\includegraphics{<dateipfad>}
+    	\caption[<kurztitel>]{<bildunterschrift>}
+	\end{figure}
+\end{verbatim}
+Soll die Bildgröße angepasst werden, kann der \texttt{includegraphics} Befehl angepasst werden. Die erwünschte Höhe und Breite können hier separat angegeben werden, etwa wie folgt: 
+\begin{verbatim}
+	\includegraphics[width=0.5\textwidth,height=5cm]{<dateipfad>}
+\end{verbatim}
+% subsection grafiken_abbilden (end)
+\subsection{Platzierung} % (fold)
+\label{sub:platzierung}
+Ein interessanter Aspekt der \texttt{What you see is what you mean}-Funktionsweise ist die Art und Weise, wie Grafiken positioniert werden können. Standardmäßig erfolgt eine automatische Platzierung. Dies bedeutet, dass eine Grafik nicht notwendigerweise zwischen den zwei Textblöcken wie im \texttt{.tex} -Dokument erscheint, sondern an anderer Stelle. Soll die automatische Platzierung angepasst werden, kann der \texttt{begin}-Befehl angepasst werden:
+\begin{verbatim}
+	\begin{figure}[<positionskürzel>]
+\end{verbatim}
+Folgende sogenannte Positionskürzel sind verfügbar:
+\begin{table}[h!]
+\begin{tabular}{ll}
+Kürzel & Position                                        \\
+h      & hier, wenn es dir recht ist                     \\
+t      & oberer Seitenrand (top)                         \\
+b      & unterer Seitenrand (bottom)                     \\
+p      & auf einer eigenen Seite (page)                  \\
+H      & Hier, verdammt noch mal! (benötigt Paket \texttt{float})
+\end{tabular}
+\end{table}
+Neben der vertikalen Positionierung spielt gegebenenfalls auch die horizontale Ausrichtung eine Rolle. Standardmäßig sind Grafiken linksbündig orientiert. Für eine zentrierte Grafik kann eine \texttt{center}-Umgebung verwendet werden:
+\begin{verbatim}
+	\begin{figure}[<position>]
+    	\begin{center}
+        	\includegraphics{<dateipfad>}
+    	\end{center}
+	\end{figure}
+\end{verbatim}
+Alternativ kann auch der Befehl \texttt{centering} verwendet werden:
+\begin{verbatim}
+	\begin{figure}[<position>]
+    	\centering
+    	\includegraphics{<dateipfad>}
+	\end{figure}
+\end{verbatim}
+% subsection platzierung (end)
+% section grafiken_einbinden (end)
