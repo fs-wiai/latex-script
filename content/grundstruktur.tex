@@ -1,0 +1,109 @@
+\section{Grundstruktur}
+
+Wie sieht so ein \LaTeX-Dokument jetzt eigentlich aus?
+Im Kern besteht es immer aus zwei Teilen: einer Präambel zu Beginn sowie der unmittelbar folgenden Dokumentumgebung.
+Als \emph{Präambel} bezeichnen wir die ersten Befehle eines \LaTeX-Dokumentes, mit denen globale Einstellungen wie die Dokumentklasse, die Zeichenkodierung, die Sprache und das Seitenformat festgelegt werden.
+Die \emph{Dokumentumgebung} hingegen enthält den Inhalt, der später in der fertigen PDF-Datei erscheinen soll.
+
+\begin{listing}[H]
+  \begin{minted}{latex}
+    \documentclass[ngerman]{article}
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+    \usepackage[ngerman]{babel}
+  
+    \begin{document}
+    Hallo, Welt!
+    \end{document}
+  \end{minted}
+  \caption{Beispielhafter Aufbau eines einfachen \LaTeX-Dokuments mit Präambel und Dokumentumgebung}
+  \label{lst:grundaufbau-latex-dokument}
+\end{listing}
+\todo{Add preview.}
+
+\subsection{Präambel}
+Beginnen wir mit der Präambel.
+Eine minimale Präambel sollte die folgenden Festlegungen treffen:
+
+\subsubsection{Dokumentenklasse}\label{subsubsec:dokumentklasse}
+\begin{minted}{latex}
+\documentclass[<parameter>]{<dokumentklasse>}
+\end{minted}
+
+definiert die Dokumentenklasse. 
+Die verbreitetsten von \LaTeX\ standardmäßig unterstützten Dokumentklassen sind \mintinline{latex}{article} für kurze und \mintinline{latex}{report} für längere Dokumente, \mintinline{latex}{book} für Bücher, \mintinline{latex}{beamer}\footnote{Präsentationen in \LaTeX\ sind ein Thema für sich, auf das wir nicht näher eingehen. Bei Interesse sei diese Einführung von Overleaf empfohlen: \url{https://www.overleaf.com/learn/latex/Beamer}} für Präsentationen sowie \mintinline{latex}{letter}\footnote{Auch auf Briefe wird in diesem Skript nicht weiter eingegangen. WikiBooks gibt eine Einführung: \url{https://en.wikibooks.org/wiki/LaTeX/Letters}} für Briefe.
+
+Parallel zu den Standard-Dokumentklassen entwickelten sich die KOMA-Script-Klassen\footnote{Einen umfassenden Überblick über die Möglichkeiten von KOMA-Script gibt folgendes Handbuch: \url{https://komascript.de/~mkohm/scrguide.pdf}}.
+Als Alternative zum \mintinline{latex}{article} steht \mintinline{latex}{scrartcl} bereit, \mintinline{latex}{report} wird durch \mintinline{latex}{scrreport} ersetzt, \mintinline{latex}{scrbook} kann anstelle von \mintinline{latex}{book} verwendet werden und \mintinline{latex}{scrlttr2} ist als Ersatz für \mintinline{latex}{letter} entstanden.
+Eine vollständige Liste aller möglichen KOMA-Script-Dokumentklassen ist online\footnote{Erreichbar unter \url{https://komascript.de/komascriptbestandteile}} verfügbar.
+Die KOMA-Klassen ändern das Layout des fertigen PDF-Dokuments und bringen zusätzliche Funktionalitäten mit.
+Während die Standard-Klassen für den Gebrauch in Amerika gedacht sind, folgen KOMA-Klassen europäischen Normen, etwa bei Briefformaten.
+
+\todo{Vergleichendes Bild von reinem LaTeX und KOMA-Script?}
+
+Dem \mintinline{latex}{\documentclass}-Befehl können verschiedene optionale Parameter übergeben werden. 
+\mintinline{latex}{\documentclass[10pt,a5paper,landscape]{scrartcl}} etwa konfiguriert einen KOMA-Script-Artikel mit Schriftgröße 10\,pt\footnote{Die Standardschriftgröße wäre hier 12\,pt} auf A5-Papier\footnote{In der Voreinstellung handelte es sich um A4-Papier.} im Querformat.
+Auch die Sprache kann mit übergeben werden (vgl. \cref{subsubsec:sprache}).
+
+\subsubsection{Exkurs: Pakete}
+\begin{minted}{latex}
+\usepackage[<optionen>]{<paketname>}
+\end{minted}
+
+Pakete sind \LaTeX-Erweiterungen, die zusätzliche Befehle und Funktionalitäten zur Verfügung stellen.
+Es existieren verschiedene Pakete für verschiedene Anwendungsfälle (z.\,B. Formelsatz, Listen, \textellipsis).
+Bevor sie verwendet werden können, müssen sie in der Präambel eingebunden werden. 
+Hierfür wird der obige Befehl verwendet.
+Die wichtigsten \LaTeX-Pakete sind im Comprehensive \TeX\ Archive Network\footnote{Erreichbar unter \url{https://www.ctan.org/}}, kurz CTAN, abgelegt.
+Hier finden sich auch Dokumentationen zu den einzelnen Funktionalitäten.
+
+\subsubsection{Kodierung}
+\begin{minted}{latex}
+\usepackage[utf8]{inputenc}
+\usepackage[t1]{fontenc}
+\end{minted}
+
+Pakete werden zum Beispiel zur Auswahl der Zeichenkodierung benötigt.
+Die Zeichenkodierung\footnote{Vgl. \url{https://de.wikipedia.org/wiki/Zeichenkodierung}} entscheidet darüber, welcher Zeichensatz zur Verfügung steht.
+Der Standardzeichensatz in \LaTeX\ ist ASCII\footnote{Vgl. \url{https://de.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange}}.
+Dieser amerikanische Standard enthält beispielsweise keine Umlaute und ist daher für die meisten Einsätze wenig geeignet.
+Als universelle Zeichenkodierung kann UTF-8\footnote{Vgl. \url{https://de.wikipedia.org/wiki/UTF-8}} verwendet werden.
+
+In \LaTeX-Dokumenten sind zwei verschiedene Zeichenkodierungen von Belang.
+Das Input Encoding (kurz: \mintinline{latex}{inputenc}) bezieht sich auf den Quelltext, den wir eingeben, während das Font Encoding (kurz: \mintinline{latex}{fontenc}) das fertige PDF-Dokument beeinflusst.
+Konkret beeinflusst \mintinline{latex}{fontenc} die Wahl der Schriftartdatei, die verwendet wird, um den Inhalt des Dokuments darzustellen, denn auch diese muss natürlich Sonderzeichen beinhalten\footnote{Details zur Arbeitsweise von \mintinline{latex}{fontenc} gibt dieser Beitrag: https://www.texwelt.de/fragen/5537/was-macht-eigentlich-usepackaget1fontenc}.
+\mintinline{latex}{T1} ist eine Kodierung, die mit einer begrenzten Anzahl an Zeichen europäische Sprachen abzubilden versucht.
+Bei Verwendung von XeLaTeX und LuaLaTeX wird die Spezifikation des \mintinline{latex}{fontenc} obsolet.
+\todo{Sagen wir sonst noch was zu den beiden? Dann verlinken, sonst anpassen!}
+
+\subsubsection{Sprache}\label{subsubsec:sprache}
+\begin{minted}{latex}
+  \usepackage[ngerman]{babel}
+\end{minted}
+
+Das Paket \mintinline{latex}{babel} stellt sprachspezifische Informationen (z.\,B. Silbentrennung, Sonderzeichen, Wechsel zwischen Fonts, Übersetzung von Labels\footnote{Vgl. \cref{sec:referenzen}} wie \enquote{Kapitel}, \enquote{Inhaltsverzeichnis} oder \enquote{Abbildung}) bereit.
+Als optionaler Parameter kann die Sprache übergeben werden.
+\mintinline{latex}{ngerman} steht hierbei für die Neue Deutsche Rechtschreibung.
+Manche Pakete erfordern es, dass die Sprachangabe schon als optionaler Parameter dem \mintinline{latex}{\documentclass}-Befehl\footnote{Vgl. \cref{subsubsec:dokumentklasse}} übergeben wird.
+In diesem Fall wird der optionale Parameter beim Einbinden von \mintinline{latex}{babel} einfach weggelassen.
+
+In einem Dokument können auch mehrere Sprachen verwendet werden.
+Sie können einfach kommagetrennt als optionale Parameter aufgelistet werden.
+Im Dokument kann mit dem Befehl \mintinline{latex}{\selectlanguage{<sprache>}} zwischen den Sprachen umgeschaltet werden.
+Fremdsprachiger Text lässt sich alternativ auch über folgenden Befehl einbinden: 
+\begin{minted}{latex}
+\foreignlanguage{<sprache>}{<text>}
+\end{minted}
+\todo{Beispiel!}
+
+\subsection{Dokumentumgebung}
+
+Zwischen \mintinline{latex}{\begin{document}} und \mintinline{latex}{\end{document}} gehören die Inhalte, die tatsächlich im Dokument erscheinen sollen.
+
+\subsubsection{Fließtext}
+Der einfachste Inhalt der Dokumentumgebung ist Fließtext.
+Er kann direkt in den Quelltext geschrieben werden.
+Zeilenumbrüche und zu mehreren auftretende Leerzeichen werden dabei ignoriert.
+Leerzeilen erzeugen einen neuen Absatz, der standardmäßig mit einem Einzug beginnt\footnote{Der Befehl \mintinline{latex}{\noindent}} verhindert dies.
+Manuelle Umbrüche können mit zwei Backslashes (\enquote{\textbackslash\textbackslash}) erzwungen werden.
+Dies sollte jedoch vermieden werden.
