@@ -1,19 +1,18 @@
-\section{Wie funktioniert \LaTeX \  ?} % (fold)
+\section{Wie funktioniert \LaTeX?}
 \label{sec:wie_funktioniert_latex_}
 
-Im Rahmen von Programmen zur Textverarbeitung und Dokumentenerstellung gibt es unterschiedliche Vorgehensweisen, um basierend auf einer bearbeiteten Datei ein Dokument zu erstellen. Wer mit Microsoft Word vertraut ist, dem ist bekannt, dass das von der Export-Funktion erstellte Dokument genau so aussieht, wie Word das bearbeitete Dokument darstellt. Wird ein Bild in der Ausgangsdatei verschoben, erscheint es in dem exportierten Dokument an der neuen Position. Diese Art der Formatierung wird "What you see is what you get" genannt (kurz: WYSIWYG). Eine Formatierung in Word führt zu unmittelbarer optischer Rückmeldung, wie das finale Dokument aussehen wird. Inhalt und Struktur sind eng miteinander verbunden.
+Im Rahmen von Programmen zur Textverarbeitung und Dokumentenerstellung gibt es unterschiedliche Vorgehensweisen, um basierend auf einer bearbeiteten Datei ein Dokument zu erstellen. Wer mit Microsoft Word vertraut ist, dem ist bekannt, dass das von der Export-Funktion erstellte Dokument genau so aussieht, wie Word das bearbeitete Dokument darstellt. Wird ein Bild in der Ausgangsdatei verschoben, erscheint es in dem exportierten Dokument an der neuen Position. Diese Art der Formatierung wird \emph{What you see is what you get} genannt (kurz: \acro{WYSIWYG}). Eine Formatierung in Word führt zu unmittelbarer optischer Rückmeldung, wie das finale Dokument aussehen wird. Inhalt und Struktur sind eng miteinander verbunden.
 
-\LaTeX \  arbeitet hingegen nach dem Prinzip "What you see is what you mean" (kurz: WYSIWYM). Inhalt und Struktur sind stärker getrennt. Der Inhalt wird in einem Dokument in einfacher Textform platziert, zusammen mit bestimmten Befehlen (kombiniert: der Quelltext). Bei Erstellung des Dokuments werden die Befehle von dem Kompilierer (engl.: compiler) verarbeitet. Basierend auf dem Text, den Befehlen, und den Standard-Einstellungen des Kompilierers entsteht so das finale Dokument. \todo{Erweitern + Beispiel?}
+\LaTeX{} arbeitet hingegen nach dem Prinzip \emph{What you see is what you mean} (kurz: \acro{WYSIWYM}). Inhalt und Struktur sind stärker getrennt. Der Inhalt wird in einem Dokument in einfacher Textform platziert, zusammen mit bestimmten Befehlen (kombiniert: der Quelltext). Bei Erstellung des Dokuments werden die Befehle von dem Kompilierer (engl.: compiler) verarbeitet. Basierend auf dem Text, den Befehlen, und den Standard-Einstellungen des Kompilierers entsteht so das finale Dokument. \todo{Erweitern + Beispiel?}
 
-\subsection{Was brauchen wir dazu?} % (fold)
+\subsection{Was brauchen wir dazu?}
 \label{sub:was_brauchen_wir_dazu}
 \todo{Erweitern + vllt. Latex-Distribs. erwähnen?}
 Um den Quelltext zu erstellen, auf dessen Basis der Kompilierer ein Dokument erstellen soll, wird ein Bearbeitungsprogramm benötigt. Grundsätzlich ist ein einfaches Textbearbeitungsprogramm ausreichend. Fortgeschrittene Programme wie TeXstudio oder TeXMaker integrieren zudem zusätzliche Funktionen, welche die Verwendung von Befehlen erleichtern.
 \todo{Sätze umschreiben, klingt komisch. Eigennamen kennzeichnen}
-Für die Kompilierung des Quelltext wird ein Kompilierer benötigt. Bekannte Kompilierer sind MiKTeX, MacTeX, und TeX Live. 
-% subsection was_brauchen_wir_dazu (end)
+Für die Kompilierung des Quelltext wird ein Kompilierer benötigt. Bekannte Kompilierer sind MiK\TeX, Mac\TeX, und \TeX{} Live.\todo{ck: Sind das nicht Distributionen? Ich dachte, der Compiler wäre immer pdflatex?}
 
-\subsection{Die Befehle} % (fold)
+\subsection{Die Befehle}
 \label{sub:die_befehle}
 Die in Quelltext verwendeten Befehle folgen einem allgemeinen Aufbau:\\
 \texttt{\textbackslash <befehl>[<optionale\_parameter>]\{<obligatorische\_parameter>\}}\\
@@ -34,8 +33,8 @@ Ein Befehl kann mehrere optionale und/oder obligatorische Parameter verwenden. M
 \todo{MUSS oder SOLLTE der optionale Parameter mit \texttt{<param>$=$} angegeben werden?}
 Sollte ein Befehl mehrere optionale Parameter erlauben, welche gleiche Eingaben akzeptieren, muss angegeben werden, welcher Parameter gemeint ist. Beispielsweise akzeptiert der Befehl für das Einbinden von Grafiken optionale Parameter für Breite und Höhe. Bei einer Eingabe von \texttt{\textellipsis{}[12cm,4cm]\textellipsis{}} wäre unklar, welcher Wert für welchen Parameter bestimmt ist. Um die Zuweisung zu konkretisieren, können die Parameter explizit angegeben werden:\\
 \texttt{\textbackslash{}includegraphics{[}width$=$12cm,height$=$4cm{]}\{bild.png\}}
-% subsection die_befehle (end)
-\subsection{Kommentare} % (fold)
+
+\subsection{Kommentare}
 \label{sub:kommentare}
 Nach einem Prozentzeichen wird der Rest der Zeile von dem Kompilierer ignoriert. Der Kommentartext erscheint also nicht im fertigen Dokument. Dies kann nützlich sein, um während der Bearbeitung Notizen festzuhalten, ohne Einfluss auf das fertige Dokument zu nehmen. 
 \todo{Kapitel ordentlich beenden; Sollte hier noch Inhalt bzgl. der Installation rein?}

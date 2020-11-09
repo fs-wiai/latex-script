@@ -3,7 +3,7 @@
 Wie sieht so ein \LaTeX-Dokument jetzt eigentlich aus?
 Im Kern besteht es immer aus zwei Teilen: einer Präambel zu Beginn sowie der unmittelbar folgenden Dokumentumgebung.
 Als \emph{Präambel} bezeichnen wir die ersten Befehle eines \LaTeX-Dokumentes, mit denen globale Einstellungen wie die Dokumentklasse, die Zeichenkodierung, die Sprache und das Seitenformat festgelegt werden.
-Die \emph{Dokumentumgebung} hingegen enthält den Inhalt, der später in der fertigen PDF-Datei erscheinen soll.
+Die \emph{Dokumentumgebung} hingegen enthält den Inhalt, der später in der fertigen \acro{PDF}-Datei erscheinen soll.
 
 \begin{listing}[H]
   \begin{minted}{latex}
@@ -33,16 +33,16 @@ Eine minimale Präambel sollte die folgenden Festlegungen treffen:
 definiert die Dokumentenklasse. 
 Die verbreitetsten von \LaTeX\ standardmäßig unterstützten Dokumentklassen sind \mintinline{latex}{article} für kurze und \mintinline{latex}{report} für längere Dokumente, \mintinline{latex}{book} für Bücher, \mintinline{latex}{beamer}\footnote{Präsentationen in \LaTeX\ sind ein Thema für sich, auf das wir nicht näher eingehen. Bei Interesse sei diese Einführung von Overleaf empfohlen: \url{https://www.overleaf.com/learn/latex/Beamer}} für Präsentationen sowie \mintinline{latex}{letter}\footnote{Auch auf Briefe wird in diesem Skript nicht weiter eingegangen. WikiBooks gibt eine Einführung: \url{https://en.wikibooks.org/wiki/LaTeX/Letters}} für Briefe.
 
-Parallel zu den Standard-Dokumentklassen entwickelten sich die KOMA-Script-Klassen\footnote{Einen umfassenden Überblick über die Möglichkeiten von KOMA-Script gibt folgendes Handbuch: \url{https://komascript.de/~mkohm/scrguide.pdf}}.
+Parallel zu den Standard-Dokumentklassen entwickelten sich die \acro{KOMA}-Script-Klassen\footnote{Einen umfassenden Überblick über die Möglichkeiten von \acro{KOMA}-Script gibt folgendes Handbuch: \url{https://komascript.de/~mkohm/scrguide.pdf}}.
 Als Alternative zum \mintinline{latex}{article} steht \mintinline{latex}{scrartcl} bereit, \mintinline{latex}{report} wird durch \mintinline{latex}{scrreport} ersetzt, \mintinline{latex}{scrbook} kann anstelle von \mintinline{latex}{book} verwendet werden und \mintinline{latex}{scrlttr2} ist als Ersatz für \mintinline{latex}{letter} entstanden.
-Eine vollständige Liste aller möglichen KOMA-Script-Dokumentklassen ist online\footnote{Erreichbar unter \url{https://komascript.de/komascriptbestandteile}} verfügbar.
-Die KOMA-Klassen ändern das Layout des fertigen PDF-Dokuments und bringen zusätzliche Funktionalitäten mit.
-Während die Standard-Klassen für den Gebrauch in Amerika gedacht sind, folgen KOMA-Klassen europäischen Normen, etwa bei Briefformaten.
+Eine vollständige Liste aller möglichen \acro{KOMA}-Script-Dokumentklassen ist online\footnote{Erreichbar unter \url{https://komascript.de/komascriptbestandteile}} verfügbar.
+Die \acro{KOMA}-Klassen ändern das Layout des fertigen \acro {PDF}-Dokuments und bringen zusätzliche Funktionalitäten mit.
+Während die Standard-Klassen für den Gebrauch in Amerika gedacht sind, folgen \acro{KOMA}-Klassen europäischen Normen, etwa bei Brief"|formaten.
 
 \todo{Vergleichendes Bild von reinem LaTeX und KOMA-Script?}
 
 Dem \mintinline{latex}{\documentclass}-Befehl können verschiedene optionale Parameter übergeben werden. 
-\mintinline{latex}{\documentclass[10pt,a5paper,landscape]{scrartcl}} etwa konfiguriert einen KOMA-Script-Artikel mit Schriftgröße 10\,pt\footnote{Die Standardschriftgröße wäre hier 12\,pt} auf A5-Papier\footnote{In der Voreinstellung handelte es sich um A4-Papier.} im Querformat.
+\mintinline{latex}{\documentclass[10pt,a5paper,landscape]{scrartcl}} etwa konfiguriert einen \acro{KOMA}-Script-Artikel mit Schriftgröße 10\,pt\footnote{Die Standardschriftgröße wäre hier 12\,pt} auf A5-Papier\footnote{In der Voreinstellung handelte es sich um A4-Papier.} im Querformat.
 Auch die Sprache kann mit übergeben werden (vgl. \cref{subsubsec:sprache}).
 
 \subsubsection{Exkurs: Pakete}
@@ -54,7 +54,7 @@ Pakete sind \LaTeX-Erweiterungen, die zusätzliche Befehle und Funktionalitäten
 Es existieren verschiedene Pakete für verschiedene Anwendungsfälle (z.\,B. Formelsatz, Listen, \textellipsis).
 Bevor sie verwendet werden können, müssen sie in der Präambel eingebunden werden. 
 Hierfür wird der obige Befehl verwendet.
-Die wichtigsten \LaTeX-Pakete sind im Comprehensive \TeX\ Archive Network\footnote{Erreichbar unter \url{https://www.ctan.org/}}, kurz CTAN, abgelegt.
+Die wichtigsten \LaTeX-Pakete sind im Comprehensive \TeX\ Archive Network\footnote{Erreichbar unter \url{https://www.ctan.org/}}, kurz \acro{CTAN}, abgelegt.
 Hier finden sich auch Dokumentationen zu den einzelnen Funktionalitäten.
 
 \subsubsection{Kodierung}
@@ -65,12 +65,12 @@ Hier finden sich auch Dokumentationen zu den einzelnen Funktionalitäten.
 
 Pakete werden zum Beispiel zur Auswahl der Zeichenkodierung benötigt.
 Die Zeichenkodierung\footnote{Vgl. \url{https://de.wikipedia.org/wiki/Zeichenkodierung}} entscheidet darüber, welcher Zeichensatz zur Verfügung steht.
-Der Standardzeichensatz in \LaTeX\ ist ASCII\footnote{Vgl. \url{https://de.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange}}.
+Der Standardzeichensatz in \LaTeX\ ist \acro{ASCII}.\footnote{Vgl. \url{https://de.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange}}
 Dieser amerikanische Standard enthält beispielsweise keine Umlaute und ist daher für die meisten Einsätze wenig geeignet.
-Als universelle Zeichenkodierung kann UTF-8\footnote{Vgl. \url{https://de.wikipedia.org/wiki/UTF-8}} verwendet werden.
+Als universelle Zeichenkodierung kann \acro{UTF-8}\footnote{Vgl. \url{https://de.wikipedia.org/wiki/UTF-8}} verwendet werden.
 
 In \LaTeX-Dokumenten sind zwei verschiedene Zeichenkodierungen von Belang.
-Das Input Encoding (kurz: \mintinline{latex}{inputenc}) bezieht sich auf den Quelltext, den wir eingeben, während das Font Encoding (kurz: \mintinline{latex}{fontenc}) das fertige PDF-Dokument beeinflusst.
+Das Input Encoding (kurz: \mintinline{latex}{inputenc}) bezieht sich auf den Quelltext, den wir eingeben, während das Font Encoding (kurz: \mintinline{latex}{fontenc}) das fertige \acro{PDF}-Dokument beeinflusst.
 Konkret beeinflusst \mintinline{latex}{fontenc} die Wahl der Schriftartdatei, die verwendet wird, um den Inhalt des Dokuments darzustellen, denn auch diese muss natürlich Sonderzeichen beinhalten\footnote{Details zur Arbeitsweise von \mintinline{latex}{fontenc} gibt dieser Beitrag: https://www.texwelt.de/fragen/5537/was-macht-eigentlich-usepackaget1fontenc}.
 \mintinline{latex}{T1} ist eine Kodierung, die mit einer begrenzten Anzahl an Zeichen europäische Sprachen abzubilden versucht.
 Bei Verwendung von XeLaTeX und LuaLaTeX wird die Spezifikation des \mintinline{latex}{fontenc} obsolet.
@@ -109,7 +109,7 @@ Manuelle Umbrüche können mit zwei Backslashes (\enquote{\textbackslash\textbac
 Dies sollte jedoch vermieden werden.
 
 Einige Zeichen sind für besondere Funktionen reserviert. 
-So bewirkt ein Prozent-Zeichen beispielsweise, dass der Rest einer Zeile im fertigen PDF nicht sichtbar ist.
+So bewirkt ein Prozent-Zeichen beispielsweise, dass der Rest einer Zeile im fertigen \acro{PDF} nicht sichtbar ist.
 Wir sprechen hier von einem Kommentar.
 Falls tatsächlich ein Prozentzeichen erscheinen soll, könnt ihr dies durch einen Backslash erreichen: \mintinline{latex}{\%}.
 Diese Lösung, die auch als Escaping bezeichnet wird, funktioniert auch für die Zeichen \#, \$, \^, \&, \_, \{ und \}.
