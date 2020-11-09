@@ -1,0 +1,34 @@
+\section{Absatzformatierung} % (fold)
+\label{sec:absatzformatierung}
+
+\subsection*{Flattersatz} % (fold)
+\label{sub:flattersatz}
+Standardmäßig setzt \LaTeX \ Fließtext im Blocksatz. Flattersatz ist aber auch möglich. Die Befehle \texttt{\textbackslash raggedright}, \texttt{\textbackslash raggedleft}, und \texttt{\textbackslash centering} können dazu verwendet werden. Diese Befehle beeinflussen die Umgebung, in der sie verwendet werden. Dies kann zum Beispiel die \texttt{document}-Umgebung sein, dementsprechend würde sämtlicher Text des Dokuments beeinflusst werden.
+Alternativ existieren Umgebungen, welche die Absatzformatierung beeinflussen:
+\begin{verbatim}
+	\begin{flushleft} TEXT \end{flushleft}
+	\begin{flushright} TEXT \end{flushright}
+	\begin{center} TEXT \end{center}
+\end{verbatim}
+\begin{flushleft}
+	Dieser Text steht in einer \texttt{flushleft}-Umgebung. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+\end{flushleft}
+\begin{flushright}
+	Dieser Text steht in einer \texttt{flushright}-Umgebung. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+\end{flushright}
+\begin{center}
+	Dieser Text steht in einer \texttt{center}-Umgebung. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+\end{center}
+% subsection flattersatz (end)
+\subsection*{Einzüge und Abstände} % (fold)
+\label{sub:einzüge_und_abstände}
+Absätze werden standardmäßig durch Einzüge in der ersten Zeile des Absatzes verdeutlicht (\texttt{\textbackslash parindent}). Stattdessen können auch vertikale Abstände zwischen den Absätzen verwendet werden (\texttt{\textbackslash parskip}). Für beide Varianten gibt es einstellbare Parameter:
+\begin{verbatim}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em
+    plus .5em   % erlaubte Dehnung
+    minus .5em  % erlaubte Stauchung
+}
+\end{verbatim}
+Mit dem Befehl \texttt{\textbackslash noindent} kann für nur einen Absatz der Einzug abgeschaltet werden. Für den ersten Absatz nach einer Überschrift wird standardmäßig automatisch kein Einzug eingefügt.
+% subsection einzüge_und_abstände (end)
