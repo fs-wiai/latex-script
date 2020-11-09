@@ -1,0 +1,44 @@
+\section{Tabellen}
+
+Für Tabellen gibt es zwei grundlegende Umgebungen.
+Die erste, \texttt{table}, ist dafür zuständig, die Tabelle insgesamt in das übrige Dokument einzubauen.
+Die Positionierung erfolgt dabei analog zur Positionierung von Grafiken.
+Auch bei Tabellen kann der Befehl \mintinline{tex}{\caption} verwendet werden, um der Tabelle eine Beschriftung zuzuordnen.
+
+Anders als bei Grafiken funktioniert dann der eigentliche Tabelleninhalt.
+Während Grafiken aus externen Dateien stammen und nicht durch \LaTeX interpretiert werden, muss die innere Struktur von Tabellen im Code aufgeschlüsselt werden.
+Dazu dient die Umgebung \texttt{tabular}, die als verpflichtenden Parameter eine Spaltendefinition erwartet.
+Die Spaltendefinition besteht aus je einem Buchstaben pro Tabellenspalte, der die Textausrichtung der Spalte angibt: 
+\texttt{l} für linksbündig, \texttt{r} für rechtsbündig, \texttt{c} für zentriert.
+
+Innerhalb der \texttt{tabular}-Umgebung folgt dann der eigentliche Tabelleninhalt.
+Dabei werden Tabellenzeilen genau wie Zeilenumbrüche durch \mintinline{tex}{\\} markiert, Zellengrenzen durch \mintinline{tex}{&}.
+
+Für typografisch ansprechende Tabellen empfehlen wir das Paket \texttt{booktabs}.\footnote{Alle bisher genannten Befehle funktionieren auch ohne dieses Paket, das Ergebnis sieht dann aber deutlich unprofessioneller aus.}
+Dieses Paket bringt unter anderem die Befehle \mintinline{tex}{\toprule}, \mintinline{tex}{\midrule} und \mintinline{tex}{\bottomrule} mit, die jeweils passende horizontale Linien für den Tabellenbegin, für Gruppierungen innerhalb der Tabelle sowie für das Tabellenende zeichnen.
+
+Vertikale Linien können als senkrechter Strich (\texttt{|}) in die Spaltendefinition eingefügt werden, davon ist aber abzuraten.
+Wenn ihr den zusätzlichen Weißraum entfernen möchtet, der standardmäßig die Spalten umgibt, könnt ihr – ebenfalls zwischen den Buchstaben der Spaltendefinition – die Zeichenkette \mintinline{tex}{@{}} einfügen.
+
+Die komplette Tabelle kann dann beispielsweise so aussehen:
+
+\todo[inline]{Beispieltabelle (Code und Darstellung)}
+
+\paragraph{Überlänge}
+Für Tabellen, die über eine Seite hinausgehen, oder die Zeilenumbrüche innerhalb einzelner Tabellenzellen erfordern, kann zusätzlich das Paket \texttt{longtable} eingebunden werden, mit dem \texttt{booktabs} ebenfalls kompatibel ist.
+Die \texttt{longtable}-Umgebung vereint die \texttt{table}- und die \texttt{tabular}-Umgebung.
+Damit ergibt sich folgende Grundstruktur:
+
+\todo[inline]{Beispieltabelle (nur Code)}
+
+\paragraph{Überbreite}
+Soll stattdessen eine sehr breite Tabelle dargestellt werden, empfiehlt es sich auf hochkant ausgerichteten Seiten, die Tabelle um 90\textdegree{} zu drehen.
+Das geht mithilfe des Pakets \texttt{rotating}.
+Der einzige Unterschied zu einer normalen Tabelle ist, dass die \texttt{table}- Umgebung durch eine \texttt{sidewaystable}-Umgebung ersetzt wird.
+Die Positionierung und die enthaltene \texttt{tabular}-Umgebung funktionieren unverändert.
+
+\paragraph{Weitere Möglichkeiten}
+Natürlich bietet \LaTeX{} noch viele weitere Features für ausgefeiltere Tabellen, beispielsweise zeilen- oder spaltenübergreifende Zellen. 
+Dafür, oder wenn ihr euch einfach Tipparbeit sparen wollt, empfehlen wir euch den \emph{Tables Generator,}\footnote{\url{https://tablesgenerator.com/}} in dem ihr Tabellen in \textsc{wysiwyg}-Manier zusammenklicken könnt und kopierfertigen \LaTeX-Code erhaltet.
+
+
