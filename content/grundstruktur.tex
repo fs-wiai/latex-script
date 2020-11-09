@@ -104,6 +104,66 @@ Zwischen \mintinline{latex}{\begin{document}} und \mintinline{latex}{\end{docume
 Der einfachste Inhalt der Dokumentumgebung ist Fließtext.
 Er kann direkt in den Quelltext geschrieben werden.
 Zeilenumbrüche und zu mehreren auftretende Leerzeichen werden dabei ignoriert.
-Leerzeilen erzeugen einen neuen Absatz, der standardmäßig mit einem Einzug beginnt\footnote{Der Befehl \mintinline{latex}{\noindent}} verhindert dies.
+Leerzeilen erzeugen einen neuen Absatz, der standardmäßig mit einem Einzug beginnt\footnote{Der Befehl \mintinline{latex}{\noindent} verhindert dies}.
 Manuelle Umbrüche können mit zwei Backslashes (\enquote{\textbackslash\textbackslash}) erzwungen werden.
 Dies sollte jedoch vermieden werden.
+
+Einige Zeichen sind für besondere Funktionen reserviert. 
+So bewirkt ein Prozent-Zeichen beispielsweise, dass der Rest einer Zeile im fertigen PDF nicht sichtbar ist.
+Wir sprechen hier von einem Kommentar.
+Falls tatsächlich ein Prozentzeichen erscheinen soll, könnt ihr dies durch einen Backslash erreichen: \mintinline{latex}{\%}.
+Diese Lösung, die auch als Escaping bezeichnet wird, funktioniert auch für die Zeichen \#, \$, \^, \&, \_, \{ und \}.
+Für den Backslash muss der Befehl \mintinline{latex}{\textbackslash} verwendet werden.
+
+\subsubsection{Abschnitte und Kapitel}
+Texte werden durch Überschriften in Abschnitte und Kapitel unterteilt.
+Immer nutzbar sind die folgenden Befehle:
+
+\begin{minted}{latex}
+\section{Ebene 1}
+\subsection{Ebene 2}
+\subsubsection{Ebene 3}
+\paragraph{Ebene 4}
+\subparagraph{Ebene 5}
+\end{minted}
+\todo{Ordentliches Beispiel basteln}
+
+Je nach Dokumentenklasse sind außerdem \mintinline{latex}{\chapter{Kapitel}} und \mintinline{latex}{\part{Teil}} verfügbar -- beispielsweise in Büchern.
+Mit Sternchen fallen bei allen diesen Befehlen die Nummerierung und der Eintrag im Inhaltsverzeichnis\footnote{Vgl. \cref{subsubsec:inhaltsverzeichnis}} weg: 
+
+\begin{minted}{latex}
+\section*{Kommt nicht im Inhaltsverzeichnis vor}
+\end{minted}
+
+Ein alternativer Titel im Inhaltsverzeichnis kann als optionaler Parameter in eckigen Klammern zwischen dem Befehl und dem eigentlichen Titel angegeben werden. 
+
+\begin{minted}{latex}
+\section[Titel im Verzeichnis]{Kapitelüberschrift}
+\end{minted}
+
+\subsubsection{Titelei}
+Ein einfacher Titel lässt sich im Dokument mit dem Befehl \mintinline{latex}{\maketitle} erzeugen.
+Die Werte für die Einträge müssen in der Präambel festgelegt werden. 
+Mehrere Autoren werden dabei mit \mintinline{latex}{\and} verbunden.
+Wird kein Datum angegeben, wird per default das aktuelle Datum gesetzt.
+
+\begin{minted}{latex}
+\title{Die Welt der Trüffel}
+\author{Fooboar Rüssel \and Fachschaft WIAI}
+\date{\today}
+\end{minted}
+\todo{Ordentliches Beispiel.}
+
+\noindent Die genaue Gestaltung hängt ab von der verwendeten Dokumentklasse.
+
+\subsubsection{Verzeichnisse}\label{subsubsec:inhaltsverzeichnis}
+
+Aus allen mit den oben genannten Befehlen eingefügten Abschnitten fügt der Befehl \mintinline{latex}{\tableofcontents} ein automatisch nummeriertes Inhaltsverzeichnis zusammen.
+Die Aufzählungszeichen, die Tiefe der Aufzählung und viele weitere Gestaltungselemente sind frei anpassbar\footnote{Ein empfehlenswerter Blogpost hierzu ist unter \url{https://texblog.org/2011/09/09/10-ways-to-customize-tocloflot/} verfügbar.}.
+Damit \LaTeX\ das Inhaltsverzeichnis vollständig baut, muss das Projekt zweimal kompiliert werden.
+
+\todo{Screenshot}
+
+Neben dem Inhaltsverzeichnis stehen auch eine \mintinline{latex}{\listoffigures} (Abbildungsverzeichnis) und eine \mintinline{latex}{\listoftables} (Tabellenverzeichnis) zur Verfügung.
+Aufgeführt werden jeweils die Bild- oder Tabellenunterschriften. 
+\todo{Verweis zu den Kapiteln ergänzen}
