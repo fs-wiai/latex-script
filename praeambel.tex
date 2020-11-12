@@ -1,4 +1,4 @@
-\documentclass[a4paper, 12pt, ngerman]{scrartcl}
+\documentclass[a4paper, ngerman]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -8,9 +8,7 @@
 
 \usepackage{amssymb, amsfonts, amsmath} % Mathezeug
 
-\usepackage{hyperref} % Referenzen als Links
-\hypersetup{colorlinks,breaklinks,urlcolor=blue,linkcolor=blue}
-\urlstyle{same} % URLs werden in derzeitiger Schrift statt dicktengleich ausgegeben
+\usepackage[hidelinks]{hyperref} % Referenzen als Links
 
 \usepackage{cleveref} % mehr mit Referenzen
 
@@ -30,23 +28,29 @@
 
 \newcommand\acro[1]{\textsc{\lowercase{#1}}}
 
-% arguments:
-% 1. label
-% 2. content path
-% 3. caption
+% Arguments:
+% 1. Label
+% 2. Content path without extension. If a corresponding PDF file exists, it gets included as an image. Otherwise, the LaTeX code gets rendered directly.
+% 3. Caption
 \newcommand\example[3]{
 	\begin{figure}[H]
-		\begin{subfigure}[b]{.48\textwidth}
+		\medskip
+		\hspace{-.199\textwidth}
+		\begin{subfigure}[b]{.69\textwidth}
 			\hrule\medskip
-			\inputminted[breaklines]{tex}{content/#2}
+			\inputminted[breaklines]{tex}{content/#2.tex}
 			\hrule\medskip
 			\caption{\LaTeX-Code}
 			\label{#1-code}
 		\end{subfigure}
-		\hfill
-		\begin{subfigure}[b]{.48\textwidth}
+		\hspace{.02\textwidth}
+		\begin{subfigure}[b]{.69\textwidth}
 			\hrule\medskip
-			\input{content/#2}
+			\IfFileExists{content/#2.pdf}{
+				\includegraphics[width=\linewidth]{content/#2.pdf}
+			}{
+				\input{content/#2}
+			}
 			\hrule\medskip
 			\caption{Ergebnis}
 			\label{#1-result}
@@ -54,6 +58,5 @@
 		\caption{#3}
 		\label{#1}
 	\end{figure}
-
 }
 

@@ -5,38 +5,45 @@ Im Rahmen von Programmen zur Textverarbeitung und Dokumentenerstellung gibt es u
 
 \LaTeX{} arbeitet hingegen nach dem Prinzip \emph{What you see is what you mean} (kurz: \acro{WYSIWYM}). Inhalt und Struktur sind stärker getrennt. Der Inhalt wird in einem Dokument in einfacher Textform platziert, zusammen mit bestimmten Befehlen (kombiniert: der Quelltext). Bei Erstellung des Dokuments werden die Befehle von dem Kompilierer (engl.: compiler) verarbeitet. Basierend auf dem Text, den Befehlen, und den Standard-Einstellungen des Kompilierers entsteht so das finale Dokument. \todo{Erweitern + Beispiel?}
 
-\subsection{Was brauchen wir dazu?}
+\subsection{Was brauchen wir dazu?\todo{Erweitern + vllt. Latex-Distribs. erwähnen?}}
 \label{sub:was_brauchen_wir_dazu}
-\todo{Erweitern + vllt. Latex-Distribs. erwähnen?}
 Um den Quelltext zu erstellen, auf dessen Basis der Kompilierer ein Dokument erstellen soll, wird ein Bearbeitungsprogramm benötigt. Grundsätzlich ist ein einfaches Textbearbeitungsprogramm ausreichend. Fortgeschrittene Programme wie TeXstudio oder TeXMaker integrieren zudem zusätzliche Funktionen, welche die Verwendung von Befehlen erleichtern.
 \todo{Sätze umschreiben, klingt komisch. Eigennamen kennzeichnen}
 Für die Kompilierung des Quelltext wird ein Kompilierer benötigt. Bekannte Kompilierer sind MiK\TeX, Mac\TeX, und \TeX{} Live.\todo{ck: Sind das nicht Distributionen? Ich dachte, der Compiler wäre immer pdflatex?}
 
 \subsection{Die Befehle}
 \label{sub:die_befehle}
-Die in Quelltext verwendeten Befehle folgen einem allgemeinen Aufbau:\\
-\texttt{\textbackslash <befehl>[<optionale\_parameter>]\{<obligatorische\_parameter>\}}\\
-Ein Befehl kann mehrere optionale und/oder obligatorische Parameter verwenden. Manche Befehle besitzen keine obligatorischen Parameter. Einige Beispiele:\\
+Die in Quelltext verwendeten Befehle folgen einem allgemeinen Aufbau:
+\begin{minted}{xml}
+\<befehl>[<optionale_parameter>]{<obligatorische_parameter>}
+\end{minted}
+Ein Befehl kann mehrere optionale und/oder obligatorische Parameter verwenden. Manche Befehle besitzen keine obligatorischen Parameter. Einige werden in \cref{tbl:latex-commands} dargestellt.
+
 \begin{table}[h!]
-	\begin{tabular}{ll}
+	\begin{tabular}{@{}ll@{}}
 		\toprule
-		Befehl                                                                                     & Effekt                             \\
+		Befehl                                                  & Effekt                             \\
 		\midrule
-		\texttt{\textbackslash{}newpage}                                                                    & Fügt eine neue Seite ein           \\
-		\texttt{\textbackslash{}textbf\{\textless{}text\textgreater{}\}}                                    & Schreibt den übergebenen Text fett \\
-		\texttt{\textbackslash{}usepackage{[}utf8{]}\{inputenc\}}                                           & Setzt die Textkodierung auf UTF-8  \\
-		\texttt{\textbackslash{}documentclass{[}a4paper,12pt{]}\{article\}}		                            & Setzt die Dokumentenklasse  \\
-		\texttt{\textbackslash{}frac\{\textless{}zähler\textgreater{}\}\{\textless{}nenner\textgreater{}\}} & Fügt den mathematischen Bruch ein \\
+		\mintinline{tex}|\newpage|                              & fügt eine neue Seite ein           \\
+		\mintinline{tex}|\textbf{Text}|                         & schreibt den übergebenen Text fett \\
+		\mintinline{tex}|\usepackage[utf8]{inputenc}|           & setzt die Textkodierung auf \acro{UTF-8}  \\
+		\mintinline{tex}|\documentclass[a4paper,12pt]{article}| & setzt die Dokumentenklasse         \\
+		\mintinline{tex}|\frac{3}{4}|               & fügt den mathematischen Bruch ein  \\
 		\bottomrule
 	\end{tabular}
+	\caption{Beispiele für \LaTeX-Befehle}
+	\label{tbl:latex-commands}
 \end{table}
+
 \todo{MUSS oder SOLLTE der optionale Parameter mit \texttt{<param>$=$} angegeben werden?}
-Sollte ein Befehl mehrere optionale Parameter erlauben, welche gleiche Eingaben akzeptieren, muss angegeben werden, welcher Parameter gemeint ist. Beispielsweise akzeptiert der Befehl für das Einbinden von Grafiken optionale Parameter für Breite und Höhe. Bei einer Eingabe von \texttt{\textellipsis{}[12cm,4cm]\textellipsis{}} wäre unklar, welcher Wert für welchen Parameter bestimmt ist. Um die Zuweisung zu konkretisieren, können die Parameter explizit angegeben werden:\\
-\texttt{\textbackslash{}includegraphics{[}width$=$12cm,height$=$4cm{]}\{bild.png\}}
+Sollte ein Befehl mehrere optionale Parameter erlauben, welche gleiche Eingaben akzeptieren, muss angegeben werden, welcher Parameter gemeint ist. Beispielsweise akzeptiert der Befehl für das Einbinden von Grafiken optionale Parameter für Breite und Höhe. Bei einer Eingabe von \mintinline{tex}|[12cm, 4cm]| wäre unklar, welcher Wert für welchen Parameter bestimmt ist. Um die Zuweisung zu konkretisieren, können die Parameter explizit angegeben werden:
+\begin{minted}{tex}
+\includegraphics[width=12cm, height=4cm]{bild.png}
+\end{minted}
 
 \subsection{Kommentare}
 \label{sub:kommentare}
-Nach einem Prozentzeichen wird der Rest der Zeile von dem Kompilierer ignoriert. Der Kommentartext erscheint also nicht im fertigen Dokument. Dies kann nützlich sein, um während der Bearbeitung Notizen festzuhalten, ohne Einfluss auf das fertige Dokument zu nehmen. 
+Nach einem Prozentzeichen wird der Rest der Zeile vom Kompilierer ignoriert. Der Kommentartext erscheint also nicht im fertigen Dokument. Dies kann nützlich sein, um während der Bearbeitung Notizen festzuhalten, ohne Einfluss auf das fertige Dokument zu nehmen. 
 \todo{Kapitel ordentlich beenden; Sollte hier noch Inhalt bzgl. der Installation rein?}
 % subsection kommentare (end)
 
