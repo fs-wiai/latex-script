@@ -28,14 +28,27 @@
 
 \newcommand\acro[1]{\textsc{\lowercase{#1}}}
 
+\newcommand\widetable[1]{
+	\begin{table}[H]
+		\hspace{-.199\textwidth}
+		#1
+	\end{table}
+}
+
+\newcommand\widefigure[1]{
+	\begin{figure}[H]
+		\medskip
+		\hspace{-.199\textwidth}
+		#1
+	\end{figure}
+}
+
 % Arguments:
 % 1. Label
 % 2. Content path without extension. If a corresponding PDF file exists, it gets included as an image. Otherwise, the LaTeX code gets rendered directly.
 % 3. Caption
 \newcommand\example[3]{
-	\begin{figure}[H]
-		\medskip
-		\hspace{-.199\textwidth}
+	\widefigure{
 		\begin{subfigure}[b]{.69\textwidth}
 			\hrule\medskip
 			\inputminted[breaklines]{tex}{content/#2.tex}
@@ -50,6 +63,7 @@
 				\includegraphics[width=\linewidth]{content/#2.pdf}
 			}{
 				\input{content/#2}
+				\bigskip
 			}
 			\hrule\medskip
 			\caption{Ergebnis}
@@ -57,6 +71,6 @@
 		\end{subfigure}
 		\caption{#3}
 		\label{#1}
-	\end{figure}
+	}
 }
 

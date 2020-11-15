@@ -20,16 +20,21 @@ Dieses Paket bringt unter anderem die Befehle \mintinline{tex}{\toprule}, \minti
 Vertikale Linien können als senkrechter Strich (\texttt{|}) in die Spaltendefinition eingefügt werden, davon ist aber abzuraten.
 Wenn ihr den zusätzlichen Weißraum entfernen möchtet, der standardmäßig die Spalten umgibt, könnt ihr – ebenfalls zwischen den Buchstaben der Spaltendefinition – die Zeichenkette \mintinline{tex}{@{}} einfügen.
 
-Die komplette Tabelle kann dann beispielsweise so aussehen:
+Die komplette Tabelle kann dann beispielsweise so aussehen wie in \cref{lst:tabelle} abgebildet.
 
-\todo[inline]{Beispieltabelle (Code und Darstellung)}
+\example{lst:tabelle}{tabellen/beispieltabelle}{Eine komplette Tabelle}
 
 \paragraph{Überlänge}
 Für Tabellen, die über eine Seite hinausgehen, oder die Zeilenumbrüche innerhalb einzelner Tabellenzellen erfordern, kann zusätzlich das Paket \texttt{longtable} eingebunden werden, mit dem \texttt{booktabs} ebenfalls kompatibel ist.
 Die \texttt{longtable}-Umgebung vereint die \texttt{table}- und die \texttt{tabular}-Umgebung.
 Damit ergibt sich folgende Grundstruktur:
 
-\todo[inline]{Beispieltabelle (nur Code)}
+\begin{minted}{latex}
+\begin{longtable}
+    % Inhalte
+    \caption{<Beschriftung>}
+\end{longtable}
+\end{minted}
 
 \paragraph{Überbreite}
 Soll stattdessen eine sehr breite Tabelle dargestellt werden, empfiehlt es sich auf hochkant ausgerichteten Seiten, die Tabelle um 90\textdegree{} zu drehen.

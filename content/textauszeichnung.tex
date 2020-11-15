@@ -6,12 +6,14 @@ Die einfachste semantische Auszeichnung, die auch im vorherigen Satz verwendet w
 Der Befehl lässt sich auch schachteln und setzt Text normalerweise kursiv bzw. in zweiter Ebene wieder gerade.
 Diese Art der Hervorhebung wird erst beim Lesen wahrgenommen und zieht nicht schon vorher Aufmerksamkeit an, wie es der farbige Befehl in diesem Absatz tut, oder Fettsatz, der eher zur Gliederung geeignet ist.
 
-Einige optische Auszeichnungen werden im Folgenden aufgelistet, sollten aber sehr vorsichtig verwendet werden.
+Einige optische Auszeichnungen werden in \cref{tbl:optische-auszeichnung} aufgelistet, sollten aber sehr vorsichtig verwendet werden.
 Grundsätzlich lassen sie sich auch untereinander schachteln, bei einigen Kombinationen werden aber die passenden Schriftschnitte fehlen.
 Viele andere Programme fangen in solchen Fällen an, vorhandene Schnitte zu verzerren, um den fehlenden Schnitt zu imitieren.
 Gut sieht so etwas aber nicht aus, deshalb verzichtet \LaTeX{} darauf.
-\begin{center}
-	\begin{longtable}{lll}
+
+\begin{table}[H]
+	\center
+	\begin{tabular}{lll}
 		\toprule
 		Auszeichnung & Befehl & Darstellung \\
 		\midrule
@@ -24,14 +26,20 @@ Gut sieht so etwas aber nicht aus, deshalb verzichtet \LaTeX{} darauf.
 		tiefgestellt & \mintinline{latex}{\textsubscript{subscript}} & x\textsubscript{subscript} \\
 		hochgestellt & \mintinline{latex}{\textsubscript{superscript}} & x\textsuperscript{superscript} \\
 		\bottomrule
-	\end{longtable}
-\end{center}
+	\end{tabular}
+	\caption{Befehle zur optischen Textauszeichnung}
+	\label{tbl:optische-auszeichnung}
+\end{table}
+
 Normalerweise solltet ihr diese Befehle kaum brauchen, denn da, wo diese Auszeichnungen angebracht sind, tauchen sie meistens von selbst auf, wenn ihr semantische Befehle verwendet.
-Beispielsweise stellt das Paket \texttt{hyperref} den Befehl \mintinline{latex}{\url{…}} bereit, mit dem \textsc{url}s nicht nur dicktengleich\todo{Warum bei uns nicht?} dargestellt werden, sondern auch anklickbar und bei Bedarf automatisch mit bindestrichlosen Zeilenumbrüchen versehen.
+Beispielsweise stellt das Paket \texttt{hyperref} den Befehl \mintinline{latex}{\url{…}} bereit, mit dem \textsc{url}s nicht nur dicktengleich dargestellt werden, sondern auch anklickbar und bei Bedarf automatisch mit bindestrichlosen Zeilenumbrüchen versehen.
 
 Das gleiche gilt für unterschiedliche Schriftgrößen: 
-Die Größe der Schrift im Fließtext könnt ihr mit einer Option der Dokumentenklasse festlegen: \mintinline{latex}{\documentclass[9pt]{article}}.
-Darauf aufbauend erzeugt \LaTeX{} verschiedene Schriftgrade, die jeweils durch einen gleichnamigen Befehl gesetzt werden können: \\
+Die Größe der Schrift im Fließtext könnt ihr mit einer Option der Dokumentenklasse festlegen: 
+\begin{minted}{latex}
+\documentclass[9pt]{article}
+\end{minted}
+Darauf aufbauend erzeugt \LaTeX{} verschiedene Schriftgrade, die jeweils durch einen gleichnamigen Befehl gesetzt werden können:
 \tiny tiny \footnotesize footnotesize \small small \normalsize normalsize \large large \Large Large \LARGE LARGE \huge huge \Huge Huge \normalsize \\
 Beschränkt so etwas aber besser auf Titelseiten und ähnliches.
 Für den Rest könnt ihr auf die Standardeinstellungen vertrauen und euch dieses visuelle Durcheinander sparen.
