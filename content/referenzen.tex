@@ -18,13 +18,13 @@ Wie man in Abbildung \ref{img:fooboar} …
 
 Noch smarter ist das Paket \mintinline{latex}{cleveref}\footnote{mit einem \enquote{r}!}.
 Es bringt den Befehl \mintinline{latex}{\cref{label}} mit, dem auch -- durch Kommata getrennt -- mehrere Labels übergeben werden können.
-Daraus entstehen dann automatisiert Angaben wie \enquote{Abschnitte 1 bis 3 und 5}\footnote{für den Quelltext \mintinline{latex}{\cref{sec:section1,sec:section2,
-sec:section3,sec:section5}}}.
+Daraus entstehen dann automatisiert Angaben wie \enquote{Abschnitte 1 bis 3 und 5}.\footnote{für den Quelltext \mintinline{latex}{\cref{sec:section1,sec:section2,
+sec:section3,sec:section5}}}
 Zudem fügt \mintinline{latex}{\cref{label}} eigenständig die richtige Abkürzung ein, beispielsweise \enquote{Abb.} für Grafiken.
 
 Referenziert werden können neben Grafiken und Tabellen unter anderem auch Abschnitte, Bilder, Quelltext-Listings und Gleichungen.
 Viele Pakete nutzen das Label, um herauszufinden, zu welchem Objekttyp es gehört.
-Aus diesem Grund ist es üblich, jedem Label einen Präfix voranzustellen:
+Aus diesem Grund ist es üblich, jedem Label ein Präfix voranzustellen (\cref{tbl:praefixe}).
 
 \begin{table}[H]
   \centering
@@ -36,6 +36,8 @@ Aus diesem Grund ist es üblich, jedem Label einen Präfix voranzustellen:
     ch:  & Kapitel     & itm:    & Aufzählungselemente \\
     eq:  & Gleichungen & lst:    & Quelltext-Listings  \\ \bottomrule
   \end{tabular}
+  \caption{Präfixe für Labels}
+  \label{tbl:praefixe}
 \end{table}
 
 Bei der Verwendung von \mintinline{latex}{\cref{label}} ist zu beachten, dass die generierten Passagen in einigen Dokumentklassen erst dann auf Deutsch erscheinen, wenn bereits in der Dokumentklasse die Sprache festgelegt wurde: 
