@@ -1,4 +1,4 @@
-default:
-	pdflatex --output-directory content/grundstruktur/ content/grundstruktur/hallowelt.tex
-	pdflatex --output-directory content/grundstruktur/ content/grundstruktur/titelei.tex
+default: listings
+	./compile_listings
 	pdflatex --shell-escape main.tex
+

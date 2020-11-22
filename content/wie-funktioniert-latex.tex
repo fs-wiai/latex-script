@@ -20,17 +20,19 @@ Die in Quelltext verwendeten Befehle folgen einem allgemeinen Aufbau:
 Ein Befehl kann mehrere optionale und/oder obligatorische Parameter verwenden. Manche Befehle besitzen keine obligatorischen Parameter. Einige werden in \cref{tbl:latex-commands} dargestellt.
 
 \begin{table}[h!]
-	\begin{tabular}{@{}ll@{}}
-		\toprule
-		Befehl                                                  & Effekt                             \\
-		\midrule
-		\mintinline{tex}|\newpage|                              & fügt eine neue Seite ein           \\
-		\mintinline{tex}|\textbf{Text}|                         & schreibt den übergebenen Text fett \\
-		\mintinline{tex}|\usepackage[utf8]{inputenc}|           & setzt die Textkodierung auf \acro{UTF-8}  \\
-		\mintinline{tex}|\documentclass[a4paper,12pt]{article}| & setzt die Dokumentenklasse         \\
-		\mintinline{tex}|\frac{3}{4}|               & fügt den mathematischen Bruch ein  \\
-		\bottomrule
-	\end{tabular}
+	\widebox{
+		\begin{tabular}{@{}p{\widefigurewidth}p{\widefigurewidth}@{}}
+			\toprule
+			Befehl                                                  & Effekt                             \\
+			\midrule
+			\mintinline{tex}|\newpage|                              & fügt eine neue Seite ein           \\
+			\mintinline{tex}|\textbf{Text}|                         & schreibt den übergebenen Text fett \\
+			\mintinline{tex}|\usepackage[utf8]{inputenc}|           & setzt die Textkodierung auf \acro{UTF-8}  \\
+			\mintinline{tex}|\documentclass[a4paper,12pt]{article}| & setzt die Dokumentenklasse         \\
+			\mintinline{tex}|\frac{3}{4}|               & fügt den mathematischen Bruch ein  \\
+			\bottomrule
+		\end{tabular}
+	}
 	\caption{Beispiele für \LaTeX-Befehle}
 	\label{tbl:latex-commands}
 \end{table}

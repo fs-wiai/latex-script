@@ -1,0 +1,20 @@
+#!/bin/bash
+for D in listings/*; do
+    if [ -d "${D}" ]; then
+    	for F in ${D}/*_page.tex; do
+    		if [ -f "${F}" ]; then
+		        echo "###### Compiling ${F} ######"
+    			pdflatex --output-directory "${D}" "${F}"
+		    fi
+	    done
+	    for F in ${D}/*_crop.tex; do
+	    	if [ -f "${F}" ]; then
+	    		echo "###### Compiling and cropping ${F} ######"
+	    		pdflatex --output-directory "${D}" "${F}"
+	    		pdfcrop "${D}/$(basename -s .tex ${F}).pdf" \
+	    				"${D}/$(basename -s .tex ${F}).pdf"
+	    	fi
+	    done
+    fi
+done
+

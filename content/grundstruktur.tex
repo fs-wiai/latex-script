@@ -5,9 +5,7 @@ Im Kern besteht es immer aus zwei Teilen: einer Präambel zu Beginn sowie der un
 Als \emph{Präambel} bezeichnen wir die ersten Befehle eines \LaTeX-Dokumentes, mit denen globale Einstellungen wie die Dokumentklasse, die Zeichenkodierung, die Sprache und das Seitenformat festgelegt werden.
 Die \emph{Dokumentumgebung} hingegen enthält den Inhalt, der später in der fertigen \acro{PDF}-Datei erscheinen soll.
 
-\example{lst:grundaufbau-latex-dokument}{grundstruktur/hallowelt}{Beispielhafter Aufbau eines einfachen \LaTeX-Dokuments mit Präambel und Dokumentumgebung}
-
-\todo{Wirklich? :D \\ Vielleicht lieber auf \cref{lst:titelei} verweisen?}
+\Example{lst:grundaufbau-latex-dokument}{grundstruktur/hallowelt}{grundstruktur/hallowelt_crop}{Beispielhafter Aufbau eines einfachen \LaTeX-Dokuments mit Präambel und Dokumentumgebung}
 
 \subsection{Präambel}
 Beginnen wir mit der Präambel.
@@ -101,7 +99,7 @@ Für den Backslash muss der Befehl \mintinline{latex}{\textbackslash} verwendet 
 \subsubsection{Abschnitte und Kapitel}
 Texte werden durch Überschriften in Abschnitte und Kapitel unterteilt.
 Immer nutzbar sind die in \cref{lst:ueberschriften} dargestellten Befehle.\todo{So gehts natürlich nicht, das zerschießt uns alle Counter …}
-\example{lst:ueberschriften}{grundstruktur/ueberschriften}{Überschriftenebenen}
+\Example{lst:ueberschriften}{grundstruktur/ueberschriften}{grundstruktur/ueberschriften_crop}{Überschriftenebenen}
 Je nach Dokumentenklasse sind außerdem \mintinline{latex}{\chapter{Kapitel}} und \mintinline{latex}{\part{Teil}} verfügbar -- beispielsweise in Büchern.
 Mit Sternchen fallen bei allen diesen Befehlen die Nummerierung und der Eintrag im Inhaltsverzeichnis\footnote{Vgl. \cref{subsubsec:inhaltsverzeichnis}} weg: 
 
@@ -122,7 +120,7 @@ Mehrere Autoren werden dabei mit \mintinline{latex}{\and} verbunden.
 Wird kein Datum angegeben, wird per default das aktuelle Datum gesetzt.
 Die genaue Gestaltung hängt ab von der verwendeten Dokumentklasse.
 
-\example{lst:titelei}{grundstruktur/titelei}{Die Titelei}
+\Example{lst:titelei}{grundstruktur/titelei}{grundstruktur/titelei_crop}{Die Titelei}
 
 \subsubsection{Verzeichnisse}\label{subsubsec:inhaltsverzeichnis}
 
