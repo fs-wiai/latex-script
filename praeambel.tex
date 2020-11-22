@@ -15,6 +15,7 @@
 \usepackage{graphicx} 
 \graphicspath{graphics/}
 \usepackage{subcaption}
+%\usepackage{floatrow}
 
 \usepackage{paralist} % kompakte Listen
 
@@ -31,49 +32,67 @@
 
 \newcommand\acro[1]{\textsc{\lowercase{#1}}}
 
-\newcommand\widetable[1]{
-	\begin{table}[H]
-		\hspace{-.199\textwidth}
+\newcommand\widefiguremargin{-.22\textwidth}
+\newcommand\widefigurewidth{.49\textwidth}
+\newcommand\widefiguregap{.02\textwidth}
+\newcommand\widefiguresum{1.4\textwidth}
+
+% Box that runs into both margins. To be used inside a floating environment like figure or table.
+\newcommand\widebox[1]{
+	\hspace{\widefiguremargin}
+	\begin{minipage}{\widefiguresum}
 		#1
-	\end{table}
+	\end{minipage}
 }
 
-\newcommand\widefigure[1]{
-	\begin{figure}[H]
-		\medskip
-		\hspace{-.199\textwidth}
-		#1
-	\end{figure}
+\newcommand\colrules{
+	\rule{\widefigurewidth}{0.4pt}
+	\hspace{\widefiguregap}
+	\rule{\widefigurewidth}{0.4pt}
 }
 
+% Box for example code next to the rendered example.
 % Arguments:
 % 1. Label
 % 2. Content path without extension. If a corresponding PDF file exists, it gets included as an image. Otherwise, the LaTeX code gets rendered directly.
 % 3. Caption
 \newcommand\example[3]{
-	\widefigure{
-		\begin{subfigure}[b]{.69\textwidth}
-			\hrule\medskip
-			\inputminted[breaklines]{tex}{content/#2.tex}
-			\hrule\medskip
-			\caption{\LaTeX-Code}
-			\label{#1-code}
-		\end{subfigure}
-		\hspace{.02\textwidth}
-		\begin{subfigure}[b]{.69\textwidth}
-			\hrule\medskip
-			\IfFileExists{content/#2.pdf}{
-				\includegraphics[width=\linewidth]{content/#2.pdf}
-			}{
-				\input{content/#2}
-				\bigskip
-			}
-			\hrule\medskip
-			\caption{Ergebnis}
-			\label{#1-result}
-		\end{subfigure}
+	\begin{figure}[htp]
+		\widebox{
+			% Top rules:
+			\colrules
+			% Left content: code listing:
+			\begin{subfigure}{\widefigurewidth}
+				\inputminted[breaklines]{tex}{content/#2.tex}
+			\end{subfigure}
+			\hspace{\widefiguregap}
+			% Right content: image or rendered example:
+			\begin{subfigure}{\widefigurewidth}
+				\IfFileExists{content/#2.pdf}{
+					\includegraphics[width=\linewidth]{content/#2.pdf}
+				}{
+					\medskip
+					\input{content/#2}
+					\medskip
+				}
+			\end{subfigure}
+			% Bottom rules:
+			\colrules
+			% Left caption:
+			\begin{subfigure}[t]{\widefigurewidth}
+				\caption{\LaTeX-Code}
+				\label{#1-code}
+			\end{subfigure}
+			\hspace{\widefiguregap}
+			% Right caption:
+			\begin{subfigure}[t]{\widefigurewidth}
+				\caption{Ergebnis}
+				\label{#1-result}
+			\end{subfigure}
+		}
+		% General caption:
 		\caption{#3}
 		\label{#1}
-	}
+	\end{figure}
 }
 
