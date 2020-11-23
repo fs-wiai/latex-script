@@ -1,20 +1,20 @@
-\input{praeambel.tex} % Präambel
+\input{praeambel.tex} % Preamble
+\input{befehle.tex} % Custom commands
 % \addbibresource{literature.bib}
-
 
 \title{\LaTeX-Skript}
 \author{Bernhard Luedtke \and Christian Kremitzl \and Florian Knoch \and Anika Amma}
 
 \begin{document}
 
-% Titelseite
+% Title page
 \input{content/titelseite.tex}
-% oder einfach
-%\maketitle
+% or simply 
+% \maketitle
 \thispagestyle{empty}
 \newpage
 
-\setcounter{page}{1} % Titelseite soll nicht mitgezählt werden
+\setcounter{page}{1} % Don't count title page.
 \tableofcontents
 \newpage
 
@@ -37,6 +37,6 @@
 \input{content/hilfe-und-informationen.tex}
 
 
-% Literaturverzeichnis
+% References
 
 \end{document}

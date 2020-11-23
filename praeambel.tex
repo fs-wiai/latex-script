@@ -1,110 +1,41 @@
 \documentclass[a4paper, ngerman]{article}
 
+% Language and font encoding
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{babel}
 
-\usepackage{eurosym, tipa, textcomp, textgreek, upgreek} % Sonderzeichen
+% Special characters
+\usepackage{eurosym, tipa, textcomp, textgreek, upgreek}
 
-\usepackage{amssymb, amsfonts, amsmath} % Mathezeug
+% Mathematical symbols
+\usepackage{amssymb, amsfonts, amsmath}
 
-\usepackage[hidelinks]{hyperref} % Referenzen als Links
+% References and URLs
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
 
-\usepackage{cleveref} % mehr mit Referenzen
-
+% Images
 \usepackage{graphicx} 
 \graphicspath{graphics/}
+
+% Multiple captions in one figure
 \usepackage{subcaption}
-%\usepackage{floatrow}
 
-\usepackage{paralist} % kompakte Listen
+% Compact lists
+\usepackage{paralist}
 
-\usepackage{longtable, array, tabularx, booktabs, colortbl} % Tabellenzeug
+% Tables
+\usepackage{longtable, array, tabularx, booktabs, colortbl}
 
+% ToDos
 \usepackage{todonotes}
 
-\usepackage{minted} % Quelltext-Listings
+% Sourcecode listings
+\usepackage{minted}
 
-\usepackage{csquotes} % für \enquote
+% Quotes (\enquote)
+\usepackage{csquotes}
 
-\usepackage{fontawesome5} % Icons
-% TODO: Ggf. rauswerfen
-
-\newcommand\acro[1]{\textsc{\lowercase{#1}}}
-
-\newcommand\widefiguremargin{-.22\textwidth}
-\newcommand\widefigurewidth{.49\textwidth}
-\newcommand\widefiguregap{.02\textwidth}
-\newcommand\widefiguresum{1.4\textwidth}
-
-% Box that runs into both margins. To be used inside a floating environment like figure or table.
-\newcommand\widebox[1]{
-	\hspace{\widefiguremargin}
-	\begin{minipage}{\widefiguresum}
-		#1
-	\end{minipage}
-}
-
-\newcommand\colrules{
-	\rule{\widefigurewidth}{0.4pt}
-	\hspace{\widefiguregap}
-	\rule{\widefigurewidth}{0.4pt}
-}
-
-% Box for example code next to the rendered example.
-% Arguments:
-% 1. Label.
-% 2. Content path without extension. If a corresponding PDF file exists, it gets included as an image. Otherwise, the LaTeX code gets rendered directly.
-% 3. Caption.
-\newcommand\example[3]{
-	\Example{#1}{#2}{#2}{#3}
-}
-
-
-% Box for example code next to the rendered example.
-% Arguments:
-% 1. Label.
-% 2. Content path without extension. If a corresponding PDF file exists, it gets included as an image. Otherwise, the LaTeX code gets rendered directly.
-% 3. Alternative path for Rendering (c.f. 2.)
-% 4. Caption.
-\newcommand\Example[4]{
-	\begin{figure}[htp]
-		\widebox{
-			% Top rules:
-			\colrules
-			% Left content: code listing:
-			\begin{subfigure}{\widefigurewidth}
-				\inputminted[breaklines]{tex}{listings/#2.tex}
-			\end{subfigure}
-			\hspace{\widefiguregap}
-			% Right content: image or rendered example:
-			\begin{subfigure}{\widefigurewidth}
-				\IfFileExists{listings/#3.pdf}{
-					\includegraphics[width=\linewidth]{listings/#3.pdf}
-				}{
-					\medskip
-					\input{listings/#3}
-					\medskip
-				}
-			\end{subfigure}
-			% Bottom rules:
-			\colrules
-			% Left caption:
-			\begin{subfigure}[t]{\widefigurewidth}
-				\caption{\LaTeX-Code}
-				\label{#1-code}
-			\end{subfigure}
-			\hspace{\widefiguregap}
-			% Right caption:
-			\begin{subfigure}[t]{\widefigurewidth}
-				\caption{Ergebnis}
-				\label{#1-result}
-			\end{subfigure}
-		}
-		% General caption:
-		\caption{#4}
-		\label{#1}
-	\end{figure}
-}
-
-
+% Icons
+\usepackage{fontawesome5}
