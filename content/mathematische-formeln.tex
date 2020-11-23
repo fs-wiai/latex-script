@@ -1,2 +1,75 @@
 \section{Mathematische Formeln}
 \label{sec:formeln}
+
+Mathematische Formeln können nur im sogenannten Mathmode gesetzt werden, der inline durch zwei Dollarzeichen aktiviert wird.
+Außerdem gibt es eine Blockumgebung (vgl. \cref{lst:SampleMathEnvironment})
+Wichtige Pakete für mathematische Zeichen sind \mintinline{latex}{amsmath}, \mintinline{latex}{amsthm} und \mintinline{latex}{amssymb} der American Mathematical Society sowie \mintinline{latex}{mathtools}.
+Wie bei allen Umgebungen kann durch Angabe eines Asterisk (\textasteriskcentered) die Nummerierung der Gleichungen ausgeschaltet werden.
+
+\example{lst:SampleMathEnvironment}{mathe/sample-math-environment}{Beispielhafte Matheumgebungen}
+
+\subsection{Einige Beispiele}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{ll}
+  \toprule
+  Quelltext & Ergebnis \\ \midrule
+  \mintinline{latex}{\sqrt{16}} & $\sqrt{16}$ \\
+  \mintinline{latex}{\frac{3}{4}} & $\frac{3}{4}$ \\
+  \mintinline{latex}{e^{\pi}} & $e^{\pi}$ \\
+  \mintinline{latex}{\sum_{i=1}\^{n}x^2} & $\sum_{i=1}^{n}x^2$ \\
+  \mintinline{latex}{12 \leq 4 x^2 + 13} & $12 \leq 4 x^2 + 13$
+  \end{tabular}
+  \caption{Häufig verwendete Befehle (Wurzel, Bruch, Summe, Vergleichszeichen). Durch \mintinline{latex}{^{…}} und \mintinline{latex}{_{…}} werden die Inhalte in den Klammern hoch- oder tiefgestellt.}
+  \label{tab:MathsCommonCommands}
+\end{table}
+
+\begin{table}[H]
+  \widebox{
+    \centering
+    \begin{tabular}{ll}
+    \toprule
+    Quelltext & Ergebnis \\ \midrule
+    \mintinline{latex}{(x), [x], \lbrace x \rbrace, \lvert x \rvert} & $(x), [x], \lbrace x\rbrace, \lvert x\rvert$\\
+    \mintinline{latex}{\exists,\forall,\in,\notin,\infty} & $\exists,\forall,\in,\notin,\infty$ \\
+    \mintinline{latex}{\alpha, \beta, \Gamma, \Delta, \varepsilon, \pi} & $\alpha, \beta, \Gamma, \Delta, \varepsilon, \pi$ \\
+    \mintinline{latex}{\rightarrow, \leftarrow, \Rightarrow, \Leftarrow, \Leftrightarrow} & $\rightarrow, \leftarrow, \Rightarrow, \Leftarrow, \Leftrightarrow$ \\
+    \mintinline{latex}{(A \cup B) \cap C} & $(A \cup B) \cap C$ \\
+    \mintinline{latex}{(A \lor B) \land C} & $(A \lor B) \land C$ \\
+    \mintinline{latex}{(A \cdot B) \times C} & $(A \cdot B) \times C$ \\ \bottomrule
+    \end{tabular}
+    \caption{Klammerungen, Quantoren, griechische Buchstaben, Pfeile, Mengenoperatoren, Logikoperatoren}
+    \label{tab:MathsLogicSetsBraces}
+  }
+\end{table}
+
+\subsection{Mitwachsende Klammern}
+
+Im Zusammenspiel mit Brüchen kommt es vor, dass Klammern mit ihrem Inhalt wachsen sollen.
+Hierfür müssen die drei Klammerarten \mintinline{latex}{\(\)}, \mintinline{latex}{\[\]} und \mintinline{latex}{\lbrace\rbrace} jeweils nach dem Backslash um die Auszeichnung \mintinline{latex}{left} beziehungsweise \mintinline{latex}{right} ergänzt werden (vgl. \cref{lst:GrowingBrackets}).
+
+\example{lst:GrowingBrackets}{mathe/growing-brackets}{Beispiel für mitwachsende Klammern}
+
+\subsection{Darstellung von Grenzen}
+
+Mit dem Befehl \mintinline{latex}{\limits} lassen sich die Grenzen von Integralen unter und über dem Integralzeichen darstellen.
+Bei Summen, Produkten und Grenzwerten geschieht das automatisch (vgl. \cref{lst:Limits}).
+Im Fließtext eignet sich \mintinline{latex}{\limits} nur bedingt.
+
+\example{lst:Limits}{mathe/limits}{Grenzen von Summen, Produkten, Grenzwerten und Integralen}
+
+\subsection{Ausrichtung mehrerer Gleichungen}
+
+Die Umgebung \mintinline{latex}{align} erlaubt es, Gleichungen zum Beispiel am \enquote{=} auszurichten (vgl. \cref{lst:AlignExample}).
+Ausgerichtet wird dabei analog zu Tabellen am \enquote{\&}-Zeichen.
+Zeilenumbrüche werden durch zwei Backslashes markiert.
+
+\example{lst:AlignExample}{mathe/align-example}{Am Gleichheitszeichen ausgerichtete Gleichungen}
+
+\subsection{Mengenschreibweise}
+
+Manchmal ist es notwendig, im Zusammenhang mit der Mengenschreibweise Prädikate unter Verwendung von textuellen Beschreibungen oder längeren Funktionsnamen zu definieren.
+Für diesen Fall gibt es den Befehl \mintinline{latex}{\mathrm{}} (\enquote{math roman}, vgl. \cref{lst:SetBuilderNotation}).
+
+\example{lst:SetBuilderNotation}{mathe/set-builder-notation}{Probleme in der Mengenschreibweise und ihre Lösung}
