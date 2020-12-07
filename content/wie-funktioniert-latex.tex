@@ -3,13 +3,14 @@
 
 Im Rahmen von Programmen zur Textverarbeitung und Dokumentenerstellung gibt es unterschiedliche Vorgehensweisen, um basierend auf einer bearbeiteten Datei ein Dokument zu erstellen. Wer mit Microsoft Word vertraut ist, dem ist bekannt, dass das von der Export-Funktion erstellte Dokument genau so aussieht, wie Word das bearbeitete Dokument darstellt. Wird ein Bild in der Ausgangsdatei verschoben, erscheint es in dem exportierten Dokument an der neuen Position. Diese Art der Formatierung wird \emph{What you see is what you get} genannt (kurz: \acro{WYSIWYG}). Eine Formatierung in Word führt zu unmittelbarer optischer Rückmeldung, wie das finale Dokument aussehen wird. Inhalt und Struktur sind eng miteinander verbunden.
 
-\LaTeX{} arbeitet hingegen nach dem Prinzip \emph{What you see is what you mean} (kurz: \acro{WYSIWYM}). Inhalt und Struktur sind stärker getrennt. Der Inhalt wird in einem Dokument in einfacher Textform platziert, zusammen mit bestimmten Befehlen (kombiniert: der Quelltext). Bei Erstellung des Dokuments werden die Befehle von dem Kompilierer (engl.: compiler) verarbeitet. Basierend auf dem Text, den Befehlen, und den Standard-Einstellungen des Kompilierers entsteht so das finale Dokument. \todo{Erweitern + Beispiel?}
+\LaTeX{} arbeitet hingegen nach dem Prinzip \emph{What you see is what you mean} (kurz: \acro{WYSIWYM}). Inhalt und Struktur sind stärker getrennt. Der Inhalt wird in einem Dokument in einfacher Textform platziert, zusammen mit bestimmten Befehlen (kombiniert: der Quelltext). Bei Erstellung des Dokuments werden die Befehle von dem Compiler verarbeitet. Basierend auf dem Text, den Befehlen, und den Standard-Einstellungen des Compilers entsteht so das finale Dokument. \todo{Erweitern + Beispiel?}
+\todo{Näher darauf eingehen, dass das alles ist, was der Compiler tut.}
 
 \subsection{Was brauchen wir dazu?\todo{Erweitern + vllt. Latex-Distribs. erwähnen?}}
 \label{sub:was_brauchen_wir_dazu}
-Um den Quelltext zu erstellen, auf dessen Basis der Kompilierer ein Dokument erstellen soll, wird ein Bearbeitungsprogramm benötigt. Grundsätzlich ist ein einfaches Textbearbeitungsprogramm ausreichend. Fortgeschrittene Programme wie TeXstudio oder TeXMaker integrieren zudem zusätzliche Funktionen, welche die Verwendung von Befehlen erleichtern.
+Um den Quelltext zu erstellen, auf dessen Basis der Compiler ein Dokument erstellen soll, wird ein Bearbeitungsprogramm benötigt. Grundsätzlich ist ein einfaches Textbearbeitungsprogramm ausreichend. Fortgeschrittene Programme wie TeXstudio oder TeXMaker integrieren zudem zusätzliche Funktionen, welche die Verwendung von Befehlen erleichtern.
 \todo{Sätze umschreiben, klingt komisch. Eigennamen kennzeichnen}
-Für die Kompilierung des Quelltext wird ein Kompilierer benötigt. Bekannte Kompilierer sind MiK\TeX, Mac\TeX, und \TeX{} Live.\todo{ck: Sind das nicht Distributionen? Ich dachte, der Compiler wäre immer pdflatex?}
+Für die Kompilierung des Quelltext wird ein Compiler benötigt. Bekannte Compiler sind MiK\TeX, Mac\TeX, und \TeX{} Live.\todo{ck: Sind das nicht Distributionen? Ich dachte, der Compiler wäre immer pdflatex?}
 
 \subsection{Die Befehle}
 \label{sub:die_befehle}
@@ -45,7 +46,7 @@ Sollte ein Befehl mehrere optionale Parameter erlauben, welche gleiche Eingaben 
 
 \subsection{Kommentare}
 \label{sub:kommentare}
-Nach einem Prozentzeichen wird der Rest der Zeile vom Kompilierer ignoriert. Der Kommentartext erscheint also nicht im fertigen Dokument. Dies kann nützlich sein, um während der Bearbeitung Notizen festzuhalten, ohne Einfluss auf das fertige Dokument zu nehmen. 
+Nach einem Prozentzeichen wird der Rest der Zeile vom Compiler ignoriert. Der Kommentartext erscheint also nicht im fertigen Dokument. Dies kann nützlich sein, um während der Bearbeitung Notizen festzuhalten, ohne Einfluss auf das fertige Dokument zu nehmen. 
 \todo{Kapitel ordentlich beenden; Sollte hier noch Inhalt bzgl. der Installation rein?}
 % subsection kommentare (end)
 
