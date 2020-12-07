@@ -1,0 +1,51 @@
+\section{Ausblick}
+
+\todo[inline]{Einleitender Absatz}
+
+\subsection{Pakete}
+
+Einige Pakete haben wir euch bereits vorgestellt, es gibt aber noch ein paar tausend weitere.
+Für einige häufig benötigte Features haben wir euch hier eine kurze Liste passender Pakete zusammengestellt:\todo{Eventuell ein paar Beispielgrafiken einbinden?}
+
+\begin{description}
+	\item[Stichwortverzeichnisse]
+		können mit \texttt{makeidx} automatisiert erstellt werden.\footnote{\url{https://www.ctan.org/pkg/makeidx}}
+		Mit \mintinline{tex}{\index{…}} werden im Text einzelne Stichwörter ausgezeichnet, \mintinline{tex}{\printindex} sammelt sie in einem Verzeichnis mit Referenzen.
+	\item[Vektorgrafiken]
+		lassen sich mit \texttt{TikZ} (rekursives Akronym für \emph{TikZ ist kein Zeichenprogramm}) direkt im \LaTeX{}-Code erstellen.\footnote{\url{https://www.ctan.org/pkg/pgf}}
+		Achtung: Dieses Paket ist sehr mächtig, aber nicht unbedingt einsteigerfreundlich.
+		Bevor ihr damit etwas von Grund auf selbst gestaltet, empfehlen wir euch, mit einigen der Beispiele bei \TeX{}ample\footnote{\url{https://texample.net/tikz/examples/}} zu experimentieren.
+		Für bestimmte Anwendungsfälle gibt es aber auch spezielle Pakete, die dann meist einfacher zu handhaben sind:
+	\item[Konstituentenbäume,]
+		die Sätze in ihre grammatikalischen Bestandteile zerlegen, erzeugt \texttt{qtree}.\footnote{\url{https://ctan.org/pkg/qtree}}
+	\item[Beweisbäume,]
+		wie sie in der Logik benötigt werden, erzeugt \texttt{prftree}.\footnote{\url{https://www.ctan.org/pkg/prftree}}
+	\item[Chemische Strukturformeln]
+		können unter anderem mit \texttt{chemfig} erzeugt werden.\footnote{\url{https://www.ctan.org/pkg/chemfig}}
+	\item[Farbe]
+		bringt \texttt{xcolor} in eure Dokumente.\footnote{\url{https://www.ctan.org/pkg/xcolor}}
+	\item[Notizen,]
+		die ihr bei der Abgabe garantiert nicht überseht, fügt \texttt{todonotes} ein.\footnote{\url{https://www.ctan.org/pkg/todonotes}}
+		Damit könnt ihr markieren, was ihr noch ändern oder einfügen wollt.
+	\item[Seiten aus anderen \acro{PDF}-Dateien]
+		integriert ihr mit \texttt{pdfpages}.\footnote{\url{https://www.ctan.org/pkg/pdfpages}}
+		Das eignet sich sehr gut, um Ausgaben anderer Programme in eure Arbeit zu integrieren, beispielsweise in einem Anhang. 
+		Einmal kompilieren, und schon ist auch der Anhang wieder auf dem neuesten Stand, wenn das externe Programm etwas geändert hat.
+	\item[Verschachtelte Abbildungen]
+		und die nahezu beliebige Positionierung von Bildunterschriften ermöglicht \texttt{subcaption}.\footnote{\url{https://www.ctan.org/pkg/subcaption}}
+		Davon haben wir auch in diesem Dokument ausgiebig Gebrauch gemacht.
+	\item[Tabellen]
+		können noch sehr viel flexibler gestaltet werden, als wir es hier gezeigt haben.
+		Dabei helfen unter anderem die Pakete 
+		\todo{War da die Länge des Namens das entscheidende Auswahlkriterium? :D}
+		\texttt{colortbl},\footnote{\url{https://www.ctan.org/pkg/colortbl}}
+		\texttt{tabularx},\footnote{\url{https://www.ctan.org/pkg/tabularx}}
+		\texttt{multirow},\footnote{\url{https://www.ctan.org/pkg/multirow}}
+		\texttt{makecell}.\footnote{\url{https://www.ctan.org/pkg/makecell}}
+\end{description}
+
+\noindent Eigentlich kein Paket, sondern eine weitere Dokumentenklasse ist \textbf{beamer:} Damit könnt ihr \textbf{Bildschirmpräsentationen} mit \LaTeX erstellen.
+Informationen und Beispiele dazu gibt es bei Overleaf\footnote{\url{https://www.overleaf.com/learn/latex/Beamer}} –
+womit wir schon beim nächsten Abschnitt sind:
+
+\subsection{Hilfe und Informationen}
