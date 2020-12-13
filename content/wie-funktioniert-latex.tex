@@ -1,16 +1,46 @@
 \section{Wie funktioniert \LaTeX?}
 \label{sec:wie_funktioniert_latex_}
 
-Im Rahmen von Programmen zur Textverarbeitung und Dokumentenerstellung gibt es unterschiedliche Vorgehensweisen, um basierend auf einer bearbeiteten Datei ein Dokument zu erstellen. Wer mit Microsoft Word vertraut ist, dem ist bekannt, dass das von der Export-Funktion erstellte Dokument genau so aussieht, wie Word das bearbeitete Dokument darstellt. Wird ein Bild in der Ausgangsdatei verschoben, erscheint es in dem exportierten Dokument an der neuen Position. Diese Art der Formatierung wird \emph{What you see is what you get} genannt (kurz: \acro{WYSIWYG}). Eine Formatierung in Word führt zu unmittelbarer optischer Rückmeldung, wie das finale Dokument aussehen wird. Inhalt und Struktur sind eng miteinander verbunden.
+Programme zur Textverarbeitung und Dokumentenerstellung nutzen unterschiedliche Vorgehensweisen, um basierend auf einer bearbeiteten Datei ein Dokument zu erstellen.
+Wer mit Microsoft Word vertraut ist, dem ist bekannt, dass das von der Export-Funktion erstellte Dokument (häufig einfach als PDF-Dokument bezeichnet) genau so aussieht, wie Word das bearbeitete Dokument darstellt.
+Wird ein Bild in der Ausgangsdatei verschoben, erscheint es in dem exportierten Dokument an der neuen Position.
+Diese Art der Formatierung wird \emph{What you see is what you get} genannt (kurz: \acro{WYSIWYG}).
+Eine Formatierung in Word (und zahlreichen alternativen Office-Programmen wie Libre Office) führt zu unmittelbarer optischer Rückmeldung, wie das finale Dokument aussehen wird. 
+Inhalt und Struktur sind eng miteinander verbunden.
 
-\LaTeX{} arbeitet hingegen nach dem Prinzip \emph{What you see is what you mean} (kurz: \acro{WYSIWYM}). Inhalt und Struktur sind stärker getrennt. Der Inhalt wird in einem Dokument in einfacher Textform platziert, zusammen mit bestimmten Befehlen (kombiniert: der Quelltext). Bei Erstellung des Dokuments werden die Befehle von dem Compiler verarbeitet. Basierend auf dem Text, den Befehlen, und den Standard-Einstellungen des Compilers entsteht so das finale Dokument. \todo{Erweitern + Beispiel?}
-\todo{Näher darauf eingehen, dass das alles ist, was der Compiler tut.}
+\LaTeX{} arbeitet hingegen nach dem Prinzip \emph{What you see is what you mean} (kurz: \acro{WYSIWYM}). 
+Inhalt und Struktur sind stärker getrennt.
+Der Inhalt wird in einem Dokument in einfacher Textform platziert, zusammen mit bestimmten Befehlen (kombiniert: der Quelltext).
+Bei Erstellung des Ausgabedokuments (ebenfalls ein PDF-Dokument) werden die Befehle von einem Programm namens Compiler verarbeitet.
+
+Der Compiler nimmt den Quelltext entgegen und liest ihn Zeile für Zeile.
+Trifft er auf einen Befehl (eine bestimmte Zeichenkette, vgl. \cref{sub:die_befehle}), interpretiert er diesen und sorgt etwa für die richtige Darstellung des mit dem Befehl markierten Textes im Ausgabedokument.\footnote{Es sei an dieser Stelle bereits angemerkt, dass Befehle nicht nur genutzt werden, um einzelne Textpassagen, überschriften und so weiter auszuzeichnen. Im Laufe dieses Skriptes werden wir verschiedene Befehle kennenlernen, die ganz unterschiedliche Funktionen erfüllen.}
+Hervorgehebene Zeichenketten (z.\,B. \mintinline{latex}{\emph{hervorgehobener Text}}) erscheinen dann beispielsweise kursiv im Dokument (\emph{hervorgehobener Text}), während die Zeichenkette, die den Befehl bildet (\mintinline{latex}{\emph{}}), nicht in der PDF-Datei auftaucht.
+
+Dieses einfache Beispiel verdeutlicht eine Stärke des \acro{WYSIWYM}-Prinzips. 
+Wir markieren Textelemente auf der semantischen Ebene (\enquote{Dieser Text soll hervorgehoben werden.}) und können die zugehörigen typographischen Anpassungen (\enquote{Hervorgehobener Text wird kursiv gedruckt.}) an zentraler Stelle festlegen -- oder gleich \LaTeX{} überlassen.
+Das Prinzip ist ähnlich zu Formatvorlagen in Office-Programmen, wenn auch konsequenter und mächtiger.
+Basierend auf dem Text, den Befehlen und den Standard-Einstellungen des Compilers entsteht so das finale Dokument.
 
 \subsection{Was brauchen wir dazu?\todo{Erweitern + vllt. Latex-Distribs. erwähnen?}}
 \label{sub:was_brauchen_wir_dazu}
-Um den Quelltext zu erstellen, auf dessen Basis der Compiler ein Dokument erstellen soll, wird ein Bearbeitungsprogramm benötigt. Grundsätzlich ist ein einfaches Textbearbeitungsprogramm ausreichend. Fortgeschrittene Programme wie TeXstudio oder TeXMaker integrieren zudem zusätzliche Funktionen, welche die Verwendung von Befehlen erleichtern.
-\todo{Sätze umschreiben, klingt komisch. Eigennamen kennzeichnen}
-Für die Kompilierung des Quelltext wird ein Compiler benötigt. Bekannte Compiler sind MiK\TeX, Mac\TeX, und \TeX{} Live.\todo{ck: Sind das nicht Distributionen? Ich dachte, der Compiler wäre immer pdflatex?}
+Um den Quelltext zu erstellen, auf dessen Basis der Compiler ein Dokument erstellen soll, wird ein Bearbeitungsprogramm benötigt.
+Grundsätzlich ist ein einfaches Textbearbeitungsprogramm wie der Editor unter Windows oder auch Notepad++\footnote{Verfügbar unter \url{https://notepad-plus-plus.org/}.} ausreichend.
+Fortgeschrittene Programme wie TeXstudio\footnote{Verfügbar unter \url{https://www.texstudio.org/}.} oder Texmaker\footnote{Verfügbar unter \url{https://www.xm1math.net/texmaker/}.} integrieren zusätzliche Funktionen, welche die Verwendung von Befehlen erleichtern.
+Falls ihr aus einem anderen Kontext bereits Visual Studio Code oder Atom kennt, findet ihr auch für diese Editoren Erweiterungen, die auf die Arbeit mit \LaTeX{} zugeschnitten sind.
+\todo{Wollten wir nicht weg von TeXstudio?}
+\todo{Eigennamen kennzeichnen}
+
+Für die Kompilierung des Quelltext wird ein Compiler benötigt.
+Der Compiler ist meist Teil einer Sammlung von Programmen und Paketen, die zusammen eine \LaTeX-Distribution bilden.
+Die Distributionen enthalten verschiedene andere Hilfsprogramme, auf die wir für den Moment nicht näher eingehen\footnote{Eines dieser Hilfsprogramme kommt später im Kapitel \ref{sec:literatur} zum Einsatz, wenn wir Literatur referenzieren.}.
+Die ebenfalls enthaltenen Pakete\footnote{Die ganz Eiligen finden in \cref{subsub:pakete} mehr Informationen.} stellen verschiedene Befehle zur Verfügung.
+Manche Distributionen gibt es als normale und als vollständige Variante zum Download. 
+Die vollständige Variante enthält alle Pakete (und ist entsprechend wesentlich größer), während in der normalen Version Pakete erst dann heruntergeladen werden, wenn sie benötigt werden.
+Die Entscheidung, ob ihr lieber zu Beginn oder später während des Arbeitens auf den Download wartet, können wir euch leider nicht abnehmen.
+
+Bekannte Distributionen sind MiK\TeX\footnote{Für Windows, macOS und Linux. Verfügbar unter \url{https://miktex.org/}.}, Mac\TeX\footnote{Für macOS und Linux. Verfügbar unter \url{https://www.tug.org/mactex/}.}, und \TeX{} Live\footnote{Für Windows, macOS und Linux. Verfügbar unter \url{https://www.tug.org/texlive/}.}.
+Installiert euch am besten gleich eine davon.
 
 \subsection{Die Befehle}
 \label{sub:die_befehle}
@@ -26,17 +56,18 @@ Ein Befehl kann mehrere optionale und/oder obligatorische Parameter verwenden. M
 			\toprule
 			Befehl                                                  & Effekt                             \\
 			\midrule
-			\mintinline{tex}|\newpage|                              & fügt eine neue Seite ein           \\
-			\mintinline{tex}|\textbf{Text}|                         & schreibt den übergebenen Text fett \\
-			\mintinline{tex}|\usepackage[utf8]{inputenc}|           & setzt die Textkodierung auf \acro{UTF-8}  \\
-			\mintinline{tex}|\documentclass[a4paper,12pt]{article}| & setzt die Dokumentenklasse         \\
-			\mintinline{tex}|\frac{3}{4}|               & fügt den mathematischen Bruch ein  \\
+			\mintinline{latex}{\newpage}                              & fügt eine neue Seite ein           \\
+			\mintinline{latex}{\textbf{Text}}                         & schreibt den übergebenen Text fett \\
+			\mintinline{latex}{\usepackage[utf8]{inputenc}}           & setzt die Textkodierung auf \acro{UTF-8}  \\
+			\mintinline{latex}{\documentclass[a4paper,12pt]{article}} & setzt die Dokumentenklasse         \\
+			\mintinline{latex}{\frac{3}{4}}               & fügt den mathematischen Bruch ein  \\
 			\bottomrule
 		\end{tabular}
 	}
 	\caption{Beispiele für \LaTeX-Befehle}
 	\label{tbl:latex-commands}
 \end{table}
+\todo{Was passiert in den Code-Beispielen mit den Leerzeichen?}
 
 \todo{MUSS oder SOLLTE der optionale Parameter mit \texttt{<param>$=$} angegeben werden?}
 Sollte ein Befehl mehrere optionale Parameter erlauben, welche gleiche Eingaben akzeptieren, muss angegeben werden, welcher Parameter gemeint ist. Beispielsweise akzeptiert der Befehl für das Einbinden von Grafiken optionale Parameter für Breite und Höhe. Bei einer Eingabe von \mintinline{tex}|[12cm, 4cm]| wäre unklar, welcher Wert für welchen Parameter bestimmt ist. Um die Zuweisung zu konkretisieren, können die Parameter explizit angegeben werden:
@@ -46,8 +77,6 @@ Sollte ein Befehl mehrere optionale Parameter erlauben, welche gleiche Eingaben 
 
 \subsection{Kommentare}
 \label{sub:kommentare}
+\todo{Wirkt hier irgendwie fehl am Platz. Vielleicht in Grundstruktur verschieben?}
 Nach einem Prozentzeichen wird der Rest der Zeile vom Compiler ignoriert. Der Kommentartext erscheint also nicht im fertigen Dokument. Dies kann nützlich sein, um während der Bearbeitung Notizen festzuhalten, ohne Einfluss auf das fertige Dokument zu nehmen. 
 \todo{Kapitel ordentlich beenden; Sollte hier noch Inhalt bzgl. der Installation rein?}
-% subsection kommentare (end)
-
-% section wie_funktioniert_latex_ (end)
