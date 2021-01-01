@@ -1,8 +1,8 @@
-\section{Grafiken einbinden} % (fold)
+\section{Grafiken}
 \label{sec:grafiken_einbinden}
-Aufgrund der Natur (What you see is what you mean) von \LaTeX \  stellt die Einbindung von Grafiken in ein Dokument eine interessante Aufgabe dar. Mit textuellen Befehlen zum dargestellten Bild -- wie üblich kommen bestimmte Befehle und Pakete zum Einsatz. In diesem Abschnitt werden diese Bestandteile näher erläutert.
+Aufgrund der Natur (What you see is what you mean, vgl. \cref{sec:wie_funktioniert_latex_}) von \LaTeX \  stellt die Einbindung von Grafiken in ein Dokument eine interessante Aufgabe dar. Mit textuellen Befehlen zum dargestellten Bild -- wie üblich kommen bestimmte Befehle und Pakete zum Einsatz. In diesem Abschnitt werden diese Bestandteile näher erläutert.
 
-\subsection{Grafiken abbilden} % (fold)
+\subsection{Grafiken abbilden}
 \label{sub:grafiken_abbilden}
 Um Grafiken darzustellen, muss das Paket \texttt{graphicx} eingebunden werden. Zum Einfügen können dann folgende Befehle verwendet werden:  
 
@@ -13,23 +13,22 @@ Um Grafiken darzustellen, muss das Paket \texttt{graphicx} eingebunden werden. Z
 \end{figure}
 \end{minted}
 
-\noindent Soll die Bildgröße angepasst werden, kann der \texttt{includegraphics}-Befehl angepasst werden. 
+\noindent Soll die Bildgröße angepasst werden, kann der \texttt{includegraphics}-Befehl abgeändert werden. 
 Die erwünschte Höhe und Breite können hier separat angegeben werden, etwa wie folgt: 
 
 \begin{minted}{latex}
 \includegraphics[width=0.5\textwidth,height=5cm]{<dateipfad>}
 \end{minted}
 
-% subsection grafiken_abbilden (end)
-\subsection{Platzierung} % (fold)
+\subsection{Platzierung}
 \label{sub:platzierung}
-Ein interessanter Aspekt des What-you-see-is-what-you-mean-Paradigmas ist die Art und Weise, wie Grafiken positioniert werden können. Standardmäßig erfolgt eine automatische Platzierung. Dies bedeutet, dass eine Grafik nicht notwendigerweise zwischen den zwei Textblöcken wie im Quelltext erscheint, sondern an anderer Stelle. Soll die automatische Platzierung angepasst werden, kann der \texttt{begin}-Befehl angepasst werden:
-
-\begin{minted}{latex}
-\begin{figure}[<positionskürzel>]
-\end{minted}
-
-\noindent Die verfügbaren Positionskürzel werden in \cref{tbl:positionskuerzel} aufgelistet.
+Ein interessanter Aspekt des What-you-see-is-what-you-mean-Paradigmas ist die Art und Weise, wie Grafiken positioniert werden können. 
+Standardmäßig erfolgt eine automatische Platzierung an einer vom Compiler berechneten, potenziell optimalen Stelle.
+Dabei werden verschiedene Layouts erstellt und danach bewertet, wie ansprechend das Ergebnis ist.
+Durch das Verschieben von Grafiken können typografische Schönheitsfehler wie Schusterjungen und Hurenkinder\footnote{Die erste (letzte) Zeile eines Absatzes steht allein als letzte (erste) Zeile auf der vorherigen (nächsten) Seite, vgl. \url{https://de.wikipedia.org/wiki/Hurenkind_und_Schusterjunge}.} weitestgehend vermieden werden. 
+Dies bedeutet aber auch, dass eine Grafik nicht notwendigerweise zwischen den zwei Textblöcken wie im Quelltext erscheint, sondern an anderer Stelle.
+Wir können diese Verschiebungen durch Hinzufügen eines optionalen Parameters zur \mintinline{latex}{figure}-Umgebung mehr oder minder rigoros begrenzen.
+Die verfügbaren Positionskürzel werden in \cref{tbl:positionskuerzel} aufgelistet.
 
 \begin{table}[h!]
 	\center
@@ -37,26 +36,26 @@ Ein interessanter Aspekt des What-you-see-is-what-you-mean-Paradigmas ist die Ar
 		\toprule
 		Kürzel & Position                              \\
 		\midrule
-		h      & hier, wenn es dir recht ist           \\
+		h      & möglichst hier, wenn es gefällt           \\
 		t      & oberer Seitenrand \emph{(top)}        \\
 		b      & unterer Seitenrand \emph{(bottom)}    \\
 		p      & auf einer eigenen Seite \emph{(page)} \\
-		H      & Hier, verdammt noch mal! (benötigt Paket \texttt{float}) \\
+		H      & Definitiv an dieser Stelle! (benötigt Paket \texttt{float}) \\
 		\bottomrule
 	\end{tabular}
 	\caption{Kürzel zur Platzierung von Abbildungen}
 	\label{tbl:positionskuerzel}
 \end{table}
 
-Neben der vertikalen Positionierung spielt gegebenenfalls auch die horizontale Ausrichtung eine Rolle. Standardmäßig sind Grafiken linksbündig orientiert. Für eine zentrierte Grafik kann eine \texttt{center}-Umgebung verwendet werden:
-
 \begin{minted}[tabsize=4]{latex}
-\begin{figure}[<position>]
+\begin{figure}[<positionskürzel>]
 	\begin{center}
-    	\includegraphics{<dateipfad>}
+			\includegraphics{<dateipfad>}
 	\end{center}
 \end{figure}
 \end{minted}
+
+Neben der vertikalen Positionierung spielt gegebenenfalls auch die horizontale Ausrichtung eine Rolle. Standardmäßig sind Grafiken linksbündig orientiert. Für eine zentrierte Grafik kann eine \texttt{center}-Umgebung verwendet werden.
 
 \noindent Alternativ kann auch der Befehl \mintinline{tex}{\centering} verwendet werden:\todo{Eines streichen? Die beiden unterscheiden sich ja eigentlich nicht …}
 
