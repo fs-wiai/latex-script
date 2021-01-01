@@ -1,12 +1,15 @@
 \section{Fußnoten}
 
 Für Fußnoten gibt es den Befehl \mintinline{latex}{\footnote{text}}, der an der Stelle des Aufrufs automatisch die richtige Ziffer einfügt und den übergebenen Text in der Fußzeile erscheinen lässt.
-In Kombination mit dem Paket \mintinline{latex}{hyperref} sind die Fußnoten sowie URLs\footnote{sofern sie über den Befehl \mintinline{latex}{\url{\textellipsis}} gesetzt wurden}zudem anklickbar.
+In Kombination mit dem Paket \mintinline{latex}{hyperref} sind die Fußnoten sowie URLs\footnote{Sofern sie über den Befehl \mintinline{latex}{\url{…}} gesetzt wurden.} zudem anklickbar.
+Beispiele findet ihr im gesamten Dokument.
 \todo{An welcher Stelle sollte die Einführung in das hyperref-Paket bestenfalls erscheinen?}
 
-Das Paket \mintinline{latex}{footmisc} stellt verschiedene weitere Optionen für die Darstellung von Fußnoten zur Verfügung, die als optionale Parameter an den Befehl \mintinline{latex}{\usepackage} übergeben werden können.
-\mintinline{latex}{\usepackage[perpage]{footmisc}} sorgt dafür, dass die Zählung der Fußnoten auf jeder Seite neu beginnt.
-\mintinline{latex}{\usepackage[para]{footmisc}} lässt die Fußnoten in der Fußzeile als Fließtext erscheinen und \mintinline{latex}{\usepackage[symbol]{footmisc}} bewirkt eine Nummerierung mit Symbolen statt Ziffern.
+Das Paket \mintinline{latex}{footmisc} stellt verschiedene weitere Optionen für die Darstellung von Fußnoten zur Verfügung, die als optionale Parameter an den Befehl \mintinline{latex}{\usepackage} übergeben werden können:
 
-\todo{Beispiel}
+\begin{itemize}
+  \item \mintinline{latex}{\usepackage[perpage]{footmisc}} sorgt dafür, dass die Zählung der Fußnoten auf jeder Seite neu beginnt.
+  \item \mintinline{latex}{\usepackage[para]{footmisc}} lässt die Fußnoten in der Fußzeile als Fließtext (gegebenenfalls auch nebeneinander) erscheinen.
+  \item \mintinline{latex}{\usepackage[symbol]{footmisc}} bewirkt eine Nummerierung mit Symbolen (z.\,B. \textdagger, \textdaggerdbl) statt Ziffern.
+\end{itemize}
 

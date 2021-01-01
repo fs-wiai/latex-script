@@ -4,17 +4,7 @@ Für Querverweise der Form \enquote{Wie man in Abbildung 23 sieht, \textellipsis
 Er erhält als Argument ein eindeutiges Label, das auch dem referenzierten Element zugeordnet werden muss.
 Anschließend erscheint an der Stelle des Befehlsaufrufs die fortlaufende Nummer des referenzierten Elements.
 
-\begin{minted}[]{latex}
-\begin{figure}[H]
-  \includegraphics % …
-  \caption{Unser Maskottchen Fooboar}
-  \label{img:fooboar}
-\end{figure}
-
-Wie man in Abbildung \ref{img:fooboar} …
-\end{minted}
-
-\todo{Ordentliches Beispiel schneidern.}
+\Example{lst:fooboar-lernt-latex}{referenzen/ref}{referenzen/ref_crop}{Beispiel für eine Referenzierung}
 
 Noch smarter ist das Paket \mintinline{latex}{cleveref}\footnote{mit einem \enquote{r}!}.
 Es bringt den Befehl \mintinline{latex}{\cref{label}} mit, dem auch -- durch Kommata getrennt -- mehrere Labels übergeben werden können.

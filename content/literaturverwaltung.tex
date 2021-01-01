@@ -3,10 +3,10 @@
 
 Um die ersten Studien- oder Abschlussarbeiten in \LaTeX\ zu setzen, fehlt uns jetzt nur noch eine Möglichkeit, Literatur zu referenzieren.
 Unsere Literatursammlung liegt in der sogenannten .bib-Datei.
-Wenn wir aus unserem \LaTeX-Dokument darauf verweisen, kann uns das Programm BibTeX (ähnlich zum Compiler PDFLaTeX) an der richtigen Stelle die richtigen Zitationen im vorher festgelegten Bibliografiestil einfügen.
+Wenn wir aus unserem \LaTeX-Dokument darauf verweisen, kann uns das Programm Bib\TeX{} (ähnlich zum Compiler PDFLaTeX) an der richtigen Stelle die richtigen Zitationen in einem vorher festgelegten Bibliografiestil einfügen.
 
 \subsection{Die Bibliografie-Datei}
-In der .bib-Datei sammeln wir unsere Literatureinträge in einem Format, das durch BibTeX verarbeitbar ist.
+In der .bib-Datei sammeln wir unsere Literatureinträge in einem Format, das durch Bib\TeX{} verarbeitbar ist.
 Einen beispielhaften Eintrag aus einer .bib-Datei zeigt \cref{lst:bibfile-sample-entry}.
 
 \begin{figure}[H]
@@ -28,28 +28,27 @@ Einen beispielhaften Eintrag aus einer .bib-Datei zeigt \cref{lst:bibfile-sample
 Nach einem @-Zeichen wird die Art des Literaturverzeichniseintrags angegeben (z.\,B. article, book, proceedings).
 Es folgt eine Auflistung wichtiger Attribute wie Titel, Autor:in und – abhängig vom Eintragstyp – weiterer Felder.
 Der erste Eintrag nach der öffnenden geschwungenen Klammer ist der wichtigste: 
-Unter diesem Kürzel wird der Eintrag später in LaTeX angesprochen.
-Diese sogenannten BibTeX-Keys müssen eindeutig sein und können frei vergeben werden.
+Unter diesem Kürzel wird der Eintrag später in \LaTeX{} angesprochen.
+Diese sogenannten Bib\TeX-Keys müssen eindeutig sein und können frei vergeben werden.
 Üblich sind Kombinationen aus Autor:innen, Publikationsjahren und Themen.
 
-
 Die .bib-Datei kann manuell zusammengetragen werden.
-Viel häufiger allerdings werden dafür Programme wie JabRef\footnote{Vgl. \url{https://www.jabref.org/}}, Zotero\footnote{Vgl. \url{https://www.zotero.org/}} oder das weit verbreitete Citavi\footnote{Vgl. \url{https://www.citavi.com/de}} verwendet.
-Während JabRef direkt eine .bib-Datei als Datenbank verwendet, lassen sich Zotero- und Citavi-Projekte\footnote{Vgl. \url{https://www1.citavi.com/sub/manual5/de/exporting_to_bibtex.html}} in .bib-Dateien exportieren.
+Viel häufiger allerdings werden dafür Programme wie JabRef\footnote{Vgl. \url{https://www.jabref.org/}.}, Zotero\footnote{Vgl. \url{https://www.zotero.org/}.} oder das weit verbreitete Citavi\footnote{Vgl. \url{https://www.citavi.com/de}.} verwendet.
+Während JabRef direkt eine .bib-Datei als Datenbank verwendet, lassen sich Zotero- und Citavi-Projekte\footnote{Vgl. \url{https://www1.citavi.com/sub/manual5/de/exporting_to_bibtex.html}.} in .bib-Dateien exportieren.
 
 .bib-Datei-Einträge werden unter anderem auch von Google Scholar zur Verfügung gestellt (vgl. \cref{fig:google-scholar-bibtex}).
 Hierbei ist es wichtig, darauf zu achten, dass die Einträge einheitlich und möglichst vollständig sind.
-Als hochwertige (wenn auch leider nicht vollständige) Quelle für BibTeX-Einträge kann die dblp Computer Science Library\footnote{Verfügbar unter \url{https://dblp.org/search}.} dienen.
+Als hochwertige (wenn auch leider nicht vollständige) Quelle für Bib\TeX-Einträge kann die dblp Computer Science Library\footnote{Verfügbar unter \url{https://dblp.org/search}.} dienen.
 
 \begin{figure}[H]
   \includegraphics[width=\textwidth]{graphics/google_bibtex1.jpg}  
   \includegraphics[width=\textwidth]{graphics/google_bibtex2.jpg}  
-  \caption{BibTeX-Einträge in Google Scholar abrufen}
+  \caption{Bib\TeX-Einträge in Google Scholar abrufen}
   \label{fig:google-scholar-bibtex}
 \end{figure}
 
 \subsection{Zitieren}
-Durch BibTeX wird LaTeX um einige Befehle (vgl. \cref{tab:bibtex-commands}) zum Zitieren erweitert. 
+Durch Bib\TeX{} wird \LaTeX{} um einige Befehle zum Zitieren erweitert (vgl. \cref{tab:bibtex-commands}). 
 Zusätzlich benötigt wird das Paket \mintinline{latex}{natbib}.
 
 \begin{table}[H]
@@ -67,5 +66,8 @@ Zusätzlich benötigt wird das Paket \mintinline{latex}{natbib}.
   \label{tab:bibtex-commands}
 \end{table}
 
-Als \mintinline{latex}{<quelle>} wird immer der BibTeX-Key angegeben.
-Verfügbare Zitierstile\footnote{Vollständigere Liste: \url{https://www.overleaf.com/learn/latex/Biblatex_citation_styles}} sind zum Beispiel alpha, natdin und apa.
+Als \mintinline{latex}{<quelle>} einer Zitation wird immer der Bib\TeX-Key angegeben.
+Verfügbare Zitierstile\footnote{Eine vollständigere Liste ist bei Overleaf zu finden: \url{https://www.overleaf.com/learn/latex/Biblatex_citation_styles}} sind zum Beispiel alpha, natdin und apa.
+Das Literaturverzeichnis erscheint immer an der Stelle, an der der Befehl \mintinline{latex}{\bibliography{<.bib-datei>}} aufgerufen wurde.
+
+\Example{lst:natdin-beispiel}{literaturverwaltung/natdin-example}{literaturverwaltung/natdin-example_bib}{Beispiel für Zitationen im Stil \mintinline{latex}{natdin}.}
