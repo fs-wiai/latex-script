@@ -11,9 +11,9 @@ Die \emph{Dokumentumgebung} hingegen enthält den Inhalt, der später in der fer
 Beginnen wir mit der Präambel.
 Eine minimale Präambel sollte die folgenden Festlegungen treffen:
 
-\subsubsection{Dokumentenklasse}\label{subsubsec:dokumentklasse}
-\mintinline{latex}|\documentclass[<parameter>]{<dokumentenklasse>}|
-definiert die Dokumentenklasse. 
+\subsubsection{Dokumentklasse}\label{subsubsec:dokumentklasse}
+\mintinline{latex}|\documentclass[<parameter>]{<dokumentklasse>}|
+definiert die Dokumentklasse. 
 Die verbreitetsten von \LaTeX\ standardmäßig unterstützten Dokumentklassen sind \mintinline{latex}{article} für kurze und \mintinline{latex}{report} für längere Dokumente, \mintinline{latex}{book} für Bücher, \mintinline{latex}{beamer}\footnote{Präsentationen in \LaTeX\ sind ein Thema für sich, auf das wir nicht näher eingehen. Bei Interesse sei diese Einführung von Overleaf empfohlen: \url{https://www.overleaf.com/learn/latex/Beamer}} für Präsentationen sowie \mintinline{latex}{letter}\footnote{Auch auf Briefe wird in diesem Skript nicht weiter eingegangen. WikiBooks gibt eine Einführung: \url{https://en.wikibooks.org/wiki/LaTeX/Letters}} für Briefe.
 
 Parallel zu den Standard-Dokumentklassen entwickelten sich die \acro{KOMA}-Script-Klassen\footnote{Einen umfassenden Überblick über die Möglichkeiten von \acro{KOMA}-Script gibt folgendes Handbuch: \url{https://komascript.de/~mkohm/scrguide.pdf}}.
@@ -86,7 +86,7 @@ Zwischen \mintinline{latex}{\begin{document}} und \mintinline{latex}{\end{docume
 Der einfachste Inhalt der Dokumentumgebung ist Fließtext.
 Er kann direkt in den Quelltext geschrieben werden.
 Zeilenumbrüche und zu mehreren auftretende Leerzeichen werden dabei ignoriert.
-Leerzeilen erzeugen einen neuen Absatz, der standardmäßig mit einem Einzug beginnt.\footnote{Der Befehl \mintinline{latex}{\noindent} verhindert dies}
+Leerzeilen erzeugen einen neuen Absatz, der standardmäßig mit einem Einzug beginnt.\footnote{Der Befehl \mintinline{latex}{\noindent} verhindert dies.}
 Manuelle Umbrüche können mit zwei Backslashes (\enquote{\textbackslash\textbackslash}) erzwungen werden.
 Dies sollte jedoch vermieden werden.
 
@@ -94,14 +94,14 @@ Einige Zeichen sind für besondere Funktionen reserviert.
 So bewirkt ein Prozent-Zeichen beispielsweise, dass der Rest einer Zeile im fertigen \acro{PDF} nicht sichtbar ist.
 Wir sprechen hier von einem Kommentar.
 Falls tatsächlich ein Prozentzeichen erscheinen soll, könnt ihr dies durch einen Backslash erreichen: \mintinline{latex}{\%}.
-Diese Lösung, die auch als Escaping bezeichnet wird, funktioniert auch für die Zeichen \#, \$, \^,\todo{Ich glaube nicht …} \&, \_, \{ und \}.
-Für den Backslash muss der Befehl \mintinline{latex}{\textbackslash} verwendet werden.
+Diese Lösung, die auch als Escaping bezeichnet wird, funktioniert auch für die Zeichen \#, \$, \&, \_, \{ und \}.
+Für den Backslash muss der Befehl \mintinline{latex}{\textbackslash} verwendet werden.\footnote{Eine Übersicht weiterer Sonderzeichen ist im zugehörigen \cref{sec:sonderzeichen} zu finden.}
 
 \subsubsection{Abschnitte und Kapitel}
 Texte werden durch Überschriften in Abschnitte und Kapitel unterteilt.
 Immer nutzbar sind die in \cref{lst:ueberschriften} dargestellten Befehle.\todo{So gehts natürlich nicht, das zerschießt uns alle Counter …}
 \Example{lst:ueberschriften}{grundstruktur/ueberschriften}{grundstruktur/ueberschriften_crop}{Überschriftenebenen}
-Je nach Dokumentenklasse sind außerdem \mintinline{latex}{\chapter{Kapitel}} und \mintinline{latex}{\part{Teil}} verfügbar -- beispielsweise in Büchern.
+Je nach Dokumentklasse sind außerdem \mintinline{latex}{\chapter{Kapitel}} und \mintinline{latex}{\part{Teil}} verfügbar -- beispielsweise in Büchern.
 Mit Sternchen fallen bei allen diesen Befehlen die Nummerierung und der Eintrag im Inhaltsverzeichnis\footnote{Vgl. \cref{subsubsec:inhaltsverzeichnis}} weg: 
 
 \begin{minted}{latex}
@@ -132,5 +132,4 @@ Damit \LaTeX\ das Inhaltsverzeichnis vollständig baut, muss das Projekt zweimal
 \todo{Screenshot (auch in \cref{lst:titelei} integrieren?)}
 
 Neben dem Inhaltsverzeichnis stehen auch eine \mintinline{latex}{\listoffigures} (Abbildungsverzeichnis) und eine \mintinline{latex}{\listoftables} (Tabellenverzeichnis) zur Verfügung.
-Aufgeführt werden jeweils die Bild- oder Tabellenunterschriften. 
-\todo{Verweis zu den Kapiteln ergänzen}
+Aufgeführt werden jeweils die Bild- oder Tabellenunterschriften.\footnote{Siehe hierzu \cref{sec:grafiken_einbinden} (Grafiken) und \cref{sec:tabellen} (Tabellen).}
