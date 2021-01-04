@@ -1,11 +1,13 @@
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
 *.aux
+*.loc
 *.lof
 *.log
 *.lot
 *.fls
 *.out
+*.soc
 *.toc
 *.fmt
 *.fot

@@ -4,11 +4,12 @@
 Mathematische Formeln können nur im sogenannten Mathmode gesetzt werden, der innerhalb einer Zeile (auch als inline bekannt) durch zwei Dollarzeichen aktiviert wird.
 Außerdem gibt es eine Blockumgebung (vgl. \cref{lst:SampleMathEnvironment}).
 Wichtige Pakete für mathematische Zeichen sind \mintinline{latex}{amsmath}, \mintinline{latex}{amsthm} und \mintinline{latex}{amssymb} der American Mathematical Society sowie \mintinline{latex}{mathtools}.
-Wie bei allen Umgebungen kann durch Angabe eines Asterisk (\textasteriskcentered) die Nummerierung der Gleichungen ausgeschaltet werden.
+Wie bei allen Umgebungen kann durch Angabe eines Asterisks (\textasteriskcentered) die Nummerierung der Gleichungen ausgeschaltet werden.
 
 \example{lst:SampleMathEnvironment}{mathe/sample-math-environment}{Beispielhafte Matheumgebungen}
 
 \subsection{Einige Beispiele}
+Die \cref{tab:MathsCommonCommands,tab:MathsLogicSetsBraces} listen einige häufig in Formeln verwendeten Befehle auf.
 
 \begin{table}[H]
   \centering
@@ -19,7 +20,8 @@ Wie bei allen Umgebungen kann durch Angabe eines Asterisk (\textasteriskcentered
   \mintinline{latex}{\frac{3}{4}} & $\frac{3}{4}$ \\
   \mintinline{latex}{e^{\pi}} & $e^{\pi}$ \\
   \mintinline{latex}{\sum_{i=1}\^{n}x^2} & $\sum_{i=1}^{n}x^2$ \\
-  \mintinline{latex}{12 \leq 4 x^2 + 13} & $12 \leq 4 x^2 + 13$
+  \mintinline{latex}{12 \leq 4 x^2 + 13} & $12 \leq 4 x^2 + 13$ \\
+  \bottomrule
   \end{tabular}
   \caption{Häufig verwendete Befehle (Wurzel, Bruch, Exponent, Summe, Vergleichszeichen). Durch \mintinline{latex}{^{…}} und \mintinline{latex}{_{…}} werden die Inhalte in den Klammern hoch- oder tiefgestellt.}
   \label{tab:MathsCommonCommands}
@@ -47,7 +49,7 @@ Wie bei allen Umgebungen kann durch Angabe eines Asterisk (\textasteriskcentered
 \subsection{Mitwachsende Klammern}
 
 Im Zusammenspiel mit Brüchen kommt es vor, dass Klammern mit ihrem Inhalt wachsen sollen.
-Hierfür müssen die zwei Klammerarten \mintinline{latex}{\(\)} und \mintinline{latex}{\[\]} jeweils nach dem Backslash um die Auszeichnung \mintinline{latex}{left} beziehungsweise \mintinline{latex}{right} ergänzt werden (vgl. \cref{lst:GrowingBrackets}).
+Hierfür müssen die zwei Klammerarten \mintinline{latex}{\(\)} und \mintinline{latex}{\[\]}\todo{Etwas inkonsistent, überall sonst ohne Backslash. left und right wären dann immer vorangestellte Befehle.} jeweils nach dem Backslash um die Auszeichnung \mintinline{latex}{left} beziehungsweise \mintinline{latex}{right} ergänzt werden (vgl. \cref{lst:GrowingBrackets}).
 Geschwungenen Klammern (\mintinline{latex}{\lbrace\rbrace}) müssen die Positionsmarker als Befehle vorangestellt werden: \mintinline{latex}{\left\lbrace\right\rbrace}.
 
 \example{lst:GrowingBrackets}{mathe/growing-brackets}{Beispiel für mitwachsende Klammern}
@@ -62,8 +64,8 @@ Im Fließtext eignet sich \mintinline{latex}{\limits} nur bedingt.
 
 \subsection{Ausrichtung mehrerer Gleichungen}
 
-Die Umgebung \mintinline{latex}{align} erlaubt es, Gleichungen zum Beispiel am \enquote{=} auszurichten (vgl. \cref{lst:AlignExample}).
-Ausgerichtet wird dabei analog zu Tabellen am \enquote{\&}-Zeichen.
+Die Umgebung \mintinline{latex}{align} erlaubt es, Gleichungen zum Beispiel am \texttt{=}-Zeichen auszurichten (vgl. \cref{lst:AlignExample}).
+Ausgerichtet wird dabei analog zu Tabellen am \texttt{\&}-Zeichen.
 Zeilenumbrüche werden durch zwei Backslashes markiert.
 
 \Example{lst:AlignExample}{mathe/align-example}{mathe/align-example_crop}{Am Gleichheitszeichen ausgerichtete Gleichungen}

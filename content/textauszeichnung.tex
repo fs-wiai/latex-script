@@ -39,10 +39,29 @@ Die Größe der Schrift im Fließtext könnt ihr mit einer Option der Dokumenten
 \begin{minted}{latex}
 \documentclass[9pt]{article}
 \end{minted}
-Darauf aufbauend erzeugt \LaTeX{} verschiedene Schriftgrade, die jeweils durch einen gleichnamigen Befehl gesetzt werden können:
-\todo{Wird hier ausreichend klar, wie die Befehle zu verwenden wären? Vielleicht ein Beispiel ergänzen.}
-\tiny tiny \footnotesize footnotesize \small small \normalsize normalsize \large large \Large Large \LARGE LARGE \huge huge \Huge Huge \normalsize \\
+Darauf aufbauend erzeugt \LaTeX{} verschiedene Schriftgrade, die durch die Befehle in \cref{tbl:schriftgrade} gesetzt werden können.
 Beschränkt so etwas aber besser auf Titelseiten und ähnliches.
-Für den Rest könnt ihr auf die Standardeinstellungen vertrauen und euch dieses visuelle Durcheinander sparen.
+Für den Rest könnt ihr auf die Standardeinstellungen vertrauen und euch das visuelle Durcheinander sparen.
+
+\begin{table}[H]
+	\center
+	\begin{tabular}{ll}
+		\toprule
+		Befehl & Darstellung \\
+		\midrule
+		\mintinline{latex}{{\tiny winzig}} & {\tiny winzig} \\
+		\mintinline{latex}{{\footnotesize Fußnotengröße}} & {\footnotesize Fußnotengröße} \\
+		\mintinline{latex}{{\small klein}} & {\small klein} \\
+		\mintinline{latex}{{\normalsize normal}} & {\normalsize normal} \\
+		\mintinline{latex}{{\large groß}} & {\large groß} \\
+		\mintinline{latex}{{\Large größer}} & {\Large größer} \\
+		\mintinline{latex}{{\LARGE am größten}} & {\LARGE am größten} \\
+		\mintinline{latex}{{\huge am allergrößten}} & {\huge am allergrößten} \\
+		\mintinline{latex}{{\Huge Größenwahn}} & {\Huge Größenwahn} \\
+		\bottomrule
+	\end{tabular}
+	\caption{Befehle zur optischen Textauszeichnung}
+	\label{tbl:schriftgrade}
+\end{table}
 
 

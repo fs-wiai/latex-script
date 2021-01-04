@@ -3,14 +3,14 @@
 
 Um die ersten Studien- oder Abschlussarbeiten in \LaTeX\ zu setzen, fehlt uns jetzt nur noch eine Möglichkeit, Literatur zu referenzieren.
 Unsere Literatursammlung liegt in der sogenannten .bib-Datei.
-Wenn wir aus unserem \LaTeX-Dokument darauf verweisen, kann uns das Programm Bib\TeX{} (ähnlich zum Compiler PDFLaTeX) an der richtigen Stelle die richtigen Zitationen in einem vorher festgelegten Bibliografiestil einfügen.
+Wenn wir aus unserem \LaTeX-Dokument darauf verweisen, kann uns das Programm Bib\TeX{} (ähnlich zum Compiler \acro{PDF}\LaTeX) an der richtigen Stelle die richtigen Zitationen in einem vorher festgelegten Bibliografiestil einfügen.
 
 \subsection{Die Bibliografie-Datei}
 In der .bib-Datei sammeln wir unsere Literatureinträge in einem Format, das durch Bib\TeX{} verarbeitbar ist.
 Einen beispielhaften Eintrag aus einer .bib-Datei zeigt \cref{lst:bibfile-sample-entry}.
 
 \begin{figure}[H]
-  \begin{minted}{latex}
+  \begin{minted}[autogobble]{latex}
   @article{turing1990, % Dokumentenart und Bezeichner für den \cite-Befehl
     title={The chemical basis of morphogenesis}, % Titel
     author={Turing, Alan Mathison}, % Autor
@@ -25,7 +25,7 @@ Einen beispielhaften Eintrag aus einer .bib-Datei zeigt \cref{lst:bibfile-sample
   \label{lst:bibfile-sample-entry}
 \end{figure}
 
-Nach einem @-Zeichen wird die Art des Literaturverzeichniseintrags angegeben (z.\,B. article, book, proceedings).
+Nach einem \texttt{@}-Zeichen wird die Art des Literaturverzeichniseintrags angegeben (z.\,B. article, book, proceedings).
 Es folgt eine Auflistung wichtiger Attribute wie Titel, Autor:in und – abhängig vom Eintragstyp – weiterer Felder.
 Der erste Eintrag nach der öffnenden geschwungenen Klammer ist der wichtigste: 
 Unter diesem Kürzel wird der Eintrag später in \LaTeX{} angesprochen.
@@ -33,7 +33,7 @@ Diese sogenannten Bib\TeX-Keys müssen eindeutig sein und können frei vergeben 
 Üblich sind Kombinationen aus Autor:innen, Publikationsjahren und Themen.
 
 Die .bib-Datei kann manuell zusammengetragen werden.
-Viel häufiger allerdings werden dafür Programme wie JabRef\footnote{Vgl. \url{https://www.jabref.org/}.}, Zotero\footnote{Vgl. \url{https://www.zotero.org/}.} oder das weit verbreitete Citavi\footnote{Vgl. \url{https://www.citavi.com/de}.} verwendet.
+Viel häufiger allerdings werden dafür Programme wie JabRef,\footnote{Vgl. \url{https://www.jabref.org/}.} Zotero\footnote{Vgl. \url{https://www.zotero.org/}.} oder das weit verbreitete Citavi\footnote{Vgl. \url{https://www.citavi.com/de}.} verwendet.
 Während JabRef direkt eine .bib-Datei als Datenbank verwendet, lassen sich Zotero- und Citavi-Projekte\footnote{Vgl. \url{https://www1.citavi.com/sub/manual5/de/exporting_to_bibtex.html}.} in .bib-Dateien exportieren.
 
 .bib-Datei-Einträge werden unter anderem auch von Google Scholar zur Verfügung gestellt (vgl. \cref{fig:google-scholar-bibtex}).

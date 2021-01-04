@@ -16,7 +16,7 @@ Eine minimale Präambel sollte die folgenden Festlegungen treffen:
 definiert die Dokumentklasse. 
 Die verbreitetsten von \LaTeX\ standardmäßig unterstützten Dokumentklassen sind \mintinline{latex}{article} für kurze und \mintinline{latex}{report} für längere Dokumente, \mintinline{latex}{book} für Bücher, \mintinline{latex}{beamer}\footnote{Präsentationen in \LaTeX\ sind ein Thema für sich, auf das wir nicht näher eingehen. Bei Interesse sei diese Einführung von Overleaf empfohlen: \url{https://www.overleaf.com/learn/latex/Beamer}} für Präsentationen sowie \mintinline{latex}{letter}\footnote{Auch auf Briefe wird in diesem Skript nicht weiter eingegangen. WikiBooks gibt eine Einführung: \url{https://en.wikibooks.org/wiki/LaTeX/Letters}} für Briefe.
 
-Parallel zu den Standard-Dokumentklassen entwickelten sich die \acro{KOMA}-Script-Klassen\footnote{Einen umfassenden Überblick über die Möglichkeiten von \acro{KOMA}-Script gibt folgendes Handbuch: \url{https://komascript.de/~mkohm/scrguide.pdf}}.
+Parallel zu den Standard-Dokumentklassen entwickelten sich die \acro{KOMA}-Script-Klassen.\footnote{Einen umfassenden Überblick über die Möglichkeiten von \acro{KOMA}-Script gibt folgendes Handbuch: \url{https://komascript.de/~mkohm/scrguide.pdf}}
 Als Alternative zum \mintinline{latex}{article} steht \mintinline{latex}{scrartcl} bereit, \mintinline{latex}{report} wird durch \mintinline{latex}{scrreport} ersetzt, \mintinline{latex}{scrbook} kann anstelle von \mintinline{latex}{book} verwendet werden und \mintinline{latex}{scrlttr2} ist als Ersatz für \mintinline{latex}{letter} entstanden.
 Eine vollständige Liste aller möglichen \acro{KOMA}-Script-Dokumentklassen ist online\footnote{Erreichbar unter \url{https://komascript.de/komascriptbestandteile}} verfügbar.
 Die \acro{KOMA}-Klassen ändern das Layout des fertigen \acro {PDF}-Dokuments und bringen zusätzliche Funktionalitäten mit.
@@ -99,7 +99,7 @@ Für den Backslash muss der Befehl \mintinline{latex}{\textbackslash} verwendet 
 
 \subsubsection{Abschnitte und Kapitel}
 Texte werden durch Überschriften in Abschnitte und Kapitel unterteilt.
-Immer nutzbar sind die in \cref{lst:ueberschriften} dargestellten Befehle.\todo{So gehts natürlich nicht, das zerschießt uns alle Counter …}
+Immer nutzbar sind die in \cref{lst:ueberschriften} dargestellten Befehle.
 \Example{lst:ueberschriften}{grundstruktur/ueberschriften}{grundstruktur/ueberschriften_crop}{Überschriftenebenen}
 Je nach Dokumentklasse sind außerdem \mintinline{latex}{\chapter{Kapitel}} und \mintinline{latex}{\part{Teil}} verfügbar -- beispielsweise in Büchern.
 Mit Sternchen fallen bei allen diesen Befehlen die Nummerierung und der Eintrag im Inhaltsverzeichnis\footnote{Vgl. \cref{subsubsec:inhaltsverzeichnis}} weg: 
@@ -125,11 +125,9 @@ Die genaue Gestaltung hängt ab von der verwendeten Dokumentklasse.
 
 \subsubsection{Verzeichnisse}\label{subsubsec:inhaltsverzeichnis}
 
-Aus allen mit den oben genannten Befehlen eingefügten Abschnitten fügt der Befehl \mintinline{latex}{\tableofcontents} ein automatisch nummeriertes Inhaltsverzeichnis zusammen.
+Aus allen mit den oben genannten Befehlen eingefügten Abschnitten fügt der Befehl \mintinline{latex}{\tableofcontents} ein automatisch nummeriertes Inhaltsverzeichnis zusammen (wie zum Beispiel in \cref{lst:hauptdatei} auf \cpageref{lst:hauptdatei} zu sehen).
 Die Aufzählungszeichen, die Tiefe der Aufzählung und viele weitere Gestaltungselemente sind frei anpassbar.\footnote{Ein empfehlenswerter Blogpost hierzu ist unter \url{https://texblog.org/2011/09/09/10-ways-to-customize-tocloflot/} verfügbar.}
 Damit \LaTeX\ das Inhaltsverzeichnis vollständig baut, muss das Projekt zweimal kompiliert werden.
-
-\todo{Screenshot (auch in \cref{lst:titelei} integrieren?)}
 
 Neben dem Inhaltsverzeichnis stehen auch eine \mintinline{latex}{\listoffigures} (Abbildungsverzeichnis) und eine \mintinline{latex}{\listoftables} (Tabellenverzeichnis) zur Verfügung.
 Aufgeführt werden jeweils die Bild- oder Tabellenunterschriften.\footnote{Siehe hierzu \cref{sec:grafiken_einbinden} (Grafiken) und \cref{sec:tabellen} (Tabellen).}

@@ -6,7 +6,7 @@ Anschließend erscheint an der Stelle des Befehlsaufrufs die fortlaufende Nummer
 
 \Example{lst:fooboar-lernt-latex}{referenzen/ref}{referenzen/ref_crop}{Beispiel für eine Referenzierung}
 
-Noch smarter ist das Paket \mintinline{latex}{cleveref}\footnote{mit einem \enquote{r}!}.
+Noch smarter ist das Paket \mintinline{latex}{cleveref}.\footnote{mit nur einem \enquote{r}!}
 Es bringt den Befehl \mintinline{latex}{\cref{label}} mit, dem auch -- durch Kommata getrennt -- mehrere Labels übergeben werden können.
 Daraus entstehen dann automatisiert Angaben wie \enquote{Abschnitte 1 bis 3 und 5}.\footnote{für den Quelltext \mintinline{latex}{\cref{sec:section1,sec:section2,
 sec:section3,sec:section5}}}
@@ -36,7 +36,7 @@ Bei der Verwendung von \mintinline{latex}{\cref{label}} ist zu beachten, dass di
 \documentclass[ngerman]{article}
 \end{minted}
 
-Von Abschnitten abgesehen, müssen Beschriftungen\footnote{\mintinline{latex}{\caption{…}}} außerdem \emph{immer vergeben und vor dem Label platziert} werden, damit sie anschließend referenziert werden können.
+\noindent Von Abschnitten abgesehen, müssen Beschriftungen\footnote{\mintinline{latex}{\caption{…}}} außerdem \emph{immer vergeben und vor dem Label platziert} werden, damit sie anschließend referenziert werden können.
 Bei Abschnitten wird das Label direkt hinter dem Befehl angefügt:
 
 \begin{minted}{latex}

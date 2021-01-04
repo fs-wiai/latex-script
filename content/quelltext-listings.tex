@@ -1,13 +1,13 @@
 \section{Quelltext-Listings}
 
 Um Quelltext in eigenen Arbeiten darzustellen, gibt es in \LaTeX verschiedene Wege.
-Wir verwenden hierfür gern das Paket \mintinline{latex}{minted}, das zwar etwas zusätzlichen Installationsaufwand verursacht, dafür aber ansprechende Ergebnisse generiert und gut handzuhaben ist.
+Wir verwenden hierfür gern das Paket \mintinline{latex}{minted}, das zwar etwas zusätzlichen Installationsaufwand verursacht, dafür aber ansprechende Ergebnisse generiert und gut zu handhaben ist.
 
 \subsection{Installation}
 \todo{Python- und Pip-Installation unter allen OS testen}
 Zur Verwendung von \mintinline{latex}{minted} ist eine Installation der Programmiersprache Python 3 notwendig.
 Die Installationsdateien sind auf der Projekt-Website\footnote{Verfügbar unter \url{https://www.python.org/downloads/}.} zu finden.
-Ein ausführlicherer Beitrag zur Installation unter Windows\footnote{Jason FitzpatrickHow to Install Python on Windows. How-To Geek. July 11, 2017. Verfügbar unter \url{https://www.howtogeek.com/197947/how-to-install-python-on-windows/}.} führt euch durch die verschiedenen Schritte, die speziell für dieses Betriebssystem notwendig sind\footnote{Insbesondere das Anpassen des Systempfads sollte nicht vergessen werden.}.
+Ein ausführlicherer Beitrag zur Installation unter Windows\footnote{Jason FitzpatrickHow to Install Python on Windows. How-To Geek. July 11, 2017. Verfügbar unter \url{https://www.howtogeek.com/197947/how-to-install-python-on-windows/}.} führt euch durch die verschiedenen Schritte, die speziell für dieses Betriebssystem notwendig sind.\footnote{Insbesondere das Anpassen des Systempfads sollte nicht vergessen werden.}
 
 Nach der erfolgreichen Installation solltet ihr in der Eingabeaufforderung\footnote{Navigation unter Windows: \faWindows\ + R → \enquote{cmd} eingeben → Enter} \mintinline{bash}{python3 --version} eingeben und mit Enter bestätigen können und in etwa folgendes Ergebnis erhalten:
 
@@ -16,7 +16,7 @@ $ python3 --version
 Python 3.8.5
 \end{minted}
 
-Sollte die Versionsnummer höher sein, ist alles bestens. 
+\noindent Sollte die Versionsnummer höher sein, ist alles bestens. 
 Im gleichen Fenster gebt ihr jetzt den Befehl \mintinline{bash}{pip install Pygments} ein, womit das Pygments-Paket für Python installiert wird.
 Nach Abschluss dieses Vorgangs könnt ihr das \LaTeX-Paket \mintinline{latex}{minted} über \mintinline{latex}{\usepackage{minted}} einbinden.
 
@@ -28,10 +28,10 @@ Normalerweise ruft euer Editor beim Klick auf den grünen Pfeil etwa den folgend
 $ pdflatex main.tex
 \end{minted}
 
-Welcher Befehl das bei euch genau ist, könnt ihr in \TeX studio unter \enquote{Optionen → \TeX studio konfigurieren → Befehle} einsehen.
-Neben Pdf\LaTeX\ seht ihr den Befehl.
+\noindent Welcher Befehl das bei euch genau ist, könnt ihr in \TeX{}studio unter \enquote{Optionen → \TeX{}studio konfigurieren → Befehle} einsehen.
+Neben Pdf\LaTeX{} seht ihr den Befehl.
 Die Datei, die kompiliert werden soll, wird hier durch \mintinline{bash}{%.tex} angegeben.
-Außerdem sind üblicherweise noch zwei zusätzliche Angaben enthalten, jeweils mit einem Minus davor (\mintinline{bash}{-synctex=1 -interaction=nonstopmode}).
+Außerdem sind üblicherweise noch zwei zusätzliche Angaben enthalten, jeweils mit einem Minus\todo{nicht zwei? Für Windows weiß ich es nicht, aber POSIX besteht da glaub ich auf zwei} davor (\mintinline{bash}{-synctex=1 -interaction=nonstopmode}).
 Diese Angaben heißen Flags und konfigurieren das Programm \mintinline{bash}{pdflatex}. 
 Eine solche Flag müssen wir ergänzen.
 Platziert die Angabe \mintinline{bash}{--shell-escape} vor der Datei-Angabe (\mintinline{bash}{%.tex}):
@@ -40,7 +40,7 @@ Platziert die Angabe \mintinline{bash}{--shell-escape} vor der Datei-Angabe (\mi
 pdflatex -synctex=1 -interaction=nonstopmode --shell-escape %.tex
 \end{minted}
 
-Nach Klick auf \enquote{Okay} ist der Einrichtungsschritt abgeschlossen.
+\noindent Nach Klick auf \enquote{Okay} ist der Einrichtungsschritt abgeschlossen.
 Auch andere Editoren bieten die Möglichkeit, den Kompilierbefehl anzupassen.
 Schaut am besten mal in die Einstellungen oder bemüht eine Suchmaschine.
 
@@ -61,7 +61,7 @@ Hierzu müssen nur die verwendete Programmiersprache und der Dateipfad an den Be
 \subsection{Minted konfigurieren}
 
 Durch optionale Parameter können Zeilennummerierung, Umbrüche und Farben ausgewählt werden. 
-Außerdem sind zahlreiche Themes verfügbar.
+Außerdem sind zahlreiche Themes verfügbar (\cref{lst:MintedExternalStyled}).
 Einen umfänglichen Überblick geben die Einführung von Overleaf und die Dokumentation.\footnote{Verfügbar unter \url{https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted} bzw. \url{https://ctan.kako-dev.de/macros/latex/contrib/minted/minted.pdf}.}
 
 \example{lst:MintedExternalStyled}{code/minted-import-styled}{Themes und weitere Optionen}
