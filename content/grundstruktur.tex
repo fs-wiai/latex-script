@@ -22,8 +22,6 @@ Eine vollständige Liste aller möglichen \acro{KOMA}-Script-Dokumentklassen ist
 Die \acro{KOMA}-Klassen ändern das Layout des fertigen \acro {PDF}-Dokuments und bringen zusätzliche Funktionalitäten mit.
 Während die Standard-Klassen für den Gebrauch in Amerika gedacht sind, folgen \acro{KOMA}-Klassen europäischen Normen, etwa bei Brief"|formaten.
 
-\todo{Vergleichendes Bild von reinem LaTeX und KOMA-Script?}
-
 Dem \mintinline{latex}{\documentclass}-Befehl können verschiedene optionale Parameter übergeben werden. 
 \mintinline{latex}{\documentclass[10pt,a5paper,landscape]{scrartcl}} etwa konfiguriert einen \acro{KOMA}-Script-Artikel mit Schriftgröße 10\,pt\footnote{Die Standardschriftgröße wäre hier 12\,pt.} auf A5-Papier\footnote{In der Voreinstellung handelte es sich um A4-Papier.} im Querformat.
 Auch die Sprache kann mit übergeben werden (vgl. \cref{subsubsec:sprache}).
@@ -55,8 +53,6 @@ In \LaTeX-Dokumenten sind zwei verschiedene Zeichenkodierungen von Belang.
 Das Input Encoding (kurz: \mintinline{latex}{inputenc}) bezieht sich auf den Quelltext, den wir eingeben, während das Font Encoding (kurz: \mintinline{latex}{fontenc}) das fertige \acro{PDF}-Dokument beeinflusst.
 Konkret beeinflusst \mintinline{latex}{fontenc} die Wahl der Schriftartdatei, die verwendet wird, um den Inhalt des Dokuments darzustellen, denn auch diese muss natürlich Sonderzeichen beinhalten.\footnote{Details zur Arbeitsweise von \mintinline{latex}{fontenc} gibt dieser Beitrag: \url{https://www.texwelt.de/fragen/5537/was-macht-eigentlich-usepackaget1fontenc}}
 \mintinline{latex}{T1} ist eine Kodierung, die mit einer begrenzten Anzahl an Zeichen europäische Sprachen abzubilden versucht.
-Bei Verwendung von XeLaTeX und LuaLaTeX wird die Spezifikation des \mintinline{latex}{fontenc} obsolet.
-\todo{Sagen wir sonst noch was zu den beiden? Dann verlinken, sonst anpassen!}
 
 \subsubsection{Sprache}\label{subsubsec:sprache}
 \begin{minted}{latex}
@@ -76,7 +72,6 @@ Fremdsprachiger Text lässt sich alternativ auch über folgenden Befehl einbinde
 \begin{minted}{latex}
 \foreignlanguage{<sprache>}{<text>}
 \end{minted}
-\todo{Beispiel!}
 
 \subsection{Dokumentumgebung}
 

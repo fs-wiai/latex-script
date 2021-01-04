@@ -4,10 +4,10 @@ Um Quelltext in eigenen Arbeiten darzustellen, gibt es in \LaTeX verschiedene We
 Wir verwenden hierfür gern das Paket \mintinline{latex}{minted}, das zwar etwas zusätzlichen Installationsaufwand verursacht, dafür aber ansprechende Ergebnisse generiert und gut zu handhaben ist.
 
 \subsection{Installation}
-\todo{Python- und Pip-Installation unter allen OS testen}
+\todo{Nochmal prüfen, wie der python-Befehl wirklich heißt. Anleitungen für verschiedene Betriebssysteme verlinken. Vor Änderungen in PATH warnen.}
 Zur Verwendung von \mintinline{latex}{minted} ist eine Installation der Programmiersprache Python 3 notwendig.
 Die Installationsdateien sind auf der Projekt-Website\footnote{Verfügbar unter \url{https://www.python.org/downloads/}.} zu finden.
-Ein ausführlicherer Beitrag zur Installation unter Windows\footnote{Jason FitzpatrickHow to Install Python on Windows. How-To Geek. July 11, 2017. Verfügbar unter \url{https://www.howtogeek.com/197947/how-to-install-python-on-windows/}.} führt euch durch die verschiedenen Schritte, die speziell für dieses Betriebssystem notwendig sind.\footnote{Insbesondere das Anpassen des Systempfads sollte nicht vergessen werden.}
+Ein ausführlicherer Beitrag zur Installation unter Windows\footnote{Jason Fitzpatrick, How to Install Python on Windows. How-To Geek. July 11, 2017. Verfügbar unter \url{https://www.howtogeek.com/197947/how-to-install-python-on-windows/}.} führt euch durch die verschiedenen Schritte, die speziell für dieses Betriebssystem notwendig sind.\footnote{Insbesondere das Anpassen des Systempfads sollte nicht vergessen werden.}
 
 Nach der erfolgreichen Installation solltet ihr in der Eingabeaufforderung\footnote{Navigation unter Windows: \faWindows\ + R → \enquote{cmd} eingeben → Enter} \mintinline{bash}{python3 --version} eingeben und mit Enter bestätigen können und in etwa folgendes Ergebnis erhalten:
 
@@ -31,13 +31,14 @@ $ pdflatex main.tex
 \noindent Welcher Befehl das bei euch genau ist, könnt ihr in \TeX{}studio unter \enquote{Optionen → \TeX{}studio konfigurieren → Befehle} einsehen.
 Neben Pdf\LaTeX{} seht ihr den Befehl.
 Die Datei, die kompiliert werden soll, wird hier durch \mintinline{bash}{%.tex} angegeben.
-Außerdem sind üblicherweise noch zwei zusätzliche Angaben enthalten, jeweils mit einem Minus\todo{nicht zwei? Für Windows weiß ich es nicht, aber POSIX besteht da glaub ich auf zwei} davor (\mintinline{bash}{-synctex=1 -interaction=nonstopmode}).
+Außerdem sind üblicherweise noch zwei zusätzliche Angaben enthalten, jeweils mit einem Bindestrich davor (\mintinline{bash}{-synctex=1 -interaction=nonstopmode}).
 Diese Angaben heißen Flags und konfigurieren das Programm \mintinline{bash}{pdflatex}. 
 Eine solche Flag müssen wir ergänzen.
-Platziert die Angabe \mintinline{bash}{--shell-escape} vor der Datei-Angabe (\mintinline{bash}{%.tex}):
+Platziert die Angabe \mintinline{bash}{-shell-escape} vor der Datei-Angabe (\mintinline{bash}{%.tex}):
+\todo{Ich hätte mich für einen Strich entschieden, damit es konsistent zu dem ist, was TeXstudio vorgibt. Funktionieren tut auch unter Linux beides.}
 
 \begin{minted}[]{bash}
-pdflatex -synctex=1 -interaction=nonstopmode --shell-escape %.tex
+pdflatex -synctex=1 -interaction=nonstopmode -shell-escape %.tex
 \end{minted}
 
 \noindent Nach Klick auf \enquote{Okay} ist der Einrichtungsschritt abgeschlossen.
