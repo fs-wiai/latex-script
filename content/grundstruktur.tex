@@ -85,9 +85,13 @@ Leerzeilen erzeugen einen neuen Absatz, der standardmäßig mit einem Einzug beg
 Manuelle Umbrüche können mit zwei Backslashes (\enquote{\textbackslash\textbackslash}) erzwungen werden.
 Dies sollte jedoch vermieden werden.
 
+\subsubsection{Kommentare}
 Einige Zeichen sind für besondere Funktionen reserviert. 
-So bewirkt ein Prozent-Zeichen beispielsweise, dass der Rest einer Zeile im fertigen \acro{PDF} nicht sichtbar ist.
+So bewirkt ein Prozent-Zeichen beispielsweise, dass der Rest einer Zeile vom Compiler ignoriert wird.
+Der Text erscheint also nicht im fertigen \acro{PDF}-Dokument.
+Dies kann nützlich sein, um während der Bearbeitung Notizen festzuhalten, ohne Einfluss auf das fertige Dokument zu nehmen.
 Wir sprechen hier von einem Kommentar.
+
 Falls tatsächlich ein Prozentzeichen erscheinen soll, könnt ihr dies durch einen Backslash erreichen: \mintinline{latex}{\%}.
 Diese Lösung, die auch als Escaping bezeichnet wird, funktioniert auch für die Zeichen \#, \$, \&, \_, \{ und \}.
 Für den Backslash muss der Befehl \mintinline{latex}{\textbackslash} verwendet werden.\footnote{Eine Übersicht weiterer Sonderzeichen ist im zugehörigen \cref{sec:sonderzeichen} zu finden.}
