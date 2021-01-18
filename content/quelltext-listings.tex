@@ -35,7 +35,6 @@ Außerdem sind üblicherweise noch zwei zusätzliche Angaben enthalten, jeweils 
 Diese Angaben heißen Flags und konfigurieren das Programm \mintinline{bash}{pdflatex}. 
 Eine solche Flag müssen wir ergänzen.
 Platziert die Angabe \mintinline{bash}{-shell-escape} vor der Datei-Angabe (\mintinline{bash}{%.tex}):
-\todo{Ich hätte mich für einen Strich entschieden, damit es konsistent zu dem ist, was TeXstudio vorgibt. Funktionieren tut auch unter Linux beides.}
 
 \begin{minted}[]{bash}
 pdflatex -synctex=1 -interaction=nonstopmode -shell-escape %.tex
