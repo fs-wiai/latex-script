@@ -49,8 +49,7 @@ Die \cref{tab:MathsCommonCommands,tab:MathsLogicSetsBraces} listen einige häufi
 \subsection{Mitwachsende Klammern}
 
 Im Zusammenspiel mit Brüchen kommt es vor, dass Klammern mit ihrem Inhalt wachsen sollen.
-Hierfür müssen die zwei Klammerarten \mintinline{latex}{\(\)} und \mintinline{latex}{\[\]} jeweils nach dem Backslash um die Auszeichnung \mintinline{latex}{left} beziehungsweise \mintinline{latex}{right} ergänzt werden (vgl. \cref{lst:GrowingBrackets}).
-Geschwungenen Klammern (\mintinline{latex}{\lbrace\rbrace}) müssen die Positionsmarker als Befehle vorangestellt werden: \mintinline{latex}{\left\lbrace\right\rbrace}.\todo{Absatz nochmal einheitlicher formulieren / kürzen: keine Ausnahmen, immer nur die Befehle left und right voranstellen.}
+Hierfür muss dem Befehl zum Erzeugen der Klammern (\mintinline{latex}{(}, \mintinline{latex}{)}, \mintinline{latex}{[}, \mintinline{latex}{]}, \mintinline{latex}{\lbrace} und \mintinline{latex}{\rbrace}) jeweils ein Positionsmarker (\mintinline{latex}{\left} oder \mintinline{latex}{\right}) vorangestellt werden.
 
 \example{lst:GrowingBrackets}{mathe/growing-brackets}{Beispiel für mitwachsende Klammern}
 
