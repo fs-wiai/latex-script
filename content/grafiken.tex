@@ -1,9 +1,9 @@
 \section{Grafiken}
-\label{sec:grafiken_einbinden}
-Aufgrund der Natur (What you get is what you mean, vgl. \cref{sec:wie_funktioniert_latex_}) von \LaTeX \  stellt die Einbindung von Grafiken in ein Dokument eine interessante Aufgabe dar. Mit textuellen Befehlen zum dargestellten Bild -- wie üblich kommen bestimmte Befehle und Pakete zum Einsatz. In diesem Abschnitt werden diese Bestandteile näher erläutert.
+\label{sec:include-graphics}
+Aufgrund der Natur (What you get is what you mean, vgl. \cref{sec:latex-basic-functionality}) von \LaTeX \  stellt die Einbindung von Grafiken in ein Dokument eine interessante Aufgabe dar. Mit textuellen Befehlen zum dargestellten Bild -- wie üblich kommen bestimmte Befehle und Pakete zum Einsatz. In diesem Abschnitt werden diese Bestandteile näher erläutert.
 
 \subsection{Grafiken abbilden}
-\label{sub:grafiken_abbilden}
+\label{sub:display-graphics}
 Um Grafiken darzustellen, muss das Paket \texttt{graphicx} eingebunden werden. Zum Einfügen können dann folgende Befehle verwendet werden:  
 
 \begin{minted}[tabsize=4]{latex}
@@ -21,16 +21,16 @@ Die erwünschte Höhe und Breite können hier separat angegeben werden, etwa wie
 \end{minted}
 
 \subsection{Platzierung}
-\label{sub:platzierung}
+\label{sub:graphics-placement}
 Ein interessanter Aspekt des What-you-get-is-what-you-mean-Paradigmas ist die Art und Weise, wie Grafiken positioniert werden können. 
 Standardmäßig erfolgt eine automatische Platzierung an einer vom Compiler berechneten, potenziell optimalen Stelle.
 Dabei werden verschiedene Layouts erstellt und danach bewertet, wie ansprechend das Ergebnis ist.
 Durch das Verschieben von Grafiken können typografische Schönheitsfehler wie Schusterjungen und Hurenkinder\footnote{Die erste (letzte) Zeile eines Absatzes steht allein als letzte (erste) Zeile auf der vorherigen (nächsten) Seite, vgl. \url{https://de.wikipedia.org/wiki/Hurenkind_und_Schusterjunge}.} weitestgehend vermieden werden. 
 
 Dies bedeutet aber auch, dass eine Grafik nicht notwendigerweise zwischen den zwei Textblöcken wie im Quelltext erscheint, sondern an anderer Stelle.
-Um im Text einen klaren Bezug zu einer gegebenenfalls anderswo platzierten Grafik herzustellen, können wir Labels verwenden, die wir in \cref{sec:referenzen} erklären.
+Um im Text einen klaren Bezug zu einer gegebenenfalls anderswo platzierten Grafik herzustellen, können wir Labels verwenden, die wir in \cref{sec:references} erklären.
 Wir können diese Verschiebungen außerdem durch Hinzufügen eines optionalen Parameters zur \mintinline{latex}{figure}-Umgebung mehr oder minder rigoros begrenzen.
-Die verfügbaren Positionskürzel werden in \cref{tbl:positionskuerzel} aufgelistet.
+Die verfügbaren Positionskürzel werden in \cref{tbl:placement-abbreviations} aufgelistet.
 
 \begin{table}[h!]
 	\center
@@ -46,7 +46,7 @@ Die verfügbaren Positionskürzel werden in \cref{tbl:positionskuerzel} aufgelis
 		\bottomrule
 	\end{tabular}
 	\caption{Kürzel zur Platzierung von Abbildungen}
-	\label{tbl:positionskuerzel}
+	\label{tbl:placement-abbreviations}
 \end{table}
 
 \begin{minted}[tabsize=4]{latex}

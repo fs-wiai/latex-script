@@ -1,15 +1,15 @@
 \section{Mathematische Formeln}
-\label{sec:formeln}
+\label{sec:formulas}
 
 Mathematische Formeln können nur im sogenannten Mathmode gesetzt werden, der innerhalb einer Zeile (auch als inline bekannt) durch zwei Dollarzeichen aktiviert wird.
-Außerdem gibt es eine Blockumgebung (vgl. \cref{lst:SampleMathEnvironment}).
+Außerdem gibt es eine Blockumgebung (vgl. \cref{lst:sample-math-environment}).
 Wichtige Pakete für mathematische Zeichen sind \mintinline{latex}{amsmath}, \mintinline{latex}{amsthm} und \mintinline{latex}{amssymb} der American Mathematical Society sowie \mintinline{latex}{mathtools}.
 Wie bei allen Umgebungen kann durch Angabe eines Asterisks (\textasteriskcentered) die Nummerierung der Gleichungen ausgeschaltet werden.
 
-\example{lst:SampleMathEnvironment}{mathe/sample-math-environment}{Beispielhafte Matheumgebungen}
+\example{lst:sample-math-environment}{mathe/sample-math-environment}{Beispielhafte Matheumgebungen}
 
 \subsection{Einige Beispiele}
-Die \cref{tab:MathsCommonCommands,tab:MathsLogicSetsBraces} listen einige häufig in Formeln verwendeten Befehle auf.
+Die \cref{tbl:maths-common-commands,tbl:maths-logic-sets-braces} listen einige häufig in Formeln verwendeten Befehle auf.
 
 \begin{table}[H]
   \centering
@@ -24,7 +24,7 @@ Die \cref{tab:MathsCommonCommands,tab:MathsLogicSetsBraces} listen einige häufi
   \bottomrule
   \end{tabular}
   \caption{Häufig verwendete Befehle (Wurzel, Bruch, Exponent, Summe, Vergleichszeichen). Durch \mintinline{latex}{^{…}} und \mintinline{latex}{_{…}} werden die Inhalte in den Klammern hoch- oder tiefgestellt.}
-  \label{tab:MathsCommonCommands}
+  \label{tbl:maths-common-commands}
 \end{table}
 
 \begin{table}[H]
@@ -42,7 +42,7 @@ Die \cref{tab:MathsCommonCommands,tab:MathsLogicSetsBraces} listen einige häufi
     \mintinline{latex}{(A \cdot B) \times C} & $(A \cdot B) \times C$ \\ \bottomrule
     \end{tabular}
     \caption{Klammerungen, Quantoren, griechische Buchstaben, Pfeile, Operatoren}
-    \label{tab:MathsLogicSetsBraces}
+    \label{tbl:maths-logic-sets-braces}
   }
 \end{table}
 
@@ -51,28 +51,28 @@ Die \cref{tab:MathsCommonCommands,tab:MathsLogicSetsBraces} listen einige häufi
 Im Zusammenspiel mit Brüchen kommt es vor, dass Klammern mit ihrem Inhalt wachsen sollen.
 Hierfür muss dem Befehl zum Erzeugen der Klammern (\mintinline{latex}{(}, \mintinline{latex}{)}, \mintinline{latex}{[}, \mintinline{latex}{]}, \mintinline{latex}{\lbrace} und \mintinline{latex}{\rbrace}) jeweils ein Positionsmarker (\mintinline{latex}{\left} oder \mintinline{latex}{\right}) vorangestellt werden.
 
-\example{lst:GrowingBrackets}{mathe/growing-brackets}{Beispiel für mitwachsende Klammern}
+\example{lst:growing-brackets}{mathe/growing-brackets}{Beispiel für mitwachsende Klammern}
 
 \subsection{Darstellung von Grenzen}
 
 Mit dem Befehl \mintinline{latex}{\limits} lassen sich die Grenzen von Integralen unter und über dem Integralzeichen darstellen.
-Bei Summen, Produkten und Grenzwerten geschieht das automatisch (vgl. \cref{lst:Limits}).
+Bei Summen, Produkten und Grenzwerten geschieht das automatisch (vgl. \cref{lst:limits}).
 Im Fließtext eignet sich \mintinline{latex}{\limits} nur bedingt.
 
-\example{lst:Limits}{mathe/limits}{Grenzen von Summen, Produkten, Grenzwerten und Integralen}
+\example{lst:limits}{mathe/limits}{Grenzen von Summen, Produkten, Grenzwerten und Integralen}
 
 \subsection{Ausrichtung mehrerer Gleichungen}
 
-Die Umgebung \mintinline{latex}{align} erlaubt es, Gleichungen zum Beispiel am \texttt{=}-Zeichen auszurichten (vgl. \cref{lst:AlignExample}).
+Die Umgebung \mintinline{latex}{align} erlaubt es, Gleichungen zum Beispiel am \texttt{=}-Zeichen auszurichten (vgl. \cref{lst:math-alignment-example}).
 Ausgerichtet wird dabei analog zu Tabellen am \texttt{\&}-Zeichen.
 Zeilenumbrüche werden durch zwei Backslashes markiert.
 
-\Example{lst:AlignExample}{mathe/align-example}{mathe/align-example_crop}{Am Gleichheitszeichen ausgerichtete Gleichungen}
+\Example{lst:math-alignment-example}{mathe/align-example}{mathe/align-example_crop}{Am Gleichheitszeichen ausgerichtete Gleichungen}
 
 \subsection{Mengenschreibweise}
 
 Manchmal ist es notwendig, im Zusammenhang mit der Mengenschreibweise Prädikate unter Verwendung von textuellen Beschreibungen oder längeren Funktionsnamen zu definieren.
 Im Mathmode wird die Zeichensetzung von \LaTeX nicht auf Fließtext, sondern auf Formeln ausgerichtet, was zu ungünstigen Anordnungen zusammenhängender Buchstabenketten führt.
-Für diesen Fall gibt es den Befehl \mintinline{latex}{\mathrm{}} (\enquote{math roman}, vgl. \cref{lst:SetBuilderNotation}).
+Für diesen Fall gibt es den Befehl \mintinline{latex}{\mathrm{}} (\enquote{math roman}, vgl. \cref{lst:set-builder-notation}).
 
-\example{lst:SetBuilderNotation}{mathe/set-builder-notation}{Probleme in der Mengenschreibweise und ihre Lösung}
+\example{lst:set-builder-notation}{mathe/set-builder-notation}{Probleme in der Mengenschreibweise und ihre Lösung}

@@ -5,13 +5,13 @@ Im Kern besteht es immer aus zwei Teilen: einer Präambel zu Beginn sowie der un
 Als \emph{Präambel} bezeichnen wir die ersten Befehle eines \LaTeX-Dokumentes, mit denen globale Einstellungen wie die Dokumentklasse, die Zeichenkodierung, die Sprache und das Seitenformat festgelegt werden.
 Die \emph{Dokumentumgebung} hingegen enthält den Inhalt, der später in der fertigen \acro{PDF}-Datei erscheinen soll.
 
-\Example{lst:grundaufbau-latex-dokument}{grundstruktur/hallowelt}{grundstruktur/hallowelt_crop}{Beispielhafter Aufbau eines einfachen \LaTeX-Dokuments mit Präambel und Dokumentumgebung}
+\Example{lst:latex-document-basic-structure}{grundstruktur/hallowelt}{grundstruktur/hallowelt_crop}{Beispielhafter Aufbau eines einfachen \LaTeX-Dokuments mit Präambel und Dokumentumgebung}
 
 \subsection{Präambel}
 Beginnen wir mit der Präambel.
 Eine minimale Präambel sollte die folgenden Festlegungen treffen:
 
-\subsubsection{Dokumentklasse}\label{subsubsec:dokumentklasse}
+\subsubsection{Dokumentklasse}\label{subsubsec:document-class}
 \mintinline{latex}|\documentclass[<parameter>]{<dokumentklasse>}|
 definiert die Dokumentklasse. 
 Die verbreitetsten von \LaTeX\ standardmäßig unterstützten Dokumentklassen sind \mintinline{latex}{article} für kurze und \mintinline{latex}{report} für längere Dokumente, \mintinline{latex}{book} für Bücher, \mintinline{latex}{beamer}\footnote{Präsentationen in \LaTeX\ sind ein Thema für sich, auf das wir nicht näher eingehen. Bei Interesse sei diese Einführung von Overleaf empfohlen: \url{https://www.overleaf.com/learn/latex/Beamer}} für Präsentationen sowie \mintinline{latex}{letter}\footnote{Auch auf Briefe wird in diesem Skript nicht weiter eingegangen. WikiBooks gibt eine Einführung: \url{https://en.wikibooks.org/wiki/LaTeX/Letters}} für Briefe.
@@ -24,10 +24,10 @@ Während die Standard-Klassen für den Gebrauch in Amerika gedacht sind, folgen 
 
 Dem \mintinline{latex}{\documentclass}-Befehl können verschiedene optionale Parameter übergeben werden. 
 \mintinline{latex}{\documentclass[10pt,a5paper,landscape]{scrartcl}} etwa konfiguriert einen \acro{KOMA}-Script-Artikel mit Schriftgröße 10\,pt\footnote{Die Standardschriftgröße wäre hier 12\,pt.} auf A5-Papier\footnote{In der Voreinstellung handelte es sich um A4-Papier.} im Querformat.
-Auch die Sprache kann mit übergeben werden (vgl. \cref{subsubsec:sprache}).
+Auch die Sprache kann mit übergeben werden (vgl. \cref{subsubsec:language}).
 
 \subsubsection{Exkurs: Pakete}
-\label{subsub:pakete}
+\label{subsubsec:packages}
 \begin{minted}{latex}
 \usepackage[<optionen>]{<paketname>}
 \end{minted}
@@ -54,15 +54,15 @@ Das Input Encoding (kurz: \mintinline{latex}{inputenc}) bezieht sich auf den Que
 Konkret beeinflusst \mintinline{latex}{fontenc} die Wahl der Schriftartdatei, die verwendet wird, um den Inhalt des Dokuments darzustellen, denn auch diese muss natürlich Sonderzeichen beinhalten.\footnote{Details zur Arbeitsweise von \mintinline{latex}{fontenc} gibt dieser Beitrag: \url{https://www.texwelt.de/fragen/5537/was-macht-eigentlich-usepackaget1fontenc}}
 \mintinline{latex}{T1} ist eine Kodierung, die mit einer begrenzten Anzahl an Zeichen europäische Sprachen abzubilden versucht.
 
-\subsubsection{Sprache}\label{subsubsec:sprache}
+\subsubsection{Sprache}\label{subsubsec:language}
 \begin{minted}{latex}
 \usepackage[ngerman]{babel}
 \end{minted}
 
-Das Paket \mintinline{latex}{babel} stellt sprachspezifische Informationen (z.\,B. Silbentrennung, Sonderzeichen, Wechsel zwischen Fonts, Übersetzung von Labels\footnote{Vgl. \cref{sec:referenzen}} wie \enquote{Kapitel}, \enquote{Inhaltsverzeichnis} oder \enquote{Abbildung}) bereit.
+Das Paket \mintinline{latex}{babel} stellt sprachspezifische Informationen (z.\,B. Silbentrennung, Sonderzeichen, Wechsel zwischen Fonts, Übersetzung von Labels\footnote{Vgl. \cref{sec:references}} wie \enquote{Kapitel}, \enquote{Inhaltsverzeichnis} oder \enquote{Abbildung}) bereit.
 Als optionaler Parameter kann die Sprache übergeben werden.
 \mintinline{latex}{ngerman} steht hierbei für die Neue Deutsche Rechtschreibung.
-Manche Pakete erfordern es, dass die Sprachangabe schon als optionaler Parameter dem \mintinline{latex}{\documentclass}-Befehl\footnote{Vgl. \cref{subsubsec:dokumentklasse}} übergeben wird.
+Manche Pakete erfordern es, dass die Sprachangabe schon als optionaler Parameter dem \mintinline{latex}{\documentclass}-Befehl\footnote{Vgl. \cref{subsubsec:document-class}} übergeben wird.
 In diesem Fall wird der optionale Parameter beim Einbinden von \mintinline{latex}{babel} einfach weggelassen.
 
 In einem Dokument können auch mehrere Sprachen verwendet werden.
@@ -94,14 +94,14 @@ Wir sprechen hier von einem Kommentar.
 
 Falls tatsächlich ein Prozentzeichen erscheinen soll, könnt ihr dies durch einen Backslash erreichen: \mintinline{latex}{\%}.
 Diese Lösung, die auch als Escaping bezeichnet wird, funktioniert auch für die Zeichen \#, \$, \&, \_, \{ und \}.
-Für den Backslash muss der Befehl \mintinline{latex}{\textbackslash} verwendet werden.\footnote{Eine Übersicht weiterer Sonderzeichen ist im zugehörigen \cref{sec:sonderzeichen} zu finden.}
+Für den Backslash muss der Befehl \mintinline{latex}{\textbackslash} verwendet werden.\footnote{Eine Übersicht weiterer Sonderzeichen ist im zugehörigen \cref{sec:special-characters} zu finden.}
 
 \subsubsection{Abschnitte und Kapitel}
 Texte werden durch Überschriften in Abschnitte und Kapitel unterteilt.
-Immer nutzbar sind die in \cref{lst:ueberschriften} dargestellten Befehle.
-\Example{lst:ueberschriften}{grundstruktur/ueberschriften}{grundstruktur/ueberschriften_crop}{Überschriftenebenen}
+Immer nutzbar sind die in \cref{lst:headlines} dargestellten Befehle.
+\Example{lst:headlines}{grundstruktur/ueberschriften}{grundstruktur/ueberschriften_crop}{Überschriftenebenen}
 Je nach Dokumentklasse sind außerdem \mintinline{latex}{\chapter{Kapitel}} und \mintinline{latex}{\part{Teil}} verfügbar -- beispielsweise in Büchern.
-Mit Sternchen fallen bei allen diesen Befehlen die Nummerierung und der Eintrag im Inhaltsverzeichnis\footnote{Vgl. \cref{subsubsec:inhaltsverzeichnis}} weg: 
+Mit Sternchen fallen bei allen diesen Befehlen die Nummerierung und der Eintrag im Inhaltsverzeichnis\footnote{Vgl. \cref{subsubsec:table-of-contents}} weg: 
 
 \begin{minted}{latex}
 \section*{Kommt nicht im Inhaltsverzeichnis vor}
@@ -120,13 +120,13 @@ Mehrere Autoren werden dabei mit \mintinline{latex}{\and} verbunden.
 Fehlt der Befehl \mintinline{latex}{\date}, wird per default das aktuelle Datum gesetzt.
 Die genaue Gestaltung hängt ab von der verwendeten Dokumentklasse.
 
-\Example{lst:titelei}{grundstruktur/titelei}{grundstruktur/titelei_crop}{Die Titelei}
+\Example{lst:titles}{grundstruktur/titelei}{grundstruktur/titelei_crop}{Die Titelei}
 
-\subsubsection{Verzeichnisse}\label{subsubsec:inhaltsverzeichnis}
+\subsubsection{Verzeichnisse}\label{subsubsec:table-of-contents}
 
-Aus allen mit den oben genannten Befehlen eingefügten Abschnitten fügt der Befehl \mintinline{latex}{\tableofcontents} ein automatisch nummeriertes Inhaltsverzeichnis zusammen (wie zum Beispiel in \cref{lst:hauptdatei} auf \cpageref{lst:hauptdatei} zu sehen).
+Aus allen mit den oben genannten Befehlen eingefügten Abschnitten fügt der Befehl \mintinline{latex}{\tableofcontents} ein automatisch nummeriertes Inhaltsverzeichnis zusammen (wie zum Beispiel in \cref{lst:main-file} auf \cpageref{lst:main-file} zu sehen).
 Die Aufzählungszeichen, die Tiefe der Aufzählung und viele weitere Gestaltungselemente sind frei anpassbar.\footnote{Ein empfehlenswerter Blogpost hierzu ist unter \url{https://texblog.org/2011/09/09/10-ways-to-customize-tocloflot/} verfügbar.}
 Damit \LaTeX\ das Inhaltsverzeichnis vollständig baut, muss das Projekt zweimal kompiliert werden.
 
 Neben dem Inhaltsverzeichnis stehen auch eine \mintinline{latex}{\listoffigures} (Abbildungsverzeichnis) und eine \mintinline{latex}{\listoftables} (Tabellenverzeichnis) zur Verfügung.
-Aufgeführt werden jeweils die Bild- oder Tabellenunterschriften.\footnote{Siehe hierzu \cref{sec:grafiken_einbinden} (Grafiken) und \cref{sec:tabellen} (Tabellen).}
+Aufgeführt werden jeweils die Bild- oder Tabellenunterschriften.\footnote{Siehe hierzu \cref{sec:include-graphics} (Grafiken) und \cref{sec:tables} (Tabellen).}

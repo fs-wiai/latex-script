@@ -1,14 +1,14 @@
 \section{Sonderzeichen}
-\label{sec:sonderzeichen}
+\label{sec:special-characters}
 
 \subsection{Leerzeichen}
 
 Das am häufigsten benötigte Sonderzeichen ist ein einfaches Leerzeichen als Wortzwischenraum.
 Dieses Zeichen entsteht in \LaTeX, wenn im Quellcode zwischen anderen Zeichen Leerzeichen oder einzelne Zeilenumbrüche stehen.
 Es gibt aber auch einige andere Arten von Leerzeichen.
-Wie sie verwendet werden können, wird in \cref{lst:leerzeichen} veranschaulicht.
+Wie sie verwendet werden können, wird in \cref{lst:spaces} veranschaulicht.
 
-\example{lst:leerzeichen}{sonderzeichen/leerzeichen}{Unterschiedliche Leerzeichen in \LaTeX}
+\example{lst:spaces}{sonderzeichen/leerzeichen}{Unterschiedliche Leerzeichen in \LaTeX}
 
 \paragraph{English Spacing}
 In englischsprachigen Dokumenten verwendet LaTeX das traditionelle English Spacing, also doppelte Leerzeichen nach dem Satzende.
@@ -21,7 +21,7 @@ Wortzwischenräume (\mintinline[showspaces]{tex}{.\ }) oder Satzenden (\mintinli
 \subsection{Striche}
 Es gibt verschiedene horizontale Striche.
 Am häufigsten werden der Bindestrich (-), der Halbgeviertstrich (–) und der Geviertstrich\footnote{Ein Geviert ist die Zeilenhöhe, die eine Bleiletter aus dem Buchdruck einnimmt.} (—) verwendet.
-Diese drei Striche werden in \LaTeX{} durch unterschiedlich viele Bindestriche im Quelltext erzeugt, wie \cref{tbl:striche} zeigt.
+Diese drei Striche werden in \LaTeX{} durch unterschiedlich viele Bindestriche im Quelltext erzeugt, wie \cref{tbl:bars} zeigt.
 
 \begin{longtable}{@{}llp{7.8cm}@{}}
 	\toprule
@@ -32,12 +32,12 @@ Diese drei Striche werden in \LaTeX{} durch unterschiedlich viele Bindestriche i
 	\mintinline{tex}|---| & Geviertstrich     & a dash\,—\,mostly used in American English \\
 	\bottomrule
 	\caption{Striche in \LaTeX}
-	\label{tbl:striche}
+	\label{tbl:bars}
 \end{longtable}
 
 Der Bindestrich wird zwar auch zur Silbentrennung verwendet, ihr solltet ihn dafür aber nicht explizit im Quellcode eingeben.
-An den meisten Stellen trennt \LaTeX{} automatisch richtig, wenn ihr das passende \texttt{babel}-Paket eingebunden habt.\footnote{Vgl. \cref{subsubsec:sprache}.}
-Wenn dabei etwas schiefgeht, könnt ihr mit den Codes in \cref{tbl:trennstellen} eingreifen:\footnote{Auch dafür muss \texttt{babel} eingebunden sein.}
+An den meisten Stellen trennt \LaTeX{} automatisch richtig, wenn ihr das passende \texttt{babel}-Paket eingebunden habt.\footnote{Vgl. \cref{subsubsec:language}.}
+Wenn dabei etwas schiefgeht, könnt ihr mit den Codes in \cref{tbl:separators} eingreifen:\footnote{Auch dafür muss \texttt{babel} eingebunden sein.}
 
 \begin{longtable}{@{}lp{11cm}@{}}
 	\toprule
@@ -52,11 +52,11 @@ Wenn dabei etwas schiefgeht, könnt ihr mit den Codes in \cref{tbl:trennstellen}
 	\mintinline{tex}|"~| & Bindestrich ohne Trennstelle: Wird verwendet, um den Bindestrich zusammen mit dem folgenden Wort umbrechen zu lassen: \emph{Vorlesungszeit und "~raum} \\
 	\bottomrule
 	\caption{Ausnahmen für die Silbentrennung}
-	\label{tbl:trennstellen}
+	\label{tbl:separators}
 \end{longtable}
 
 \subsection{Anführungszeichen}
-Anführungszeichen können grundsätzlich mit den Codes in \cref{tbl:anfuehrungszeichen} erzeugt werden.
+Anführungszeichen können grundsätzlich mit den Codes in \cref{tbl:quotation-marks} erzeugt werden.
 Entscheidend ist dabei jeweils das Aussehen und nicht die Semantik, weshalb zum Beispiel im Deutschen die französichen Guillemets verkehrt herum verwendet werden (»french left quoation mark« rechts und umgekehrt).
 
 \begin{table}[H]
@@ -74,7 +74,7 @@ Entscheidend ist dabei jeweils das Aussehen und nicht die Semantik, weshalb zum 
 		\bottomrule
 	\end{tabular}
 	\caption{Anführungszeichen}
-	\label{tbl:anfuehrungszeichen}
+	\label{tbl:quotation-marks}
 \end{table}
 
 Deutlich flexibler seid ihr aber mit dem Paket \mintinline{tex}{csquotes}, das den Befehl \mintinline{tex}|\enquote{<zitat>}| zur Verfügung stellt.
@@ -85,7 +85,7 @@ Mit der Option \mintinline{tex}|autostyle=true| beim Paketimport setzt der Befeh
 Wenn ihr Buchstaben mit diakritischen Zeichen direkt über die Tastatur eingeben könnt – beispielsweise die deutschen Umlaute oder gängige Akzente auf einer deutschen Tastatur –, könnt ihr das auch direkt im Quelltext tun.
 Die Zeichen bleiben dann im Output erhalten.
 Ansonsten können die Diakritika auch per Escape-Codes erzeugt werden.
-\cref{tbl:diakritika} gibt nur einige Beispiele an – die Buchstaben lassen sich natürlich austauschen, es gibt aber auch noch viele andere Diakritika.
+\cref{tbl:diacritics} gibt nur einige Beispiele an – die Buchstaben lassen sich natürlich austauschen, es gibt aber auch noch viele andere Diakritika.
 
 \begin{table}[H]
 	\center
@@ -100,13 +100,13 @@ Ansonsten können die Diakritika auch per Escape-Codes erzeugt werden.
 		\bottomrule
 	\end{tabular}
 	\caption{Diakritika}
-	\label{tbl:diakritika}
+	\label{tbl:diacritics}
 \end{table}
 
 \subsection{Andere Sonderzeichen}
 Einige Sonderzeichen, beispielsweise das Prozentzeichen, sind für die \LaTeX{}-Syntax reserviert und können nicht als normale Zeichen verwendet werden.
 Diese und viele, viele weitere Sonderzeichen können über eigene Befehle erzeugt werden.
-Dabei ist zu beachten, dass manche Sonderzeichen nur in Mathe-Umgebungen (siehe \cref{sec:formeln}) funktionieren, andere brauchen zusätzliche Pakete.
+Dabei ist zu beachten, dass manche Sonderzeichen nur in Mathe-Umgebungen (siehe \cref{sec:formulas}) funktionieren, andere brauchen zusätzliche Pakete.
 
 \begin{table}[H]
 	\center
@@ -135,7 +135,7 @@ Dabei ist zu beachten, dass manche Sonderzeichen nur in Mathe-Umgebungen (siehe 
 		\bottomrule
 	\end{tabular}
 	\caption{Einige Sonderzeichen}
-	\label{tbl:sonderzeichen}
+	\label{tbl:special-characters}
 \end{table}
 Falls ihr mal ein Sonderzeichen braucht, von dem ihr nicht genau wisst, wie es heißt, hilft euch \emph{Detexify}\footnote{\url{http://detexify.kirelabs.org/classify.html}} – ihr könnt das Symbol zeichnen und bekommt alle nötigen Infos.
 Dass es von Keilschrift bis zu technischen Symbolen wirklich \emph{alles} gibt, stellt ihr fest, wenn ihr durch die \emph{Comprehensive \LaTeX{} Symbol List}\footnote{\url{http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf}} blättert.

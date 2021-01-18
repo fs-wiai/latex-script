@@ -3,15 +3,15 @@
 Von Haus aus unterstützt \LaTeX\ drei Aufzählungstypen: ungeordnete und geordnete Listen sowie Definitionslisten.
 Zu jedem dieser Typen existieren eigene Umgebungen, die aber grundsätzlich gleich aufgebaut sind.
 
-\example{lst:UnorderedList}{aufzaehlungen/verschachtelt}{Beispielhafte ungeordnete Aufzählung}
+\example{lst:unordered-list}{aufzaehlungen/verschachtelt}{Beispielhafte ungeordnete Aufzählung}
 
-In \cref{lst:UnorderedList-code} werden verschiedene Listenelemente (\mintinline{latex}{\item}) von einer \mintinline{latex}{itemize}-Umgebung eingerahmt.
+In \cref{lst:unordered-list-code} werden verschiedene Listenelemente (\mintinline{latex}{\item}) von einer \mintinline{latex}{itemize}-Umgebung eingerahmt.
 Innerhalb eines Listenelements kann eine neue Listen\-umgebung eröffnet werden, um eine verschachtelte Liste zu erhalten.
 Ersetzt man \mintinline{latex}{itemize} durch \mintinline{latex}{enumerate}, erhält man bei sonst gleichem Quelltext eine geordnete Liste.
 Für etwas weniger gebräuchliche Definitionslisten muss die Umgebung \mintinline{latex}{description} verwendet werden.
-Außerdem erhalten die Elemente in eckigen Klammern den zu definierenden Begriff (\cref{lst:DefinitionList}).
+Außerdem erhalten die Elemente in eckigen Klammern den zu definierenden Begriff (\cref{lst:definition-list}).
 
-\Example{lst:DefinitionList}{aufzaehlungen/definition}{aufzaehlungen/definition_crop}{Beispielhafte Definitionsliste}
+\Example{lst:definition-list}{aufzaehlungen/definition}{aufzaehlungen/definition_crop}{Beispielhafte Definitionsliste}
 
 Die sehr großen Abstände zwischen einzelnen Listenelementen können durch das Paket \mintinline{latex}{paralist}\footnote{\url{https://www.ctan.org/pkg/paralist}} verringert werden.
 Hierzu wird nur der Umgebungsname ersetzt: \mintinline{latex}{compactitem} statt \mintinline{latex}{itemize}, \mintinline{latex}{compactenum} statt \mintinline{latex}{enumerate} und \mintinline{latex}{compactdesc} statt \mintinline{latex}{description}.

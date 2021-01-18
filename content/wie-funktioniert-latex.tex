@@ -1,5 +1,5 @@
 \section{Wie funktioniert \LaTeX?}
-\label{sec:wie_funktioniert_latex_}
+\label{sec:latex-basic-functionality}
 
 Programme zur Textverarbeitung und Dokumentenerstellung nutzen unterschiedliche Vorgehensweisen, um basierend auf einer bearbeiteten Datei ein Dokument zu erstellen.
 Wer mit Microsoft Word vertraut ist, dem ist bekannt, dass das von der Export-Funktion erstellte Dokument (häufig einfach als \acro{PDF}-Dokument bezeichnet) genau so aussieht, wie Word das bearbeitete Dokument darstellt.
@@ -14,7 +14,7 @@ Der Inhalt wird in einem Dokument in einfacher Textform platziert, zusammen mit 
 Bei Erstellung des Ausgabedokuments (ebenfalls ein \acro{PDF}-Dokument) werden die Befehle von einem Programm namens Compiler verarbeitet.
 
 Der Compiler nimmt den Quelltext entgegen und liest ihn Zeile für Zeile.
-Trifft er auf einen Befehl (eine bestimmte Zeichenkette, vgl. \cref{sub:die_befehle}), interpretiert er diesen und sorgt etwa für die richtige Darstellung des mit dem Befehl markierten Textes im Ausgabedokument.\footnote{Es sei an dieser Stelle bereits angemerkt, dass Befehle nicht nur genutzt werden, um einzelne Textpassagen, überschriften und so weiter auszuzeichnen. Im Laufe dieses Skriptes werden wir verschiedene Befehle kennenlernen, die ganz unterschiedliche Funktionen erfüllen.}
+Trifft er auf einen Befehl (eine bestimmte Zeichenkette, vgl. \cref{subsec:command-structure}), interpretiert er diesen und sorgt etwa für die richtige Darstellung des mit dem Befehl markierten Textes im Ausgabedokument.\footnote{Es sei an dieser Stelle bereits angemerkt, dass Befehle nicht nur genutzt werden, um einzelne Textpassagen, überschriften und so weiter auszuzeichnen. Im Laufe dieses Skriptes werden wir verschiedene Befehle kennenlernen, die ganz unterschiedliche Funktionen erfüllen.}
 Hervorgehebene Zeichenketten (z.\,B. \mintinline{latex}{\emph{hervorgehobener Text}}) erscheinen dann beispielsweise kursiv im Dokument (\emph{hervorgehobener Text}), während die Zeichenkette, die den Befehl bildet (\mintinline{latex}{\emph{}}), nicht in der \acro{PDF}-Datei auftaucht.
 
 Dieses einfache Beispiel verdeutlicht eine Stärke des \acro{WYGIWYM}-Prinzips. 
@@ -23,7 +23,7 @@ Das Prinzip ist ähnlich zu Formatvorlagen in Office-Programmen, wenn auch konse
 Basierend auf dem Text, den Befehlen und den Standard-Einstellungen des Compilers entsteht so das finale Dokument.
 
 \subsection{Was brauchen wir dazu?}
-\label{sub:was_brauchen_wir_dazu}
+\label{subsec:what-we-need}
 Um den Quelltext zu erstellen, auf dessen Basis der Compiler ein Dokument erstellen soll, wird ein Bearbeitungsprogramm benötigt.
 Grundsätzlich ist ein einfaches Textbearbeitungsprogramm wie der Editor unter Windows oder auch Notepad++\footnote{Verfügbar unter \url{https://notepad-plus-plus.org/}.} ausreichend.
 Fortgeschrittene Programme wie TeXstudio\footnote{Verfügbar unter \url{https://www.texstudio.org/}.} oder Texmaker\footnote{Verfügbar unter \url{https://www.xm1math.net/texmaker/}.} integrieren zusätzliche Funktionen, welche die Verwendung von Befehlen erleichtern.
@@ -31,8 +31,8 @@ Falls ihr aus einem anderen Kontext bereits Visual Studio Code oder Atom kennt, 
 
 Zum Kompilieren des Quelltexts wird ein Compiler benötigt.
 Der Compiler ist meist Teil einer Sammlung von Programmen und Paketen, die zusammen eine \LaTeX-Distribution bilden.
-Die Distributionen enthalten verschiedene andere Hilfsprogramme, auf die wir für den Moment nicht näher eingehen.\footnote{Eines dieser Hilfsprogramme kommt später im Kapitel \ref{sec:literatur} zum Einsatz, wenn wir Literatur referenzieren.}
-Die ebenfalls enthaltenen Pakete\footnote{Die ganz Eiligen finden in \cref{subsub:pakete} mehr Informationen.} stellen verschiedene Befehle zur Verfügung.
+Die Distributionen enthalten verschiedene andere Hilfsprogramme, auf die wir für den Moment nicht näher eingehen.\footnote{Eines dieser Hilfsprogramme kommt später im Kapitel \ref{sec:literature} zum Einsatz, wenn wir Literatur referenzieren.}
+Die ebenfalls enthaltenen Pakete\footnote{Die ganz Eiligen finden in \cref{subsubsec:packages} mehr Informationen.} stellen verschiedene Befehle zur Verfügung.
 Manche Distributionen gibt es als normale und als vollständige Variante zum Download. 
 Die vollständige Variante enthält alle Pakete (und ist entsprechend wesentlich größer), während in der normalen Version Pakete erst dann heruntergeladen werden, wenn sie benötigt werden.
 Die Entscheidung, ob ihr lieber zu Beginn oder später während des Arbeitens auf den Download wartet, können wir euch leider nicht abnehmen.
@@ -41,7 +41,7 @@ Bekannte Distributionen sind MiK\TeX,\footnote{Für Windows, macOS und Linux. Ve
 Installiert euch am besten gleich eine davon.
 
 \subsection{Die Befehle}
-\label{sub:die_befehle}
+\label{subsec:command-structure}
 Die in Quelltext verwendeten Befehle folgen einem allgemeinen Aufbau:
 \begin{minted}{xml}
 \<befehl>[<optionale_parameter>]{<obligatorische_parameter>}

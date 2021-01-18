@@ -1,5 +1,5 @@
 \section{Literaturverwaltung}
-\label{sec:literatur}
+\label{sec:literature}
 
 Um die ersten Studien- oder Abschlussarbeiten in \LaTeX\ zu setzen, fehlt uns jetzt nur noch eine Möglichkeit, Literatur zu referenzieren.
 Unsere Literatursammlung liegt in der sogenannten .bib-Datei.
@@ -48,7 +48,7 @@ Als hochwertige (wenn auch leider nicht vollständige) Quelle für Bib\TeX-Eintr
 \end{figure}
 
 \subsection{Zitieren}
-Durch Bib\TeX{} wird \LaTeX{} um einige Befehle zum Zitieren erweitert (vgl. \cref{tab:bibtex-commands}). 
+Durch Bib\TeX{} wird \LaTeX{} um einige Befehle zum Zitieren erweitert (vgl. \cref{tbl:bibtex-commands}). 
 Zusätzlich benötigt wird das Paket \mintinline{latex}{natbib}.
 
 \begin{table}[H]
@@ -63,11 +63,11 @@ Zusätzlich benötigt wird das Paket \mintinline{latex}{natbib}.
   Zitierstil ändern        & \mintinline{latex}{\bibliographystyle{<zitierstil>}} \\ \bottomrule
   \end{tabular}
   \caption{Befehle zum Zitieren von Literatur}
-  \label{tab:bibtex-commands}
+  \label{tbl:bibtex-commands}
 \end{table}
 
 Als \mintinline{latex}{<quelle>} einer Zitation wird immer der Bib\TeX-Key angegeben.
 Verfügbare Zitierstile\footnote{Eine vollständigere Liste ist bei Overleaf zu finden: \url{https://www.overleaf.com/learn/latex/Biblatex_citation_styles}} sind zum Beispiel alpha, natdin und apa.
 Das Literaturverzeichnis erscheint immer an der Stelle, an der der Befehl \mintinline{latex}{\bibliography{<.bib-datei>}} aufgerufen wurde.
 
-\Example{lst:natdin-beispiel}{literaturverwaltung/natdin-example}{literaturverwaltung/natdin-example_bib}{Beispiel für Zitationen im Stil \mintinline{latex}{natdin}.}
+\Example{lst:natdin-example}{literaturverwaltung/natdin-example}{literaturverwaltung/natdin-example_bib}{Beispiel für Zitationen im Stil \mintinline{latex}{natdin}.}
