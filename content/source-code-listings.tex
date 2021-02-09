@@ -1,0 +1,70 @@
+\section{Quelltext-Listings}
+\label{sec:source-code-listings}
+
+Um Quelltext in eigenen Arbeiten darzustellen, gibt es in \LaTeX verschiedene Wege.
+Wir verwenden hierfür gern das Paket \mintinline{latex}{minted}, das zwar etwas zusätzlichen Installationsaufwand verursacht, dafür aber ansprechende Ergebnisse generiert und gut zu handhaben ist.
+
+\subsection{Installation}
+\todo{Nochmal prüfen, wie der python-Befehl wirklich heißt. Anleitungen für verschiedene Betriebssysteme verlinken. Vor Änderungen in PATH warnen. In Windows: python -\-version, in Ubuntu: python3 -\-version}
+Zur Verwendung von \mintinline{latex}{minted} ist eine Installation der Programmiersprache Python 3 notwendig. Je nachdem, welches Betriebsystem ihr nutzt, kann es sein, dass Python 3 bei euch schon installiert ist. Das könnt ihr durch die Engabe des Befehls \mintinline{bash}{python --version} oder \mintinline{bash}{python3 --version} in einem Terminal\footnote{Navigation unter Windows: \faWindows\ + R → \enquote{cmd} eingeben → Enter} herausfinden 
+
+Sollte Python bei euch  noch nicht installiert sein, sind die Installationsdateien auf der Projekt-Website\footnote{Verfügbar unter \url{https://www.python.org/downloads/}.} zu finden.
+Ein ausführlicherer Beitrag zur Installation unter Windows\footnote{Jason Fitzpatrick, How to Install Python on Windows. How-To Geek. July 11, 2017. Verfügbar unter \url{https://www.howtogeek.com/197947/how-to-install-python-on-windows/}.}, Linux\footnote{ \url{https://docs.python-guide.org/starting/install3/linux/}} oder MacOS\footnote{\url{https://docs.python-guide.org/starting/install3/osx/}} führt euch durch die verschiedenen Schritte, die speziell für euer Betriebssystem notwendig sind.\footnote{Insbesondere das Anpassen des Systempfads sollte unter Windows nicht vergessen werden.}
+
+Nach der erfolgreichen Installation solltet ihr, je nach Betriebssystem, in der Eingabeaufforderung den oben genannten Befehl noch mal eingeben und mit Enter bestätigen können und in etwa folgendes Ergebnis erhalten:
+
+\begin{minted}[]{bash}
+$ python --version
+Python 3.8.5
+\end{minted}
+
+\noindent Sollte die Versionsnummer höher sein, ist alles bestens. 
+Im gleichen Fenster gebt ihr jetzt den Befehl \mintinline{bash}{pip install Pygments}\footnote{Achtung: In einigen Betriebssystem lautet der Befehl \mintinline{bash}{pip3 install Pygments}} ein, womit das Pygments-Paket für Python installiert wird.
+Nach Abschluss dieses Vorgangs könnt ihr das \LaTeX-Paket \mintinline{latex}{minted} über \mintinline{latex}{\usepackage{minted}} einbinden.
+
+
+\subsection{Compiler-Befehl ändern}
+Bevor es allerdings richtig losgehen kann, müssen wir noch eine Kleinigkeit im Compile-Prozess anpassen.
+Normalerweise ruft euer Editor beim Klick auf den grünen Pfeil etwa den folgenden Befehl auf: 
+
+\begin{minted}[]{bash}
+$ pdflatex main.tex
+\end{minted}
+
+\noindent Welcher Befehl das bei euch genau ist, könnt ihr in \TeX{}studio unter \enquote{Optionen → \TeX{}studio konfigurieren → Befehle} einsehen.
+Neben Pdf\LaTeX{} seht ihr den Befehl.
+Die Datei, die kompiliert werden soll, wird hier durch \mintinline{bash}{%.tex} angegeben.
+Außerdem sind üblicherweise noch zwei zusätzliche Angaben enthalten, jeweils mit einem Bindestrich davor (\mintinline{bash}{-synctex=1 -interaction=nonstopmode}).
+Diese Angaben heißen Flags und konfigurieren das Programm \mintinline{bash}{pdflatex}. 
+Eine solche Flag müssen wir ergänzen.
+Platziert die Angabe \mintinline{bash}{-shell-escape} vor der Datei-Angabe (\mintinline{bash}{%.tex}):
+
+\begin{minted}[]{bash}
+pdflatex -synctex=1 -interaction=nonstopmode -shell-escape %.tex
+\end{minted}
+
+\noindent Nach Klick auf \enquote{Okay} ist der Einrichtungsschritt abgeschlossen.
+Auch andere Editoren bieten die Möglichkeit, den Kompilierbefehl anzupassen.
+Schaut am besten mal in die Einstellungen oder bemüht eine Suchmaschine.
+
+\subsection{Quelltext setzen}
+Jetzt kann der eigentliche Spaß losgehen.
+Quelltext könnt ihr von nun an unter Angabe der Sprache in einer eigenen Umgebung setzen:
+
+\example{lst:minted-environment}{source-code-listings/minted-environment}{Beispielhaftes Quelltext-Listing}
+
+\example{lst:minted-variants}{source-code-listings/minted-variants}{Kurzschreibweise und Inline-Listing}
+
+\noindent Außerdem gibt es eine Kurzschreibweise und eine Inline-Variante des Befehls (vgl. \cref{lst:minted-variants}).
+Um Redundanz zu vermeiden, ist es manchmal praktisch, den Quelltext direkt aus der Quelldatei einzulesen.
+Hierzu müssen nur die verwendete Programmiersprache und der Dateipfad an den Befehl \mintinline{latex}{\inputminted} übergeben werden (vgl. \cref{lst:minted-external}).
+
+\example{lst:minted-external}{source-code-listings/minted-import}{Einbinden aus einer externen Datei}
+
+\subsection{Minted konfigurieren}
+
+Durch optionale Parameter können Zeilennummerierung, Umbrüche und Farben ausgewählt werden. 
+Außerdem sind zahlreiche Themes verfügbar (\cref{lst:minted-external-styled}).
+Einen umfänglichen Überblick geben die Einführung von Overleaf und die Dokumentation.\footnote{Verfügbar unter \url{https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted} bzw. \url{https://ctan.kako-dev.de/macros/latex/contrib/minted/minted.pdf}.}
+
+\example{lst:minted-external-styled}{source-code-listings/minted-import-styled}{Themes und weitere Optionen}
