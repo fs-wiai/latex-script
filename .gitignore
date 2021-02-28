@@ -80,3 +80,6 @@ _minted*
 *.swo
 
 main.pdf
+exercise-mode.tex
+public
+

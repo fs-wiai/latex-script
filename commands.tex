@@ -96,3 +96,63 @@
 		\label{#1}
 	\end{figure}
 }
+
+% Exercise mode
+% =============
+% The exercise mode can be chosen by writing one of the following to the exercise-mode.tex file before compilation:
+% \newcommand\exercisemode{none}      % for a blank script without exercises
+% \newcommand\exercisemode{exercises} % for a script with exercises only
+% \newcommand\exercisemode{solutions} % for a script with solutions only
+% \newcommand\exercisemode{any}       % for a script containing all available material
+% The following lines include that file or make \exercisemode default to 'any' so that any derivatives of this project will work even without the file.
+\IfFileExists{exercise-mode.tex}{
+	\input{exercise-mode.tex}
+}{
+	\newcommand\exercisemode{any}
+}
+
+% Exercises
+% =========
+% Includes the task.tex file within the given subfolder of exercises and adds a heading.
+\newcommand\exercise[1]{
+	\ifthenelse{\equal{\exercisemode}{none}}{
+		% Exercises disabled.
+	}{
+		\subsection*{Übung}
+		\input{exercises/#1/task.tex}
+	}
+}
+
+% Exercise Material
+% =================
+% Takes a project-relative path, and inserts matching exercise material and/or solutions, depending on the exercise mode.
+\newcommand\exercisematerial[1]{
+	% Mode 'exercises': raw material only
+	\ifthenelse{\equal{\exercisemode}{exercises}}{
+		\IfFileExists{#1.raw.tex}{
+			\input{#1.raw.tex}
+		}{}
+	}{}
+	% Mode 'solutions': completed material only
+	\ifthenelse{\equal{\exercisemode}{solutions}}{
+		\IfFileExists{#1.done.tex}{
+			\input{#1.done.tex}
+		}{}
+	}{}
+	% Mode 'any': all existing material. If both raw and completed material exist, headings are added for each.
+	\ifthenelse{\equal{\exercisemode}{any}}{
+		\IfFileExists{#1.raw.tex}{
+			\IfFileExists{#1.done.tex}{
+				\subsubsection*{Vorschau des ungelösten Materials}
+			}{}
+			\input{#1.raw.tex}
+		}{}
+		\IfFileExists{#1.done.tex}{
+			\IfFileExists{#1.raw.tex}{
+				\subsubsection*{Vorschau des gelösten Materials}
+			}{}
+			\input{#1.done.tex}
+		}{}
+	}{}
+}
+
