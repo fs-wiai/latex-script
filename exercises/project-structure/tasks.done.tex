@@ -1,0 +1,23 @@
+\begin{enumerate}
+  \item 
+    \textbf{Lagert die einzelnen Abschnitte in eigene Dateien \mintinline{latex}{section1.tex}, \mintinline{latex}{section2.tex} und \mintinline{latex}{section3.tex} aus und bindet sie mittels \mintinline{latex}{\include} ein.}
+    \begin{figure}[H]
+      \inputminted[linenos=true]{latex}{exercises/project-structure/main-with-preamble.done.tex}
+      \caption{\mintinline{latex}{main.tex}}
+    \end{figure}
+    \begin{figure}[H]
+      \inputminted[linenos=true,breaklines=true]{latex}{exercises/project-structure/section1.done.tex}
+      \caption{\mintinline{latex}{section1.tex} (analog für die anderen Abschnitte)}
+    \end{figure}
+  \item 
+    \textbf{Welcher Befehl wird durch \mintinline{latex}{\include} überflüssig?} \\
+    \mintinline{latex}{\include} sorgt eigenständig dafür, dass der Inhalt jeder eingebundener Datei auf einer eigenen Seite erscheint. Der Befehl \mintinline{latex}{\newpage} ist somit überflüssig.
+  \item 
+    \textbf{Kann auch die Präambel ausgelagert werden? Wenn nicht, warum? Wenn doch, wofür ist diese Vorgehensweise eventuell nützlich?} \\
+    Auch die Präambel kann ausgelagert werden. Das Vorgehen entspricht dem aus Aufgabe 1 bekannten. In realen \LaTeX-Projekten sind häufig sehr viele Pakete eingebunden, die oftmals mit zusätzlichen Befehlen in der Präambel konfiguriert werden müssen. Es ist daher gute Praxis, die Präambel auszulagern. Das hat zudem den Vorteil, dass wir eine Datei mit den am häufigsten verwendeten Paketen einfach von einem Projekt ins andere mitnehmen können, ohne unsere Präambel immer wieder neu zu schreiben.
+  \item 
+    \textbf{Ergänzt in der Präambel den Befehl \mintinline{latex}{\includeonly{section2}}. Kompiliert das Dokument und prüft, was sich geändert hat. Welche Funktion hat dieser Befehl und wofür könnte er bei einem größeren Projekt hilfreich sein? } \\
+    Der Befehl \mintinline{latex}{\includeonly{section2}} tut genau, was er sagt. Beim Kompilieren werden unter allen \mintinline{latex}{\include}-Statements nur noch diejenigen beachtet, deren Dateinamen auch in \mintinline{latex}{\includeonly{datei1,datei2,…}} vorkommen.
+    
+    Wenn in größeren Projekten die Kompilierzeit mit jeder Seite länger wird, ist \mintinline{latex}{\includeonly} sehr nützlich. Mit der richtigen Einstellung wird nur kompiliert, woran wir gerade arbeiten. Vor dem finalen Kompiliervorgang können wir dann das \mintinline{latex}{\includeonly}-Statement entfernen und erhalten unser vollständiges PDF.
+\end{enumerate}
