@@ -82,4 +82,4 @@ _minted*
 main.pdf
 exercise-mode.tex
 public
-
+exercises/*/*.pdf
