@@ -49,7 +49,7 @@ Als hochwertige (wenn auch leider nicht vollständige) Quelle für Bib\TeX-Eintr
 
 \subsection{Zitieren}
 Durch Bib\TeX{} wird \LaTeX{} um einige Befehle zum Zitieren erweitert (vgl. \cref{tbl:bibtex-commands}). 
-Zusätzlich benötigt wird das Paket \mintinline{latex}{natbib}.
+Zusätzlich benötigt wird das Paket \mintinline{sh}{natbib}.
 
 \begin{table}[H]
   \centering
@@ -69,5 +69,6 @@ Zusätzlich benötigt wird das Paket \mintinline{latex}{natbib}.
 Als \mintinline{latex}{<quelle>} einer Zitation wird immer der Bib\TeX-Key angegeben.
 Verfügbare Zitierstile\footnote{Eine vollständigere Liste ist bei Overleaf zu finden: \url{https://www.overleaf.com/learn/latex/Biblatex_citation_styles}} sind zum Beispiel alpha, natdin und apa.
 Das Literaturverzeichnis erscheint immer an der Stelle, an der der Befehl \mintinline{latex}{\bibliography{<.bib-datei>}} aufgerufen wurde.
+Zum Befehl \mintinline{latex}{\cite} existieren zahlreiche weitere Varianten\footnote{Vgl. \url{https://www.economics.utoronto.ca/osborne/latex/BIBTEX.HTM.}}.
 
 \Example{lst:natdin-example}{literature/natdin-example}{literature/natdin-example_bib}{Beispiel für Zitationen im Stil \mintinline{latex}{natdin}.}
