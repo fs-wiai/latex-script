@@ -20,6 +20,17 @@ preview: main.tex
 	@echo
 	@echo Run \'make publication\' a few times to generate PDF and ZIP file for publication.
 
+# Compile a preview PDF containing all contents and the literature
+preview-with-literature: main.tex
+	echo "\newcommand\exercisemode{any}" > exercise-mode.tex
+	pdflatex -shell-escape main.tex
+	bibtex main.aux
+	pdflatex -shell-escape main.tex
+	pdflatex -shell-escape main.tex
+	@echo
+	@echo
+	@echo Run \'make publication\' a few times to generate PDF and ZIP file for publication.
+
 # Build all PDF and ZIP variants
 publication: publication-pdf-without-exercises publication-pdf-with-exercises publication-pdf-with-solutions publication-zip-with-exercises publication-zip-with-solutions
 
@@ -35,11 +46,17 @@ publication-dir:
 publication-pdf-without-exercises: publication-dir main.tex
 	echo "\newcommand\exercisemode{none}" > exercise-mode.tex
 	pdflatex -shell-escape -jobname=script-only main.tex
+	bibtex main.aux
+	pdflatex -shell-escape -jobname=script-only main.tex
+	pdflatex -shell-escape -jobname=script-only main.tex
 	mv script-only.pdf public/
 	
 # Compile a printable PDF with exercises and without solutions
 publication-pdf-with-exercises: publication-dir main.tex
 	echo "\newcommand\exercisemode{exercises}" > exercise-mode.tex
+	pdflatex -shell-escape -jobname=script-with-exercises main.tex
+	bibtex main.aux
+	pdflatex -shell-escape -jobname=script-with-exercises main.tex
 	pdflatex -shell-escape -jobname=script-with-exercises main.tex
 	mv script-with-exercises.pdf public/
 
@@ -47,14 +64,17 @@ publication-pdf-with-exercises: publication-dir main.tex
 publication-pdf-with-solutions: publication-dir main.tex
 	echo "\newcommand\exercisemode{solutions}" > exercise-mode.tex
 	pdflatex -shell-escape -jobname=script-with-solutions main.tex
+	bibtex main.aux
+	pdflatex -shell-escape -jobname=script-with-solutions main.tex
+	pdflatex -shell-escape -jobname=script-with-solutions main.tex
 	mv script-with-solutions.pdf public/
 
 # Build a ZIP file with tasks and without solutions
 publication-zip-with-exercises: publication-dir main.tex
-	zip public/project-with-exercises main.tex praeamble.tex commands.tex literature.bib content/* graphics/* listings/**/*.{tex,pdf} exercises/**/{task.tex,*.raw.tex}
+	zip public/project-with-exercises main.tex praeamble.tex commands.tex content/* graphics/* listings/**/*.{tex,pdf,bib} exercises/**/{task.tex,*.raw.tex,*.raw.bib}
 
 # Build a ZIP file with tasks and solutions
 publication-zip-with-solutions: publication-dir main.tex
-	zip public/project-with-solutions main.tex praeamble.tex commands.tex literature.bib content/* graphics/* listings/**/*.{tex,pdf} exercises/**/{task.tex,*.done.tex}
+	zip public/project-with-solutions main.tex praeamble.tex commands.tex content/* graphics/* listings/**/*.{tex,pdf,bib} exercises/**/{task.tex,*.done.tex,*.done.bib}
 
 	
