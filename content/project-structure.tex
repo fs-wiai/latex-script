@@ -7,7 +7,6 @@ Um nicht den Überblick im Quellcode zu verlieren und zu vermeiden, dass Quellda
 \subsection{Hauptdatei} Typischerweise wird bei größeren Projekten mit einer Hauptdatei gearbeitet, die gerne \texttt{main.tex} genannt wird. Sie ist sozusagen das Skelett des Projektes und enthält damit dessen Grundgerüst inklusive der Präambel. In dieser Hauptdatei werden Titel, Inhaltsverzeichnis sowie die einzelnen Kapitel einer Arbeit eingebunden (vgl. \cref{lst:main-file}). Die Einbindung der einzelnen Abschnitte kann entweder mittels \mintinline{latex}{\input{...}} oder \mintinline{latex}{\include{...}} erfolgen. Beide verlangen als Argument den Pfad zur Datei, die eingebunden werden soll. Auf die Unterschiede zwischen den beiden Befehlen gehen wir später noch ein (vgl. \cref{subsec:input-vs-include}).
   
 \example{lst:main-file}{project-structure/main-file}{Typische Struktur einer Hauptdatei in \LaTeX{}}
-\todo{Kommentar und pagenumbering im Beispiel rausnehmen?}
  
 \subsection{Abschnittsdateien}
  Abschnittsdateien sind Dateien, die innerhalb der Hauptdatei eingebunden werden. Diese können in einer Abschlussarbeit beispielsweise einzelne Kapitel sein. Grundsätzlich ist man aber ganz frei in der Entscheidung, wie granular die Aufteilung des Inhaltes in einzelne Dateien gestaltet werden soll.
