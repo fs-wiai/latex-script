@@ -6,6 +6,7 @@ default: preview
 clean: 
 	@echo Cleaning up temporary files.
 	@rm -rf public/*
+	@rm -rf temp/*
 	@rm -f {main,script-only}.{aux,loc,log,out,pdf,soc,toc}
 
 # Compile listings (only needed when listings have changed)
@@ -41,6 +42,7 @@ publication: publication-pdf-without-exercises publication-pdf-with-exercises pu
 # Directory for files to be published
 publication-dir:
 	mkdir -p public/
+	mkdir -p temp/
 
 # Compile a printable PDF without exercises
 publication-pdf-without-exercises: publication-dir main.tex
@@ -71,10 +73,22 @@ publication-pdf-with-solutions: publication-dir main.tex
 
 # Build a ZIP file with tasks and without solutions
 publication-zip-with-exercises: publication-dir main.tex
-	zip public/project-with-exercises main.tex praeamble.tex commands.tex content/* graphics/* listings/**/*.{tex,pdf,bib} exercises/**/{task.tex,*.raw.tex,*.raw.bib}
+	rm -rf temp/*
+	cp --parents main.tex praeamble.tex commands.tex content/* graphics/* listings/**/*{.tex,pdf,bib} temp/
+	cp --parents exercises/**/* temp/
+	rm -f temp/exercises/**/*.done.{tex,bib}
+	find temp/ -name '*.raw.*' -exec bash -c 'sed "s/\.raw\./\./g" <<<{} | xargs mv {}' \;
+	find temp/ -name '*.tex' -exec sed -i -e 's/\.raw\./\./g' {} \;
+	cd temp && zip ../public/project-with-exercises * **/* **/**/*
 
 # Build a ZIP file with tasks and solutions
 publication-zip-with-solutions: publication-dir main.tex
-	zip public/project-with-solutions main.tex praeamble.tex commands.tex content/* graphics/* listings/**/*.{tex,pdf,bib} exercises/**/{task.tex,*.done.tex,*.done.bib}
+	rm -rf temp/*
+	cp --parents main.tex praeamble.tex commands.tex content/* graphics/* listings/**/*.{tex,pdf,bib} temp/
+	cp --parents exercises/**/* temp/
+	rm -f temp/exercises/**/*.raw.{tex,bib}
+	find temp/ -name '*.done.*' -exec bash -c 'sed "s/\.done\./\./g" <<<{} | xargs mv {}' \;
+	find temp/ -name '*.tex' -exec sed -i -e 's/(raw|done)//g' {} \;
+	cd temp && zip ../public/project-with-solutions  * **/* **/**/*
 
 	
