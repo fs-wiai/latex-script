@@ -1,4 +1,4 @@
-\section{Mathematische Formeln}
+\chapter{Mathematische Formeln}
 \label{sec:maths}
 
 Mathematische Formeln können nur im sogenannten Mathmode gesetzt werden, der innerhalb einer Zeile (auch als inline bekannt) durch zwei Dollarzeichen aktiviert wird.
@@ -8,7 +8,7 @@ Wie bei allen Umgebungen kann durch Angabe eines Asterisks (\textasteriskcentere
 
 \example{lst:sample-math-environment}{maths/sample-math-environment}{Beispielhafte Matheumgebungen}
 
-\subsection{Einige Beispiele}
+\section{Einige Beispiele}
 Die \cref{tbl:maths-common-commands,tbl:maths-logic-sets-braces} listen einige häufig in Formeln verwendeten Befehle auf.
 
 \begin{table}[H]
@@ -47,14 +47,14 @@ Die \cref{tbl:maths-common-commands,tbl:maths-logic-sets-braces} listen einige h
   }
 \end{table}
 
-\subsection{Mitwachsende Klammern}
+\section{Mitwachsende Klammern}
 
 Im Zusammenspiel mit Brüchen kommt es vor, dass Klammern mit ihrem Inhalt wachsen sollen.
 Hierfür muss dem Befehl zum Erzeugen der Klammern (\mintinline{latex}{(}, \mintinline{latex}{)}, \mintinline{latex}{[}, \mintinline{latex}{]}, \mintinline{latex}{\lbrace} und \mintinline{latex}{\rbrace}) jeweils ein Positionsmarker (\mintinline{latex}{\left} oder \mintinline{latex}{\right}) vorangestellt werden.
 
 \example{lst:growing-brackets}{maths/growing-brackets}{Beispiel für mitwachsende Klammern}
 
-\subsection{Darstellung von Grenzen}
+\section{Darstellung von Grenzen}
 
 Mit dem Befehl \mintinline{latex}{\limits} lassen sich die Grenzen von Integralen unter und über dem Integralzeichen darstellen.
 Bei Summen, Produkten und Grenzwerten geschieht das automatisch (vgl. \cref{lst:limits}).
@@ -62,7 +62,7 @@ Im Fließtext eignet sich \mintinline{latex}{\limits} nur bedingt.
 
 \example{lst:limits}{maths/limits}{Grenzen von Summen, Produkten, Grenzwerten und Integralen}
 
-\subsection{Ausrichtung mehrerer Gleichungen}
+\section{Ausrichtung mehrerer Gleichungen}
 
 Die Umgebung \mintinline{latex}{align} erlaubt es, Gleichungen zum Beispiel am \texttt{=}-Zeichen auszurichten (vgl. \cref{lst:math-alignment-example}).
 Ausgerichtet wird dabei analog zu Tabellen am \texttt{\&}-Zeichen.
@@ -70,7 +70,7 @@ Zeilenumbrüche werden durch zwei Backslashes markiert.
 
 \Example{lst:math-alignment-example}{maths/align-example}{maths/align-example_crop}{Am Gleichheitszeichen ausgerichtete Gleichungen}
 
-\subsection{Mengenschreibweise}
+\section{Mengenschreibweise}
 
 Manchmal ist es notwendig, im Zusammenhang mit der Mengenschreibweise Prädikate unter Verwendung von textuellen Beschreibungen oder längeren Funktionsnamen zu definieren.
 Im Mathmode wird die Zeichensetzung von \LaTeX nicht auf Fließtext, sondern auf Formeln ausgerichtet, was zu ungünstigen Anordnungen zusammenhängender Buchstabenketten führt.

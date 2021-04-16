@@ -1,10 +1,10 @@
-\section{Quelltext-Listings}
+\chapter{Quelltext-Listings}
 \label{sec:source-code-listings}
 
 Um Quelltext in eigenen Arbeiten darzustellen, gibt es in \LaTeX verschiedene Wege.
 Wir verwenden hierfür gern das Paket \mintinline{latex}{minted}, das zwar etwas zusätzlichen Installationsaufwand verursacht, dafür aber ansprechende Ergebnisse generiert und gut zu handhaben ist.
 
-\subsection{Installation}
+\section{Installation}
 Zur Verwendung von \mintinline{latex}{minted} ist eine Installation der Programmiersprache Python 3 notwendig. Je nachdem, welches Betriebsystem ihr nutzt, kann es sein, dass Python 3 bei euch schon installiert ist. Das könnt ihr durch die Engabe des Befehls \mintinline{bash}{python --version} oder \mintinline{bash}{python3 --version} in einem Terminal\footnote{Navigation unter Windows: \faWindows\ + R → \enquote{cmd} eingeben → Enter} herausfinden 
 
 Sollte Python bei euch  noch nicht installiert sein, sind die Installationsdateien auf der Projekt-Website\footnote{Verfügbar unter \url{https://www.python.org/downloads/}.} zu finden.
@@ -22,7 +22,7 @@ Im gleichen Fenster gebt ihr jetzt den Befehl \mintinline{bash}{pip install Pygm
 Nach Abschluss dieses Vorgangs könnt ihr das \LaTeX-Paket \mintinline{latex}{minted} über \mintinline{latex}{\usepackage{minted}} einbinden.
 
 
-\subsection{Compiler-Befehl ändern}
+\section{Compiler-Befehl ändern}
 Bevor es allerdings richtig losgehen kann, müssen wir noch eine Kleinigkeit im Compile-Prozess anpassen.
 Normalerweise ruft euer Editor beim Klick auf den grünen Pfeil etwa den folgenden Befehl auf: 
 
@@ -46,7 +46,7 @@ pdflatex -synctex=1 -interaction=nonstopmode -shell-escape %.tex
 Auch andere Editoren bieten die Möglichkeit, den Kompilierbefehl anzupassen.
 Schaut am besten mal in die Einstellungen oder bemüht eine Suchmaschine.
 
-\subsection{Quelltext setzen}
+\section{Quelltext setzen}
 Jetzt kann der eigentliche Spaß losgehen.
 Quelltext könnt ihr von nun an unter Angabe der Sprache in einer eigenen Umgebung setzen:
 
@@ -60,7 +60,7 @@ Hierzu müssen nur die verwendete Programmiersprache und der Dateipfad an den Be
 
 \example{lst:minted-external}{source-code-listings/minted-import}{Einbinden aus einer externen Datei}
 
-\subsection{Minted konfigurieren}
+\section{Minted konfigurieren}
 
 Durch optionale Parameter können Zeilennummerierung, Umbrüche und Farben ausgewählt werden. 
 Außerdem sind zahlreiche Themes verfügbar (\cref{lst:minted-external-styled}).

@@ -118,8 +118,15 @@
 	\ifthenelse{\equal{\exercisemode}{none}}{
 		% Exercises disabled.
 	}{
-		\subsection*{Übung}
+		\newpage
+		\definecolor{latexblue}{rgb}{0.9,0.925,0.95}
+		\pagecolor{latexblue}
+		%\definecolor{latexblue}{rgb}{0.73,0.84,0.92}
+		\section*{Übung \thechapter}
+		\addcontentsline{toc}{section}{Übung}%
 		\input{exercises/#1/task.tex}
+		\newpage
+		\nopagecolor
 	}
 }
 

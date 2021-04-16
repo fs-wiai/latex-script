@@ -1,4 +1,4 @@
-\section{Grundstruktur}
+\chapter{Grundstruktur}
 \label{sec:basic-document-structure}
 
 Wie sieht so ein \LaTeX-Dokument jetzt eigentlich aus?
@@ -8,11 +8,11 @@ Die \emph{Dokumentumgebung} hingegen enthält den Inhalt, der später in der fer
 
 \Example{lst:latex-document-basic-structure}{basic-document-structure/hello-world}{basic-document-structure/hello-world_crop}{Beispielhafter Aufbau eines einfachen \LaTeX-Dokuments mit Präambel und Dokumentumgebung}
 
-\subsection{Präambel}
+\section{Präambel}
 Beginnen wir mit der Präambel.
 Eine minimale Präambel sollte die folgenden Festlegungen treffen:
 
-\subsubsection{Dokumentklasse}\label{subsubsec:document-class}
+\subsection{Dokumentklasse}\label{sec:document-class}
 \mintinline{latex}|\documentclass[<parameter>]{<dokumentklasse>}|
 definiert die Dokumentklasse. 
 Die verbreitetsten von \LaTeX\ standardmäßig unterstützten Dokumentklassen sind \mintinline{latex}{article} für kurze und \mintinline{latex}{report} für längere Dokumente, \mintinline{latex}{book} für Bücher, \mintinline{latex}{beamer}\footnote{Präsentationen in \LaTeX\ sind ein Thema für sich, auf das wir nicht näher eingehen. Bei Interesse sei diese Einführung von Overleaf empfohlen: \url{https://www.overleaf.com/learn/latex/Beamer}} für Präsentationen sowie \mintinline{latex}{letter}\footnote{Auch auf Briefe wird in diesem Skript nicht weiter eingegangen. WikiBooks gibt eine Einführung: \url{https://en.wikibooks.org/wiki/LaTeX/Letters}} für Briefe.
@@ -25,10 +25,10 @@ Während die Standard-Klassen für den Gebrauch in Amerika gedacht sind, folgen 
 
 Dem \mintinline{latex}{\documentclass}-Befehl können verschiedene optionale Parameter übergeben werden. 
 \mintinline{latex}{\documentclass[10pt,a5paper,landscape]{scrartcl}} etwa konfiguriert einen \acro{KOMA}-Script-Artikel mit Schriftgröße 10\,pt\footnote{Die Standardschriftgröße wäre hier 12\,pt.} auf A5-Papier\footnote{In der Voreinstellung handelte es sich um A4-Papier.} im Querformat.
-Auch die Sprache kann mit übergeben werden (vgl. \cref{subsubsec:language}).
+Auch die Sprache kann mit übergeben werden (vgl. \cref{sec:language}).
 
-\subsubsection{Exkurs: Pakete}
-\label{subsubsec:packages}
+\subsection{Exkurs: Pakete}
+\label{sec:packages}
 \begin{minted}{latex}
 \usepackage[<optionen>]{<paketname>}
 \end{minted}
@@ -39,7 +39,7 @@ Hierfür wird der obige Befehl verwendet.
 Die wichtigsten \LaTeX-Pakete sind im Comprehensive \TeX\ Archive Network,\footnote{Erreichbar unter \url{https://www.ctan.org/}} kurz \acro{CTAN}, abgelegt.
 Hier finden sich auch Dokumentationen zu den einzelnen Funktionalitäten.
 
-\subsubsection{Kodierung}
+\subsection{Kodierung}
 \begin{minted}{latex}
 \usepackage[utf8]{inputenc}
 \usepackage[t1]{fontenc}
@@ -55,7 +55,7 @@ Das Input Encoding (kurz: \mintinline{latex}{inputenc}) bezieht sich auf den Que
 Konkret beeinflusst \mintinline{latex}{fontenc} die Wahl der Schriftartdatei, die verwendet wird, um den Inhalt des Dokuments darzustellen, denn auch diese muss natürlich Sonderzeichen beinhalten.\footnote{Details zur Arbeitsweise von \mintinline{latex}{fontenc} gibt dieser Beitrag: \url{https://www.texwelt.de/fragen/5537/was-macht-eigentlich-usepackaget1fontenc}}
 \mintinline{latex}{T1} ist eine Kodierung, die mit einer begrenzten Anzahl an Zeichen europäische Sprachen abzubilden versucht.
 
-\subsubsection{Sprache}\label{subsubsec:language}
+\subsection{Sprache}\label{sec:language}
 \begin{minted}{latex}
 \usepackage[ngerman]{babel}
 \end{minted}
@@ -63,7 +63,7 @@ Konkret beeinflusst \mintinline{latex}{fontenc} die Wahl der Schriftartdatei, di
 Das Paket \mintinline{latex}{babel} stellt sprachspezifische Informationen (z.\,B. Silbentrennung, Sonderzeichen, Wechsel zwischen Fonts, Übersetzung von Labels\footnote{Vgl. \cref{sec:references}} wie \enquote{Kapitel}, \enquote{Inhaltsverzeichnis} oder \enquote{Abbildung}) bereit.
 Als optionaler Parameter kann die Sprache übergeben werden.
 \mintinline{latex}{ngerman} steht hierbei für die Neue Deutsche Rechtschreibung.
-Manche Pakete erfordern es, dass die Sprachangabe schon als optionaler Parameter dem \mintinline{latex}{\documentclass}-Befehl\footnote{Vgl. \cref{subsubsec:document-class}} übergeben wird.
+Manche Pakete erfordern es, dass die Sprachangabe schon als optionaler Parameter dem \mintinline{latex}{\documentclass}-Befehl\footnote{Vgl. \cref{sec:document-class}} übergeben wird.
 In diesem Fall wird der optionale Parameter beim Einbinden von \mintinline{latex}{babel} einfach weggelassen.
 
 In einem Dokument können auch mehrere Sprachen verwendet werden.
@@ -74,11 +74,11 @@ Fremdsprachiger Text lässt sich alternativ auch über folgenden Befehl einbinde
 \foreignlanguage{<sprache>}{<text>}
 \end{minted}
 
-\subsection{Dokumentumgebung}
+\section{Dokumentumgebung}
 
 Zwischen \mintinline{latex}{\begin{document}} und \mintinline{latex}{\end{document}} gehören die Inhalte, die tatsächlich im Dokument erscheinen sollen.
 
-\subsubsection{Fließtext}
+\subsection{Fließtext}
 Der einfachste Inhalt der Dokumentumgebung ist Fließtext.
 Er kann direkt in den Quelltext geschrieben werden.
 Zeilenumbrüche und zu mehreren auftretende Leerzeichen werden dabei ignoriert.
@@ -86,7 +86,7 @@ Leerzeilen erzeugen einen neuen Absatz, der standardmäßig mit einem Einzug beg
 Manuelle Umbrüche können mit zwei Backslashes (\enquote{\textbackslash\textbackslash}) erzwungen werden.
 Dies sollte jedoch vermieden werden.
 
-\subsubsection{Kommentare}
+\subsection{Kommentare}
 Einige Zeichen sind für besondere Funktionen reserviert. 
 So bewirkt ein Prozent-Zeichen beispielsweise, dass der Rest einer Zeile vom Compiler ignoriert wird.
 Der Text erscheint also nicht im fertigen \acro{PDF}-Dokument.
@@ -97,12 +97,12 @@ Falls tatsächlich ein Prozentzeichen erscheinen soll, könnt ihr dies durch ein
 Diese Lösung, die auch als Escaping bezeichnet wird, funktioniert auch für die Zeichen \#, \$, \&, \_, \{ und \}.
 Für den Backslash muss der Befehl \mintinline{latex}{\textbackslash} verwendet werden.\footnote{Eine Übersicht weiterer Sonderzeichen ist im zugehörigen \cref{sec:special-characters} zu finden.}
 
-\subsubsection{Abschnitte und Kapitel}
+\subsection{Abschnitte und Kapitel}
 Texte werden durch Überschriften in Abschnitte und Kapitel unterteilt.
 Immer nutzbar sind die in \cref{lst:headlines} dargestellten Befehle.
 \Example{lst:headlines}{basic-document-structure/headlines}{basic-document-structure/headlines_crop}{Überschriftenebenen}
 Je nach Dokumentklasse sind außerdem \mintinline{latex}{\chapter{Kapitel}} und \mintinline{latex}{\part{Teil}} verfügbar -- beispielsweise in Büchern.
-Mit Sternchen fallen bei allen diesen Befehlen die Nummerierung und der Eintrag im Inhaltsverzeichnis\footnote{Vgl. \cref{subsubsec:table-of-contents}} weg: 
+Mit Sternchen fallen bei allen diesen Befehlen die Nummerierung und der Eintrag im Inhaltsverzeichnis\footnote{Vgl. \cref{sec:table-of-contents}} weg: 
 
 \begin{minted}{latex}
 \section*{Kommt nicht im Inhaltsverzeichnis vor}
@@ -114,7 +114,7 @@ Ein alternativer Titel im Inhaltsverzeichnis kann als optionaler Parameter in ec
 \section[Titel im Verzeichnis]{Kapitelüberschrift}
 \end{minted}
 
-\subsubsection{Titelei}
+\subsection{Titelei}
 Ein einfacher Titel lässt sich im Dokument mit dem Befehl \mintinline{latex}{\maketitle} erzeugen.
 Die Werte für die Einträge müssen in der Präambel festgelegt werden. 
 Mehrere Autoren werden dabei mit \mintinline{latex}{\and} verbunden.
@@ -123,7 +123,7 @@ Die genaue Gestaltung hängt ab von der verwendeten Dokumentklasse.
 
 \Example{lst:titles}{basic-document-structure/titles}{basic-document-structure/titles_crop}{Die Titelei}
 
-\subsubsection{Verzeichnisse}\label{subsubsec:table-of-contents}
+\subsection{Verzeichnisse}\label{sec:table-of-contents}
 
 Aus allen mit den oben genannten Befehlen eingefügten Abschnitten fügt der Befehl \mintinline{latex}{\tableofcontents} ein automatisch nummeriertes Inhaltsverzeichnis zusammen (wie zum Beispiel in \cref{lst:main-file} auf \cpageref{lst:main-file} zu sehen).
 Die Aufzählungszeichen, die Tiefe der Aufzählung und viele weitere Gestaltungselemente sind frei anpassbar.\footnote{Ein empfehlenswerter Blogpost hierzu ist unter \url{https://texblog.org/2011/09/09/10-ways-to-customize-tocloflot/} verfügbar.}
