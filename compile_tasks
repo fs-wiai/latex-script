@@ -1,0 +1,31 @@
+#!/bin/bash
+for D in exercises/*; do
+	echo "${D}"
+	if [ -d "${D}" ]; then
+		# convert tex to pdf
+		for F in ${D}/*.rend.tex; do
+			if [ -f "${F}" ]; then
+				echo "###### Rendering ${F} ######"
+				pdflatex --output-directory "${D}" --shell-escape "${F}"
+			fi
+		done
+		# crop pdf
+		for F in ${D}/*.rend.pdf; do
+			if [ -f "${F}" ]; then
+				pdfcrop "${F}"
+			fi
+		done
+		# remove temporary files
+		for F in ${D}/*.{aux,log,out}; do
+			if [ -f "${F}" ]; then
+				rm ${F}
+			fi
+		done
+		# move pdf to graphics folder
+		for F in ${D}/*.pdf; do
+			if [ -f "${F}" ]; then
+				mv ${F} graphics/
+			fi
+		done
+	fi
+done

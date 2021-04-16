@@ -2,6 +2,9 @@ SHELL=/bin/bash
 
 default: preview
 
+# Build everything there is.
+all: listings tasks preview publication
+
 # Remove builds and LaTeX output.
 clean: 
 	@echo Cleaning up temporary files.
@@ -12,6 +15,10 @@ clean:
 # Compile listings (only needed when listings have changed)
 listings: listings/**/*
 	./compile_listings
+
+# Compile pre-rendered tasks
+tasks: exercises/**/*
+	./compile_tasks
 
 # Compile a preview PDF containing all contents
 preview: main.tex
@@ -77,6 +84,7 @@ publication-zip-with-exercises: publication-dir main.tex
 	cp --parents main.tex praeamble.tex commands.tex content/* graphics/* listings/**/*{.tex,pdf,bib} temp/
 	cp --parents exercises/**/* temp/
 	rm -f temp/exercises/**/*.done.{tex,bib}
+	rm -f temp/exercises/**/*.rend.tex
 	find temp/ -name '*.raw.*' -exec bash -c 'sed "s/\.raw\./\./g" <<<{} | xargs mv {}' \;
 	find temp/ -name '*.tex' -exec sed -i -e 's/\.raw\./\./g' {} \;
 	cd temp && zip ../public/project-with-exercises * **/* **/**/*
