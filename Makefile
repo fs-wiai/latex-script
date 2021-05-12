@@ -26,7 +26,7 @@ preview: main.tex
 	pdflatex -shell-escape main.tex
 	@echo
 	@echo
-	@echo Run \'make publication\' a few times to generate PDF and ZIP file for publication.
+	@echo Run \'make publication\' to generate PDF and ZIP file for publication.
 
 # Compile a preview PDF containing all contents and the literature
 preview-with-literature: main.tex
@@ -37,7 +37,7 @@ preview-with-literature: main.tex
 	pdflatex -shell-escape main.tex
 	@echo
 	@echo
-	@echo Run \'make publication\' a few times to generate PDF and ZIP file for publication.
+	@echo Run \'make publication\' to generate PDF and ZIP file for publication.
 
 # Build all PDF and ZIP variants
 publication: publication-pdf-without-exercises publication-pdf-with-exercises publication-pdf-with-solutions publication-zip-with-exercises publication-zip-with-solutions
@@ -52,34 +52,34 @@ publication-dir:
 	mkdir -p temp/
 
 # Compile a printable PDF without exercises
-publication-pdf-without-exercises: publication-dir main.tex
+publication-pdf-without-exercises: clean publication-dir main.tex
 	echo "\newcommand\exercisemode{none}" > exercise-mode.tex
 	pdflatex -shell-escape -jobname=script-only main.tex
-	#bibtex main.aux
+	#bibtex script-only.aux
 	pdflatex -shell-escape -jobname=script-only main.tex
 	pdflatex -shell-escape -jobname=script-only main.tex
 	mv script-only.pdf public/
 	
 # Compile a printable PDF with exercises and without solutions
-publication-pdf-with-exercises: publication-dir main.tex
+publication-pdf-with-exercises: clean publication-dir main.tex
 	echo "\newcommand\exercisemode{exercises}" > exercise-mode.tex
 	pdflatex -shell-escape -jobname=script-with-exercises main.tex
-	#bibtex main.aux
+	#bibtex script-with-exercises.aux
 	pdflatex -shell-escape -jobname=script-with-exercises main.tex
 	pdflatex -shell-escape -jobname=script-with-exercises main.tex
 	mv script-with-exercises.pdf public/
 
 # Compile a printable PDF with exercises and solutions
-publication-pdf-with-solutions: publication-dir main.tex
+publication-pdf-with-solutions: clean publication-dir main.tex
 	echo "\newcommand\exercisemode{solutions}" > exercise-mode.tex
 	pdflatex -shell-escape -jobname=script-with-solutions main.tex
-	#bibtex main.aux
+	#bibtex script-with-solutions.aux
 	pdflatex -shell-escape -jobname=script-with-solutions main.tex
 	pdflatex -shell-escape -jobname=script-with-solutions main.tex
 	mv script-with-solutions.pdf public/
 
 # Build a ZIP file with tasks and without solutions
-publication-zip-with-exercises: publication-dir main.tex
+publication-zip-with-exercises: clean publication-dir main.tex
 	rm -rf temp/*
 	cp --parents main.tex praeamble.tex commands.tex content/* graphics/* listings/**/*{.tex,pdf,bib} temp/
 	cp --parents exercises/**/* temp/
@@ -90,7 +90,7 @@ publication-zip-with-exercises: publication-dir main.tex
 	cd temp && zip ../public/project-with-exercises * **/* **/**/*
 
 # Build a ZIP file with tasks and solutions
-publication-zip-with-solutions: publication-dir main.tex
+publication-zip-with-solutions: clean publication-dir main.tex
 	rm -rf temp/*
 	cp --parents main.tex praeamble.tex commands.tex content/* graphics/* listings/**/*.{tex,pdf,bib} temp/
 	cp --parents exercises/**/* temp/
