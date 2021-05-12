@@ -55,7 +55,6 @@ publication-dir:
 publication-pdf-without-exercises: clean publication-dir main.tex
 	echo "\newcommand\exercisemode{none}" > exercise-mode.tex
 	pdflatex -shell-escape -jobname=script-only main.tex
-	#bibtex script-only.aux
 	pdflatex -shell-escape -jobname=script-only main.tex
 	pdflatex -shell-escape -jobname=script-only main.tex
 	mv script-only.pdf public/
@@ -64,7 +63,6 @@ publication-pdf-without-exercises: clean publication-dir main.tex
 publication-pdf-with-exercises: clean publication-dir main.tex
 	echo "\newcommand\exercisemode{exercises}" > exercise-mode.tex
 	pdflatex -shell-escape -jobname=script-with-exercises main.tex
-	#bibtex script-with-exercises.aux
 	pdflatex -shell-escape -jobname=script-with-exercises main.tex
 	pdflatex -shell-escape -jobname=script-with-exercises main.tex
 	mv script-with-exercises.pdf public/
@@ -73,7 +71,6 @@ publication-pdf-with-exercises: clean publication-dir main.tex
 publication-pdf-with-solutions: clean publication-dir main.tex
 	echo "\newcommand\exercisemode{solutions}" > exercise-mode.tex
 	pdflatex -shell-escape -jobname=script-with-solutions main.tex
-	#bibtex script-with-solutions.aux
 	pdflatex -shell-escape -jobname=script-with-solutions main.tex
 	pdflatex -shell-escape -jobname=script-with-solutions main.tex
 	mv script-with-solutions.pdf public/
