@@ -21,8 +21,11 @@ konfigurieren...}. Danach wird sich ein neues Fenster öffnen. Dort navigiert
 ihr zum Bereich \emph{Befehle} und setzt bei \emph{PdfLaTeX} das Flag 
 \mintinline{bash}{--shell-escape}. In anderen Worten: Der Text bei 
 \emph{PdfLaTeX} sollte folgendermaßen lauten: 
-\mint{bash}{pdflatex -synctex=1 -interaction=nonstopmode  --shell-escape %.tex}.
+\mint{bash}{pdflatex -synctex=1 -interaction=nonstopmode  --shell-escape 
+%.tex}.
 
 
 \section*{Das erste Mal kompilieren}
-Öffnet nun die Datei \mintinline{bash}{main.tex} und kompiliert sie durch Druck auf \faForward. Was ist in dem Ordner passiert, in dem die Datei liegt?
+Öffnet nun die Datei \mintinline{bash}{main.tex} im Wurzelverzeichnis des 
+Projektes und kompiliert sie durch Druck auf \faForward. Was ist in dem Ordner 
+passiert, in dem die Datei liegt?
