@@ -1,6 +1,16 @@
 \chapter*{Erste Schritte mit \LaTeX}
 \addcontentsline{toc}{section}{Erste Schritte mit \LaTeX}
-Bevor wir ins Arbeiten mit \LaTeX{} einsteigen können, müssen wir es natürlich erst mal installieren. Achtet bitte darauf, dass ihr \emph{zuerst} den Compiler und danach einen Editor installiert.
+
+Dieses Skript dient als kurze Referenz zum Umgang mit LateX und als Übungsbeispiel für das LaTeX-Tutorium der Fachschaft WIAI.
+Viele Aufgaben erfordern es, das Skript selbst anzupassen.
+Das dafür benötigte Projektarchiv mit allen Quelltextdateien sowie die aktuellste Version dieses Skriptes sind auf Github\footnote{\url{https://github.com/fs-wiai/latex-script/releases}} zu finden. 
+
+Bevor wir ins Arbeiten mit \LaTeX{} einsteigen können, müssen wir es natürlich zunächst installieren. 
+Außerdem müssen wir einige Anpassungen vornehmen, um mit diesem Projekt arbeiten zu können.
+Alle Schritte erläutern wir in den folgenden Kapiteln näher.
+Nach und nach werdet ihr so ein Verständnis der Arbeitsweise mit \LaTeX{} aufbauen.
+Für den Anfang folgt einfach der Anleitung.
+Achtet bitte darauf, dass ihr \emph{zuerst} den Compiler und \emph{danach} einen Editor installiert.
 
 \section*{Compiler}
 Zunächst zum Compiler. Ihn brauchen wir, um den Quelltext, den wir schreiben, in ein \acro{PDF} umzuwandeln. Hier gibt es für verschiedene Betriebssysteme unterschiedliche Compiler, wie etwa MikTeX für Windows,\footnote{\url{https://miktex.org/download}} MacTex für MacOS\footnote{\url{http://tug.org/mactex/}} und TeXLive für Linux-Distributionen.\footnote{Sofern ihr eine debianbasierte Linux-Distribution verwendet, kann der Compiler mittels \mintinline{bash}{sudo apt install texlive-full} installiert werden. Für andere Distributionen findet ihr eine Anleitung unter \url{https://tug.org/texlive/doc/texlive-en/texlive-en.html\#installation}.} Bestenfalls installiert ihr die volle Version mit allen Paketen.
@@ -17,7 +27,7 @@ besitzt, wie etwa TeXstudio.\footnote{Eine aktuelle Version findet ihr unter
 Damit es beim Kompilieren dieses Dokuments nicht zu Fehlern kommt, müsst ihr 
 nun den Compilerbefehl ändern. Klickt dazu in TeXstudio zunächst auf die 
 Schaltfläche \emph{Optionen} und anschließend auf \emph{TeXstudio 
-konfigurieren...}. Danach wird sich ein neues Fenster öffnen. Dort navigiert 
+konfigurieren \textellipsis}. Danach wird sich ein neues Fenster öffnen. Dort navigiert 
 ihr zum Bereich \emph{Befehle} und setzt bei \emph{PdfLaTeX} das Flag 
 \mintinline{bash}{--shell-escape}. In anderen Worten: Der Text bei 
 \emph{PdfLaTeX} sollte folgendermaßen lauten: 
@@ -27,5 +37,8 @@ ihr zum Bereich \emph{Befehle} und setzt bei \emph{PdfLaTeX} das Flag
 
 \section*{Das erste Mal kompilieren}
 Öffnet nun die Datei \mintinline{bash}{main.tex} im Wurzelverzeichnis des 
-Projektes und kompiliert sie durch Druck auf \faForward. Was ist in dem Ordner 
-passiert, in dem die Datei liegt?
+Projektes und kompiliert sie durch Druck auf \faForward. 
+In dem Ordner, in dem die Datei liegt, sollten verschiedene neue Dateien erschienen sein.
+Die Datei \mintinline{bash}{main.pdf} enthält das kompilierte Dokument.
+Außerdem sind einige Hilfsdateien aufgetaucht, die der Compiler zum Beispiel nutzt, um das Inhaltsverzeichnis zu generieren.
+Damit seid ihr startklar!
