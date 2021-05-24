@@ -2,43 +2,46 @@
 \label{sec:basic-functionality}
 
 Programme zur Textverarbeitung und Dokumentenerstellung nutzen unterschiedliche Vorgehensweisen, um basierend auf einer bearbeiteten Datei ein Dokument zu erstellen.
-Wer mit Microsoft Word vertraut ist, dem ist bekannt, dass das von der Export-Funktion erstellte Dokument (häufig einfach als \acro{PDF}-Dokument bezeichnet) genau so aussieht, wie Word das bearbeitete Dokument darstellt.
-Wird ein Bild in der Ausgangsdatei verschoben, erscheint es in dem exportierten Dokument an der neuen Position.
-Diese Art der Formatierung wird \emph{What you see is what you get} genannt (kurz: \acro{WYSIWYG}).
-Eine Formatierung in Word (und zahlreichen alternativen Office-Programmen wie Libre Office) führt zu unmittelbarer optischer Rückmeldung, wie das finale Dokument aussehen wird. 
-Inhalt und Struktur sind eng miteinander verbunden.
+Bei der Arbeit mit Microsoft Word gilt die Regel: Ein als \acro{PDF} exportiertes Dokument sieht genauso aus wie das Quelldokument in Word. Dort wo eine Grafik in Word platziert wird, ist sie auch in dem \acro{PDF} aufzufinden. Anpassung der Darstellung in MS Word und anderen bekannten Programmen führt also zu einer direkten optischen Veränderung im resultierenden Export. Diese Art der Formatierung wird \emph{What you see is what you get} genannt (kurz: \acro{WYSIWYG}). Inhalt und Struktur sind eng miteinander verbunden.
 
-\LaTeX{} arbeitet hingegen nach dem Prinzip \emph{What you get is what you mean} (kurz: \acro{WYGIWYM}).
-Inhalt und Struktur sind stärker getrennt.
-Der Inhalt wird in einem Dokument in einfacher Textform platziert, zusammen mit bestimmten Befehlen (kombiniert: der Quelltext).
-Bei Erstellung des Ausgabedokuments (ebenfalls ein \acro{PDF}-Dokument) werden die Befehle von einem Programm namens Compiler verarbeitet.
+\LaTeX{} arbeitet hingegen nach dem Prinzip \emph{What you get is what you mean} (kurz: \acro{WYGIWYM}). Inhalt und Struktur sind stärker getrennt.
+Der Inhalt wird in einem Dokument in einfacher Textform platziert, zusammen mit sogenannten \emph{Befehlen}. Die Kombination von inhaltlichem Text und Befehlen nennen wir auch Quelltext. Um die Darstellung des Inhalts anzupassen, ändern wir nicht den Text selbst, sondern fügen entsprechende Befehle hinzu. Diese werden von einem \emph{Compiler} verarbeitet, welcher die Darstellung je nach Befehl anpasst. Zeile für Zeile verarbeitet der Compiler Text und Befehle aus unserem Quelltext. Wenn der gesamte Quelltext von dem Compiler verarbeitet wurde, erhalten wir das finale Dokument. Es gibt zwar unterschiedliche Exportmöglichkeiten, meistens lassen wir uns das Dokument aber als \acro{PDF} ausgeben -- wie auch bei Word.
+% Alter Paragraph:
+%Der Compiler nimmt besagten Quelltext entgegen und liest ihn Zeile für Zeile.
+%Erkennt er einen Befehl, wird dieser verarbeitet. Verschiedene Befehle haben verschiedene Einflüsse auf das Endresultat, dazu später mehr. Wenn der gesamte Quelltext von dem Compiler verarbeitet wurde, erhalten wir das finale Dokument. Es gibt zwar unterschiedliche Exportmöglichkeiten, meistens lassen wir uns das Dokument aber als \acro{PDF} ausgeben -- wie auch bei Word.
 
-Der Compiler nimmt den Quelltext entgegen und liest ihn Zeile für Zeile.
-Trifft er auf einen Befehl (eine bestimmte Zeichenkette, vgl. \cref{subsec:command-structure}), interpretiert er diesen und sorgt etwa für die richtige Darstellung des mit dem Befehl markierten Textes im Ausgabedokument.\footnote{Es sei an dieser Stelle bereits angemerkt, dass Befehle nicht nur genutzt werden, um einzelne Textpassagen, überschriften und so weiter auszuzeichnen. Im Laufe dieses Skriptes werden wir verschiedene Befehle kennenlernen, die ganz unterschiedliche Funktionen erfüllen.}
-Hervorgehebene Zeichenketten (z.\,B. \mintinline{latex}{\emph{hervorgehobener Text}}) erscheinen dann beispielsweise kursiv im Dokument (\emph{hervorgehobener Text}), während die Zeichenkette, die den Befehl bildet (\mintinline{latex}{\emph{}}), nicht in der \acro{PDF}-Datei auftaucht.
+Als kurzes Beispiel für einen Befehl dient uns hier das Hervorheben von Wörtern oder Sätzen. Der Befehl lautet \mintinline{latex}{\emph{}}. Den Text, den wir hervorheben möchten, schreiben wir im Quellcode innerhalb der geschweiften Klammern, etwa so: \mintinline{latex}{\emph{Guten Tag!}}. Im resultierenden \acro{PDF} erscheint dieser Text dann kursiv: \emph{Guten Tag!}. Von dem Befehlsbezeichner und den Sonderzeichen ist keine Spur mehr zu sehen. Wir schreiben also keinen kursiven Text innerhalb des Quellcodes, sondern teilen dem Compiler einfach mit, dass bestimmte Wörter doch bitte hervorgehoben werden sollen.
 
 Dieses einfache Beispiel verdeutlicht eine Stärke des \acro{WYGIWYM}-Prinzips. 
-Wir markieren Textelemente auf der semantischen Ebene (\enquote{Dieser Text soll hervorgehoben werden.}) und können die zugehörigen typographischen Anpassungen (\enquote{Hervorgehobener Text wird kursiv gedruckt.}) an zentraler Stelle festlegen -- oder gleich \LaTeX{} überlassen.
-Das Prinzip ist ähnlich zu Formatvorlagen in Office-Programmen, wenn auch konsequenter und mächtiger.
-Basierend auf dem Text, den Befehlen und den Standard-Einstellungen des Compilers entsteht so das finale Dokument.
+Wir markieren Textelemente auf der semantischen Ebene und können die zugehörigen typographischen Anpassungen an zentraler Stelle vornehmen -- oder lassen \LaTeX{} die Konfiguration selbst erledigen.
+Wenn wir etwa die Art und Weise des Hervorhebens ändern möchten, dann können wir dies zentral konfigurieren. An allen Stellen, wo \mintinline{latex}{\emph{}} verwendet wird, wird das Endresultat entsprechend angepasst. Es besteht keine Notwendigkeit, an jeder einzelnen Stelle Anpassungen vorzunehmen. Das Prinzip ist ähnlich zu Formatvorlagen in Office-Programmen, wenn auch konsequenter und mächtiger. 
+% Überleitung zum nächsten Abschnitt??
+
+% TEMP/UNSURE
+%Wie man mit Word oder anderen Programmen ein \acro{PDF} generiert, wisst ihr vermutlich. Besonders kompliziert ist es nicht. Im Grunde benötigen wir nur das Programm selbst. 
+% OLD
+%Dieses einfache Beispiel verdeutlicht eine Stärke des \acro{WYGIWYM}-Prinzips. 
+%Wir markieren Textelemente auf der semantischen Ebene (\enquote{Dieser Text soll hervorgehoben werden.}) und können die zugehörigen typographischen Anpassungen (\enquote{Hervorgehobener Text wird kursiv gedruckt.}) an zentraler Stelle festlegen -- oder gleich \LaTeX{} überlassen.
+%Das Prinzip ist ähnlich zu Formatvorlagen in Office-Programmen, wenn auch konsequenter und mächtiger.
+%Basierend auf dem Text, den Befehlen und den Standard-Einstellungen des Compilers entsteht so das finale Dokument.
 
 \section{Was brauchen wir dazu?}
 \label{subsec:what-we-need}
-Um den Quelltext zu erstellen, auf dessen Basis der Compiler ein Dokument erstellen soll, wird ein Bearbeitungsprogramm benötigt.
-Grundsätzlich ist ein einfaches Textbearbeitungsprogramm wie der Editor unter Windows oder auch Notepad++\footnote{Verfügbar unter \url{https://notepad-plus-plus.org/}.} ausreichend.
-Fortgeschrittene Programme wie TeXstudio\footnote{Verfügbar unter \url{https://www.texstudio.org/}.} oder Texmaker\footnote{Verfügbar unter \url{https://www.xm1math.net/texmaker/}.} integrieren zusätzliche Funktionen, welche die Verwendung von Befehlen erleichtern.
-Falls ihr aus einem anderen Kontext bereits Visual Studio Code oder Atom kennt, findet ihr auch für diese Editoren Erweiterungen, die auf die Arbeit mit \LaTeX{} zugeschnitten sind.
 
-Zum Kompilieren des Quelltexts wird ein Compiler benötigt.
-Der Compiler ist meist Teil einer Sammlung von Programmen und Paketen, die zusammen eine \LaTeX-Distribution bilden.
-Die Distributionen enthalten verschiedene andere Hilfsprogramme, auf die wir für den Moment nicht näher eingehen.\footnote{Eines dieser Hilfsprogramme kommt später im Kapitel \ref{sec:literature} zum Einsatz, wenn wir Literatur referenzieren.}
-Die ebenfalls enthaltenen Pakete\footnote{Die ganz Eiligen finden in \cref{subsubsec:packages} mehr Informationen.} stellen verschiedene Befehle zur Verfügung.
-Manche Distributionen gibt es als normale und als vollständige Variante zum Download. 
-Die vollständige Variante enthält alle Pakete (und ist entsprechend wesentlich größer), während in der normalen Version Pakete erst dann heruntergeladen werden, wenn sie benötigt werden.
-Die Entscheidung, ob ihr lieber zu Beginn oder später während des Arbeitens auf den Download wartet, können wir euch leider nicht abnehmen.
+Möchten wir mit \LaTeX{} ein \acro{PDF}-Dokument generieren, so benötigen wir zumindest zwei Programme. Eines, um den Quelltext zu erstellen, und ein Zweites, um den Quelltext zu verarbeiten. Letzteres ist der bereits erwähnte Compiler.
 
-Bekannte Distributionen sind MiK\TeX,\footnote{Für Windows, macOS und Linux. Verfügbar unter \url{https://miktex.org/}.} Mac\TeX\footnote{Für macOS und Linux. Verfügbar unter \url{https://www.tug.org/mactex/}.}, und \TeX{} Live.\footnote{Für Windows, macOS und Linux. Verfügbar unter \url{https://www.tug.org/texlive/}.}
-Installiert euch am besten gleich eine davon.
+Grundsätzlich ist ein einfaches Textbearbeitungsprogramm zur Erstellung des Quelltextes ausreichend. Die meisten Betriebssysteme beinhalten solche Programme bereits. Vielleicht seid ihr schon mit Anwendungen wie Notepad++\footnote{Verfügbar unter \url{https://notepad-plus-plus.org/}.} vertraut, auch diese sind geeignet.
+Fortgeschrittene Programme wie TeXstudio\footnote{Verfügbar unter \url{https://www.texstudio.org/}.} oder Texmaker\footnote{Verfügbar unter \url{https://www.xm1math.net/texmaker/}.} integrieren zusätzliche Funktionen, welche die Verwendung von Befehlen erleichtern. Hier habt ihr freie Wahl.
+% Letzten Paragraphen irgendwie weniger abrupt beenden?
+
+Zum Kompilieren des Quelltexts wird, wie bereits erwähnt, ein Compiler benötigt.
+Der Compiler ist meist Teil einer Sammlung von Programmen und Paketen, die zusammen eine \LaTeX-Distribution bilden. 
+Auf die Hilfsprogramme werden wir für den Moment nicht näher eingehen\footnote{Eines dieser Hilfsprogramme kommt später im Kapitel \ref{sec:literature} zum Einsatz, wenn wir Literatur referenzieren.}. Die enthaltenen Pakete stellen verschiedene Befehle zur Verfügung.
+
+Wir verwenden den Compiler einer Distribution unserer Wahl. Bekannte Distributionen sind MiK\TeX,\footnote{Für Windows, macOS und Linux. Verfügbar unter \url{https://miktex.org/}.} Mac\TeX\footnote{Für macOS und Linux. Verfügbar unter \url{https://www.tug.org/mactex/}.}, und \TeX{} Live\footnote{Für Windows, macOS und Linux. Verfügbar unter \url{https://www.tug.org/texlive/}.}.
+Installiert euch am besten gleich eine davon. Die Installation kann unter Umständen mehrere Stunden dauern. Manche Distributionen gibt es daher als kleine und als vollständige Variante zum Download. 
+Die vollständige Variante enthält alle Pakete, während in der normalen Version Pakete erst dann heruntergeladen werden, wenn sie benötigt werden.
+Die Entscheidung, ob ihr lieber zu Beginn oder später während des Arbeitens auf den Download wartet, können wir euch leider nicht abnehmen. 
 
 \section{Die Befehle}
 \label{subsec:command-structure}
@@ -46,7 +49,7 @@ Die in Quelltext verwendeten Befehle folgen einem allgemeinen Aufbau:
 \begin{minted}{xml}
 \<befehl>[<optionale_parameter>]{<obligatorische_parameter>}
 \end{minted}
-Ein Befehl kann mehrere optionale und/oder obligatorische Parameter verwenden. Manche Befehle besitzen keine obligatorischen Parameter. Einige werden in \cref{tbl:latex-commands} dargestellt.
+Ein Befehl kann mehrere optionale und/oder obligatorische Parameter verwenden. Manche Befehle besitzen keine obligatorischen Parameter. Ein paar Beispiele sind in \cref{tbl:latex-commands} dargestellt.
 
 \begin{table}[h!]
 	\widebox{
@@ -66,7 +69,9 @@ Ein Befehl kann mehrere optionale und/oder obligatorische Parameter verwenden. M
 	\label{tbl:latex-commands}
 \end{table}
 
-Sollte ein Befehl mehrere optionale Parameter erlauben, welche gleiche Eingaben akzeptieren, muss angegeben werden, welcher Parameter gemeint ist. Beispielsweise akzeptiert der Befehl für das Einbinden von Grafiken optionale Parameter für Breite und Höhe. Bei einer Eingabe von \mintinline{tex}|[12cm, 4cm]| wäre unklar, welcher Wert für welchen Parameter bestimmt ist. Um die Zuweisung zu konkretisieren, können die Parameter explizit angegeben werden:
+Sollte ein Befehl mehrere optionale Parameter erlauben, welche gleiche Eingabetypen akzeptieren, muss angegeben werden, welcher Parameter gemeint ist. Beispielsweise akzeptiert der Befehl für das Einbinden von Grafiken optionale Parameter für Breite und Höhe. Bei einer Eingabe von \mintinline{tex}|[12cm, 4cm]| wäre unklar, welcher Wert für welchen Parameter bestimmt ist. Um die Zuweisung zu konkretisieren, können die Parameter explizit angegeben werden:
 \begin{minted}{tex}
 \includegraphics[width=12cm, height=4cm]{bild.png}
 \end{minted}
+
+Wie die Beispiele bereits zeigen, können Befehle sehr unterschiedlich sein. Manche sind für Verwendung in mathematischen Formeln bestimmt, andere ermöglichen das Einbinden von Grafiken. Zu Anfang wird es gewöhnungsbedürftig sein, sich alle häufig vorkommenden Befehle zu merken -- aller Anfang ist bekanntlich schwer. Nach etwas Übung und Geduld sind einfache Dokumente aber im Handumdrehen erstellt. 
