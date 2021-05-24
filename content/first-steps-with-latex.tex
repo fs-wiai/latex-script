@@ -29,10 +29,10 @@ nun den Compilerbefehl ändern. Klickt dazu in TeXstudio zunächst auf die
 Schaltfläche \emph{Optionen} und anschließend auf \emph{TeXstudio 
 konfigurieren \textellipsis}. Danach wird sich ein neues Fenster öffnen. Dort navigiert 
 ihr zum Bereich \emph{Befehle} und setzt bei \emph{PdfLaTeX} das Flag 
-\mintinline{bash}{--shell-escape}. In anderen Worten: Der Text bei 
+\mintinline{bash}{-shell-escape}. In anderen Worten: Der Text bei 
 \emph{PdfLaTeX} sollte folgendermaßen lauten: 
-\mint{bash}{pdflatex -synctex=1 -interaction=nonstopmode  --shell-escape 
-%.tex}.
+\mint{bash}{pdflatex -synctex=1 -interaction=nonstopmode -shell-escape 
+%.tex}
 
 
 \section*{Das erste Mal kompilieren}
