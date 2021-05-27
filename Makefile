@@ -28,17 +28,6 @@ preview: main.tex
 	@echo
 	@echo Run \'make publication\' to generate PDF and ZIP file for publication.
 
-# Compile a preview PDF containing all contents and the literature
-preview-with-literature: main.tex
-	echo "\newcommand\exercisemode{any}" > exercise-mode.tex
-	pdflatex -shell-escape main.tex
-	bibtex main.aux
-	pdflatex -shell-escape main.tex
-	pdflatex -shell-escape main.tex
-	@echo
-	@echo
-	@echo Run \'make publication\' to generate PDF and ZIP file for publication.
-
 # Build all PDF and ZIP variants
 publication: publication-pdf-without-exercises publication-pdf-with-exercises publication-pdf-with-solutions publication-zip-with-exercises publication-zip-with-solutions
 

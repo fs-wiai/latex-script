@@ -1,11 +1,12 @@
 \chapter{Grafiken}
 \label{sec:graphics}
 
-Aufgrund der Natur von \LaTeX{} (What you get is what you mean, vgl. \cref{sec:basic-functionality}) stellt die Einbindung von Grafiken in ein Dokument eine interessante Aufgabe dar. Mit textuellen Befehlen zum dargestellten Bild \todo{Irgendwas fehlt da} -- wie üblich kommen bestimmte Befehle und Pakete zum Einsatz. In diesem Abschnitt werden diese Bestandteile näher erläutert.
+Da wir in \LaTeX{} mit Plaintext-Dateien arbeiten, können wir Grafiken nicht – wie von Textverarbeitungsprogrammen gewohnt – einfach einbetten.
+Stattdessen werden externe Bilddateien über Befehle referenziert und dann erst beim Kompilieren eingebunden und positioniert.
 
-\section{Grafiken abbilden}
+\section{Grafiken einfügen}
 \label{sec:display-graphics}
-Um Grafiken darzustellen, muss das Paket \texttt{graphicx} eingebunden werden. Zum Einfügen können dann folgende Befehle verwendet werden:  
+Damit Grafiken referenziert werden können, muss das Paket \texttt{graphicx} eingebunden werden. Zum Einfügen können dann folgende Befehle verwendet werden:  
 
 \begin{minted}[tabsize=4]{latex}
 \begin{figure}
