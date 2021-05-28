@@ -1,6 +1,6 @@
 # LaTeX Script by Fachschaft WIAI
 
-This script introduces the most fundamental LaTeX mechanisms to get learners started. It is used both as a reference and as exercise material for our [LaTeX workshop](https://wiai.de/latex-weekend), a **two-day tutorial aimed at students from various backgrounds**. At the moment, it is only available in German. The following topics are covered:
+This script introduces the most fundamental LaTeX mechanisms to get learners started. It is used both as a reference and as exercise material for our [LaTeX workshop](https://wiai.stuve-bamberg.de/latex-weekend), a **two-day tutorial aimed at students from various backgrounds**. At the moment, it is only available in German. The following topics are covered:
 
 * general introduction to the LaTeX system 
 * basic document structure
