@@ -3,12 +3,12 @@
 
 How does a \LaTeX{} document look like?
 In essence, every \LaTeX{} document is composed of two parts: the first part is 
-the preamble which is followed by the second part, the document environment.
+the preamble and is followed by the second part, the document environment.
 
 We call the first commands within our \LaTeX{} document a \emph{preamble}. It 
 contains global information about our document, such as the document class that 
-we want to use, the encoding, the language, the page format, and additional 
-packages that we use. 
+we want to use, the encoding, the language, the page format, and additional  
+packages.
 The \emph{document environment}, on the other hand, contains the actual content 
 of our document, that is, the things that we will later see in our generated 
 \acro{PDF} file. 
@@ -26,7 +26,7 @@ We can define a document class by using the command
 \mintinline{latex}|\documentclass[<parameter>]{<document class>}|. The most 
 commonly used document classes that are supported by default are 
 \mintinline{latex}{article} for short documents, and \mintinline{latex}{report} 
-for longer ones. Futhermore you can use \mintinline{latex}{book} for books, 
+for longer ones. Furthermore, you can use \mintinline{latex}{book} for books, 
 \mintinline{latex}{beamer}\footnote{We do not cover making presentations in 
 	\LaTeX{} in this tutorial. However, if you are interested in the topic, we 
 	recommend this introduction on Overleaf: 
@@ -36,27 +36,27 @@ for longer ones. Futhermore you can use \mintinline{latex}{book} for books,
 	\url{https://en.wikibooks.org/wiki/LaTeX/Letters}} for letters.
 
 In addition to the standard document classes, the \acro{KOMA} script classes 
-developed over time. It offers alternatives to the document classes mentioned 
-above: In lieu of \mintinline{latex}{article} you can use 
+developed over time. They provide alternatives to the document classes 
+mentioned above: In lieu of \mintinline{latex}{article} you can use 
 \mintinline{latex}{scrartcl}, \mintinline{latex}{report} is replaced by 
 \mintinline{latex}{scrreport}, and \mintinline{latex}{scrbook} can be used 
 instead of \mintinline{latex}{book}. As a replacement for 
 \mintinline{latex}{letter} one can use \mintinline{latex}{scrlttr2}. 
 A complete list of all \acro{KOMA} script classes is available 
-online\footnote{Erreichbar unter 
+online\footnote{Available at: 
 	\url{https://komascript.de/komascriptbestandteile}}. By using \acro{KOMA} 
 document classes, the layout of the generated \acro{PDF} document is changed. 
-On top of that, they provide additional functionality. 
+On top of that, they provide additional functionalities. 
 The standard document classes are designed according to the American-English 
-standards whereas \acro{KOMA} classes adhere to European norms, such as for 
+standards whereas \acro{KOMA} classes adhere to European norms, e.\,g., for 
 writing letters. 
 
 Each \mintinline{latex}{\documentclass} command can hold optional parameters in 
 square brackets. 
 \mintinline{latex}{\documentclass[10pt,a5paper,landscape]{scrartcl}}, for 
-instance, configures a \acro{KOMA} script article ans specifies its font size 
-to 10\,pt\footnote{The standard font size is 12,pt.}, sets the page size to 
-A5\footnote{The default case would be A4} and the orientation of the page to 
+instance, configures a \acro{KOMA} script article and sets its font size 
+to 10\,pt\footnote{The standard font size is 12,pt.}, the page size to 
+A5\footnote{The default case would be A4}, and the orientation of the page to 
 landscape. The language can be passed as an optional parameter, too (cf. 
 \cref{sec:language}). 
 
@@ -81,24 +81,25 @@ Archive Network,\footnote{Available at: \url{https://www.ctan.org/}}, short:
 \end{minted}
 
 One use case for packages is specifying the encoding of our \LaTeX{} document. 
-The character encoding\footnote{Vgl. 
+The character encoding\footnote{cf. 
 	\url{https://en.wikipedia.org/wiki/Character_encoding}} determines the 
 available character set.
-The standard encoding in \LaTeX{} is \acro{ASCII}. \footnote{cf. 
+The standard encoding in \LaTeX{} is \acro{ASCII}.\footnote{cf. 
 	\url{https://de.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange}}
 It is an American character encoding and therefore does, for instance, not 
 contain German umlauts, or other special characters, which makes it unsuitable 
 for most use cases. 
-As a consequence, \acro{UTF-8}footnote{cf. 
-	\url{https://en.wikipedia.org/wiki/UTF-8}} can be used as a universal 
+As a consequence, \acro{UTF-8}\footnote{cf. 
+	\url{https://en.wikipedia.org/wiki/UTF-8}} can be used as universal 
 	character 
 encoding.
 
 In \LaTeX{} we need to specify two character encodings:
-The input encoding (short: \mintinline{latex}{inputenc})) which refers to our 
-source code. The font encoding (short: \mintinline{latex}{fontenc}) concerncs 
-the choice of the file that is used to portray the content of our document 
-since we also need special characters there.\footnote{Details  on how 
+The input encoding (short: \mintinline{latex}{inputenc}), which refers to our 
+source code, and the font encoding (short: \mintinline{latex}{fontenc}), which 
+concerns the choice of the file that is used to portray the content within our 
+\acro{PDF} document, since we also need special characters 
+there.\footnote{Details  on how 
 	\mintinline{latex}{fontenc} works can be found at: 
 	\url{https://www.texwelt.de/fragen/5537/was-macht-eigentlich-usepackaget1fontenc}}
 \mintinline{latex}{T1} is an enconding that tries to cover most European 
@@ -114,20 +115,21 @@ The package \mintinline{latex}{babel} provides language-specific information
 labels\footnote{cf. \cref{sec:references}} like \enquote{Chapter}, 
 \enquote{Table of Contents}, or \enquote{Figure}).
 The language that you want to use can be passed as an optional parameter. 
-Als optionaler Parameter kann die Sprache übergeben werden. 
 \mintinline{latex}{ngerman}, for instance, is used for the new German spelling. 
 Some packages require that the language is already passed as optional parameter 
-in the \mint{latex}{\documentclass} command. In this case, just leave aus the 
+in the \mintinline{latex}{\documentclass} command. In this case, just leave out 
+the 
 optional parameter for the language within the \mintinline{latex}{babel} 
 command.
 
-You can use multiple languages in your document. To do so, pass the languages, 
+You can also use multiple languages in your document. To do so, pass the 
+languages, 
 separated by commas, as optional parameter to the \mintinline{latex}{\babel} 
 command. Within your document, you can switch between langauges with the 
 \mintinline{latex}{\selectlanguage{<language>}} command. Alternatively, you can 
 include foreign-language text by using the following command: 
 \begin{minted}{latex}
-\foreignlanguage{<sprache>}{<text>}
+\foreignlanguage{<language>}{<text>}
 \end{minted}
 
 \section{Document Environment}
@@ -135,20 +137,22 @@ The actual content of your \acro{PDF} document needs to be put between
 \mintinline{latex}{\begin{document}} and \mintinline{latex}{\end{document}}.
 
 \subsection{Continuous Text}
-The easiest that you can integrate into the document environment is continuous 
-text. You can directly write it into your source code. Line breaks and multiple 
-spaces are ignored by \LaTeX{}. Blank lines create a new paragraph, which are 
-indented by default. \footnote{The automatic indentation of new paragraphs can 
+The easiest content that you can integrate into the document environment is 
+continuous 
+text. You can write it directly into your source code. Line breaks and multiple 
+spaces are ignored by \LaTeX{}. Blank lines create a new paragraph, which is 
+indented by default.\footnote{The automatic indentation of new paragraphs can 
 be prevented by using the command \mintinline{latex}{\noindent}.}
 Manual linebreaks can be forced with two backslashes 
 (\textbackslash\textbackslash). This should be avoided, though. 
 
 \subsection{Comments}
-Some characters are reserved for \LaTeX-specific commands. By using a percent 
-sign, for instance, the rest of the line is going to be ignroed by the 
-compiler, i.\,e. the text will not appear in your generated \acro{PDF} document.
+Some characters are reserved for \LaTeX-specific commands, like, for instance, 
+the percent sign. Using a percent sign tells the \LaTeX compiler to ignore the 
+rest of the line, i.\,e., the text after the percent character will not appear 
+in your generated \acro{PDF} document.
 This can be useful in order to take notes while working on your document 
-without affecting the actual document. This is called a comment.
+without affecting the document itself. This is called a comment.
 
 However, if you want the percent sign to actually appear in your text, you can 
 achieve this by using a backslash: \mintinline{latex}{\%}.
@@ -171,7 +175,7 @@ Depending on your specified document class the commands
 additionally available -- for instance in books. 
 You can mark the command with an asterisk if you want to omit the numbering of 
 a section and exclude it from the table of contents\footnote{cf. 
-\cref{sec:table}}:
+\cref{sec:table-of-contents}}:
 
 \begin{minted}{latex}
 \section*{This section is excluded from the table of contents}
@@ -185,13 +189,12 @@ parameter in square brackets between the command and the actual title.
 \end{minted}
 
 \subsection{Front Matter}
-A simple font matter can be created by using the command 
+A simple front matter can be created by using the command 
 \mintinline{latex}{\maketitle}. The values that get inserted into the front 
 matter must be specified within the preamble. 
 Multiple authors are joined by \mintinline{latex}{\and}.
-Ein einfacher Titel lässt sich im Dokument mit dem Befehl 
-\mintinline{latex}{\maketitle} erzeugen.
-If the date is not specified by \mintinline{latex}{\date}, the current date 
+If the date is not specified by the \mintinline{latex}{\date} command, the 
+current date 
 will be inserted by default.
 The design of the front matter depends on the specified document class.
 
@@ -199,20 +202,21 @@ The design of the front matter depends on the specified document class.
  Titelei}
 
 \subsection{Indices}\label{sec:table-of-contents}
-If you structure your document with the above-mentioned commands for headings, 
-the command \mint{latex}{\tableofcontents} generates a automatically numbered 
-table of contents of it (like in \cref{lst:main-file} on 
-\cpageref{lst:main-file}).
+The command \mintinline{latex}{\tableofcontents} generates an automatically 
+numbered table of contents by making use of the above-mentioned commands for 
+dividing 
+our text into sections and chapters (this can bee seen in \cref{lst:main-file} 
+on \cpageref{lst:main-file}).
 
-The numbering style, the depth of the numbering and many other options can, of 
-course, be adapted. \footnote{We recommend the following blogpost:
+The numbering style and depth, and many other options can, of 
+course, be specified manually.\footnote{We recommend the following blogpost:
 	\url{https://texblog.org/2011/09/09/10-ways-to-customize-tocloflot/}}
-For \LaTeX{} to create your table of contents, the project has to be compiled 
-twice.
+For \LaTeX{} to create our table of contents properly, the project has to be 
+compiled twice.
 
 Besides the table of contents, you can also generate a 
 \mintinline{latex}{\listoffigures} (list of figures) and a 
 \mintinline{latex}{\listoftables} (list of tables). The captions of your 
 figures and tables will appear within those indices.\footnote{cf. 
-	 \cref{sec:graphics} (Grafiken) and \cref{sec:tables} (Tabellen) for more 
-	 information on this.}
+	 \cref{sec:graphics} (Graphics) and \cref{sec:tables} (Tables) for more 
+	 information on captions.}
