@@ -1,32 +1,37 @@
-\chapter{Was ist \LaTeX?}
+\chapter{What is \LaTeX?}
 \label{sec:what-is-latex}
 
-Anfang der 1960er-Jahre bekam ein ziemlich begabter amerikanischer PhD-Student den Auftrag, ein Buch über Compiler zu schreiben.
-Nachdem er mit der Arbeit begonnen hatte, fragte er seinen Verleger, ob das Buch ein bisschen länger werden dürfe, da er auch die Grundlagen vorstellen wolle.
-Der Verleger antwortete, er solle das Buch so lange machen, wie er es für nötig halte.
-1968 erschien der erste Band, damals noch in Bleisatz gedruckt.
+In the early 1960s, a rather talented American PhD student was asked by a big publishing company whether he wanted to write a book on compilers.
+He did.
+Soon after he had begun with his research, he realised that he wanted to start with some foundations of computer science, so he asked the publishers if the book might be a little longer.
+They replied, \enquote{make it as long as you feel necessary.}
+In 1968, the first volume was published, at that time still printed using mechanical typesetting.
 
-Der Bleisatz wurde zu dieser Zeit durch andere Verfahren verdrängt, mit deren Qualität der Autor aber nicht zufrieden war. 
-Er begann deshalb Ende der 70er-Jahre mit der Entwicklung seines eigenen Textsatzsystems \TeX, \emph{tech} ausgesprochen – nach dem altgriechischen Wort \texttau$\mathrm{\acute{\varepsilon}}$\textchi\textnu\texteta{} (technē) für \emph{Kunst}.
+This method was just disappearing then, and being replaced by new methods.
+However, the author did not like the results of those new methods, so,
+at the end of the 70s he began to develop his own typesetting system \TeX
+(pronounced as \emph{tech}\todo{is that a valid transliteration in english?}), named after the ancient Greek word \texttau$\mathrm{\acute{\varepsilon}}$\textchi\textnu\texteta{} (technē) meaning \emph{art, craft}.
 
-Inzwischen ist Donald Knuth (so heißt der ehemalige Student) emeritierter Informatikprofessor und sein Compilerbuch auf das mehrbändige Standardwerk \emph{The Art of Computer Programming} angewachsen – von dem allerdings drei Bände noch ausstehen, darunter auch der über Compiler.
-Im Gegensatz zum Buch ist \TeX{} heute die seltene Erscheinung eines Softwaresystems, das man als \emph{fertig} bezeichnen darf, ohne damit \emph{tot} zu meinen.
+Today, Donald Knuth (that is the former student’s name) is a retired professor of computer science and his compiler book has grown to become the multi-volume standard work \emph{The Art of Computer Programming}\,—\,three volumes of which are still to be written, among them the one on compilers.
+Unlike the book, however, \TeX{} is the rare occurrence of a software system that may actually be called \emph{complete} without meaning \emph{dead}.
 
-Zwei Buchstaben fehlen noch zu \LaTeX: 
-Es sind die Anfangsbuchstaben des Nachnamens von Leslie Lamport, der in den 80er-Jahren basierend auf \TeX{} eine Sammlung von kleinen Programmen geschrieben hat, die das System für uns Endanwender nutzbar machten und so zu seiner Verbreitung beitrugen.
-Die aktuelle Version \LaTeXe{} gibt es seit Mitte der 90er.
+Two more letters are needed for \LaTeX:
+They are the initial two letters of the last name of Leslie Lamport, who, in the 80s, extended \TeX{} by a collection of small programs that made the entire system usable for us end users and are responsible for its widespread adoption.
+The current version dates from the mid~90s.
 
-Wozu erzählen wir euch das? 
-Weil es einige der Vorteile begründet, die \LaTeX{} heute noch auszeichnen:
-Es ist ein ausgereiftes, stabiles, verlässliches System,
-das weitgehend automatisch typografisch hochwertigen Textsatz erzeugt.
+Why are we telling you all of that?
+It explains some of the advantages that still distinguish \LaTeX{} today:
+It is a mature, stable, and reliable system
+that does typesetting in a typographically sophisticated way and mostly auomatically.
 
-Da der \TeX-Code in Plaintext-Dateien abgelegt wird (siehe \cref{sec:basic-functionality}), ergeben sich weitere Vorteile:
-Ihr könnt eure Projekte übersichtlich strukturieren (\cref{sec:project-structure}),
-und wann immer ihr Änderungen im Quelltext rückgängig macht, könnt ihr euch darauf verlassen, wieder die gleiche Ausgabe wie vorher zu erhalten. 
-Das klappt in größerem Maßstab natürlich auch in Verbindung mit Git oder anderen Quelltextversionierungstools.
-Außerdem bleibt euer Quelltext langfristig zuverlässig lesbar, ohne dass ihr bestimmte Programme dafür benötigt.
-Gleichzeitig ist der Austausch mit allen Programmen, die Plaintext unterstützen, sehr einfach.
+As the \TeX{} code is stored in plaintext files (c.\,f. \cref{sec:basic-functionality}),
+even more advantages arise:
+You can structure your projects clearly (\cref{sec:project-structure}),
+and whenever you undo changes in the source code, you can always rely on getting exactly the same output as before.
+On a larger scale, this does also work in connection with Git or other source code versioning tools.
+Furthermore, you can trust your source code to be readable long-term, without any specific software.
+It can always be opened with any program that supports plaintext.
+\todo{maybe, a heading like “Why use \LaTeX?” would better fit the content …}
 
 % Quellen:
 % https://en.wikipedia.org/wiki/Donald_Knuth
