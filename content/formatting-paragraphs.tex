@@ -1,22 +1,30 @@
-\chapter{Absatzformatierung} % (fold)
+\chapter{Formatting Paragraphs} % (fold)
 \label{sec:formatting-paragraphs}
 
-\section*{Flattersatz}
+\section*{Ragged Alignment}
 \label{sec:ragged-alignment}
-Standardmäßig setzt \LaTeX{} Fließtext im Blocksatz. 
-Flattersatz\footnote{Bekannt als links, rechts oder zentriert ausgerichteter Text in Programmen wie Word.} ist aber auch möglich. 
-Die Befehle \mintinline{tex}|\raggedright|, \mintinline{tex}|\raggedleft| und \mintinline{tex}|\centering| können dazu verwendet werden. 
-Diese Befehle beeinflussen die Umgebung, in der sie verwendet werden. 
-Dies kann zum Beispiel die \texttt{document}-Umgebung sein, dementsprechend würde sämtlicher Text des Dokuments beeinflusst werden.
-Alternativ existieren Umgebungen, welche die Absatzformatierung beeinflussen (\cref{lst:ragged-alignment}).
+By default, \LaTeX{} sets continuous text in full justification. 
+However, we can also switch to ragged alignment by using the commands 
+\mintinline{tex}|\raggedright|, \mintinline{tex}|\raggedleft|, and 
+\mintinline{tex}|\centering|. 
+These commands influence the environment that they are used in, e.\,g., the 
+\texttt{document} environment. Correspondingly, the text within the whole 
+document is affected. 
+Alternatively, we can use dedicated environments in order to influence the 
+format 
+of our paragraph (\cref{lst:ragged-alignment}).
 
-\example{lst:ragged-alignment}{formatting-paragraphs/ragged-alignment}{Flattersatz}
+\example{lst:ragged-alignment}{formatting-paragraphs/ragged-alignment}{Ragged 
+Alignment}
 
-\section*{Einzüge und Abstände}
+\section*{Indentation and Spacing}
 \label{sec:indents-and-parskips}
-Absätze werden standardmäßig durch Einzüge in der ersten Zeile des Absatzes verdeutlicht (\mintinline{tex}{\parindent}). 
-Stattdessen können auch vertikale Abstände zwischen den Absätzen verwendet werden (\mintinline{tex}{\parskip}). 
-Für beide Varianten gibt es einstellbare Parameter:
+Usually, we illustrate a new paragraph by indenting the first line of it 
+(\mintinline{tex}{\parindent}). 
+Alternatively, paragraph spacing, i.\,e., vertical space between paragraphs, 
+can be used (\mintinline{tex}{\parskip}).
+
+For both variants, there are adjustable parameters:
 \begin{minted}{tex}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em
@@ -24,6 +32,8 @@ Für beide Varianten gibt es einstellbare Parameter:
     minus .5em  % erlaubte Stauchung
 }
 \end{minted}
-Mit dem Befehl \mintinline{tex}{\noindent} kann für nur einen Absatz der Einzug abgeschaltet werden. 
-Für den ersten Absatz nach einer Überschrift wird standardmäßig automatisch kein Einzug eingefügt.
+
+We can use \mintinline{tex}{\noindent} to turn off the indentation for only one 
+paragraph. 
+For the first paragraph after a heading, there is usually no indentation. 
 
