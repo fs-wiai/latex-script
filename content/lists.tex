@@ -1,22 +1,23 @@
-\chapter{Aufzählungen}
+\chapter{Lists}
 \label{sec:lists}
 
-Von Haus aus unterstützt \LaTeX\ drei Aufzählungstypen: ungeordnete und geordnete Listen sowie Definitionslisten.
-Zu jedem dieser Typen existieren eigene Umgebungen, die aber grundsätzlich gleich aufgebaut sind.
+Inherently, \LaTeX{} supports three types of lists: unordered, ordered, and description lists.
+For each of these types, there are dedicated environments whose structure is very similar.
 
-\example{lst:unordered-list}{lists/nested-list}{Beispielhafte ungeordnete Aufzählung}
+\example{lst:unordered-list}{lists/nested-list}{Examplary unordered list}
 
-In \cref{lst:unordered-list-code} werden verschiedene Listenelemente (\mintinline{latex}{\item}) von einer \mintinline{latex}{itemize}-Umgebung eingerahmt.
-Innerhalb eines Listenelements kann eine neue Listen\-umgebung eröffnet werden, um eine verschachtelte Liste zu erhalten.
-Ersetzt man \mintinline{latex}{itemize} durch \mintinline{latex}{enumerate}, erhält man bei sonst gleichem Quelltext eine geordnete Liste.
-Für etwas weniger gebräuchliche Definitionslisten muss die Umgebung \mintinline{latex}{description} verwendet werden.
-Außerdem erhalten die Elemente in eckigen Klammern den zu definierenden Begriff (\cref{lst:definition-list}).
+In \cref{lst:unordered-list-code}, different list items (\mintinline{latex}{\item}) are framed by an \mintinline{latex}{itemize} environment.
+Within a list item, we can open a new list environment to create a nested list.
+If we replace \mintinline{latex}{itemize} by \mintinline{latex}{enumerate}, the list becomes ordered without changing the source code any further.
+To make use of the less common description lists, we have to specify the environment \mintinline{latex}{description}.
+Moreover, the items need to be extended by the term to be defined, put in brackets (\cref{lst:description-list}).
 
-\Example{lst:definition-list}{lists/definition-list}{lists/definition-list_crop}{Beispielhafte Definitionsliste}
+\Example{lst:description-list}{lists/description-list}{lists/description-list_crop}{Exemplary description list}
 
-Die sehr großen Abstände zwischen einzelnen Listenelementen können durch das Paket \mintinline{latex}{paralist}\footnote{\url{https://www.ctan.org/pkg/paralist}} verringert werden.
-Hierzu wird nur der Umgebungsname ersetzt: \mintinline{latex}{compactitem} statt \mintinline{latex}{itemize}, \mintinline{latex}{compactenum} statt \mintinline{latex}{enumerate} und \mintinline{latex}{compactdesc} statt \mintinline{latex}{description}.
-Soll die Aufzählung im Fließtext erscheinen, bringt \mintinline{latex}{paralist} dafür die Umgebungen \mintinline{latex}{inparaenum} und \mintinline{latex}{inparaitem} mit.
+The exuberant spacing between list items can be reduced by utilizing the \mintinline{latex}{paralist}\footnote{\url{https://www.ctan.org/pkg/paralist}} package.
+To do so, we simply adjust the environment name: \mintinline{latex}{compactitem} replaces \mintinline{latex}{itemize}, \mintinline{latex}{compactenum} replaces \mintinline{latex}{enumerate}, and \mintinline{latex}{compactdesc} replaces \mintinline{latex}{description}.
+If the list ought to appear within a text body, \mintinline{latex}{paralist} provides the extra environments \mintinline{latex}{inparaenum} and \mintinline{latex}{inparaitem}.
 
-Um das Aufzählungszeichen oder die Nummerierung anzupassen, kann das Paket \mintinline{latex}{enumitem}\footnote{\url{https://www.ctan.org/pkg/enumitem}} verwendet werden.
-\mintinline{latex}{\begin{enumerate}[label=\roman*]} erzeugt eine Liste mit römischen Zahlen. Für alphabetische Nummerierung sorgt der Parameter \mintinline{latex}{[label=\alph*]}.
+We can customize bullet and list numbering styles via the \mintinline{latex}{enumitem}\footnote{\url{https://www.ctan.org/pkg/enumitem}} package.
+\mintinline{latex}{\begin{enumerate}[label=\roman*]} produces a list with Roman numerals. 
+The parameter \mintinline{latex}{[label=\alph*]} inserts alphabetical numbering.
