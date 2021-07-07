@@ -1,91 +1,95 @@
-\chapter{Sonderzeichen}
+\chapter{Special characters}
+
 \label{sec:special-characters}
 
-\section{Leerzeichen}
+\section{Spaces}
 
-Das am häufigsten benötigte Sonderzeichen ist ein einfaches Leerzeichen als Wortzwischenraum.
-Dieses Zeichen entsteht in \LaTeX, wenn im Quellcode zwischen anderen Zeichen Leerzeichen oder einzelne Zeilenumbrüche stehen.
-Es gibt aber auch einige andere Arten von Leerzeichen.
-Wie sie verwendet werden können, wird in \cref{lst:spaces} veranschaulicht.
+The special character used most frequently is a simple space between words.
+\LaTeX{} creates it whenever the source code contains spaces or single newlines (by hitting the enter key once) between other characters.
+The word space is not the only one, though\,---\,there are a few more types of spaces.
+\Cref{lst:spaces} illustrates how they are used.
 
 \example{lst:spaces}{special-characters/spaces}{Unterschiedliche Leerzeichen in \LaTeX}
 
 \paragraph{English Spacing}
-In englischsprachigen Dokumenten verwendet LaTeX das traditionelle English Spacing, also doppelte Leerzeichen nach dem Satzende.
-Der Befehl \mintinline{tex}|\frenchspacing| vor dem ersten Absatz verhindert das.
-Der Befehl \mintinline{tex}|\nonfrenchspacing| schaltet wieder zurück.
-Bei English Spacing versucht \LaTeX, Abkürzungen zu erkennen und danach trotzdem normale Wortzwischenräume zu setzen.
-Das solltet ihr aber kontrollieren – und, wo nötig,
-Wortzwischenräume (\mintinline[showspaces]{tex}{.\ }) oder Satzenden (\mintinline[showspaces]{tex}{\@. }) erzwingen.
+In documents written in English, \LaTeX{} uses traditional English Spacing by default. That is, double spaces after each sentence.
+We can prevent this by using the command \mintinline{tex}|\frenchspacing| above the first paragraph.
+With \mintinline{tex}|\nonfrenchspacing|, we can reset the behavior.
+When using English Spacing, \LaTeX{} tries to recognize abbreviations and to use normal spaces after those.
+We should still check this and\,---\,where necessary\,---\,enforce word spaces (\mintinline[showspaces]{tex}{.\ }) or sentence spaces (\mintinline[showspaces]{tex}{\@. }).
 
-\section{Striche}
-Es gibt verschiedene horizontale Striche.
-Am häufigsten werden der Bindestrich (-), der Halbgeviertstrich (–) und der Geviertstrich\footnote{Ein Geviert ist die Zeilenhöhe, die eine Bleiletter aus dem Buchdruck einnimmt.} (—) verwendet.
-Diese drei Striche werden in \LaTeX{} durch unterschiedlich viele Bindestriche im Quelltext erzeugt, wie \cref{tbl:bars} zeigt.
+\section{Hyphens and dashes}
+There are different kinds of horizontal lines being used as punctuation,
+most frequently the hyphen (-), the en dash (–) and the em dash (—).\footnote{They are named after the letters N and M,
+that occupy roughly the same space.
+The letter M is also about as wide as it is tall, and the amount is called a \emph{Geviert} in German, hence the German terms \emph{Halbgeviertstrich} and \emph{Geviertstrich} for the two dashes.}
+These three characters are created in \LaTeX{} by different numbers of consecutive hyphens in the source code,
+as shown in \cref{tbl:bars}.
 
 \begin{longtable}{@{}llp{7.8cm}@{}}
 	\toprule
-	Code       & Strich            & Verwendung \\
+	Code       & Character            & Usage \\
 	\midrule
-	\mintinline{tex}|-|   & Bindestrich       & \LaTeX-Wochenende \\
-	\mintinline{tex}|--|  & Halbgeviertstrich & als Gedankenstrich – mit Leerzeichen außenrum – oder als Bis-Strich: 10\,–\,12 Uhr \\
-	\mintinline{tex}|---| & Geviertstrich     & a dash\,—\,mostly used in American English \\
+	\mintinline{tex}|-|   & Hyphen  & a small-sized stroke \\
+	\mintinline{tex}|--|  & En dash & a range mark (8\,--\,10\,am) or an interruptor at sentence level – the latter surrounded by spaces and used in most European languages (including British English) \\
+	\mintinline{tex}|---| & Em dash & an interruptor at sentence level\,---\,mostly used in American English and without or with thin spaces \\
 	\bottomrule
-	\caption{Striche in \LaTeX}
+	\caption{Hyphens and dashes in \LaTeX}
 	\label{tbl:bars}
 \end{longtable}
 
-Der Bindestrich wird zwar auch zur Silbentrennung verwendet, ihr solltet ihn dafür aber nicht explizit im Quellcode eingeben.
-An den meisten Stellen trennt \LaTeX{} automatisch richtig, wenn ihr das passende \texttt{babel}-Paket eingebunden habt.\footnote{Vgl. \cref{sec:language}.}
-Wenn dabei etwas schiefgeht, könnt ihr mit den Codes in \cref{tbl:separators} eingreifen:\footnote{Auch dafür muss \texttt{babel} eingebunden sein.}
+The hyphen is obviously also used for hyphenation, but for this purpose, we should not insert it explicitly in our source code.
+In most places, \LaTeX{} does the hyphenation automatically if we are using the correct \texttt{babel} package.\footnote{c.\,f. \cref{sec:language}.}
+In case something goes wrong, we can intervene using the codes from \cref{tbl:separators}:\footnote{Those also require the \texttt{babel} package.}\todo{Is it because of the English document that the last example does not work?}
 
 \begin{longtable}{@{}lp{11cm}@{}}
 	\toprule
 	Code      & Erläuterung \\
 	\midrule
 	\endhead
-	\mintinline{tex}|\-| & Ausschließliche Trennstelle: Das Wort darf nur an dieser Stelle getrennt werden (kann auch mehrfach in einem Wort vorkommen, dann sind alle Stellen erlaubt). \\
-	\mintinline{tex}|"-| & Zusätzliche Trennstelle: Das Wort darf neben den von \LaTeX{} erkannten Trennstellen auch hier getrennt werden. \\
-	\mintinline{tex}|-|  & Exklusiver Bindestrich: Wird für Komposita verwendet und unterbindet die automatische Silbentrennung im Wort (das ist typografisch erwünscht). \\
-	\mintinline{tex}|"=| & Nichtexklusiver Bindestrich: Wird für lange Komposita verwendet, bei denen die Silbentrennung aktiv bleiben soll, weil der Umbruch sonst nicht klappt. \\
-	\mintinline{tex}|""| & Trennstelle ohne Strich: Kann beispielsweise verwendet werden, um \textsc{url}s ohne Bindestrich zu trennen. \\
-	\mintinline{tex}|"~| & Bindestrich ohne Trennstelle: Wird verwendet, um den Bindestrich zusammen mit dem folgenden Wort umbrechen zu lassen: \emph{Vorlesungszeit und "~raum} \\
+	\mintinline{tex}|\-| & Exclusive hyphenation: The word may only be hyphenated at this position (can also be used multiple times within one word\,---\,all of those positions are then allowed). \\
+	\mintinline{tex}|"-| & Additional hyphenation: The word may be hyphenated here, as well as at the default positions. \\
+	\mintinline{tex}|-|  & Exclusive hyphen: Is only used for compound words and prevents the automatic hyphenation for the rest of the word (which is typographically desirable). \\
+	\mintinline{tex}|"=| & Non-exclusive hyphen: Is used for long compound words when the text wrapping would not work without additional automatic hyphenation. \\
+	\mintinline{tex}|""| & Cut-off point without a hyphen: Allows something like a \textsc{url} to wrap without inserting a potentially misleading hyphen. \\
+	\mintinline{tex}|"~| & Non-wrapping hyphen: Keeps the hypen together with the following word, very useful in German: \emph{Vorlesungszeit und "~raum} \\
 	\bottomrule
-	\caption{Ausnahmen für die Silbentrennung}
+	\caption{Exceptions for hyphenation}
 	\label{tbl:separators}
 \end{longtable}
 
-\section{Anführungszeichen}
-Anführungszeichen können grundsätzlich mit den Codes in \cref{tbl:quotation-marks} erzeugt werden.
-Entscheidend ist dabei jeweils das Aussehen und nicht die Semantik, weshalb zum Beispiel im Deutschen die französichen Guillemets verkehrt herum verwendet werden (»french left quoation mark« rechts und umgekehrt).
+\section{Quotation marks}
+Quotation marks can generally be created using the codes from \cref{tbl:quotation-marks}.
+The decisive factor is the appearance, not the semantics, which is why the French Guillemets are used the wrong way around in German
+(the \emph{french left quotation mark} on the right and vice versa).
 
 \begin{table}[H]
 	\center
 	\begin{tabular}{lcccc}
 		\toprule
-		Sprache & \multicolumn{2}{c}{Erste Ebene} & \multicolumn{2}{c}{Zweite Ebene} \\ 
+		Language & \multicolumn{2}{c}{First level} & \multicolumn{2}{c}{Second level} \\
 		\cmidrule(lr){2-3} \cmidrule(lr){4-5}
-		& Code & Ergebnis & Code & Ergebnis \\
+		& Code & Result & Code & Result \\
 		\midrule
-		Deutsch & \mintinline{tex}|\glqq...\grqq| & \glqq…\grqq & \mintinline{tex}|\glq…\grq| & \glq…\grq \\
-		Deutsch alternativ & \mintinline{tex}|\frqq...\flqq| & \frqq…\flqq & \mintinline{tex}|\frq…\flq| & \frq…\flq \\
-		Englisch (\acro{A.\,E.}) & \mintinline{tex}|``...''| & ``…'' & \mintinline{tex}|`...'| & `…' \\
-		Englisch (\acro{B.\,E.}) & \mintinline{tex}|`...'| & `…' & \mintinline{tex}|``...''| & ``…'' \\
+		English (\acro{A.\,E.}) & \mintinline{tex}|``...''| & ``…'' & \mintinline{tex}|`...'| & `…' \\
+		English (\acro{B.\,E.}) & \mintinline{tex}|`...'| & `…' & \mintinline{tex}|``...''| & ``…'' \\
+		German & \mintinline{tex}|\glqq...\grqq| & \glqq…\grqq & \mintinline{tex}|\glq…\grq| & \glq…\grq \\
+		German (alternatively) & \mintinline{tex}|\frqq...\flqq| & \frqq…\flqq & \mintinline{tex}|\frq…\flq| & \frq…\flq \\
 		\bottomrule
 	\end{tabular}
-	\caption{Anführungszeichen}
+	\caption{Quotation marks}
 	\label{tbl:quotation-marks}
 \end{table}
 
-Deutlich flexibler seid ihr aber mit dem Paket \mintinline{tex}{csquotes}, das den Befehl \mintinline{tex}|\enquote{<zitat>}| zur Verfügung stellt.
-Abhängig von der Sprache werden die passenden Anführungszeichen verwendet; bei verschachtelten \texttt{enquote}s wird zwischen erster und zweiter Ebene gewechselt.
-Mit der Option \mintinline{tex}|autostyle=true| beim Paketimport setzt der Befehl \mintinline{tex}|\foreignquote{<sprache>}{<zitat>}| je nach Sprache abweichende Anführungszeichen.
+We can also get more flexibility using the \mintinline{tex}{csquote} package, which provides the \mintinline{tex}|\enquote{<quote>}| command.
+It chooses the correct quotation marks depending on the language being used; also, nested \texttt{enquote}s automatically switch back and forth between first and second level.
+When enabling the \mintinline{tex}|autostyle=true| option on package import, \mintinline{tex}|\foreignquote{<language>}{<quote>}| selects varying quotation marks for each quotation.
 
-\section{Diakritika}
-Wenn ihr Buchstaben mit diakritischen Zeichen direkt über die Tastatur eingeben könnt – beispielsweise die deutschen Umlaute oder gängige Akzente auf einer deutschen Tastatur –, könnt ihr das auch direkt im Quelltext tun.
-Die Zeichen bleiben dann im Output erhalten.
-Ansonsten können die Diakritika auch per Escape-Codes erzeugt werden.
-\cref{tbl:diacritics} gibt nur einige Beispiele an – die Buchstaben lassen sich natürlich austauschen, es gibt aber auch noch viele andere Diakritika.
+\section{Diacritics}
+If we are able to insert letters with diacritics via our keyboard\,---\,e.\,g., the German Umlauts or common accents\,---\,we can also do this within our source code:
+The characters will remain intact in the output.
+If not, we can also create the diacritics via escape codes.
+\Cref{tbl:diacritics} shows just a few examples\,---\,the letters can of course be swapped out, but there is still a huge amount of different diacritics.
 
 \begin{table}[H]
 	\center
@@ -103,10 +107,10 @@ Ansonsten können die Diakritika auch per Escape-Codes erzeugt werden.
 	\label{tbl:diacritics}
 \end{table}
 
-\section{Andere Sonderzeichen}
-Einige Sonderzeichen, beispielsweise das Prozentzeichen, sind für die \LaTeX{}-Syntax reserviert und können nicht als normale Zeichen verwendet werden.
-Diese und viele, viele weitere Sonderzeichen können über eigene Befehle erzeugt werden.
-Dabei ist zu beachten, dass manche Sonderzeichen nur in Mathe-Umgebungen (siehe \cref{sec:maths}) funktionieren, andere brauchen zusätzliche Pakete.
+\section{More special characters}
+Some special characters, like the percent sign, are reserved as part of the \LaTeX{} syntax and cannot be used as normal characters.
+These and many, many more can be created by their own commands.
+Please note that some of them only work in maths environments (c.\,f. \cref{sec:maths}), others might require additional packages.
 
 \begin{table}[H]
 	\center
@@ -128,15 +132,15 @@ Dabei ist zu beachten, dass manche Sonderzeichen nur in Mathe-Umgebungen (siehe 
 		\textless/\textgreater & \verb|\textless/\textgreater| & \\
 		\textperthousand & \verb|\textperthousand| & \\
 		\textsection & \verb|\textsection| & \\
-		$\delta, \pi, \Sigma$ & \verb|\delta, \pi, \Sigma|, … & nur in Mathe-Umgebung \\
-		\euro & \verb|\euro| & nur mit Paket \texttt{eurosym} \\
-		\textteshlig & \verb|\textteshlig| & nur mit Paket \texttt{tipa} \\
-		\textmusicalnote & \verb|\textmusicalnote| & nur mit Paket \texttt{textcomp} \\
+		$\delta, \pi, \Sigma$ & \verb|\delta, \pi, \Sigma|, … & only in maths environments \\
+		\euro & \verb|\euro| & requires the \texttt{eurosym} package \\
+		\textteshlig & \verb|\textteshlig| & requires the \texttt{tipa} package \\
+		\textmusicalnote & \verb|\textmusicalnote| & requires the \texttt{textcomp} package \\
 		\bottomrule
 	\end{tabular}
-	\caption{Einige Sonderzeichen}
+	\caption{Some special characters}
 	\label{tbl:special-characters}
 \end{table}
-Falls ihr mal ein Sonderzeichen braucht, von dem ihr nicht genau wisst, wie es heißt, hilft euch \emph{Detexify}\footnote{\url{http://detexify.kirelabs.org/classify.html}} – ihr könnt das Symbol zeichnen und bekommt alle nötigen Infos.
-Dass es von Keilschrift bis zu technischen Symbolen wirklich \emph{alles} gibt, stellt ihr fest, wenn ihr durch die \emph{Comprehensive \LaTeX{} Symbol List}\footnote{\url{http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf}} blättert.
+Whenever you need a certain symbol and don’t know its name, \emph{Detexify}\footnote{\url{http://detexify.kirelabs.org/classify.html}} comes to the rescue: You can draw the symbol and get all necessery information.
+From cuneiforms to technical symbols, there is absolutely \emph{everything}, as you can see scrolling through the \emph{Comprehensive \LaTeX{} Symbol List}.\footnote{\url{http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf}}
 
