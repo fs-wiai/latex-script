@@ -1,13 +1,13 @@
-\chapter{Grafiken}
+\chapter{Graphics}
 \label{sec:graphics}
 
-Da wir in \LaTeX{} mit Plaintext-Dateien arbeiten, können wir Grafiken nicht – wie von Textverarbeitungsprogrammen gewohnt – einfach einbetten.
-Stattdessen werden externe Bilddateien über Befehle referenziert und dann erst beim Kompilieren eingebunden und positioniert.
+Since in \LaTeX{} we work with plain text, we cannot simply embed graphics into our text as we may be used to from other text word processing programs. 
+Instead, we reference external image files by a command. The figure is then embedded and positioned at compile time.
 
-\section{Grafiken einfügen}
+\section{Inserting Graphics}
 \label{sec:display-graphics}
-Damit Grafiken referenziert werden können, muss das Paket \texttt{graphicx} eingebunden werden. Zum Einfügen können dann folgende Befehle verwendet werden:  
-
+In order to be able to reference graphics, the package \texttt{graphicx} has to be included. For inserting a figure, we can use the following commands:
+	
 \begin{minted}[tabsize=4]{latex}
 \begin{figure}
 	\includegraphics{<dateipfad>}
@@ -15,24 +15,20 @@ Damit Grafiken referenziert werden können, muss das Paket \texttt{graphicx} ein
 \end{figure}
 \end{minted}
 
-\noindent Soll die Bildgröße angepasst werden, kann der \texttt{includegraphics}-Befehl abgeändert werden. 
-Die erwünschte Höhe und Breite können hier separat angegeben werden, etwa wie folgt: 
+\noindent The command \texttt{includegraphics} can be used to change the image size. The desired height and width of the figure can be indicated separately, like illustrated by the following example:
 
 \begin{minted}{latex}
 \includegraphics[width=0.5\textwidth,height=5cm]{<dateipfad>}
 \end{minted}
 
-\section{Platzierung}
+\section{Positioning}
 \label{sec:graphics-placement}
-Ein interessanter Aspekt des What-you-get-is-what-you-mean-Paradigmas ist die Art und Weise, wie Grafiken positioniert werden können. 
-Standardmäßig erfolgt eine automatische Platzierung an einer vom Compiler berechneten, potenziell optimalen Stelle.
-Dabei werden verschiedene Layouts erstellt und danach bewertet, wie ansprechend das Ergebnis ist.
-Durch das Verschieben von Grafiken können typografische Schönheitsfehler wie Schusterjungen und Hurenkinder\footnote{Die erste (letzte) Zeile eines Absatzes steht allein als letzte (erste) Zeile auf der vorherigen (nächsten) Seite, vgl. \url{https://de.wikipedia.org/wiki/Hurenkind_und_Schusterjunge}.} weitestgehend vermieden werden. 
+One interesting aspect of the  what-you-get-is-what-you-mean paradigm is the way how graphics can be positioned. 
+By default, the graphic is placed at the potentially optimal position that is calculated by the compiler. It creates multiple layouts and evaluates them. By moving graphics, typographic blemishes, like widows and orphans\footnote{The first (last) line of a paragraph appears alone as last (first) line on the previous (next) page, cf. \url{https://en.wikipedia.org/wiki/Widows_and_orphans}.}, can be avoided. 
 
-Dies bedeutet aber auch, dass eine Grafik nicht notwendigerweise zwischen den zwei Textblöcken wie im Quelltext erscheint, sondern an anderer Stelle.
-Um im Text einen klaren Bezug zu einer gegebenenfalls anderswo platzierten Grafik herzustellen, können wir Labels verwenden, die wir in \cref{sec:references} erklären.
-Wir können diese Verschiebungen außerdem durch Hinzufügen eines optionalen Parameters zur \mintinline{latex}{figure}-Umgebung mehr oder minder rigoros begrenzen.
-Die verfügbaren Positionskürzel werden in \cref{tbl:placement-abbreviations} aufgelistet.
+As a consequence, graphics are not necessarily placed between the two text blocks that we specify, but at another position. 
+In order to reference a picture, that possibly is placed on another page, we can use labels, which are covered in \cref{sec:references}. 
+On top of that, we can limit the positioning of our image more or less rigorously by adding optional parameters to the \texttt{figure} environment. The available positioning shortcuts can be found in \cref{tbl:placement-abbreviations}.
 
 \begin{table}[h!]
 	\center
@@ -47,7 +43,7 @@ Die verfügbaren Positionskürzel werden in \cref{tbl:placement-abbreviations} a
 		H      & Definitiv an dieser Stelle! (benötigt Paket \texttt{float}) \\
 		\bottomrule
 	\end{tabular}
-	\caption{Kürzel zur Platzierung von Abbildungen}
+	\caption{Shortcuts for Positioning Graphics}
 	\label{tbl:placement-abbreviations}
 \end{table}
 
@@ -58,7 +54,7 @@ Die verfügbaren Positionskürzel werden in \cref{tbl:placement-abbreviations} a
 \end{figure}
 \end{minted}
 
-Neben der vertikalen Positionierung spielt gegebenenfalls auch die horizontale Ausrichtung eine Rolle.
-Standardmäßig sind Grafiken linksbündig orientiert.
-Der Befehl \mintinline{latex}{\centering} zentriert alle folgenden Objekte bis zum Ende der aktuellen Umgebung.
-Soll sich die Zentrierung nur auf ein Objekt beziehen, kann dieses stattdessen mit \mintinline{latex}{\begin{center}} und \mintinline{latex}{\end{center}} umschlossen werden.
+Besides the vertical positioning, also the horizontal orientation may be of importance. 
+By default, graphics are left-justified. 
+The command \mintinline{latex}{\centering} centers all following objects in the current environment.
+If we want the centering to affect only one object, we can alternatively wrap the figure with  \mintinline{latex}{\begin{center}} and \mintinline{latex}{\end{center}}.
