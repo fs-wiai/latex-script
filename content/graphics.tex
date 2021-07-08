@@ -10,15 +10,15 @@ In order to be able to reference graphics, the package \texttt{graphicx} has to 
 	
 \begin{minted}[tabsize=4]{latex}
 \begin{figure}
-	\includegraphics{<dateipfad>}
-	\caption[<kurztitel>]{<bildunterschrift>}
+	\includegraphics{<file path>}
+	\caption[<short title>]{<caption>}
 \end{figure}
 \end{minted}
 
-\noindent The command \texttt{includegraphics} can be used to change the image size. The desired height and width of the figure can be indicated separately, like illustrated by the following example:
+\noindent The command \mintinline{latex}{includegraphics} can be used to change the image size. The desired height and width of the figure can be indicated separately, like illustrated by the following example:
 
 \begin{minted}{latex}
-\includegraphics[width=0.5\textwidth,height=5cm]{<dateipfad>}
+\includegraphics[width=0.5\textwidth,height=5cm]{<file path>}
 \end{minted}
 
 \section{Positioning}
@@ -31,16 +31,16 @@ In order to reference a picture, that possibly is placed on another page, we can
 On top of that, we can limit the positioning of our image more or less rigorously by adding optional parameters to the \texttt{figure} environment. The available positioning shortcuts can be found in \cref{tbl:placement-abbreviations}.
 
 \begin{table}[h!]
-	\center
+	\centering
 	\begin{tabular}{cl}
 		\toprule
-		Kürzel & Position                              \\
+		Shortcut & Position                              \\
 		\midrule
-		h      & möglichst hier, wenn es gefällt           \\
-		t      & oberer Seitenrand \emph{(top)}        \\
-		b      & unterer Seitenrand \emph{(bottom)}    \\
-		p      & auf einer eigenen Seite \emph{(page)} \\
-		H      & Definitiv an dieser Stelle! (benötigt Paket \texttt{float}) \\
+		h      & here, if possible						\\
+		t      & on top of the page \emph{(top)}        \\
+		b      & at the bottom of the bage \emph{(bottom)}    \\
+		p      & on its own apge\emph{(page)} \\
+		H      & Definitely here! (requires package \texttt{float}) \\
 		\bottomrule
 	\end{tabular}
 	\caption{Shortcuts for Positioning Graphics}
@@ -48,9 +48,9 @@ On top of that, we can limit the positioning of our image more or less rigorousl
 \end{table}
 
 \begin{minted}[tabsize=4]{latex}
-\begin{figure}[<positionskürzel>]
+\begin{figure}[<position shortcut>]
 	\centering
-	\includegraphics{<dateipfad>}
+	\includegraphics{<file path>}
 \end{figure}
 \end{minted}
 
