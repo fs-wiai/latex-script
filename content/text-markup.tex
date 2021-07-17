@@ -1,67 +1,70 @@
-\chapter{Textauszeichnung}
+\chapter{Text markup}
 
-Bei der Textauszeichnung wird zwischen semantischer und optischer Hervorhebung unterschieden.
-Wir empfehlen, so oft wie möglich semantische Auszeichnung zu verwenden, die nur angibt, \emph{warum} etwas ausgezeichnet wird, und \LaTeX{} überlässt, \emph{wie} es aussehen soll.
-Die einfachste semantische Auszeichnung, die auch im vorherigen Satz verwendet wurde, ist eine Betonung mit \mintinline{latex}{\emph{…}}.
-Der Befehl lässt sich auch schachteln und setzt Text normalerweise kursiv bzw. in zweiter Ebene wieder gerade.
-Diese Art der Hervorhebung wird erst beim Lesen wahrgenommen und zieht nicht schon vorher Aufmerksamkeit an, wie es der farbige Befehl in diesem Absatz tut, oder Fettsatz, der eher zur Gliederung geeignet ist.
+Text markup can be done in two ways: semantically or visually.
+We recommend that you use semantic markup whenever possible.
+In contrast to visual markup, it only states \emph{why} something is \todo{better word here}marked and entrusts to \LaTeX{} \emph{how} it is going to look.
+The simplest semantic markup, that was also used in the previous sentence, is an emphasis: \mintinline{latex}{\emph{…}}.
+By default, this command sets text in italics.
+When it is nested, the second level of emphasis is set straight again.
+This kind of formatting is only perceived when reading the text and does not attract attention beforehand, as colored or bold text does (which is more appropriate for higher-level structuring purposes).
 
-Einige optische Auszeichnungen werden in \cref{tbl:visual-markup} aufgelistet, sollten aber sehr vorsichtig verwendet werden.
-Grundsätzlich lassen sie sich auch untereinander schachteln, bei einigen Kombinationen werden aber die passenden Schriftschnitte fehlen.
-Viele andere Programme fangen in solchen Fällen an, vorhandene Schnitte zu verzerren, um den fehlenden Schnitt zu imitieren.
-Gut sieht so etwas aber nicht aus, deshalb verzichtet \LaTeX{} darauf.
+Some types of visual markup are listed in \cref{tbl:visual-markup}, but you should use them very carefully.
+In principle, they can also be nested, however, for some combinations, the corresponding fonts will be missing.
+Many other programs try to distort existing fonts to imitate the missing one.
+As this \todo{Are we doing synaereses?}doesn’t look particularly good, \LaTeX{} will not do it.
+So don’t be surprised when your carefully nested selection of four different markups is just ignored and doesn’t do anything at all.
 
 \begin{table}[H]
 	\center
 	\begin{tabular}{lll}
 		\toprule
-		Auszeichnung & Befehl & Darstellung \\
+		Markup & Command & Rendering \\
 		\midrule
-		fett & \mintinline{latex}{\textbf{bold face}} & \textbf{bold face} \\
-		kursiv & \mintinline{latex}{\textit{italics}} & \textit{italics} \\
-		Kapitälchen & \mintinline{latex}{\textsc{small caps}} & \textsc{small caps} \\
-		dicktengleich & \mintinline{latex}{\texttt{typewriter text}} & \texttt{typewriter text} \\
-		schräg & \mintinline{latex}{\texttt{slanted}} & \textsl{slanted} (bitte nicht!) \\
-		unterstrichen & \mintinline{latex}{\underline{underlined}} & \underline{underlined} \\
-		tiefgestellt & \mintinline{latex}{\textsubscript{subscript}} & x\textsubscript{subscript} \\
-		hochgestellt & \mintinline{latex}{\textsubscript{superscript}} & x\textsuperscript{superscript} \\
+		bold & \mintinline{latex}{\textbf{bold face}} & \textbf{bold face} \\
+		italics & \mintinline{latex}{\textit{italics}} & \textit{italics} \\
+		small caps & \mintinline{latex}{\textsc{small caps}} & \textsc{small caps} \\
+		monospaced & \mintinline{latex}{\texttt{typewriter text}} & \texttt{typewriter text} \\
+		slanted & \mintinline{latex}{\texttt{slanted}} & \textsl{slanted} (please, don’t!) \\
+		underlined & \mintinline{latex}{\underline{underlined}} & \underline{underlined} \\
+		subscript & \mintinline{latex}{\textsubscript{subscript}} & x\textsubscript{subscript} \\
+		superscript & \mintinline{latex}{\textsubscript{superscript}} & x\textsuperscript{superscript} \\
 		\bottomrule
 	\end{tabular}
-	\caption{Befehle zur optischen Textauszeichnung}
+	\caption{Visual markup commands}
 	\label{tbl:visual-markup}
 \end{table}
 
-Normalerweise solltet ihr diese Befehle kaum brauchen, denn da, wo diese Auszeichnungen angebracht sind, tauchen sie meistens von selbst auf, wenn ihr semantische Befehle verwendet.
-Beispielsweise stellt das Paket \texttt{hyperref} den Befehl \mintinline{latex}{\url{…}} bereit.
-Damit werden \textsc{url}s nicht nur mit einer dickten\-gleichen Schrift gesetzt, sondern sie sind auch anklickbar und werden bei Bedarf umgebrochen, ohne dass Bindestriche eingefügt werden.
+Usually, you should not need these commands too often, as they appear by themselves when you are using semantic markup.
+For instance, the \texttt{hyperref} package provides the \mintinline{latex}{\url{…}} command.
+This command does not only use a monospaced font for \textsc{URL}s, it also makes them clickable and, if necessary, wraps them without adding hyphens.
 
-Das gleiche gilt für unterschiedliche Schriftgrößen: 
-Die Größe der Schrift im Fließtext könnt ihr mit einer Option der Dokumentenklasse festlegen: 
+The same applies for different font sizes.
+You can specify the body text font size with an option at the document class:
 \begin{minted}{latex}
 \documentclass[9pt]{article}
 \end{minted}
-Darauf aufbauend erzeugt \LaTeX{} verschiedene Schriftgrade, die durch die Befehle in \cref{tbl:type-sizes} gesetzt werden können.
-Beschränkt so etwas aber besser auf Titelseiten und ähnliches.
-Für den Rest könnt ihr auf die Standardeinstellungen vertrauen und euch das visuelle Durcheinander sparen.
+Building upon this, \LaTeX{} generates different font sizes that can be called via the commands in \cref{tbl:type-sizes}.
+It is, however, best to restrict those to title pages and similar things.
+For the rest, you can trust the default settings and avoid the visual clutter.
 
 \begin{table}[H]
 	\center
 	\begin{tabular}{ll}
 		\toprule
-		Befehl & Darstellung \\
+		Command & Rendering \\
 		\midrule
-		\mintinline{latex}{{\tiny winzig}} & {\tiny winzig} \\
-		\mintinline{latex}{{\footnotesize Fußnotengröße}} & {\footnotesize Fußnotengröße} \\
-		\mintinline{latex}{{\small klein}} & {\small klein} \\
+		\mintinline{latex}{{\tiny tiny}} & {\tiny tiny} \\
+		\mintinline{latex}{{\footnotesize footnote size}} & {\footnotesize footnote size} \\
+		\mintinline{latex}{{\small small}} & {\small small} \\
 		\mintinline{latex}{{\normalsize normal}} & {\normalsize normal} \\
-		\mintinline{latex}{{\large groß}} & {\large groß} \\
-		\mintinline{latex}{{\Large größer}} & {\Large größer} \\
-		\mintinline{latex}{{\LARGE am größten}} & {\LARGE am größten} \\
-		\mintinline{latex}{{\huge am allergrößten}} & {\huge am allergrößten} \\
-		\mintinline{latex}{{\Huge Größenwahn}} & {\Huge Größenwahn} \\
+		\mintinline{latex}{{\large large}} & {\large large} \\
+		\mintinline{latex}{{\Large larger}} & {\Large larger} \\
+		\mintinline{latex}{{\LARGE largest}} & {\LARGE largest} \\
+		\mintinline{latex}{{\huge largest of all}} & {\huge largest of all} \\
+		\mintinline{latex}{{\Huge megalomania}} & {\Huge megalomania} \\
 		\bottomrule
 	\end{tabular}
-	\caption{Befehle zur optischen Textauszeichnung}
+	\caption{Font size commands}
 	\label{tbl:type-sizes}
 \end{table}
 
