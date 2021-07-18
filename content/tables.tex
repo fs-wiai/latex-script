@@ -1,50 +1,53 @@
-\chapter{Tabellen}
+\chapter{Tables}
 \label{sec:tables}
 
-Für Tabellen gibt es zwei grundlegende Umgebungen.
-Die erste, \texttt{table}, ist dafür zuständig, die Tabelle insgesamt in das übrige Dokument einzubauen.
-Die Positionierung erfolgt dabei analog zur Positionierung von Grafiken.
-Auch bei Tabellen kann der Befehl \mintinline{tex}{\caption} verwendet werden, um der Tabelle eine Beschriftung zuzuordnen.
+There are two fundamental environments for tables.
+The first one called \texttt{table} is responsible for integrating the table as a whole into the document.
+Positioning is done the same way as it is with graphics.
+The \mintinline{tex}{\caption} command is the same, as well.
 
-Beim Tabelleninhalt hören die Gemeinsamkeiten auf:
-Während Grafiken aus externen Dateien stammen und nicht durch \LaTeX{} interpretiert werden, muss die innere Struktur von Tabellen im Code aufgeschlüsselt werden.
-Dazu dient die Umgebung \texttt{tabular}, die als verpflichtenden Parameter eine Spaltendefinition erwartet.
-Die Spaltendefinition besteht aus je einem Buchstaben pro Tabellenspalte, der die Textausrichtung der Spalte angibt: 
-\texttt{l} für linksbündig, \texttt{r} für rechtsbündig, \texttt{c} für zentriert.
+At the table \emph{content}, the similarities end:
+While graphics are embedded from external files and not interpreted by \LaTeX{},
+the inner structure of tables has to be encoded explicitly.
+This is done with the \texttt{tabular} environment that expects a column definition as an obligatory parameter.
+The column definition consists of one letter per column specifying its text alignment:
+\texttt{l} for left-justified, \texttt{r} for right-justified, \texttt{c} for centered.
 
-Innerhalb der \texttt{tabular}-Umgebung folgt dann der eigentliche Tabelleninhalt.
-Dabei werden Tabellenzeilen genau wie Zeilenumbrüche durch \mintinline{tex}{\\} markiert, Zellengrenzen durch \mintinline{tex}{&}.
+Within the \texttt{tabular} environment, the actual table content follows.
+Table rows are separated by \mintinline{tex}{\\}, just like line breaks, and cells by an \mintinline{tex}{&}.
 
-Für typografisch ansprechende Tabellen empfehlen wir das Paket \texttt{booktabs}.\footnote{Alle bisher genannten Befehle funktionieren auch ohne dieses Paket, das Ergebnis sieht dann aber deutlich unprofessioneller aus.}
-Dieses Paket bringt die Befehle \mintinline{tex}{\toprule}, \mintinline{tex}{\midrule} und \mintinline{tex}{\bottomrule} mit, die jeweils passende horizontale Linien für den Tabellenbegin, für Gruppierungen innerhalb der Tabelle sowie für das Tabellenende zeichnen.
+For typographically pleasing tables, we recommend the \texttt{booktabs} package.\footnote{All commands previously mentioned also work without this package, but the result will look far less professional.}
+This package brings along the commands \mintinline{tex}{\toprule}, \mintinline{tex}{\midrule} and \mintinline{tex}{\bottomrule} that draw appropriate horizontal lines above, within and below the table, respectively.
 
-Vertikale Linien können als senkrechter Strich (\texttt{|}) in die Spaltendefinition eingefügt werden, davon ist aber abzuraten.
-Wenn ihr den zusätzlichen Weißraum entfernen möchtet, der standardmäßig die Spalten umgibt, könnt ihr – ebenfalls zwischen den Buchstaben der Spaltendefinition – die Zeichenkette \mintinline{tex}{@{}} einfügen.
+Vertical lines can be inserted as a vertical bar character (\texttt{|}) in the column definition, but this is not recommended.\footnote{The
+whitespace within the table separates the columns clearly enough, additional lines just make for visual clutter.}
+If you want to remove the additional whitespace that surrounds the columns by default (e.\,g., to the left of the first column and to the right of the last), you can add the string \mintinline{tex}{@{}} at the corresponding places within the column definition.
 
-Die komplette Tabelle kann dann beispielsweise so aussehen wie in \cref{lst:sample-table} abgebildet.
+A complete table can then look like the one shown in \cref{lst:sample-table}.
 
-\Example{lst:sample-table}{tables/table-example}{tables/table-example-renderable}{Eine komplette Tabelle}
+\Example{lst:sample-table}{tables/table-example}{tables/table-example-renderable}{A complete table}
 
-\paragraph{Überlänge}
-Für Tabellen, die über eine Seite hinausgehen, oder die Zeilenumbrüche innerhalb einzelner Tabellenzellen erfordern, kann zusätzlich das Paket \texttt{longtable} eingebunden werden, mit dem \texttt{booktabs} ebenfalls kompatibel ist.
-Die \texttt{longtable}-Umgebung vereint die \texttt{table}- und die \texttt{tabular}-Umgebung.
-Damit ergibt sich folgende Grundstruktur:
+\paragraph{Excess length}
+For tables exceeding one page or requiring line breaks within individual cells,
+the \texttt{longtable} package can be used additionally (also supported by \texttt{booktabs}).
+The \texttt{longtable} environment combines the \texttt{table} and \texttt{tabular} environments.
+With it, you get the following basic structure:
 
 \begin{minted}{latex}
 \begin{longtable}
-    % Inhalte
-    \caption{<Beschriftung>}
+    % content
+    \caption{<caption>}
 \end{longtable}
 \end{minted}
 
-\paragraph{Überbreite}
-Soll stattdessen eine sehr breite Tabelle dargestellt werden, empfiehlt es sich auf hochkant ausgerichteten Seiten, die Tabelle um 90\textdegree{} zu drehen.
-Das geht mithilfe des Pakets \texttt{rotating}.
-Der einzige Unterschied zu einer normalen Tabelle ist, dass die \texttt{table}- Umgebung durch eine \texttt{sidewaystable}-Umgebung ersetzt wird.
-Die Positionierung und die enthaltene \texttt{tabular}"=Umgebung funktionieren unverändert.
+\paragraph{Excess width}
+If you want to present a very wide table instead, it is preferable on pages in portrait orientation to turn the table by 90\textdegree{}.
+This can be done with the help of the \texttt{rotating} package.
+The only difference between this and a normal table is that the \texttt{table} environment gets replaced by a \texttt{sidewaystable} environment.
+Positioning and the \texttt{tabular} stay unaffected.
 
-\paragraph{Weitere Möglichkeiten}
-Natürlich bietet \LaTeX{} noch viele weitere Features für ausgefeiltere Tabellen, beispielsweise zeilen- oder spaltenübergreifende Zellen. 
-Dafür, oder wenn ihr euch einfach Tipparbeit sparen wollt, empfehlen wir euch den \emph{Tables Generator,}\footnote{\url{https://tablesgenerator.com/}} in dem ihr Tabellen in \textsc{wysiwyg}-Manier zusammenklicken könnt und kopierfertigen \LaTeX-Code erhaltet.
+\paragraph{More possibilities}
+Of course, \LaTeX{} offers lots of additional features for sophisticated tables, e.\,g., row- or column-spanning cells.
+For something like this\,---\,or just to save some typing\,---\,we recommend the \emph{Tables Generator}\textit{,}\footnote{\url{https://tablesgenerator.com/}} that allows you to click your tables together in \textsc{wysiwyg} style and provides you with \LaTeX{} code ready for copying into your document.
 
 
