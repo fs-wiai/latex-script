@@ -1,15 +1,15 @@
-% Don't copy this ugly texttt line break hack.
-Für diese Aufgabe arbeiten wir mit der Datei \texttt{exercises/}""\texttt{special-characters/}""\texttt{special-characters.tex}.
-Die Ergebnisse seht ihr im Skript bei Übung 5.
-Kompiliert deshalb zur Prüfung eurer Lösung die Datei \mintinline{bash}{main.tex}.
-Dies gilt auch für die folgenden Aufgaben.
+% breakanywhere doesn't seem to work.
+For this task, we are using the file \mintinline[breakanywhere]{bash}{exercises/special-characters/special-}\newline\mintinline[breakanywhere]{bash}{characters.tex}.
+To be able to see your results here within the script,
+compile the \mintinline{bash}{main.tex} file.
+This applies for the subsequent tasks, as well.
 
 \begin{enumerate}
-	\item Im Text findet ihr eine Reihe an Abkürzungen. Ersetzt die Leerzeichen innerhalb der Abkürzungen durch schmale Leerzeichen. Setzt außerdem ein schmales Leerzeichen vor das Wort \emph{Euro}.
-	\item Ersetzt die Bindestriche bei den Öffnungszeiten der ERBA durch Halbgeviertstriche.
-	\item Setzt beim Wort \emph{Studierendenausweis} eine ausschließliche Trennstelle nach \enquote{Studierenden-}.
-	\item Setzt die Wörter \emph{Studi-Ticket} und \emph{Studi-Karte} in Anführungszeichen. Nutzt dafür den Befehl \mintinline{latex}{\enquote}.
-	\item Ersetzt das Wort \emph{Euro} durch ein Euro-Zeichen. 
+	\item In the text, you find a bunch of abbreviations. Replace the spaces within the abbreviations by thin spaces. Put a thin space in front of the word \emph{EUR}.
+	\item Replace the hyphens within the Erba opening hours by en dashes.
+	\item Restrict the hyphenation of word \emph{Studierendenausweis} to one position: \\\emph{Studierenden-ausweis}.
+	\item Add quotation marks around the words \emph{Studi-Ticket} and \emph{Studi-Karte} using the \mintinline{latex}{\enquote} command.
+	\item Replace the word \emph{EUR} by a Euro symbol (hence the thin space). 
 \end{enumerate}
 
 \exercisematerial{exercises/special-characters/special-characters}

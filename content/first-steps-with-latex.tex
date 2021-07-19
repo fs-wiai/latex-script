@@ -1,44 +1,48 @@
-\chapter*{Erste Schritte mit \LaTeX}
-\addcontentsline{toc}{section}{Erste Schritte mit \LaTeX}
+\newpage
+\definecolor{latexblue}{rgb}{0.9,0.925,0.95}
+\pagecolor{latexblue}
 
-Dieses Skript dient als kurze Referenz zum Umgang mit LateX und als Übungsbeispiel für das LaTeX-Tutorium der Fachschaft WIAI.
-Viele Aufgaben erfordern es, das Skript selbst anzupassen.
-Das dafür benötigte Projektarchiv mit allen Quelltextdateien sowie die aktuellste Version dieses Skriptes sind auf Github\footnote{\url{https://github.com/fs-wiai/latex-script/releases}} zu finden. 
+\chapter*{First steps with \LaTeX}
+\addcontentsline{toc}{section}{First steps with \LaTeX}
 
-Bevor wir ins Arbeiten mit \LaTeX{} einsteigen können, müssen wir es natürlich zunächst installieren. 
-Außerdem müssen wir einige Anpassungen vornehmen, um mit diesem Projekt arbeiten zu können.
-Alle Schritte erläutern wir in den folgenden Kapiteln näher.
-Nach und nach werdet ihr so ein Verständnis der Arbeitsweise mit \LaTeX{} aufbauen.
-Für den Anfang folgt einfach der Anleitung.
-Achtet bitte darauf, dass ihr \emph{zuerst} den Compiler und \emph{danach} einen Editor installiert.
+This script serves as a short reference on handling \LaTeX{} and as exercise material für the \LaTeX{} workshop of the Fachschaft \acro{WIAI}.
+Many tasks require you to modify the script on your own.
+The project material with all of the source files and the lastest version of this script can be found on Github.\footnote{\url{https://github.com/fs-wiai/latex-script/releases}}
+
+Before we can dive into \LaTeX{}, we will obviously have to install it.
+We will also need to do some configuration to be able to work with this project.
+All of this will be explained in more detail in the following chapters.
+Bit by bit, you will get an understanding of how to work with \LaTeX{}.
+For now, just follow our instructions.
+Please, make sure to install the \emph{compiler first} and the the \emph{editor afterwards}\textit{.}
 
 \section*{Compiler}
-Zunächst zum Compiler. Ihn brauchen wir, um den Quelltext, den wir schreiben, in ein \acro{PDF} umzuwandeln. Hier gibt es für verschiedene Betriebssysteme unterschiedliche Compiler, wie etwa MikTeX für Windows,\footnote{\url{https://miktex.org/download}} MacTex für MacOS\footnote{\url{http://tug.org/mactex/}} und TeXLive für Linux-Distributionen.\footnote{Sofern ihr eine debianbasierte Linux-Distribution verwendet, kann der Compiler mittels \mintinline{bash}{sudo apt install texlive-full} installiert werden. Für andere Distributionen findet ihr eine Anleitung unter \url{https://tug.org/texlive/doc/texlive-en/texlive-en.html\#installation}.} Bestenfalls installiert ihr die volle Version mit allen Paketen.
+Let’s start with the compiler.
+We will need it to convert the source code that we are going to write into a \acro{PDF}.
+There are different compilers for different operating systems;
+for example, MikTeX for Windows,\footnote{\url{https://miktex.org/download}} MacTex for MacOS\footnote{\url{http://tug.org/mactex/}} and TeXLive for Linux distributions.\footnote{If you are using a Debian-based Linux distribution, you can install the compiler by executing \mintinline{bash}{sudo apt install texlive-full}. For other distributions, you find instructions on \url{https://tug.org/texlive/doc/texlive-en/texlive-en.html\#installation}.} In case you get to choose, it is best to install the full version with all packages.
 
 \section*{Editor}
-Sobald ihr das gemacht habt, könnt ihr euch auch schon einen Editor 
-herunterladen, in dem ihr eure \LaTeX-Dokumente gerne schreiben möchtet. Dafür 
-ist eigentlich jeder Editor geeignet (notepad++, Atom, VS Code, usw.). Wir 
-empfehlen für Anfänger jedoch ein Programm, das \LaTeX-spezfische Funktionen 
-besitzt, wie etwa TeXstudio.\footnote{Eine aktuelle Version findet ihr unter 
-\url{https://www.texstudio.org/}.}
+As soon as you have installed the compiler, you can download an editor that you are going to use to write your \LaTeX{} documents.
+Any editor will do (notepad++, Atom, VS Code, etc.).
+However, for beginners, we do recommend to use a program that supports you with \LaTeX-specific features.
+One of them is TeXstudio.\footnote{You find the latestt version on \url{https://www.texstudio.org/}.}
 
-\section*{Compilerbefehl ändern}
-Damit es beim Kompilieren dieses Dokuments nicht zu Fehlern kommt, müsst ihr 
-nun den Compilerbefehl ändern. Klickt dazu in TeXstudio zunächst auf die 
-Schaltfläche \emph{Optionen} und anschließend auf \emph{TeXstudio 
-konfigurieren \textellipsis}. Danach wird sich ein neues Fenster öffnen. Dort navigiert 
-ihr zum Bereich \emph{Befehle} und setzt bei \emph{PdfLaTeX} das Flag 
-\mintinline{bash}{-shell-escape}. In anderen Worten: Der Text bei 
-\emph{PdfLaTeX} sollte folgendermaßen lauten: 
-\mint{bash}{pdflatex -synctex=1 -interaction=nonstopmode -shell-escape 
-%.tex}
+\section*{Changing the compiler command}
+To prevent errors during the compilation of our document, you have to change the compiler command.
+In TeXstudio, click on the \emph{options} button and then on \emph{Configure TeXstudio \textellipsis}\todo{Need to find out what they are actually called in English. Maybe also add the correct steps for Mac (these don’t apply)}.
+A new window will open up.
+Navigate to the \emph{commands} area and, at \emph{PdfLaTeX}, add the flag \mintinline{bash}{-shell-escape}.
+In other words: The command for \emph{PdfLaTeX} should look like this:
+\mint{bash}{pdflatex -synctex=1 -interaction=nonstopmode -shell-escape %.tex}
 
 
-\section*{Das erste Mal kompilieren}
-Öffnet nun die Datei \mintinline{bash}{main.tex} im Wurzelverzeichnis des 
-Projektes und kompiliert sie durch Druck auf \faForward. 
-In dem Ordner, in dem die Datei liegt, sollten verschiedene neue Dateien erschienen sein.
-Die Datei \mintinline{bash}{main.pdf} enthält das kompilierte Dokument.
-Außerdem sind einige Hilfsdateien aufgetaucht, die der Compiler zum Beispiel nutzt, um das Inhaltsverzeichnis zu generieren.
-Damit seid ihr startklar!
+\section*{Compiling for the first time}
+Open up the file \mintinline{bash}{main.tex} in the root directory of the project and compile it by pressing \faForward. 
+Looking at the directory, you should see a few new files.
+The \mintinline{bash}{main.pdf} file contains the compiled document.
+The other files are auxiliary files that the compiler uses, for example, to generate the table of contents.
+You are now ready to go!
+
+\newpage
+\nopagecolor

@@ -1,77 +1,74 @@
-\chapter{Wie funktioniert \LaTeX?}
+\chapter{How does \LaTeX function?}
 \label{sec:basic-functionality}
 
-Programme zur Textverarbeitung und Dokumentenerstellung nutzen unterschiedliche Vorgehensweisen, um basierend auf einer bearbeiteten Datei ein Dokument zu erstellen.
-Bei der Arbeit mit Microsoft Word gilt die Regel: Ein als \acro{PDF} exportiertes Dokument sieht genauso aus wie das Quelldokument in Word. Dort wo eine Grafik in Word platziert wird, ist sie auch im \acro{PDF} aufzufinden. Anpassungen der Darstellung in MS Word und anderen bekannten Programmen führen also zu einer direkten optischen Veränderung im resultierenden Export. Diese Art der Formatierung wird \emph{What you see is what you get} genannt (kurz: \acro{WYSIWYG}). Inhalt und Struktur sind eng miteinander verbunden.
+Word processing and document creation programs use different approaches to create a document based on an edited file.
+When working with Microsoft Word, the rule is: a document exported as \acro{PDF} looks exactly like the source document in Word. Where a graphic is placed in Word, it is also found in the \acro{PDF}. Adjustments to the appearance in MS Word and other popular programs thus result in a direct visual change in the resulting export. This type of formatting is called \emph{What you see is what you get} (\acro{WYSIWYG} for short). Content and structure are closely linked.
 
-\LaTeX{} arbeitet hingegen nach dem Prinzip \emph{What you get is what you mean} (kurz: \acro{WYGIWYM}). Inhalt und Struktur sind stärker getrennt.
-Der Inhalt wird in einem Dokument in einfacher Textform platziert, zusammen mit sogenannten \emph{Befehlen}\textit{.} Die Kombination von inhaltlichem Text und Befehlen nennen wir auch Quelltext. Um die Darstellung des Inhalts anzupassen, ändern wir nicht den Text selbst, sondern fügen entsprechende Befehle hinzu. Diese werden von einem \emph{Compiler} verarbeitet, welcher die Darstellung je nach Befehl anpasst. Zeile für Zeile verarbeitet der Compiler Text und Befehle aus unserem Quelltext. Wenn der gesamte Quelltext von dem Compiler verarbeitet wurde, erhalten wir das finale Dokument. Es gibt zwar unterschiedliche Exportmöglichkeiten, meistens lassen wir uns das Dokument aber als \acro{PDF} ausgeben -- wie auch bei Word.
-% Alter Paragraph:
-%Der Compiler nimmt besagten Quelltext entgegen und liest ihn Zeile für Zeile.
-%Erkennt er einen Befehl, wird dieser verarbeitet. Verschiedene Befehle haben verschiedene Einflüsse auf das Endresultat, dazu später mehr. Wenn der gesamte Quelltext von dem Compiler verarbeitet wurde, erhalten wir das finale Dokument. Es gibt zwar unterschiedliche Exportmöglichkeiten, meistens lassen wir uns das Dokument aber als \acro{PDF} ausgeben -- wie auch bei Word.
+\LaTeX{}, on the other hand, works according to the principle \emph{What you get is what you mean} (\acro{WYGIWYM} for short). Content and structure are separated more clearly.
+The content is placed in a document in plain text form, together with so-called \emph{commands}. The combination of content text and commands is also called \emph{source} text. To customize the presentation of the content, we do not change the content text itself, but add appropriate commands instead. These are processed by a \emph{compiler}, which adjusts the resulting appearance depending on the command. Line by line, the compiler processes text and commands from our source code. When all the source code has been processed by the compiler, we get the final document. There are different export options, but most of the time we output the document as a \acro{PDF} - just like Word.
 
-Als kurzes Beispiel für einen Befehl dient uns hier das Hervorheben von Wörtern oder Sätzen. Der Befehl lautet \mintinline{latex}{\emph{}}. Den Text, den wir hervorheben möchten, schreiben wir im Quellcode innerhalb der geschweiften Klammern, etwa so: \mintinline{latex}{\emph{Guten Tag!}}. Im resultierenden \acro{PDF} erscheint dieser Text dann kursiv: \emph{Guten Tag!} Von dem Befehlsbezeichner und den Sonderzeichen ist keine Spur mehr zu sehen. Wir schreiben also keinen kursiven Text innerhalb des Quellcodes, sondern teilen dem Compiler einfach mit, dass bestimmte Wörter doch bitte hervorgehoben werden sollen.
+%Als kurzes Beispiel für einen Befehl dient uns hier das Hervorheben von Wörtern oder Sätzen. Der Befehl lautet \mintinline{latex}{\emph{}}. Den Text, den wir hervorheben möchten, schreiben wir im Quellcode innerhalb der geschweiften Klammern, etwa so: \mintinline{latex}{\emph{Guten Tag!}}. Im resultierenden \acro{PDF} erscheint dieser Text dann kursiv: \emph{Guten Tag!} Von dem Befehlsbezeichner und den Sonderzeichen ist keine Spur mehr zu sehen. Wir schreiben also keinen kursiven Text innerhalb des Quellcodes, sondern teilen dem Compiler einfach mit, dass bestimmte Wörter doch bitte hervorgehoben werden sollen.
 
-Dieses einfache Beispiel verdeutlicht eine Stärke des \acro{WYGIWYM}-Prinzips. 
-Wir markieren Textelemente auf der semantischen Ebene und können die zugehörigen typographischen Anpassungen an zentraler Stelle vornehmen -- oder lassen \LaTeX{} die Konfiguration selbst erledigen.
-Wenn wir etwa die Art und Weise des Hervorhebens ändern möchten, dann können wir dies zentral konfigurieren. An allen Stellen, wo \mintinline{latex}{\emph{}} verwendet wird, wird das Endresultat entsprechend angepasst. Es besteht keine Notwendigkeit, an jeder einzelnen Stelle Anpassungen vorzunehmen. Das Prinzip ist ähnlich zu Formatvorlagen in Office-Programmen, wenn auch konsequenter und mächtiger. 
-% Überleitung zum nächsten Abschnitt??
+As a brief example for a command, we shall use the highlighting of words or sentences. The command is \mintinline{latex}{\emph{}}. We write the text we want to highlight inside the curly brackets in the source code, like this: \mintinline{latex}{\emph{Good morning!}}. In the resulting PDF, this text will appear in italics: \emph{Good morning!} There is no trace of the command identifier and the special characters. You can see, we are not writing italic text inside the source code, we just tell the compiler that certain words should be highlighted by use of a command.
 
-% TEMP/UNSURE
-%Wie man mit Word oder anderen Programmen ein \acro{PDF} generiert, wisst ihr vermutlich. Besonders kompliziert ist es nicht. Im Grunde benötigen wir nur das Programm selbst. 
-% OLD
-%Dieses einfache Beispiel verdeutlicht eine Stärke des \acro{WYGIWYM}-Prinzips. 
-%Wir markieren Textelemente auf der semantischen Ebene (\enquote{Dieser Text soll hervorgehoben werden.}) und können die zugehörigen typographischen Anpassungen (\enquote{Hervorgehobener Text wird kursiv gedruckt.}) an zentraler Stelle festlegen -- oder gleich \LaTeX{} überlassen.
-%Das Prinzip ist ähnlich zu Formatvorlagen in Office-Programmen, wenn auch konsequenter und mächtiger.
-%Basierend auf dem Text, den Befehlen und den Standard-Einstellungen des Compilers entsteht so das finale Dokument.
+%Dieses einfache Beispiel verdeutlicht eine Stärke des \acro{WYGIWYM}-Prinzips.  Wir markieren Textelemente auf der semantischen Ebene und können die zugehörigen typographischen Anpassungen an zentraler Stelle vornehmen -- oder lassen \LaTeX{} die Konfiguration selbst erledigen. Wenn wir etwa die Art und Weise des Hervorhebens ändern möchten, dann können wir dies zentral konfigurieren. An allen Stellen, wo \mintinline{latex}{\emph{}} verwendet wird, wird das Endresultat entsprechend angepasst. Es besteht keine Notwendigkeit, an jeder einzelnen Stelle Anpassungen vorzunehmen. Das Prinzip ist ähnlich zu Formatvorlagen in Office-Programmen, wenn auch konsequenter und mächtiger. 
 
-\section{Was brauchen wir dazu?}
+This simple example illustrates a strength of the \acro{WYGIWYM} principle. 
+We mark text elements on the semantic level and can make the associated typographic adjustments centrally - or let \LaTeX{} do the configuration itself.
+For instance, if we want to change the way highlighting is done, we can configure this centrally. At all places where \mintinline{latex}{\emph{}} is used, the final result will be adjusted accordingly. There is no need to make adjustments at each individual place. The principle is similar to style sheets in Office programs, although more consistent and powerful.
+
+
+\section{What do we need to use \LaTeX{}?}
 \label{subsec:what-we-need}
 
-Möchten wir mit \LaTeX{} ein \acro{PDF}-Dokument generieren, so benötigen wir zumindest zwei Programme. Eines, um den Quelltext zu erstellen, und ein zweites, um den Quelltext zu verarbeiten. Letzteres ist der bereits erwähnte Compiler.
+%Oxford komma wie?
+If we want to generate a PDF document with LaTeX, we need at least two programs. One to create the source code, and a second to process the source code. The latter is the already mentioned compiler.
 
-Grundsätzlich ist ein einfaches Textbearbeitungsprogramm zur Erstellung des Quelltextes ausreichend. Die meisten Betriebssysteme beinhalten solche Programme bereits. Vielleicht seid ihr schon mit Anwendungen wie Notepad++\footnote{Verfügbar unter \url{https://notepad-plus-plus.org/}.} vertraut, auch diese sind geeignet.
-Fortgeschrittene Programme wie TeXstudio\footnote{Verfügbar unter \url{https://www.texstudio.org/}.} oder Texmaker\footnote{Verfügbar unter \url{https://www.xm1math.net/texmaker/}.} integrieren zusätzliche Funktionen, welche die Verwendung von Befehlen erleichtern. Hier habt ihr freie Wahl.
-% Letzten Paragraphen irgendwie weniger abrupt beenden?
+In principle, a simple text editing program is sufficient for creating the source code. Most operating systems already include such programs. Maybe you are already used to applications like Notepad++\footnote{Available at \url{https://notepad-plus-plus.org/}.}, these are usable as well. Then there are advanced programs like TeXstudio\footnote{Available at \url{https://www.texstudio.org/}.} or Texmaker\footnote{Available at \url{https://www.xm1math.net/texmaker/}.}, which integrate additional functions that facilitate the use of commands. You are free to choose. 
 
-Zum Kompilieren des Quelltexts wird, wie bereits erwähnt, ein Compiler benötigt.
-Der Compiler ist meist Teil einer Sammlung von Programmen und Paketen, die zusammen eine \LaTeX-Distribution bilden. 
-Auf die Hilfsprogramme werden wir für den Moment nicht näher eingehen.\footnote{Eines dieser Hilfsprogramme kommt später im Kapitel \ref{sec:literature} zum Einsatz, wenn wir Literatur referenzieren.} Die enthaltenen Pakete stellen verschiedene Befehle zur Verfügung.
+%Zum Kompilieren des Quelltexts wird, wie bereits erwähnt, ein Compiler benötigt. Der Compiler ist meist Teil einer Sammlung von Programmen und Paketen, die zusammen eine \LaTeX-Distribution bilden. Auf die Hilfsprogramme werden wir für den Moment nicht näher eingehen.\footnote{Eines dieser Hilfsprogramme kommt später im Kapitel \ref{sec:literature} zum Einsatz, wenn wir Literatur referenzieren.} Die enthaltenen Pakete stellen verschiedene Befehle zur Verfügung.
 
-Wir verwenden den Compiler einer Distribution unserer Wahl. Bekannte Distributionen sind MiK\TeX,\footnote{Für Windows, macOS und Linux. Verfügbar unter \url{https://miktex.org/}.} Mac\TeX\footnote{Für macOS und Linux. Verfügbar unter \url{https://www.tug.org/mactex/}.} und \TeX{} Live.\footnote{Für Windows, macOS und Linux. Verfügbar unter \url{https://www.tug.org/texlive/}.}
-Installiert euch am besten gleich eine davon. Die Installation kann unter Umständen mehrere Stunden dauern. Manche Distributionen gibt es daher als kleine und als vollständige Variante zum Download. 
-Die vollständige Variante enthält alle Pakete, während in der normalen Version Pakete erst dann heruntergeladen werden, wenn sie benötigt werden.
-Die Entscheidung, ob ihr lieber zu Beginn oder später während des Arbeitens auf den Download wartet, können wir euch leider nicht abnehmen. 
+% Kleine Anpassung, emph's hinzugefügt
+As mentioned before, we need a compiler to be able to compile our source code.
+The compiler is usually part of a collection of \emph{programs} and \emph{packages}, which are together called a \LaTeX-\emph{distribution}. The included packages provide various additional commands. For now, we will skip over the many programs\footnote{We will get to know one of these helper programs later on, in \ref{sec:literature}, when we are citing literature.}. 
 
-\section{Die Befehle}
+% usable? Ich dachte an ein Analog zu "well maintained", aber passt das vielleicht einfach selbst?
+Multiple different usable distributions exist. Known distributions are MiK\TeX,\footnote{For Windows, macOS and Linux. Available at \url{https://miktex.org/}.} Mac\TeX\footnote{For macOS and Linux. Available at \url{https://www.tug.org/mactex/}.} and \TeX{} Live\footnote{For Windows, macOS and Linux. Available at \url{https://www.tug.org/texlive/}.}. It is best to install one of them right away. The installation may take several hours. For this reason, some distributions are available for download in a small and a full version. 
+The full version contains all packages, while the small version downloads packages only when they are needed.
+Unfortunately, we cannot take away the decision if you would rather wait for the download at the beginning or later while you are working. %Oxford-Komma?
+
+%Wir verwenden den Compiler einer Distribution unserer Wahl. Bekannte Distributionen sind MiK\TeX,\footnote{Für Windows, macOS und Linux. Verfügbar unter \url{https://miktex.org/}.} Mac\TeX\footnote{Für macOS und Linux. Verfügbar unter \url{https://www.tug.org/mactex/}.} und \TeX{} Live.\footnote{Für Windows, macOS und Linux. Verfügbar unter \url{https://www.tug.org/texlive/}.}
+%Installiert euch am besten gleich eine davon. Die Installation kann unter Umständen mehrere Stunden dauern. Manche Distributionen gibt es daher als kleine und als vollständige Variante zum Download.  Die vollständige Variante enthält alle Pakete, während in der normalen Version Pakete erst dann heruntergeladen werden, wenn sie benötigt werden. Die Entscheidung, ob ihr lieber zu Beginn oder später während des Arbeitens auf den Download wartet, können wir euch leider nicht abnehmen. 
+
+\section{The commands}
 \label{subsec:command-structure}
-Die in Quelltext verwendeten Befehle folgen einem allgemeinen Aufbau:
+The commands used in source code follow a general structure:
 \begin{minted}{xml}
-\<befehl>[<optionale_parameter>]{<obligatorische_parameter>}
+\<command>[<optional_parameters>]{<mandatory_parameters>}
 \end{minted}
-Ein Befehl kann mehrere optionale und/oder obligatorische Parameter verwenden. Manche Befehle besitzen keine obligatorischen Parameter. Ein paar Beispiele sind in \cref{tbl:latex-commands} dargestellt.
+A command can use several optional and/or mandatory parameters. Some commands have no mandatory parameters at all. Some examples are shown in \cref{tbl:latex-commands}.
 
 \begin{table}[h!]
 	\widebox{
 		\begin{tabular}{@{}p{\widefigurewidth}p{\widefigurewidth}@{}}
 			\toprule
-			Befehl                                                  & Effekt                             \\
+			Command                                                  & Effekt                             \\
 			\midrule
-			\mintinline{latex}{\newpage}                              & fügt eine neue Seite ein           \\
-			\mintinline{latex}{\textbf{Text}}                         & schreibt den übergebenen Text fett \\
-			\mintinline{latex}{\usepackage[utf8]{inputenc}}           & setzt die Textkodierung auf \acro{UTF-8}  \\
-			\mintinline{latex}{\documentclass[a4paper,12pt]{article}} & setzt die Dokumentenklasse         \\
-			\mintinline{latex}{\frac{3}{4}}               & fügt den mathematischen Bruch ein  \\
+			\mintinline{latex}{\newpage}                              & inserts a new page           \\
+			\mintinline{latex}{\textbf{Text}}                         & prints the text in bold font \\
+			\mintinline{latex}{\usepackage[utf8]{inputenc}}           & specifies the text encoding to \acro{UTF-8}  \\
+			\mintinline{latex}{\documentclass[a4paper,12pt]{article}} & specifies the document class  \\
+			\mintinline{latex}{\frac{3}{4}}               & inserts a mathematical fraction  \\
 			\bottomrule
 		\end{tabular}
 	}
-	\caption{Beispiele für \LaTeX-Befehle}
+	\caption{Examples for \LaTeX-commands}
 	\label{tbl:latex-commands}
 \end{table}
 
-Sollte ein Befehl mehrere optionale Parameter erlauben, welche gleiche Eingabetypen akzeptieren, muss angegeben werden, welcher Parameter gemeint ist. Beispielsweise akzeptiert der Befehl für das Einbinden von Grafiken optionale Parameter für Breite und Höhe. Bei einer Eingabe von \mintinline{tex}|[12cm, 4cm]| wäre unklar, welcher Wert für welchen Parameter bestimmt ist. Um die Zuweisung zu konkretisieren, können die Parameter explizit angegeben werden:
+If a command allows multiple optional parameters that accept the same input types, it is necessary to specify which parameter is meant. For example, the command for embedding graphics accepts optional parameters for width and height. If \mintinline{tex}|[12cm, 4cm]| were entered, it would be unclear which value is intended for which parameter. To make the assignment more concrete, we can specify the parameters explicitly:
 \begin{minted}{tex}
-\includegraphics[width=12cm, height=4cm]{bild.png}
+\includegraphics[width=12cm, height=4cm]{picture.png}
 \end{minted}
 
-Wie die Beispiele bereits zeigen, können Befehle sehr unterschiedlich sein. Manche sind für Verwendung in mathematischen Formeln bestimmt, andere ermöglichen das Einbinden von Grafiken. Zu Anfang wird es gewöhnungsbedürftig sein, sich alle häufig vorkommenden Befehle zu merken -- aller Anfang ist bekanntlich schwer. Nach etwas Übung und Geduld sind einfache Dokumente aber im Handumdrehen erstellt. 
+As the examples already show, there are many different commands that can be used. Some are intended for use in mathematical formulas, others allow the inclusion of graphics. At the beginning it will take some getting used to. Remembering all the relevant commands is hard, but after some practice and patience simple documents can be created in no time.
