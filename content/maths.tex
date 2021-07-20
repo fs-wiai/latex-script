@@ -1,21 +1,21 @@
-\chapter{Mathematische Formeln}
+\chapter{Mathematical Formulas}
 \label{sec:maths}
 
-Mathematische Formeln können nur im sogenannten Mathmode gesetzt werden, der innerhalb einer Zeile (auch als inline bekannt) durch zwei Dollarzeichen aktiviert wird.
-Außerdem gibt es eine Blockumgebung (vgl. \cref{lst:sample-math-environment}).
-Wichtige Pakete für mathematische Zeichen sind \mintinline{latex}{amsmath}, \mintinline{latex}{amsthm} und \mintinline{latex}{amssymb} der American Mathematical Society sowie \mintinline{latex}{mathtools}.
-Wie bei allen Umgebungen kann durch Angabe eines Asterisks (\textasteriskcentered) die Nummerierung der Gleichungen ausgeschaltet werden.
+Mathematical formulas are always set in \emph{math mode}, which, within a paragraph (referred to as \emph{inline}), can be turned on or off with a dollar sign.
+There is also a \emph{block} environment (cf. \cref{lst:sample-math-environment}).
+Important packages for mathematical features are the \texttt{amsmath}, \texttt{amsthm} and \texttt{amssymb} packages of the American Mathematical Society, as well as \texttt{mathtools}.
+As with many other environments, adding an asterisk turns off the numbering.
 
-\example{lst:sample-math-environment}{maths/sample-math-environment}{Beispielhafte Matheumgebungen}
+\example{lst:sample-math-environment}{maths/sample-math-environment}{Exempary math environments}
 
-\section{Einige Beispiele}
+\section{A few examples}
 %Die \cref{tbl:maths-common-commands,tbl:maths-logic-sets-braces} listen einige häufig in Formeln verwendeten Befehle auf.
 
 \begin{table}[H]
   \centering
   \begin{tabular}{ll}
   \toprule
-  Quelltext & Ergebnis \\ \midrule
+  Source code & Result \\ \midrule
   \mintinline{latex}{\sqrt{16}} & $\sqrt{16}$ \\
   \mintinline{latex}{\frac{3}{4}} & $\frac{3}{4}$ \\
   \mintinline{latex}{e^{\pi}} & $e^{\pi}$ \\
@@ -24,7 +24,8 @@ Wie bei allen Umgebungen kann durch Angabe eines Asterisks (\textasteriskcentere
   \mintinline{latex}{{n \choose k}} & ${n \choose k}$ \\
   \bottomrule
   \end{tabular}
-  \caption{Häufig verwendete Befehle (Wurzel, Bruch, Exponent, Summe, Vergleichszeichen, Binomialkoeffizient). Durch \mintinline{latex}{^{…}} und \mintinline{latex}{_{…}} werden die Inhalte in den Klammern hoch- oder tiefgestellt.}
+	\caption{Frequently used commands (square root, fraction, power, sum, inequation, binomial coefficient). 
+	By \mintinline{latex}{^{…}} and \mintinline{latex}{_{…}}, the content get super- or subscript.}
   \label{tbl:maths-common-commands}
 \end{table}
 
@@ -33,7 +34,7 @@ Wie bei allen Umgebungen kann durch Angabe eines Asterisks (\textasteriskcentere
     \centering
     \begin{tabular}{ll}
     \toprule
-    Quelltext & Ergebnis \\ \midrule
+    Source code & Result \\ \midrule
     \mintinline{latex}{(x), [x], \lbrace x \rbrace, \lvert x \rvert} & $(x), [x], \lbrace x\rbrace, \lvert x\rvert$\\
     \mintinline{latex}{\exists,\forall,\in,\notin,\infty} & $\exists,\forall,\in,\notin,\infty$ \\
     \mintinline{latex}{\alpha, \beta, \Gamma, \Delta, \varepsilon, \pi} & $\alpha, \beta, \Gamma, \Delta, \varepsilon, \pi$ \\
@@ -42,38 +43,38 @@ Wie bei allen Umgebungen kann durch Angabe eines Asterisks (\textasteriskcentere
     \mintinline{latex}{(A \lor B) \land C} & $(A \lor B) \land C$ \\
     \mintinline{latex}{(A \cdot B) \times C} & $(A \cdot B) \times C$ \\ \bottomrule
     \end{tabular}
-    \caption{Klammerungen, Quantoren, griechische Buchstaben, Pfeile, Operatoren}
+    \caption{Brackets, quantifiers, greek letters, arrows, operators}
     \label{tbl:maths-logic-sets-braces}
   }
 \end{table}
 
-\section{Mitwachsende Klammern}
+\section{Growing brackets}
 
-Im Zusammenspiel mit Brüchen kommt es vor, dass Klammern mit ihrem Inhalt wachsen sollen.
-Hierfür muss dem Befehl zum Erzeugen der Klammern (\mintinline{latex}{(}, \mintinline{latex}{)}, \mintinline{latex}{[}, \mintinline{latex}{]}, \mintinline{latex}{\lbrace} und \mintinline{latex}{\rbrace}) jeweils ein Positionsmarker (\mintinline{latex}{\left} oder \mintinline{latex}{\right}) vorangestellt werden.
+Especially in combination with fractions, brackts should grow according to their content.
+This can be achieved by prepending each bracket (\mintinline{latex}{(}, \mintinline{latex}{)}, \mintinline{latex}{[}, \mintinline{latex}{]}, \mintinline{latex}{\lbrace} and \mintinline{latex}{\rbrace}) with a position marker (\mintinline{latex}{\left} oder \mintinline{latex}{\right}).
 
-\example{lst:growing-brackets}{maths/growing-brackets}{Beispiel für mitwachsende Klammern}
+\example{lst:growing-brackets}{maths/growing-brackets}{Example for growing brackets}
 
-\section{Darstellung von Grenzen}
+\section{Lower and upper bounds}
 
-Mit dem Befehl \mintinline{latex}{\limits} lassen sich die Grenzen von Integralen unter und über dem Integralzeichen darstellen.
-Bei Summen, Produkten und Grenzwerten geschieht das automatisch (vgl. \cref{lst:limits}).
-Im Fließtext eignet sich \mintinline{latex}{\limits} nur bedingt.
+The \mintinline{latex}{\limits} command renders lower and upper bounds of integrals above and below the integral sign.
+Sums, products and \todo{quite confusing in English}limits do this automatically (c.\,f. \cref{lst:limits}).
+For inline formulas, \mintinline{latex}{\limits} are of limited suitability.
 
-\example{lst:limits}{maths/limits}{Grenzen von Summen, Produkten, Grenzwerten und Integralen}
+\example{lst:limits}{maths/limits}{Lower and upper bounds of sums, products, limits and integrals}
 
-\section{Ausrichtung mehrerer Gleichungen}
+\section{Aligning equations}
 
-Die Umgebung \mintinline{latex}{align} erlaubt es, Gleichungen zum Beispiel am \texttt{=}-Zeichen auszurichten (vgl. \cref{lst:math-alignment-example}).
-Ausgerichtet wird dabei analog zu Tabellen am \texttt{\&}-Zeichen.
-Zeilenumbrüche werden durch zwei Backslashes markiert.
+The \texttt{align} environment allows to align multiple equations horizontally, e.\,g. at the \texttt{=} sign (\cref{lst:math-alignment-example}).
+As in tables, the \texttt{\&} sign is used to specify anchorage points.
+Line breaks are denoted by two backslashes.
 
-\Example{lst:math-alignment-example}{maths/align-example}{maths/align-example_crop}{Am Gleichheitszeichen ausgerichtete Gleichungen}
+\Example{lst:math-alignment-example}{maths/align-example}{maths/align-example_crop}{Equations aligned at equals signs}
 
-\section{Mengenschreibweise}
+\section{Intensional set notation}\todo{Is that really what this section is about? Looks rather like a “text within maths” section to me.}
 
-Manchmal ist es notwendig, im Zusammenhang mit der Mengenschreibweise Prädikate unter Verwendung von textuellen Beschreibungen oder längeren Funktionsnamen zu definieren.
-Im Mathmode wird die Zeichensetzung von \LaTeX{} nicht auf Fließtext, sondern auf Formeln ausgerichtet, was zu ungünstigen Anordnungen zusammenhängender Buchstabenketten führt.
-Für diesen Fall gibt es den Befehl \mintinline{latex}{\mathrm{}} (\enquote{math roman}, vgl. \cref{lst:set-builder-notation}).
+Sometimes sets have to be defined in terms of textual descriptions or longer function names.
+The \LaTeX{} math mode assumes that letters are variables rather than text, which creates problems when they are indeed supposed to be entire words.
+For this case, there is the \mintinline{latex}{\mathrm{}} command (\enquote{math roman}, c.\,f. \cref{lst:set-builder-notation}).
 
-\example{lst:set-builder-notation}{maths/set-builder-notation}{Probleme in der Mengenschreibweise und ihre Lösung}
+\example{lst:set-builder-notation}{maths/set-builder-notation}{Problems arising from intensional set notation and their solution}
