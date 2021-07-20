@@ -1,74 +1,75 @@
-\chapter{Literaturverwaltung}
+\chapter{Reference management}
 \label{sec:literature}
 
-Um die ersten Studien- oder Abschlussarbeiten in \LaTeX\ zu setzen, fehlt uns jetzt nur noch eine Möglichkeit, Literatur zu referenzieren.
-Unsere Literatursammlung liegt in der sogenannten .bib-Datei.
-Wenn wir aus unserem \LaTeX-Dokument darauf verweisen, kann uns das Programm Bib\TeX{} (ähnlich zum Compiler \acro{PDF}\LaTeX) an der richtigen Stelle die richtigen Zitationen in einem vorher festgelegten Bibliografiestil einfügen.
+For typesetting our first theses in \LaTeX{}, the last core functionality to learn is citing literature.
+Our references are gathered in a bibliography file.
+Once we reference one of its entries from our \LaTeX{} document, Bib\TeX{} (a program similar to the standard \acro{PDF}\LaTeX{} compiler) can insert automatically generated citations.
+It will format them in a bibliography style of our choice.
 
-\section{Die Bibliografie-Datei}
-In der .bib-Datei sammeln wir unsere Literatureinträge in einem Format, das durch Bib\TeX{} verarbeitbar ist.
-Einen beispielhaften Eintrag aus einer .bib-Datei zeigt \cref{lst:bibfile-sample-entry}.
+\section{The bibliography file}
+Our \textbf{bibliography collection} consists of multiple literature entries in a pre-defined format, such that they can be processed by Bib\TeX{}.
+An exemplary item can be seen in \cref{lst:bibfile-sample-entry}.
 
 \begin{figure}[H]
   \begin{minted}[autogobble]{latex}
-  @article{turing1990, % Dokumentenart und Bezeichner für den \cite-Befehl
-    title={The chemical basis of morphogenesis}, % Titel
-    author={Turing, Alan Mathison}, % Autor
-    journal={Bulletin of mathematical biology}, % Titel des Journals
-    volume={52}, % Band des Journals
-    pages={153--197}, % Seitenzahl im Journal
-    year={1990}, % Erscheinungsjahr
-    publisher={Springer} % Verleger des Journals
+  @article{turing1990,
+    title={The chemical basis of morphogenesis},
+    author={Turing, Alan Mathison},
+    journal={Bulletin of mathematical biology},
+    volume={52},
+    pages={153--197},
+    year={1990},
+    publisher={Springer}
   }
   \end{minted}
-  \caption{Beispielhafter Eintrag einer .bib-Datei}
+  \caption{Exemplary bibliography entry}
   \label{lst:bibfile-sample-entry}
 \end{figure}
 
-Nach einem \texttt{@}-Zeichen wird die Art des Literaturverzeichniseintrags angegeben (z.\,B. article, book, proceedings).
-Es folgt eine Auflistung wichtiger Attribute wie Titel, Autor:in und – abhängig vom Eintragstyp – weiterer Felder.
-Der erste Eintrag nach der öffnenden geschwungenen Klammer ist der wichtigste: 
-Unter diesem Kürzel wird der Eintrag später in \LaTeX{} angesprochen.
-Diese sogenannten Bib\TeX-Keys müssen eindeutig sein und können frei vergeben werden.
-Üblich sind Kombinationen aus Autor:innen, Publikationsjahren und Themen.
+The type of the bibliography entry is specified after the opening \texttt{@} sign (e.\,g., article, book, proceedings, …).
+What follows is a list of important attributes like title and author.
+Whether they are required or not depends on the entry type.
+In any case, we will need the first entry after the opening braces: the Bib\TeX{} key.
+This is the identifier that we will use to reference the entry in our \LaTeX{} document.
+Bib\TeX{} keys can be chosen freely, but have to be unique.
+Typically, they will consist of a combination of authors, publication dates, and topics.
 
-Die .bib-Datei kann manuell zusammengetragen werden.
-Viel häufiger allerdings werden dafür Programme wie JabRef,\footnote{Vgl. \url{https://www.jabref.org/}.} Zotero\footnote{Vgl. \url{https://www.zotero.org/}.} oder das weit verbreitete Citavi\footnote{Vgl. \url{https://www.citavi.com/de}.} verwendet.
-Während JabRef direkt eine .bib-Datei als Datenbank verwendet, lassen sich Zotero- und Citavi-Projekte\footnote{Vgl. \url{https://www1.citavi.com/sub/manual5/de/exporting_to_bibtex.html}.} in .bib-Dateien exportieren.
+\textbf{Bibliography files} can be compiled manually, yet it is more common to use programs like JabRef,\footnote{Cf. \url{https://www.jabref.org/}.} Zotero\footnote{Cf. \url{https://www.zotero.org/}.} or the widely-used software Citavi\footnote{Vgl. \url{https://www.citavi.com/de}.}.
+While JabRef operates directly on your bibliography file, Zotero and Citavi projects\footnote{Vgl. \url{https://www1.citavi.com/sub/manual5/de/exporting_to_bibtex.html}.} can be exported to bibliography files to use them in \LaTeX{} documents.
 
-.bib-Datei-Einträge werden unter anderem auch von Google Scholar zur Verfügung gestellt (vgl. \cref{fig:google-scholar-bibtex}).
-Hierbei ist es wichtig, darauf zu achten, dass die Einträge einheitlich und möglichst vollständig sind.
-Als hochwertige (wenn auch leider nicht vollständige) Quelle für Bib\TeX-Einträge kann die dblp Computer Science Library\footnote{Verfügbar unter \url{https://dblp.org/search}.} dienen.
+\textbf{Bibliography entries} are provided by many academic search engines, including Google Scholar (cf. \cref{fig:google-scholar-bibtex}).
+When using them, make sure that the entries are cohesive across your reference collection and complete with regard to their attributes.
+A high-quality (although, unfortunately, incomplete) source for Bib\TeX{} entries is the dblp Computer Science Library\footnote{Available at \url{https://dblp.org/search}.}.
 
 \begin{figure}[H]
   \includegraphics[width=\textwidth]{graphics/google_bibtex1.jpg}  
   \includegraphics[width=\textwidth]{graphics/google_bibtex2.jpg}  
-  \caption{Bib\TeX-Einträge in Google Scholar abrufen}
+  \caption{Loading Bib\TeX{} entries from Google Scholar}
   \label{fig:google-scholar-bibtex}
 \end{figure}
 
-\section{Zitieren}
-Durch Bib\TeX{} wird \LaTeX{} um einige Befehle zum Zitieren erweitert (vgl. \cref{tbl:bibtex-commands}). 
-Zusätzlich benötigt wird das Paket \mintinline{sh}{natbib}.
+\section{Citing}
+Bib\TeX{} extends \LaTeX{} by several commands (cf. \cref{tbl:bibtex-commands}). 
+Make sure to include the \mintinline{sh}{natbib} package for this purpose.
 
 \begin{table}[H]
   \centering
   \begin{tabular}{ll}
   \toprule
-  Funktion                 & Befehl \\ \midrule
-  Quelle zitieren          & \mintinline{latex}{\cite{<quelle>}} \\
-  Seite zitieren           & \mintinline{latex}{\cite[S. 15]{<quelle>}} \\
-  Weitere Zusätze zitieren & \mintinline{latex}{\cite[<präfix>][<suffix>]{<quelle>}} \\
-  .bib-Datei einbinden     & \mintinline{latex}{\bibliography{<.bib-datei>}} \\
-  Zitierstil ändern        & \mintinline{latex}{\bibliographystyle{<zitierstil>}} \\ \bottomrule
+  Function                 & Command \\ \midrule
+  Citing sources           & \mintinline{latex}{\cite{<source>}} \\
+  Citing pages             & \mintinline{latex}{\cite[p. 15]{<source>}} \\
+  Custom citations         & \mintinline{latex}{\cite[<prefix>][<suffix>]{<source>}} \\
+  Including the bibliography     & \mintinline{latex}{\bibliography{<bibliographyfile>}} \\
+  Setting the bibliography style & \mintinline{latex}{\bibliographystyle{<style>}} \\ \bottomrule
   \end{tabular}
-  \caption{Befehle zum Zitieren von Literatur}
+  \caption{Commands for citations}
   \label{tbl:bibtex-commands}
 \end{table}
 
-Als \mintinline{latex}{<quelle>} einer Zitation wird immer der Bib\TeX-Key angegeben.
-Verfügbare Zitierstile\footnote{Eine vollständigere Liste ist bei Overleaf zu finden: \url{https://www.overleaf.com/learn/latex/Biblatex_citation_styles}} sind zum Beispiel alpha, natdin und apa.
-Das Literaturverzeichnis erscheint immer an der Stelle, an der der Befehl \mintinline{latex}{\bibliography{…}} aufgerufen wurde.
-Zum Befehl \mintinline{latex}{\cite} existieren zahlreiche weitere Varianten.\footnote{Vgl. \url{https://www.economics.utoronto.ca/osborne/latex/BIBTEX.HTM.}}
+The \mintinline{latex}{<source>} of a citation is always a Bib\TeX key.
+The list of available citation styles\footnote{Head to Overleaf for a rather complete list: \url{https://www.overleaf.com/learn/latex/Biblatex_citation_styles}} includes alpha, natdin, and apa.
+The table of references will always appear where the \mintinline{latex}{\bibliography{…}} command was put.
+The \mintinline{latex}{\cite} command comes with many variants.\footnote{Cf. \url{https://www.economics.utoronto.ca/osborne/latex/BIBTEX.HTM.}}
 
-\Example{lst:natdin-example}{literature/natdin-example}{literature/natdin-example_bib}{Beispiel für Zitationen im Stil \mintinline{latex}{natdin}.}
+\Example{lst:natdin-example}{literature/natdin-example}{literature/natdin-example_bib}{Examplery citations in the \mintinline{latex}{natdin} style.}
