@@ -1,13 +1,12 @@
-\chapter{Ausblick}
+\chapter{Prospects}
 \label{sec:prospects}
 
-Natürlich konnten wir euch in diesem knappen Rahmen nicht ansatzweise zeigen, was \LaTeX{} alles zu bieten hat.
-In diesem letzten Abschnitt haben wir daher ein paar Informationen gesammelt, die euch dabei helfen sollen, selbständig tiefer einzusteigen.
+Obviously, in this script we were not able to show you the least of what \LaTeX{} has to offer. 
+Therefore, in this last section, we gathered some information to help you to go further into depth by yourself.
 
-\section{Pakete}
+\section{Packages}
 
-Eine Auswahl an Paketen haben wir euch bereits vorgestellt, es gibt aber noch ein paar tausend weitere.
-Für einige häufig benötigte Features haben wir euch hier eine kurze Liste passender Pakete zusammengestellt:
+We already have presented a selection of packages. However, there are thousands more of them. In the following sections we have put together some packages for frequently needed features: 
 
 \begin{figure}[p]
 	\widebox{
@@ -26,14 +25,14 @@ Für einige häufig benötigte Features haben wir euch hier eine kurze Liste pas
 		\colrules
 		% Left caption:
 		\begin{subfigure}[t]{\widefigurewidth}
-			\caption{Vektorgrafiken mit TikZ}
+			\caption{Vector graphics with TikZ}
 			\centering\tiny{\url{https://texample.net/tikz/examples/coffee-cup/}}
 			\label{fig:tikz-example}
 		\end{subfigure}
 		\hspace{\widefiguregap}
 		% Right caption:
 		\begin{subfigure}[t]{\widefigurewidth}
-			\caption{Konstituentenbäume mit qtree}
+			\caption{Parse trees with qtree}
 			\centering\tiny{\url{https://www.ling.upenn.edu/advice/latex/qtree/}}
 			\label{fig:qtree-example}
 		\end{subfigure}
@@ -54,87 +53,85 @@ Für einige häufig benötigte Features haben wir euch hier eine kurze Liste pas
 		\colrules
 		% Left caption:
 		\begin{subfigure}[t]{\widefigurewidth}
-			\caption{Beweisbäume mit prftree}
+			\caption{Proof trees with prftree}
 			\centering\tiny{\url{https://ftp.gwdg.de/pub/ctan/macros/latex/contrib/prftree/}}
 			\label{fig:prftree-example}
 		\end{subfigure}
 		\hspace{\widefiguregap}
 		% Right caption:
 		\begin{subfigure}[t]{\widefigurewidth}
-			\caption{Chemische Strukturformeln mit chemfig}
+			\caption{Chemical structural formulas with chemfig}
 			\centering\tiny{\url{http://latex-cookbook.net/cookbook/examples/benzene-ring/}}
 			\label{fig:chemfig-example}
 		\end{subfigure}
 		\medskip
 	}
 	% General caption:
-	\caption{Beispiele zu verschiedenen Paketen}
+	\caption{Examples for some packages}
 	\label{fig:package-examples}
 \end{figure}
 
 
 \begin{description}
-	\item[Stichwortverzeichnisse]
-		können mit \texttt{makeidx} automatisiert erstellt werden.\footnote{\url{https://www.ctan.org/pkg/makeidx}}
-		Mit \mintinline{tex}{\index{…}} werden im Text einzelne Stichwörter ausgezeichnet, der Befehl \mintinline{tex}{\printindex} sammelt sie in einem Verzeichnis mit Referenzen.
-	\item[Vektorgrafiken]
+	\item[Indices]
+		can be created automatically with \texttt{makeidx}.\footnote{\url{https://www.ctan.org/pkg/makeidx}}
+		By using \mintinline{tex}{\index{…}} one can mark entries for their index. With \mintinline{tex}{\printindex} they are assembled within index with references.
+	\item[Vector graphics]
 		(\cref{fig:tikz-example})
-		lassen sich mit \texttt{TikZ} (rekursives Akronym für \emph{TikZ ist kein Zeichenprogramm}) direkt im \LaTeX{}-Code erstellen.\footnote{\url{https://www.ctan.org/pkg/pgf}}
-		Achtung: Dieses Paket ist sehr mächtig, aber nicht unbedingt einsteigerfreundlich.
-		Bevor ihr damit etwas von Grund auf selbst gestaltet, empfehlen wir euch, mit einigen der Beispiele bei \TeX{}ample\footnote{\url{https://texample.net/tikz/examples/}} zu experimentieren.
-		Für bestimmte Anwendungsfälle gibt es aber auch spezielle Pakete, die dann meist einfacher zu handhaben sind:
-	\item[Konstituentenbäume,]
-		die Sätze in ihre grammatikalischen Bestandteile zerlegen (\cref{fig:qtree-example}), erzeugt \texttt{qtree}.\footnote{\url{https://ctan.org/pkg/qtree}}
-	\item[Beweisbäume,]
-		wie sie in der Logik benötigt werden (\cref{fig:prftree-example}), erzeugt \texttt{prftree}.\footnote{\url{https://www.ctan.org/pkg/prftree}}
-	\item[Chemische Strukturformeln]
+				can be \enquote{drawn} directly in the \LaTeX{} source code with \texttt{TikZ} (recursive acronym for \emph{TikZ ist kein Zeichenprogramm}, in English: \emph{TikZ is not a drawing program}).\footnote{\url{https://www.ctan.org/pkg/pgf}}
+		Caution: This package is very powerful, but not necessarily beginner-friendly.
+		Before creating vector graphics from sratch, we recommend you to experiment with some of the examples at \TeX{}ample\footnote{\url{https://texample.net/tikz/examples/}}. 
+		For certain use cases, there are special packages that are easier to handle than \enquote{raw} TikZ:
+	\item[Parse trees]
+		that divide sentences into their grammatical components (\cref{fig:qtree-example}) can be created with \texttt{qtree}.\footnote{\url{https://ctan.org/pkg/qtree}}
+	\item[Proof trees,]
+		that are often used in logics (\cref{fig:prftree-example}), can be drawn with the package \texttt{prftree}.\footnote{\url{https://www.ctan.org/pkg/prftree}}
+	\item[Chemical structural formulas]
 		(\cref{fig:chemfig-example})
-		können unter anderem mit dem Paket \texttt{chemfig} erzeugt werden.\footnote{\url{https://www.ctan.org/pkg/chemfig}}
-	\item[Farbe]
-		bringt \texttt{xcolor} in eure Dokumente.\footnote{\url{https://www.ctan.org/pkg/xcolor}}
-	\item[Notizen,]
-		die ihr bei der Abgabe garantiert nicht überseht, fügt \texttt{todonotes} ein.\footnote{\url{https://www.ctan.org/pkg/todonotes}}
-		Damit könnt ihr markieren, was ihr noch \todo{Nicht ändern, das ist ein Beispiel.}ändern oder einfügen wollt.
-	\item[Seiten aus anderen \acro{PDF}-Dateien]
-		integriert ihr mit \texttt{pdfpages}.\footnote{\url{https://www.ctan.org/pkg/pdfpages}}
-		Das eignet sich sehr gut, um Ausgaben anderer Programme in eure Arbeit zu integrieren, beispielsweise in einem Anhang. 
-		Einmal kompilieren, und schon ist auch der Anhang wieder auf dem neuesten Stand, wenn das externe Programm etwas geändert hat.
-	\item[Verschachtelte Abbildungen]
-		und die nahezu beliebige Positionierung von Bildunterschriften ermöglicht \texttt{subcaption}.\footnote{\url{https://www.ctan.org/pkg/subcaption}}
-		Davon haben wir auch in diesem Dokument ausgiebig Gebrauch gemacht.
-	\item[Tabellen]
-		können noch sehr viel flexibler gestaltet werden, als wir es hier gezeigt haben.
-		Dabei helfen unter anderem die Pakete
+		can, amongst others, be created with  \texttt{chemfig}.\footnote{\url{https://www.ctan.org/pkg/chemfig}}
+	\item[Colors]
+		for your documents are provided by \texttt{xcolor}.\footnote{\url{https://www.ctan.org/pkg/xcolor}}
+	\item[Notes,]
+		that you have made in your source code and that you cannot overlook can be created with \texttt{todonotes}.\footnote{\url{https://www.ctan.org/pkg/todonotes}}
+		With the package, one can mark what they still \todo{Please do not change. This is an example.} have to change within their document.
+	\item[Pages of other \acro{PDF} files]
+		can be integrated into the source code with \texttt{pdfpages}.\footnote{\url{https://www.ctan.org/pkg/pdfpages}}
+		It comes in very handy whenever one needs the output of external programs in the document, for example, in within the appendix.
+		Just compile the document one more time and the appendix is up-to-date again, if the external program has changed something.
+	\item[Nested graphics]
+		and the positioning of captions at almost any place are provieded by  \texttt{subcaption}.\footnote{\url{https://www.ctan.org/pkg/subcaption}}
+		We also made extensive use of this package.
+	\item[Tables]
+		can be designed much more flexible than what we have shown here. 
+		The following packages can help you with that:
 		\texttt{colortbl},\footnote{\url{https://www.ctan.org/pkg/colortbl}}
 		\texttt{tabularx},\footnote{\url{https://www.ctan.org/pkg/tabularx}}
 		\texttt{multirow},\footnote{\url{https://www.ctan.org/pkg/multirow}}
 		\texttt{makecell}.\footnote{\url{https://www.ctan.org/pkg/makecell}}
 \end{description}
 
-\noindent Eigentlich kein Paket, sondern eine weitere Dokumentenklasse ist \textbf{beamer:} Damit könnt ihr \textbf{Bildschirmpräsentationen} mit \LaTeX{} erstellen.
-Informationen und Beispiele dazu gibt es bei Overleaf\footnote{\url{https://www.overleaf.com/learn/latex/Beamer}} –
-womit wir schon beim nächsten Abschnitt sind:
+\noindent \texttt{beamer}, which is not a package, but another document class, can be used to create \textbf{slide shows}
+with \LaTeX{}. Information on the document class and examples are available at Overleaf\footnote{\url{https://www.overleaf.com/learn/latex/Beamer}}, which brings us to the next section:
 
-\section{Hilfe und Informationen}
+\section{Help and Information}
 
-Eine deutlich ausführlichere Einführung in \LaTeX{} bieten die \textbf{Wikibooks.}
-Das deutschsprachige Wikibook\footnote{\url{https://de.wikibooks.org/wiki/LaTeX-Kompendium}} ist dabei noch etwas unvollständiger als das englischsprachige.\footnote{\url{https://en.wikibooks.org/wiki/LaTeX}}
-Beide verweisen bei Bedarf auf zusätzliche Pakete.
+\textbf{Wikibooks} provides you with a much more detailed introduction into \LaTeX{}. Note that the German version\footnote{\url{https://de.wikibooks.org/wiki/LaTeX-Kompendium}} is less complete than the English one.\footnote{\url{https://en.wikibooks.org/wiki/LaTeX}}
+If required, both refer to additional packages.
 
-Falls ihr mehr Informationen zu einem bestimmten Paket sucht, ist \acro{\textbf{CTAN}}\footnote{\url{https://ctan.org/}} die zentrale Anlaufstelle.
-Dort findet ihr zu jedem Paket die offizielle Dokumentation als \acro{PDF}-Dokument.
-Darin sind vor allem die ersten Abschnitte interessant, weiter hinten folgen Implementierungsdetails, die ihr normalerweise nicht braucht.
+Whenever you need information on certain packages \acro{\textbf{CTAN}}\footnote{\url{https://ctan.org/}} is your place to go. The official documentation as \acro{PDF} for each package can be found there.
+Within this file, the first paragraphs are the most interesting. They are followed by implementation details, that your normally do not need.
 
-Wenn die Dokumentation zu theoretisch ist und ihr auf der Suche nach praktischen Beispielen seid, kann \textbf{Overleaf}\footnote{\url{https://www.overleaf.com/}} weiterhelfen.
-Das Portal ist primär ein kollaborativer Online-\LaTeX-Editor, ihr findet dort aber auch einige Vorlagen\footnote{\url{https://www.overleaf.com/latex/templates}} für verschiedene Arten von Dokumenten (Lebensläufe, Abschlussarbeiten u.\,v.\,m.).
-Speziell zu TikZ bietet \textbf{\TeX{}ample}\footnote{\url{https://texample.net/}} eine Vielzahl an Beispielen.
+If the official documentation is too theoretical, and you prefer a more hands-on approach, \textbf{Overleaf}\footnote{\url{https://www.overleaf.com/}} can help you out.
+Primarily, it is a collaborative online \LaTeX{} editor. However, you can find multiple templates\footnote{\url{https://www.overleaf.com/latex/templates}} for different types of documents (VCs, theses, \textellipsis) there.
 
-Bei konkreten Fragen oder Problemen hilft – wie üblich – die Frage-Antwort-Plattform \textbf{Stackexchange} weiter:
-Es gibt dort auch eine \TeX-Community.\footnote{\url{https://tex.stackexchange.com/}}
-Und selbstverständlich könnt ihr euch auch immer gerne uns wenden:
+If you are looking for examples dedicated to TikZ, \textbf{\TeX{}ample}\footnote{\url{https://texample.net/}} provides you with multiple of them.
+
+For concrete questions, the question-answering platform \textbf{Stackexchange} is a good place to go: There even is a \TeX{} community there.\footnote{\url{https://tex.stackexchange.com/}}
+
+Needless to say, you can always contact us with your questions:
 \begin{compactitem}
-	\item per Mail an \href{mailto:fachschaft-wiai.stuve@uni-bamberg.de}{fachschaft-wiai.stuve@uni-bamberg.de},
-	\item telefonisch unter +49951\,863\,1219
-	\item oder in unserem Büro in WE5/02.104.
+	\item via mail to \href{mailto:fachschaft-wiai.stuve@uni-bamberg.de}{fachschaft-wiai.stuve@uni-bamberg.de},
+	\item via phone at +49951\,863\,1219
+	\item or just come to our bureau at WE5/02.104.
 \end{compactitem}
 
