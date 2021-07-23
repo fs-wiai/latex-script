@@ -1,20 +1,20 @@
-\chapter{Project Structure}
+\chapter{Project structure}
 \label{sec:project-structure}
 
 In the previous chapters we have only seen very short \LaTeX{} examples. \LaTeX{} can of course also be used to create larger documents and projects, such as a thesis. 
 In order not to lose the overview in the source code and to avoid that source files become too long, a reasonable structuring of a larger \LaTeX{} project is advisable. For this purpose, the source code is divided into different files, which will be discussed in more detail in the following sections.
 
-\section{Main File}
+\section{Main file}
 
-In large projects, we typically use one central file, which is often called \texttt{main.tex}. It is, in a sense, the structural skeleton of the project, as it contains the basic structure including the preamble. The title, table of contents, as well as the individual chapters of a work are integrated in this main file (cmp. \cref{lst:main-file}). The inclusion of the individual sections can be done either by \mintinline{latex}{\input{...}} or \mintinline{latex}{\include{...}}. Both require the path to the file to be included as an argument. We will discuss the differences between the two commands later (see \cref{sec:input-vs-include}).
+In large projects, we typically use one main file, which is often called \texttt{main.tex}. It is, in a sense, the structural skeleton of the project, as it contains the basic structure including the preamble. The title, table of contents, as well as the individual chapters of a work are integrated in this main file (cmp. \cref{lst:main-file}). The inclusion of the individual sections can be done either by \mintinline{latex}{\input{...}} or \mintinline{latex}{\include{...}}. Both require the path to the file to be included as an argument. We will discuss the differences between the two commands later (see \cref{sec:input-vs-include}).
 
-\example{lst:main-file}{project-structure/main-file}{Typische Struktur einer Hauptdatei in \LaTeX{}}
+\example{lst:main-file}{project-structure/main-file}{Typical structure in a main file \LaTeX{}}
 
-\section{Section Files}
+\section{Section files}
 Section files are files that are included within the main file. In a thesis, for example, these can be individual chapters. You are free to decide how granular the division of the content into individual files should be.
 The files that are included by the main file do not contain a preamble, since this is already present in the main file. Neither do the commands \mintinline{latex}{\begin{document}} and \mintinline{latex}{\end{document}} appear again.
 
-\section{Input or Include?}
+\section{Input or include?}
 \label{sec:input-vs-include}
 
 Let us now turn to the differences between the two possible commands for including \LaTeX{} files. Briefly summarized, \mintinline{latex}{\include} and \mintinline{latex}{\input} have differences in the following three aspects: The way in which the path to the file to be included is specified, the possibility of nesting inclusions, and whether a new page is started for each section.
