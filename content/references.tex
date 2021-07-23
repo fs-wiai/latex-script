@@ -1,45 +1,43 @@
-\chapter{Referenzen}
+\chapter{References}
 \label{sec:references}
 
-Für Querverweise der Form \enquote{Wie man in Abbildung 23 sieht, \textellipsis} bringt \LaTeX\ von Haus aus den Befehl \mintinline{latex}{\ref{label}} mit, der lästige Anpassungen an der Nummerierung der Grafiken, Tabellen etc. erspart.
-Er erhält als Argument ein eindeutiges Label, das auch dem referenzierten Element zugeordnet werden muss.
-Anschließend erscheint an der Stelle des Befehlsaufrufs die fortlaufende Nummer des referenzierten Elements.
+If we want to make references, like \enquote{\textellipsis , which you can see in figure 21, \textellipsis}, \LaTeX{} by default provides as with the command \mintinline{latex}{\ref{label}}. No more adapting of the numbering for graphics, tables, etc. needed!
+the command expects a unique label as argument, that needs to be assigned to the referenced element. After that, wherever we call the command, the number of our referenced object appears in the text.
+\Example{lst:fooboar-learning-latex}{references/ref}{references/ref_crop}{Example for a reference}
 
-\Example{lst:fooboar-learning-latex}{references/ref}{references/ref_crop}{Beispiel für eine Referenzierung}
-
-Noch smarter ist das Paket \mintinline{latex}{cleveref}.\footnote{mit nur einem \enquote{r}!}
-Es bringt den Befehl \mintinline{latex}{\cref{label}} mit, dem auch -- durch Kommata getrennt -- mehrere Labels übergeben werden können.
-Daraus entstehen dann automatisiert Angaben wie \enquote{Abschnitte 1 bis 3 und 5}.\footnote{für den Quelltext \mintinline{latex}{\cref{sec:section1,sec:section2,
+A smarter package for references is \texttt{cleverref}.\footnote{with only one \enquote{r}!}
+It provides us with the command \mintinline{latex}{\cref{label}}, which can also handle multiple labels separated by commas.
+This automatically generates text like \enquote{sections 1 to 3, and 5}.\footnote{for the source code \mintinline{latex}{\cref{sec:section1,sec:section2,
 sec:section3,sec:section5}}}
-Zudem fügt \mintinline{latex}{\cref{label}} eigenständig die richtige Abkürzung ein, beispielsweise \enquote{Abb.} für Grafiken.
+Furthermore \mintinline{latex}{\cref{label}} automatically inserts a suited abbreviaton, e.\,g., \enquote{fig.} for figures.
 
-Referenziert werden können neben Grafiken und Tabellen unter anderem auch Abschnitte, Bilder, Quelltext-Listings und Gleichungen.
-Viele Pakete nutzen das Label, um herauszufinden, zu welchem Objekttyp es gehört.
-Aus diesem Grund ist es üblich, jedem Label ein Präfix voranzustellen (\cref{lst:reference-prefixes}).
+We can reference graphics, tables, sections, chapters, source code listings, and equations. 
+Many packages use the label in order to find out the object type of the referenced element.
+For this reason, it is common to insert a prefix before each label (\cref{lst:reference-prefixes}).
 
 \begin{table}[H]
   \centering
   \begin{tabular}{@{}llll@{}}
     \toprule
-    Präfix & Objekttyp & Präfix & Objekttyp \\ \midrule
-    fig: & Abbildungen & tbl:    & Tabellen            \\ 
-    sec: & Abschnitte  & subsec: & Unterabschnitte     \\
-    ch:  & Kapitel     & itm:    & Aufzählungselemente \\
-    eq:  & Gleichungen & lst:    & Quelltext-Listings  \\ \bottomrule
+    Prefix & Object Type & Prefix & Object Type \\ \midrule
+    fig: & figures & tbl:    & tables            \\ 
+    sec: & sections  & subsec: & subsections     \\
+    ch:  & chapters     & itm:    & items \\
+    eq:  & equations & lst:    & source Code Listings  \\ \bottomrule
   \end{tabular}
-  \caption{Präfixe für Labels}
+  \caption{Prefixes for labels}
   \label{lst:reference-prefixes}
 \end{table}
 
-Bei der Verwendung von \mintinline{latex}{\cref{label}} ist zu beachten, dass die generierten Passagen in einigen Dokumentklassen erst dann auf Deutsch erscheinen, wenn bereits in der Dokumentklasse die Sprache festgelegt wurde: 
+Note that, if we use \mintinline{latex}{\cref{label}}, for some document classes, the generated passages only appear in the desired language (e.\,g., German) when the language is specified already within the document class command:
 
 \begin{minted}{latex}
 \documentclass[ngerman]{article}
 \end{minted}
 
-\noindent Von Abschnitten abgesehen, müssen Beschriftungen\footnote{\mintinline{latex}{\caption{…}}} außerdem \emph{immer vergeben und vor dem Label platziert} werden, damit sie anschließend referenziert werden können.
-Bei Abschnitten wird das Label direkt hinter dem Befehl angefügt:
+	\noindent Except for sections, captions\footnote{\mintinline{latex}{\caption{…}}} \emph{always need to be specified and positioned before the label}. Otherwise, they cannot be referenced later on in the text.
+	Labels for sections are inserted directly after the command:
 
 \begin{minted}{latex}
-\section{Hinweise}\label{sec:hints}
+\section{Comments}\label{sec:hints}
 \end{minted}
