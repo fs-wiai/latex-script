@@ -1,21 +1,24 @@
-\chapter{Projektstruktur}
+\chapter{Project Structure}
 \label{sec:project-structure}
 
-In den bisherigen Kapiteln haben wir nur sehr kurze \LaTeX{}-Beispiele gesehen. Natürlich kann \LaTeX{} aber auch verwendet werden, um größere Dokumente und Projekte zu erstellen, wie etwa eine Abschlussarbeit. 
-Um nicht den Überblick im Quellcode zu verlieren und zu vermeiden, dass Quelldateien zu lang werden, ist eine sinnvolle Strukturierung eines größeren \LaTeX{}-Projektes ratsam. Hierfür wird der Quellcode in verschiedene Dateien aufgeteilt, welche in den folgenden Abschnitten näher beleuchtet werden.
+In the previous chapters we have only seen very short \LaTeX{} examples. \LaTeX{} can of course also be used to create larger documents and projects, such as a thesis. 
+In order not to lose the overview in the source code and to avoid that source files become too long, a reasonable structuring of a larger \LaTeX{} project is advisable. For this purpose, the source code is divided into different files, which will be discussed in more detail in the following sections.
 
-\section{Hauptdatei} Typischerweise wird bei größeren Projekten mit einer Hauptdatei gearbeitet, die gerne \texttt{main.tex} genannt wird. Sie ist sozusagen das Skelett des Projektes und enthält damit dessen Grundgerüst inklusive der Präambel. In dieser Hauptdatei werden Titel, Inhaltsverzeichnis sowie die einzelnen Kapitel einer Arbeit eingebunden (vgl. \cref{lst:main-file}). Die Einbindung der einzelnen Abschnitte kann entweder mittels \mintinline{latex}{\input{...}} oder \mintinline{latex}{\include{...}} erfolgen. Beide verlangen als Argument den Pfad zur Datei, die eingebunden werden soll. Auf die Unterschiede zwischen den beiden Befehlen gehen wir später noch ein (vgl. \cref{sec:input-vs-include}).
-  
+\section{Main File}
+
+In large projects, we typically use one central file, which is often called \texttt{main.tex}. It is, in a sense, the structural skeleton of the project, as it contains the basic structure including the preamble. The title, table of contents, as well as the individual chapters of a work are integrated in this main file (cmp. \cref{lst:main-file}). The inclusion of the individual sections can be done either by \mintinline{latex}{\input{...}} or \mintinline{latex}{\include{...}}. Both require the path to the file to be included as an argument. We will discuss the differences between the two commands later (see \cref{sec:input-vs-include}).
+
 \example{lst:main-file}{project-structure/main-file}{Typische Struktur einer Hauptdatei in \LaTeX{}}
- 
-\section{Abschnittsdateien}
- Abschnittsdateien sind Dateien, die innerhalb der Hauptdatei eingebunden werden. Diese können in einer Abschlussarbeit beispielsweise einzelne Kapitel sein. Grundsätzlich ist man aber ganz frei in der Entscheidung, wie granular die Aufteilung des Inhaltes in einzelne Dateien gestaltet werden soll.
- Die Dateien, die durch die Hauptdatei eingebunden werden, enthalten keine Präambel, da diese ja schon in der Hauptdatei vorhanden ist. Auch die Befehle \mintinline{latex}{\begin{document}} und \mintinline{latex}{\end{document}} tauchen nicht noch mal auf.
- 
-\section{Input oder Include?}
+
+\section{Section Files}
+Section files are files that are included within the main file. In a thesis, for example, these can be individual chapters. You are free to decide how granular the division of the content into individual files should be.
+The files that are included by the main file do not contain a preamble, since this is already present in the main file. Neither do the commands \mintinline{latex}{\begin{document}} and \mintinline{latex}{\end{document}} appear again.
+
+\section{Input or Include?}
 \label{sec:input-vs-include}
-Kommen wir nun zu den Unterschieden zwischen den beiden möglichen Befehlen zum Einbinden von \LaTeX-Dateien. Kurz zusammengefasst weisen \mintinline{latex}{\include} und \mintinline{latex}{\input} Unterschiede in den folgenden drei Aspekten auf: Die Art und Weise, wie der Pfad zur einzubindenden Datei angegeben wird, die Möglichkeit der Schachtelung von Einbindungen und ob für jeden Abschnitt eine neue Seite angefangen wird.
- 
-Benutzt man den Befehl \mintinline{latex}{\input}, kann die Dateiendung \texttt{.tex} angegeben werden, sie ist aber nicht zwingend notwendig. Außerdem kann man die Einbindung von Dateien schachteln: Eine Datei, die mit \mintinline{latex}{\input} eingebunden wurde, kann wiederum mit dem gleichen Befehl eine andere Datei einbinden. Die Dateien, die eingebunden wurden, werden im fertigen Dokument eingefügt, ohne dass dabei eine neue Seite für den eingebundenen Abschnitt angefangen wird (vgl. \cref{lst:main-file}).
- 
-Anders verhält sich der Befehl \mintinline{latex}{\include}: Hier wird die Dateiendung \texttt{.tex} für die eingebundenen Kapitel \emph{nicht} mit angegeben. Die Schachtelung von Einbindungen ist nicht möglich. Für jede eingebundene Datei wird außerdem eine neue Seite erzeugt. 
+
+Let us now turn to the differences between the two possible commands for including \LaTeX{} files. Briefly summarized, \mintinline{latex}{\include} and \mintinline{latex}{\input} have differences in the following three aspects: The way in which the path to the file to be included is specified, the possibility of nesting inclusions, and whether a new page is started for each section.
+
+If you use the command \mintinline{latex}{\input}, you can specify the file extension \texttt{.tex}, but it is not mandatory. It is also possible to nest the inclusion of files: A file included with \mintinline{latex}{\input} can in turn include another file with the same command. The files that have been included are inserted in the finished document without starting a new page for the included section (cmp. \cref{lst:main-file}).
+
+The command \mintinline{latex}{\include} behaves differently: Here the file extension \texttt{.tex} \emph{must} be omitted. Nesting of embeddings is not possible. A new page is also created for each included file.
