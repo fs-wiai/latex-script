@@ -1,15 +1,13 @@
-\chapter{Fußnoten}
+\chapter{Footnotes}
 \label{sec:footnotes}
 
-Für Fußnoten gibt es den Befehl \mintinline{latex}{\footnote{text}}, der an der Stelle des Aufrufs automatisch die richtige Ziffer einfügt und den übergebenen Text in der Fußzeile erscheinen lässt.
-In Kombination mit dem Paket \mintinline{latex}{hyperref} sind die Fußnoten sowie URLs\footnote{Sofern sie über den Befehl \mintinline{latex}{\url{…}} gesetzt wurden.} zudem anklickbar.
-Beispiele findet ihr im gesamten Dokument.
+Whenever we want to include footnotes into our \LaTeX{} document, we can use the command \mintinline{latex}{\footnote{text}}. At the position where we use the command, the correct number will be inserted automatically, and the text within the curly braces will appear in the footer. In combination with the package \mintinline{latex}{hyperref}, URLs within footnotes become clickable\footnote{if we use the command \mintinline{latex}{\url{…}}}. 
+We can see examples for that in the whole document.
 
-Das Paket \mintinline{latex}{footmisc} stellt verschiedene weitere Optionen für die Darstellung von Fußnoten zur Verfügung, die als optionale Parameter an den Befehl \mintinline{latex}{\usepackage} übergeben werden können:
-
+The package \mintinline{latex}{footmisc} provides us with additional options for how to display footnotes. They can be passed as optional parameters to the command \mintinline{latex}{\usepackage}:
 \begin{itemize}
-  \item \mintinline{latex}{\usepackage[perpage]{footmisc}} sorgt dafür, dass die Zählung der Fußnoten auf jeder Seite neu beginnt.
-  \item \mintinline{latex}{\usepackage[para]{footmisc}} lässt die Fußnoten in der Fußzeile als Fließtext (gegebenenfalls auch nebeneinander) erscheinen.
-  \item \mintinline{latex}{\usepackage[symbol]{footmisc}} bewirkt eine Nummerierung mit Symbolen (z.\,B. \textdagger, \textdaggerdbl) statt Ziffern.
+  \item \mintinline{latex}{\usepackage[perpage]{footmisc}} ensures that the count of footnotes begins at 1 for each new page.
+  \item \mintinline{latex}{\usepackage[para]{footmisc}} lets the footnotes within the footer appear as continuous text (i.\,e., the footnotes can also appear next to each other).
+  \item \mintinline{latex}{\usepackage[symbol]{footmisc}} causes a numbering with symbols (e.\,g.,  \textdagger, \textdaggerdbl) instead of numbers.
 \end{itemize}
 
