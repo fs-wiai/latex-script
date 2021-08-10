@@ -1,6 +1,6 @@
 # LaTeX Script by Fachschaft WIAI
 
-This script introduces the most fundamental LaTeX mechanisms to get learners started. It is used both as a reference and as exercise material for our [LaTeX workshop](https://wiai.stuve-bamberg.de/latex-weekend), a **two-day tutorial aimed at students from various backgrounds**. At the moment, it is only available in German. The following topics are covered:
+This script introduces the most fundamental LaTeX mechanisms to get learners started. It is used both as a reference and as exercise material for our [LaTeX workshop](https://wiai.stuve-bamberg.de/latex-weekend), a **two-day tutorial aimed at students from various backgrounds**. The following topics are covered:
 
 * general introduction to the LaTeX system 
 * basic document structure
@@ -56,11 +56,11 @@ latex-skript/
 └── README.md
 ```
 
-* **`main.tex`** is the entrypoint. It includes the preamble (`preamble.tex`), our custom commands (`commands.tex`) as well as all sections.
+* **`main.tex`** is the entry point. It includes the preamble (`preamble.tex`), our custom commands (`commands.tex`) as well as all sections.
 * **`content`** comprises the individual chapters of this script.
 * Most chapters include a task that can be found in the **`exercises`** folder.
 * **`public`** is the folder where all packed-up versions of the script are moved to, once they have been created using the `Makefile` and the command `make publication`. There are two zip archives of this repository (one containing only the exercises and one with solutions included) as well as three PDF versions (one with the content only, one with exercises, and one with exercises and solutions).
-* `compile_listings` and `compile_commands` are two **utility bash scripts**. They produce a rendered and cropped PDF version of all `.tex` files within the `listings`/`exercises` folders and their subfolders. Rendered listings remain in `listings` whereas tasks are moved to the **`graphics`** folder afterwards. The compiled tasks are necessary for students who receive the project archive, but should not be given the sourcecode of tasks, e.g., if an exercise demands them to code up a table based on a pre-coded example.
+* `compile_listings` and `compile_commands` are two **utility bash scripts**. They produce a rendered and cropped PDF version of all `.tex` files within the `listings`/`exercises` folders and their sub folders. Rendered listings remain in `listings` whereas tasks are moved to the **`graphics`** folder afterwards. The compiled tasks are necessary for students who receive the project archive, but should not be given the sourcecode of tasks, e.g., if an exercise demands them to code up a table based on a pre-coded example.
 
 ## Usage
 
@@ -93,4 +93,4 @@ These are the main contributors so far:
 
 ## License
 
-The LaTeX Script was created by Fachschaft WIAI, the Student Council of the faculty of Information Systems and Applied Computer Sciences at University of Bamberg. It is licensed under the creative commons licence “Attribution-ShareAlike 4.0 International” (CC BY-SA 4.0): http://creativecommons.org/licenses/by-sa/4.0/. Usage permissions beyond the scope of this license might be granted upon request.
+The LaTeX Script has been assembled by the Student Council of the Faculty of Information Systems and Applied Computer Sciences (Fachschaft WIAI) at University of Bamberg. It is licensed under Creative Commons “Attribution-ShareAlike 4.0 International” (CC BY-SA 4.0): http://creativecommons.org/licenses/by-sa/4.0/. Upon request, allowances exceeding the limitations of this license may be granted.
