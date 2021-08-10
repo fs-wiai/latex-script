@@ -5,41 +5,46 @@
 \chapter*{First steps with \LaTeX}
 \addcontentsline{toc}{section}{First steps with \LaTeX}
 
-This script serves as a short reference on handling \LaTeX{} and as exercise material für the \LaTeX{} workshop of the Fachschaft \acro{WIAI}.
+This script serves as a short reference on handling \LaTeX{} and as exercise material for the \LaTeX{} workshop of the Fachschaft \acro{WIAI}.
 Many tasks require you to modify the script on your own.
-The project material with all of the source files and the lastest version of this script can be found on Github.\footnote{\url{https://github.com/fs-wiai/latex-script/releases}}
+The project material with all of the source files and the latest version of this script can be found on Github.\footnote{\url{https://github.com/fs-wiai/latex-script/releases}}
 
 Before we can dive into \LaTeX{}, we will obviously have to install it.
 We will also need to do some configuration to be able to work with this project.
 All of this will be explained in more detail in the following chapters.
 Bit by bit, you will get an understanding of how to work with \LaTeX{}.
 For now, just follow our instructions.
-Please, make sure to install the \emph{compiler first} and the the \emph{editor afterwards}\textit{.}
+Please, make sure to install the \emph{compiler first} and the \emph{editor afterwards}\textit{.}
 
 \section*{Compiler}
 Let’s start with the compiler.
+(Seriously!)
 We will need it to convert the source code that we are going to write into a \acro{PDF}.
 There are different compilers for different operating systems;
-for example, MikTeX for Windows,\footnote{\url{https://miktex.org/download}} MacTex for MacOS\footnote{\url{http://tug.org/mactex/}} and TeXLive for Linux distributions.\footnote{If you are using a Debian-based Linux distribution, you can install the compiler by executing \mintinline{bash}{sudo apt install texlive-full}. For other distributions, you find instructions on \url{https://tug.org/texlive/doc/texlive-en/texlive-en.html\#installation}.} In case you get to choose, it is best to install the full version with all packages.
+\todo{Ist das Semikolon hier richtig? (F)}
+for example, MikTeX for Windows\footnote{\url{https://miktex.org/download}}, Mac\TeX{} for macOS\footnote{\url{http://tug.org/mactex/}}, and \TeX{}Live for Linux distributions
+\footnote{If you are using a Debian-based Linux distribution, you can install the compiler by executing \mintinline{bash}{sudo apt install texlive-full}.
+For other distributions, you find instructions on \url{https://tug.org/texlive/doc/texlive-en/texlive-en.html\#installation}.} 
+In case you get to choose, it is best to install the full version with all packages.
 
 \section*{Editor}
 As soon as you have installed the compiler, you can download an editor that you are going to use to write your \LaTeX{} documents.
 Any editor will do (notepad++, Atom, VS Code, etc.).
-However, for beginners, we do recommend to use a program that supports you with \LaTeX-specific features.
-One of them is TeXstudio.\footnote{You find the latestt version on \url{https://www.texstudio.org/}.}
+However, for beginners, we do recommend using a program that supports you with \LaTeX-specific features.
+One of these programs is \TeX{}studio.\footnote{You find the latest version on \url{https://www.texstudio.org/}.}
 
 \section*{Changing the compiler command}
+\todo{Refactor after the code inclusion part is redone.}
 To prevent errors during the compilation of our document, you have to change the compiler command.
-In TeXstudio, click on the \emph{options} button and then on \emph{Configure TeXstudio \textellipsis}\todo{Need to find out what they are actually called in English. Maybe also add the correct steps for Mac (these don’t apply)}.
+In \TeX{}studio, click on the \emph{Options} button and then on \emph{Configure \TeX{}studio \textellipsis}\todo{Add the correct steps for Mac (these don’t apply)}.
 A new window will open up.
-Navigate to the \emph{commands} area and, at \emph{PdfLaTeX}, add the flag \mintinline{bash}{-shell-escape}.
+Navigate to the \emph{Commands} area and, next to \emph{PdfLaTeX}, add the flag \mintinline{bash}{-shell-escape}.
 In other words: The command for \emph{PdfLaTeX} should look like this:
 \mint{bash}{pdflatex -synctex=1 -interaction=nonstopmode -shell-escape %.tex}
 
-
 \section*{Compiling for the first time}
 Open up the file \mintinline{bash}{main.tex} in the root directory of the project and compile it by pressing \faForward. 
-Looking at the directory, you should see a few new files.
+Looking at the directory in your file explorer, you should see a few new files.
 The \mintinline{bash}{main.pdf} file contains the compiled document.
 The other files are auxiliary files that the compiler uses, for example, to generate the table of contents.
 You are now ready to go!
