@@ -1,4 +1,4 @@
-\chapter{Basic Document Structure}
+\chapter{Basic document structure}
 \label{sec:basic-document-structure}
 
 In essence, every \LaTeX{} document is composed of two parts: the first part is 
@@ -17,7 +17,7 @@ of our document, that is, the things that we will later see in our generated
 Let's take a closer look at the preamble. 
 A minimal preamble should contain the following specifications: 
 
-\subsection{Document Class}\label{sec:document-class}
+\subsection{Document class}\label{sec:document-class}
 We can define a document class by using the command 
 \mintinline[breaklines,breakafter=\]]{latex}|\documentclass[<parameter>]{<document class>}|. The most 
 commonly used document classes that are supported by default are 
@@ -55,7 +55,7 @@ A5\footnote{The default case would be A4.}, and the orientation of the page to
 landscape. The language can be passed as an optional parameter, too (cf. 
 \cref{sec:language}). 
 
-\subsection{Digression: Packages}
+\subsection{Digression: packages}
 \label{sec:packages}
 \begin{minted}{latex}
 \usepackage[<optionen>]{<paketname>}
@@ -127,7 +127,7 @@ can be included by using the following command:
 \foreignlanguage{<language>}{<text>}
 \end{minted}
 
-\section{Document Environment}
+\section{Document environment}
 The actual content of the \acro{PDF} document needs to be put between 
 \mintinline{latex}{\begin{document}} and \mintinline{latex}{\end{document}}.
 
@@ -158,7 +158,7 @@ In order to escape the backslash, the command
 \mintinline{latex}{\textbackslash} must be used.\footnote{An overview of 
 additional special characters can be found in \cref{sec:special-characters}.}
 
-\subsection{Sections and Chapters}
+\subsection{Sections and chapters}
 Continuous text can be structured by headings that divide the document into 
 sections and chapters. Needless to say, \LaTeX{} provides us with commands for 
 that.
@@ -183,7 +183,7 @@ parameter in square brackets between the command and the actual title:
 \section[Title in the TOC]{Actual Chapter Title}
 \end{minted}
 
-\subsection{Front Matter}
+\subsection{Front matter}
 A simple front matter can be created by using the command 
 \mintinline{latex}{\maketitle}. The values that get inserted into the front 
 matter must be specified within the preamble. 
