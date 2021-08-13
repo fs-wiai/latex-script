@@ -2,6 +2,7 @@
 \label{sec:basic-functionality}
 
 \todo{Really ``function'', not ``work''?}
+\todo{I’d prefer “work,” too.}
 
 Word processing and document creation programs have to decide how to translate user input into a document layout.
 There are different concepts to approach this topic.
@@ -9,12 +10,12 @@ When working with Microsoft Word, the rule is: a document exported as \acro{PDF}
 Where a graphic is placed in Word, it is also found in the \acro{PDF}. 
 Adjustments to the appearance in Word and other popular programs thus result in a direct visual change. 
 This type of formatting is called \emph{What you see is what you get} (\acro{WYSIWYG} for short). 
-Content and structure are closely linked.
+Content and \replaced[id=C]{formatting}{structure} are closely linked.
 
 \LaTeX{}, on the other hand, works according to the principle \emph{What you get is what you mean} (\acro{WYGIWYM} for short). 
-Content and structure are separated more clearly.
+Content and \replaced[id=C]{formatting}{structure} are separated more clearly.
 The content is placed in a document in plain text form, together with so-called \emph{commands}. 
-The combination of text content and commands is also called \emph{source} text.
+The combination of text content and commands is also called \emph{source} \replaced[id=C]{code}{text}.
 \todo{Nicht source code?} 
 
 To customize the presentation of the content, we do not change the text content itself but add appropriate commands instead. 
@@ -22,18 +23,18 @@ To customize the presentation of the content, we do not change the text content 
 These are processed by a \emph{compiler}, which adjusts the resulting appearance depending on the command. 
 Line by line, the compiler processes text and commands from our source code. 
 When all the source code has been processed by the compiler, we get the final document. 
-There are different export options, but most of the time we output the document as a \acro{PDF} --- just like in Word.
+There are different export options, but most of the time we output the document as a \acro{PDF}\,---\,just like in Word.
 
-As a brief example for a command, we shall use the highlighting of words or sentences. 
+As a brief example for a command, we shall use the \replaced[id=C]{emphasis}{highlighting} of words or sentences. 
 The command is \mintinline{latex}{\emph{}}. 
-We write the text we want to highlight inside the curly brackets in the source code, like this: 
+We write the text we want to \replaced[id=C]{emphasize}{highlight} inside the curly brackets in the source code, like this: 
 \mintinline{latex}{\emph{Good morning!}}. 
 In the resulting PDF, this text will appear in italics: \emph{Good morning!} 
 There is no trace of the command identifier and the special characters. 
-You can see, we are not writing italic text inside the source code, we just tell the compiler that certain words should be highlighted by the use of a command.
+You can see, we are not writing italic text inside the source code, we just tell the compiler that certain words should be \replaced[id=C]{emphasized}{highlighted} by the use of a command.
 
 This simple example illustrates a strength of the \acro{WYGIWYM} principle. 
-We mark text elements on the semantic level and can make the associated typographic adjustments centrally --- or let \LaTeX{} do the configuration itself.
+We mark text elements on \replaced[id=C]{a}{the} semantic level and can make the associated typographic adjustments centrally\,---\,or let \LaTeX{} do the configuration itself.
 For instance, if we want to change the way highlighting is done, we can configure this once. 
 At all places where \mintinline{latex}{\emph{}} is used, the final result will be adjusted accordingly. 
 There is no need to make adjustments at each occurrence of an emphasized word. 
@@ -47,25 +48,26 @@ One to create the source code, and a second to process the source code.
 The latter is the already mentioned compiler.
 
 In principle, a simple text editing program is sufficient for creating the source code. 
-Most operating systems provide such programs out of the box. 
-Maybe you are already used to applications like Notepad++\footnote{Available at \url{https://notepad-plus-plus.org/}.}, these are usable as well. 
-Then there are advanced programs like \TeX{}studio\footnote{Available at \url{https://www.texstudio.org/}.} or Texmaker\footnote{Available at \url{https://www.xm1math.net/texmaker/}.}, which integrate additional functions that facilitate the use of commands. 
-You are free to choose.
+Most\todo{Is there one that doesn’t?} operating systems provide such programs out of the box. 
+Maybe you are already used to applications like Notepad++,\footnote{Available at \url{https://notepad-plus-plus.org/}.} these are usable as well. 
+Then there are advanced programs like \TeX{}studio\footnote{Available at \url{https://www.texstudio.org/}.} or Texmaker\footnote{Available at \url{https://www.xm1math.net/texmaker/}.} which integrate additional functions that facilitate the use of commands.
+You \replaced[id=C]{have free choice}{are free to choose}.
 \todo{Hier nochmal, analog zum Vorwort, auf unsere Empfehlung verweisen?}
 
 As mentioned before, we need a compiler to be able to compile our source code.
-The compiler is usually part of a collection of \emph{programs} and \emph{packages}, which are together called a \LaTeX-\emph{distribution}. 
+The compiler is usually part of a collection of \emph{programs} and \emph{packages} which are together called a \LaTeX-\emph{distribution}. 
 The included packages provide various additional commands. 
-For now, we will skip over the many programs\footnote{We will get to know one of these helper programs later on, in \ref{sec:literature}, when we are citing literature.}. 
+For now, we will skip over the many programs.\footnote{We will get to know one of these helper programs later on, in \ref{sec:literature}, when we are citing literature.}
 
 Multiple different \LaTeX{} distributions exist. 
-Some of the well-known ones are MiK\TeX,\footnote{For Windows, macOS and Linux. Available at \url{https://miktex.org/}.} Mac\TeX\footnote{For macOS and Linux. Available at \url{https://www.tug.org/mactex/}.}, and \TeX{} Live\footnote{For Windows, macOS, and Linux. Available at \url{https://www.tug.org/texlive/}.}. 
+Some of the well-known ones are MiK\TeX,\footnote{For Windows, macOS and Linux. Available at \url{https://miktex.org/}.} Mac\TeX,\footnote{For macOS and Linux. Available at \url{https://www.tug.org/mactex/}.} and \TeX{} Live.\footnote{For Windows, macOS, and Linux. Available at \url{https://www.tug.org/texlive/}.}\todo{Hier tobt ein Edit War … Fußnoten bitte immer *nach* Satzzeichen!}
 It is best to install one of them right away. 
 The installation may take several hours. 
 For this reason, some distributions are available for download in a small and a full version. 
 The full version contains all packages, while the small version downloads packages only when they are needed.
 Unfortunately, we cannot take away the decision if you would rather wait for the download at the beginning or later while you are working.
 \todo{Ich sehe entsetzte Gesichter von Leuten mit kleinen Festplatten, die glauben, sie brauchen alle Packages.}
+\todo{:D Ich hätte gedacht, wir sollten vielleicht durchaus das Runterladen empfehlen, damit sie im Tut weniger warten müssen. Bringt aber den Windows-Leuten wohl eh nix}
 
 \section{The commands}
 \label{subsec:command-structure}
@@ -98,8 +100,9 @@ Some examples are shown in \cref{tbl:latex-commands}.
 If a command allows multiple optional parameters that accept similar inputs, it is sometimes necessary to specify which parameter is meant. 
 For example, the command for embedding graphics accepts optional parameters for width and height. 
 If \mintinline{tex}|[12cm, 4cm]| were entered, it would be unclear which value is intended for which parameter. 
-To make the assignment more concrete, we can specify the parameters explicitly:
+To make the assignment more concrete, \replaced[id=C]{it is possible to}{we can} specify the parameters explicitly:
 \todo{Can or have to?}
+\todo{Grundsätzlich can, aber es ist nicht unsere Entscheidung, deswegen würde ich das impersonal formulieren}
 \begin{minted}{tex}
 \includegraphics[width=12cm, height=4cm]{picture.png}
 \end{minted}
@@ -107,4 +110,6 @@ To make the assignment more concrete, we can specify the parameters explicitly:
 As the examples already show, many different commands can be used. 
 Some are intended for use in mathematical formulas, others allow the inclusion of graphics. 
 In the beginning, it will take some getting used to. 
-Remembering all the relevant commands is hard, but after some practice and patience, simple documents can be created in no time.
+\todo{So klingt es vielleicht nicht ganz so bedrohlich …}
+\replaced[id=C]{However, you don’t have to learn every single command by heart: As soon as you remember the most important commands, you can easily create simple documents and look up everything else.}{Remembering all the relevant commands is hard, but after some practice and patience, simple documents can be created in no time.}
+
