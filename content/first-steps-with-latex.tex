@@ -38,7 +38,7 @@ One of these programs is \TeX{}studio.\footnote{You find the latest version on \
 To prevent errors during the compilation of our document, you have to change the compiler command.
 In \TeX{}studio, click on the \emph{Options} button and then on \emph{Configure \TeX{}studio \textellipsis}\todo{Add the correct steps for Mac (these don’t apply)}.
 A new window will open up.
-Navigate to the \emph{Commands} area and, next to \emph{PdfLaTeX}, add the flag \mintinline{bash}{-shell-escape}.
+Navigate to the \emph{Commands} area, and, next to \emph{PdfLaTeX}, add the flag \mintinline{bash}{-shell-escape}.
 In other words: The command for \emph{PdfLaTeX} should look like this:
 \mint{bash}{pdflatex -synctex=1 -interaction=nonstopmode -shell-escape %.tex}
 
