@@ -21,4 +21,6 @@ Let us now turn to the differences between the two possible commands for includi
 
 If you use the command \mintinline{latex}{\input}, you can specify the file extension \texttt{.tex}, but it is not mandatory. It is also possible to nest the inclusion of files: A file included with \mintinline{latex}{\input} can in turn include another file with the same command. The files that have been included are inserted in the finished document without starting a new page for the included section (cf. \cref{lst:main-file}).
 
-The command \mintinline{latex}{\include} behaves differently: Here the file extension \texttt{.tex} \emph{must} be omitted. Nesting of embeddings is not possible. A new page is also created for each included file.
+The command \mintinline{latex}{\include} behaves differently: Here, the file 
+extension \texttt{.tex} \emph{must} be omitted. Nesting of embeddings is not 
+possible. Also, a new page is created for each included file.
