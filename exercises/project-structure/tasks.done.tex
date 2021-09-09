@@ -18,19 +18,19 @@
   	\mintinline{latex}{\include} makes every included file appear on a new 
   	page. Hence the command \mintinline{latex}{\newpage} becomes superfluous.
   \item 
-    \textbf{Can the preamble also be excluded? If no, why? If yes, why can 
+    \textbf{Can the preamble also be excluded? If no, why? If yes, when can 
     	outsourcing the preamble be useful?} \\
     The preamble can also be outsourced, like in task 1. In real-world \LaTeX{} 
     projects we often make use of numerous packages that need to be configured 
     by additional commands within the preamble. Therefore, it is advisable to 
-    outsource the preamble. On top of that, this is useful because the file can 
+    outsource the preamble. On top of that, this is useful because the file 
     with the most-commonly used packages can be moved from one project to 
     another without needing to rewrite the preamble every time.
   \item 
     \textbf{Add the command \mintinline{latex}{\includeonly{section2}} to the 
     preamble. Compile the document again, and check what has changed. What does 
-    the command do and why can it be helpful in a larger project? } \\
-	The command \mintinline{latex}{\includeonly{section2}} doex exactly what 
+    the command do and how can it be helpful in a larger project? } \\
+	The command \mintinline{latex}{\includeonly{section2}} does exactly what 
 	the name already says. During compilation, only the 
 	\mintinline{latex}{\include} 
 	statements that contain file names that appear in 
