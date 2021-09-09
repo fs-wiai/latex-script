@@ -2,8 +2,8 @@
 \label{sec:basic-document-structure}
 
 In essence, every \LaTeX{} document is composed of two parts: 
-We call the first commands within our \LaTeX{} document the \emph{preamble}. 
-It contains global information about our document, such as the document class, the encoding, the language, the page format, and additional packages that we want to use.
+We call the first commands within our \LaTeX{} document the \emph{preamble}.
+It \replaced[id=F]{specifies global properties of}{contains global information about} our document, such as the document class, the encoding, the language, the page format, and additional packages that we want to use.
 The \emph{document environment}, on the other hand, contains the actual content of our document, i.\,e., the things that we will later see in our generated \acro{PDF} file. 
 
 \Example{lst:latex-document-basic-structure}{basic-document-structure/hello-world}{basic-document-structure/hello-world_crop}{Exemplary structure of a simple \LaTeX{} document with preamble and document environment}
@@ -14,6 +14,7 @@ A minimal preamble should contain the following specifications:
 
 \subsection{Document class}\label{sec:document-class}
 We can define a document class by using the command \mintinline[breaklines,breakafter=\]]{latex}|\documentclass[<parameter>]{<document class>}|. 
+\todo{Was verursacht diese komische Klammer nach dem Befehl?}
 The most commonly used document classes that are supported by default are \mintinline{latex}{article} for short documents, and \mintinline{latex}{report} for longer ones. 
 Furthermore, you can use \mintinline{latex}{book} for books, \mintinline{latex}{beamer}\footnote{We do not cover making presentations in \LaTeX{} in this tutorial. However, if you are interested in the topic, we recommend this introduction on Overleaf: \url{https://www.overleaf.com/learn/latex/Beamer}} for presentations, and \mintinline{latex}{letter}\footnote{We also do not cover letters in this script. An introduction can be found on WikiBooks: \url{https://en.wikibooks.org/wiki/LaTeX/Letters}} for letters.
 
@@ -76,10 +77,10 @@ The package \mintinline{latex}{babel} provides language-specific information (e.
 The desired language can be passed as an optional parameter. 
 \mintinline{latex}{ngerman}, for instance, is used for the new German spelling. 
 Some packages require that the language is already passed as an optional parameter in the \mintinline{latex}{\documentclass} command. 
-In this case, just leave out the optional parameter for the language within the \mintinline{latex}{babel} command.
+In this case, just leave out the optional parameter for the language within the \mintinline{latex}{babel} \added[id=F]{inclusion} command.
 
 We can also use multiple languages in our document. 
-To do so, we pass the languages, separated by commas, as an optional parameter to the \mintinline{latex}{\babel} command. 
+To do so, we pass the languages, separated by commas, as an optional parameter to the \replaced[id=F]{babel inclusion}{\mintinline{latex}{\babel}} command. 
 Within our document, we can switch between languages with the \mintinline{latex}{\selectlanguage{<language>}} command. 
 Alternatively, foreign-language text can be declared by using the following command: 
 
@@ -93,7 +94,7 @@ The actual content of the \acro{PDF} document needs to be put between \mintinlin
 \subsection{Continuous text}
 The easiest content that we can integrate into the document environment is continuous text. 
 We can write it directly into our source code. 
-Line breaks and multiple spaces are ignored by \LaTeX{}. 
+Line breaks and multiple \added[id=F]{consecutive} spaces are ignored by \LaTeX{}. 
 Blank lines create a new paragraph, that is indented by default.
 \footnote{The automatic indentation of new paragraphs can be prevented by using the command \mintinline{latex}{\noindent}.}
 Manual line breaks can be enforced with two backslashes (\textbackslash\textbackslash). 
@@ -103,7 +104,7 @@ This should be avoided, though.
 Some characters are reserved for \LaTeX-specific commands, for instance, the percent sign. 
 Using a percent sign tells the \LaTeX{} compiler to ignore the rest of the line, i.\,e., the text after the percent character will not appear in the generated \acro{PDF} document.
 This can be useful in order to take notes while working on a document without affecting the document itself. 
-This is called a comment.
+\replaced[id=F]{It}{This} is called a comment.
 
 However, if we want the percent sign to actually appear in the text, we can achieve this by using a backslash: \mintinline{latex}{\%}.
 This solution is called escaping and also works for other reserved characters, like \#, \$, \&, \_, \{ and \}.
@@ -134,7 +135,7 @@ An alternative title for the table of contents can be declared as an optional pa
 
 \subsection{Front matter}
 A simple front matter can be created by using the command \mintinline{latex}{\maketitle}. 
-The values that get inserted into the front matter must be specified within the preamble. 
+The values \replaced[id=F]{to be}{that get} inserted into the front matter must be specified within the preamble. 
 Multiple authors are joined by \mintinline{latex}{\and}.
 If the date is not specified by the \mintinline{latex}{\date} command, the current date will be inserted by default.
 The design of the front matter depends on the specified document class.
