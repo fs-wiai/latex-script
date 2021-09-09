@@ -9,7 +9,7 @@ The special character used most frequently is a simple space between words.
 The word space is not the only one, though\,---\,there are a few more types of spaces.
 \Cref{lst:spaces} illustrates how they are used.
 
-\example{lst:spaces}{special-characters/spaces}{Unterschiedliche Leerzeichen in \LaTeX}
+\example{lst:spaces}{special-characters/spaces}{Different spaces in \LaTeX}
 
 \paragraph{English Spacing}
 In documents written in English, \LaTeX{} uses traditional English Spacing by default. That is, double spaces after each sentence.
@@ -39,12 +39,12 @@ as shown in \cref{tbl:bars}.
 \end{longtable}
 
 The hyphen is obviously also used for hyphenation, but for this purpose, we should not insert it explicitly in our source code.
-In most places, \LaTeX{} does the hyphenation automatically if we are using the correct \texttt{babel} package.\footnote{c.\,f. \cref{sec:language}.}
-In case something goes wrong, we can intervene using the codes from \cref{tbl:separators}:\footnote{Those also require the \texttt{babel} package.}\todo{Is it because of the English document that the last example does not work?}
+In most places, \LaTeX{} does the hyphenation automatically if we are using the correct \texttt{babel} \replaced[id=F]{configuration}{package}.\footnote{c.\,f. \cref{sec:language}.}
+In case something goes wrong, we can intervene using the codes from \cref{tbl:separators}:\footnote{Those also require the \texttt{babel} package.}
 
 \begin{longtable}{@{}lp{11cm}@{}}
 	\toprule
-	Code      & Erläuterung \\
+	Code      & Explanation \\
 	\midrule
 	\endhead
 	\mintinline{tex}|\-| & Exclusive hyphenation: The word may only be hyphenated at this position (can also be used multiple times within one word\,---\,all of those positions are then allowed). \\
@@ -52,7 +52,7 @@ In case something goes wrong, we can intervene using the codes from \cref{tbl:se
 	\mintinline{tex}|-|  & Exclusive hyphen: Is only used for compound words and prevents the automatic hyphenation for the rest of the word (which is typographically desirable). \\
 	\mintinline{tex}|"=| & Non-exclusive hyphen: Is used for long compound words when the text wrapping would not work without additional automatic hyphenation. \\
 	\mintinline{tex}|""| & Cut-off point without a hyphen: Allows something like a \textsc{url} to wrap without inserting a potentially misleading hyphen. \\
-	\mintinline{tex}|"~| & Non-wrapping hyphen: Keeps the hypen together with the following word, very useful in German: \emph{Vorlesungszeit und "~raum} \\
+	\mintinline{tex}|"~| & Non-wrapping hyphen: Keeps the hyphen together with the following word, very useful in German: \foreignlanguage{ngerman}{\emph{Vorlesungszeit und "~raum}} \\
 	\bottomrule
 	\caption{Exceptions for hyphenation}
 	\label{tbl:separators}
@@ -103,7 +103,7 @@ If not, we can also create the diacritics via escape codes.
 			\verb|\~{o}| & -- & \~{o} & & \verb|\.{o}| & -- & \.{o} & & \verb|\o| & -- & \o \\
 		\bottomrule
 	\end{tabular}
-	\caption{Diakritika}
+	\caption{Diacritics}
 	\label{tbl:diacritics}
 \end{table}
 
@@ -116,7 +116,7 @@ Please note that some of them only work in maths environments (c.\,f. \cref{sec:
 	\center
 	\begin{tabular}{cll}
 		\toprule
-		Zeichen & Code & Bemerkung \\
+		Sign & Code & Remarks \\
 		\midrule
 		?`/!` & \verb|?`/!`| & \\
 		\textasciicircum & \verb|\textasciicircum| & \\
