@@ -1,7 +1,7 @@
 \chapter{Formatting Paragraphs} % (fold)
 \label{sec:formatting-paragraphs}
 
-\section*{Ragged Alignment}
+\section*{Ragged alignment}
 \label{sec:ragged-alignment}
 By default, \LaTeX{} sets continuous text in full justification. 
 However, we can also switch to ragged alignment by using the commands 
@@ -15,9 +15,9 @@ format
 of our paragraph (\cref{lst:ragged-alignment}).
 
 \example{lst:ragged-alignment}{formatting-paragraphs/ragged-alignment}{Ragged 
-Alignment}
+alignment}
 
-\section*{Indentation and Spacing}
+\section*{Indentation and spacing}
 \label{sec:indents-and-parskips}
 Usually, we illustrate a new paragraph by indenting the first line of it 
 (\mintinline{tex}{\parindent}). 
@@ -28,8 +28,8 @@ For both variants, there are adjustable parameters:
 \begin{minted}{tex}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em
-    plus .5em   % erlaubte Dehnung
-    minus .5em  % erlaubte Stauchung
+    plus .5em   % admissible stretch
+    minus .5em  % admissible shrink
 }
 \end{minted}
 
