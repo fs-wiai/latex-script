@@ -81,12 +81,12 @@ The decisive factor is the appearance, not the semantics, which is why the Frenc
 	\label{tbl:quotation-marks}
 \end{table}
 
-We can also get more flexibility using the \mintinline{tex}{csquote} package, which provides the \mintinline{tex}|\enquote{<quote>}| command.
+We can \deleted[id=C]{also }get more flexibility using the \mintinline{tex}{csquote} package, which provides the \mintinline{tex}|\enquote{<quote>}| command.
 It chooses the correct quotation marks depending on the language being used; also, nested \texttt{enquote}s automatically switch back and forth between first and second level.
 When enabling the \mintinline{tex}|autostyle=true| option on package import, \mintinline{tex}|\foreignquote{<language>}{<quote>}| selects varying quotation marks for each quotation.
 
 \section{Diacritics}
-If we are able to insert letters with diacritics via our keyboard\,---\,e.\,g., the German Umlauts or common accents\,---\,we can also do this within our source code:
+If we are able to insert letters with diacritics via our keyboard\,---\,e.\,g., the German Umlauts or common accents\,---\,we can \deleted[id=C]{also }do this within our source code\added[id=C]{, as well}:
 The characters will remain intact in the output.
 If not, we can also create the diacritics via escape codes.
 \Cref{tbl:diacritics} shows just a few examples\,---\,the letters can of course be swapped out, but there is still a huge amount of different diacritics.
@@ -142,5 +142,5 @@ Please note that some of them only work in maths environments (c.\,f. \cref{sec:
 	\label{tbl:special-characters}
 \end{table}
 Whenever you need a certain symbol and don’t know its name, \emph{Detexify}\footnote{\url{http://detexify.kirelabs.org/classify.html}} comes to the rescue: You can draw the symbol and get all necessery information.
-From cuneiforms to technical symbols, there is absolutely \emph{everything}, as you can see scrolling through the \emph{Comprehensive \LaTeX{} Symbol List}.\footnote{\url{http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf}}
+From cuneiforms to technical symbols, there is absolutely \emph{everything}\textit{,} as you can see scrolling through the \emph{Comprehensive \LaTeX{} Symbol List}\textit{.}\footnote{\url{http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf}}
 

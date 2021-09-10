@@ -11,8 +11,8 @@ These commands influence the environment that they are used in, e.\,g., the
 \texttt{document} environment. Correspondingly, the text within the whole 
 document is affected. 
 Alternatively, we can use dedicated environments in order to influence the 
-format 
-of our paragraph (\cref{lst:ragged-alignment}).
+format\added[id=C]{ting}
+of \replaced[id=C]{certain}{our} paragraph\added[id=C]{s} (\cref{lst:ragged-alignment}).
 
 \example{lst:ragged-alignment}{formatting-paragraphs/ragged-alignment}{Ragged 
 alignment}
@@ -23,7 +23,6 @@ Usually, we illustrate a new paragraph by indenting the first line of it
 (\mintinline{tex}{\parindent}). 
 Alternatively, paragraph spacing, i.\,e., vertical space between paragraphs, 
 can be used (\mintinline{tex}{\parskip}).
-
 For both variants, there are adjustable parameters:
 \begin{minted}{tex}
 \setlength{\parindent}{0pt}
@@ -33,7 +32,7 @@ For both variants, there are adjustable parameters:
 }
 \end{minted}
 
-We can use \mintinline{tex}{\noindent} to turn off the indentation for only one 
+\noindent We can use \mintinline{tex}{\noindent} to turn off the indentation for only one 
 paragraph. 
 For the first paragraph after a heading, there is usually no indentation. 
 
