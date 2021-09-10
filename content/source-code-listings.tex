@@ -38,7 +38,7 @@ Out of the box, your editor will probably execute the following command after yo
 $ pdflatex main.tex
 \end{minted}
 
-\noindent The exact command can be found and configured in \TeX{}studio under \enquote{Options → Configure \TeX{}studio → Commands}.
+\noindent The exact command can be found and configured in \TeX{}studio under Options → Configure \TeX{}studio → Commands.
 It is stated next to the label Pdf\LaTeX{}.
 The file that is to be compiled will replace the placeholder \mintinline{bash}{%.tex} upon compilation.
 Additionally, there are typically two additional options configured.
@@ -69,9 +69,9 @@ You can define listings using a dedicated environment:
 
 \example{lst:minted-variants}{source-code-listings/minted-variants}{Shorthand and inline listing}
 
-\noindent There is also a shorthand and an inline variant of the command (cf. \cref{lst:minted-variants}).
+\noindent There is also a shorthand and an inline variant of the command (cf.\ \cref{lst:minted-variants}).
 To avoid redundancy, it may be practical to import source code directly from the source file.
-To accomplish this, we only have to pass the programming language and the file path to the \mintinline{latex}{\inputminted} command (cf. \cref{lst:minted-external}).
+To accomplish this, we only have to pass the programming language and the file path to the \mintinline{latex}{\inputminted} command (cf.\ \cref{lst:minted-external}).
 
 \example{lst:minted-external}{source-code-listings/minted-import}{Including from a separate file}
 
@@ -80,7 +80,7 @@ To accomplish this, we only have to pass the programming language and the file p
 \section{Configuring minted}
 
 Optional parameters allow us to add line numbers, line breaks, and colors.
-Moreover, there are numerous themes available (\cref{lst:minted-external-styled}).
+Moreover, there are numerous themes available (\todo{Anscheinend sind crefs nicht wirklich mit english spacing kompatibel. Können wir das abschalten? Gibt eigentlich eh keinen guten Grund dafür.)}\cref{lst:minted-external-styled}).
 The introduction on Overleaf and the package documentation\footnote{Available at \url{https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted} and \url{https://ctan.kako-dev.de/macros/latex/contrib/minted/minted.pdf}, respectively.} give an extensive overview.
 
 \example{lst:minted-external-styled}{source-code-listings/minted-import-styled}{Themes and further options}
