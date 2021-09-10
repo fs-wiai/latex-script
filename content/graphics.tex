@@ -1,7 +1,7 @@
 \chapter{Graphics}
 \label{sec:graphics}
 
-Since in \LaTeX{} we work with plain text, we cannot simply embed graphics into our text as we may be used to from other text word processing programs. 
+Since in \LaTeX{} we work with plain text, we cannot simply embed graphics into our text as we may be used to from other \deleted[id=F]{text} word processing programs. 
 Instead, we reference external image files by a command. The figure is then embedded and positioned at compile time.
 
 \section{Inserting graphics}
@@ -15,7 +15,7 @@ In order to be able to reference graphics, the package \texttt{graphicx} has to 
 \end{figure}
 \end{minted}
 
-\noindent The command \mintinline{latex}{includegraphics} can be used to change the image size. The desired height and width of the figure can be indicated separately, like illustrated by the following example:
+\noindent The command \mintinline{latex}{includegraphics} can be used to change the image size. The desired height and width of the figure can be indicated separately, \replaced[id=F]{as}{like} illustrated by the following example:
 
 \begin{minted}{latex}
 \includegraphics[width=0.5\textwidth,height=5cm]{<file path>}
@@ -38,14 +38,15 @@ On top of that, we can limit the positioning of our image more or less rigorousl
 		\midrule
 		h      & here, if possible						\\
 		t      & on top of the page \emph{(top)}        \\
-		b      & at the bottom of the bage \emph{(bottom)}    \\
-		p      & on its own apge\emph{(page)} \\
+		b      & at the bottom of the page \emph{(bottom)}    \\
+		p      & on its own page \emph{(page)} \\
 		H      & Definitely here! (requires package \texttt{float}) \\
 		\bottomrule
 	\end{tabular}
-	\caption{Shortcuts for Positioning Graphics}
+	\caption{Shortcuts for positioning graphics}
 	\label{tbl:placement-abbreviations}
 \end{table}
+\todo{Entweder alles als Satz oder nichts}
 
 \begin{minted}[tabsize=4]{latex}
 \begin{figure}[<position shortcut>]
@@ -58,3 +59,4 @@ Besides the vertical positioning, also the horizontal orientation may be of impo
 By default, graphics are left-justified. 
 The command \mintinline{latex}{\centering} centers all following objects in the current environment.
 If we want the centering to affect only one object, we can alternatively wrap the figure with  \mintinline{latex}{\begin{center}} and \mintinline{latex}{\end{center}}.
+\todo{In Figures ist das ja eigentlich nicht notwendig, oder?}

@@ -55,17 +55,17 @@ pdflatex -synctex=1 -interaction=nonstopmode -shell-escape %.tex
 Other editors usually provide similar options to configure the compilation command.
 We recommend you to have a look at the settings or to use of a search engine to figure it out.
 
-\paragraph{An important note on the shell escape flag.} \mintinline{bash}{minted}'s syntax highlighting is done by a Python package, which adds the necessity to communicate between the compiler and the Python runtime.
-The shell escape flag adds this communication path.
+\paragraph{An important note on the shell-escape flag.} \mintinline{bash}{minted}'s syntax highlighting is done by a Python package, which adds the necessity to communicate between the compiler and the Python runtime.
+The shell-escape flag adds this communication path.
 When enabled, \LaTeX{} can execute any command in a terminal, which can be very useful.
 Nonetheless, it would also be possible to execute malign code on your computer via \LaTeX{}, especially when you are compiling unknown documents from the Internet.
-Therefore, do not compile downloaded documents with the shell escape flag if you do not trust the authors and did not check the packages and commands they include.
+Therefore, do not compile downloaded documents with the shell-escape flag if you do not trust the authors and did not check the packages and commands they include.
 
 \section{Defining listings}
 We are finally ready to marvel at the aesthetic quality of the listings \mintinline{bash}{minted} produces.
 You can define listings using a dedicated environment:
 
-\example{lst:minted-environment}{source-code-listings/minted-environment}{Examplary source code listing}
+\example{lst:minted-environment}{source-code-listings/minted-environment}{Exemplary source code listing}
 
 \example{lst:minted-variants}{source-code-listings/minted-variants}{Shorthand and inline listing}
 
