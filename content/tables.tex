@@ -2,7 +2,7 @@
 \label{sec:tables}
 
 There are two fundamental environments for tables.
-The first one called \texttt{table} is responsible for integrating the table as a whole into the document.
+The first one, called \texttt{table}, is responsible for integrating the table as a whole into the document.
 Positioning is done the same way as it is with graphics.
 The \mintinline{tex}{\caption} command is the same, as well.
 
@@ -19,7 +19,7 @@ Table rows are separated by \mintinline{tex}{\\}, just like line breaks, and cel
 For typographically pleasing tables, we recommend the \texttt{booktabs} package.\footnote{All commands previously mentioned also work without this package, but the result will look far less professional.}
 This package brings along the commands \mintinline{tex}{\toprule}, \mintinline{tex}{\midrule} and \mintinline{tex}{\bottomrule} that draw appropriate horizontal lines above, within and below the table, respectively.
 
-Vertical lines can be inserted as a vertical bar character (\texttt{|}) in the column definition, but this is not recommended.\footnote{The
+Vertical lines can be inserted as a vertical bar character (\texttt{|}) in the column definition, but this is \emph{not} recommended.\footnote{The
 whitespace within the table separates the columns clearly enough, additional lines just make for visual clutter.}
 If you want to remove the additional whitespace that surrounds the columns by default (e.\,g., to the left of the first column and to the right of the last), you can add the string \mintinline{tex}{@{}} at the corresponding places within the column definition.
 
