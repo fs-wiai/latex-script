@@ -1,7 +1,7 @@
 \chapter{Reference management}
 \label{sec:literature}
 
-For typesetting our first theses in \LaTeX{}, the last core functionality to learn is citing literature.
+For typesetting our first thes\replaced[id=C]{i}{e}s in \LaTeX{}, the last core functionality to learn is citing literature.
 Our references are gathered in a bibliography file.
 Once we reference one of its entries from our \LaTeX{} document, Bib\TeX{} (a 
 program similar to the standard \acro{PDF}\LaTeX{} compiler)\todo{either adjust 
@@ -31,7 +31,7 @@ An exemplary item can be seen in \cref{lst:bibfile-sample-entry}.
 
 The type of the bibliography entry is specified after the opening \texttt{@} sign (e.\,g., article, book, proceedings, …).
 What follows is a list of important attributes like title and author.
-Whether they are required or not depends on the entry type.
+Whether they are required or not depends on the \added[id=C]{type of the }entry\deleted[id=C]{ type}.
 In any case, we will need the first entry after the opening braces: the Bib\TeX{} key.
 This is the identifier that we will use to reference the entry in our \LaTeX{} document.
 Bib\TeX{} keys can be chosen freely, but have to be unique.
@@ -42,7 +42,7 @@ While JabRef operates directly on your bibliography file, Zotero and Citavi proj
 
 \textbf{Bibliography entries} are provided by many academic search engines, including Google Scholar (cf. \cref{fig:google-scholar-bibtex}).
 When using them, make sure that the entries are cohesive across your reference collection and complete with regard to their attributes.
-A high-quality (although, unfortunately, incomplete) source for Bib\TeX{} entries is the dblp Computer Science Library\footnote{Available at \url{https://dblp.org/search}.}.
+A high-quality (although, unfortunately, incomplete) source for Bib\TeX{} entries is the \replaced[id=C]{\acro{DBLP}}{dblp} Computer Science Library.\footnote{Available at \url{https://dblp.org/search}.}
 
 \begin{figure}[H]
   \includegraphics[width=\textwidth]{graphics/google_bibtex1.jpg}  
@@ -70,8 +70,8 @@ Make sure to include the \mintinline{sh}{natbib} package for this purpose.
   \label{tbl:bibtex-commands}
 \end{table}
 
-The \mintinline{latex}{<source>} of a citation is always a Bib\TeX{} key.
-The list of available citation styles\footnote{Head to Overleaf for a rather complete list: \url{https://www.overleaf.com/learn/latex/Biblatex_citation_styles}} includes alpha, natdin, and apa.
+The \mintinline{latex}{<source>} of a citation is always a Bib\TeX key.
+The list of available citation styles\footnote{Head to Overleaf for a rather complete list: \url{https://www.overleaf.com/learn/latex/Biblatex_citation_styles}} includes alpha, natdin, and apa\todo{Großschreiben oder dicktengleich?}.
 The table of references will always appear where the \mintinline{latex}{\bibliography{…}} command was put.
 The \mintinline{latex}{\cite} command comes with many variants.\footnote{cf. \url{https://www.economics.utoronto.ca/osborne/latex/BIBTEX.HTM}}
 

@@ -20,13 +20,13 @@ Furthermore, you can use \mintinline{latex}{book} for books, \mintinline{latex}{
 
 In addition to the standard document classes, the \acro{KOMA} script classes have been developed. 
 They provide alternatives to the document classes mentioned above: 
-In lieu of \mintinline{latex}{article} you can use \mintinline{latex}{scrartcl}, \mintinline{latex}{report} is replaced by \mintinline{latex}{scrreport}, and \mintinline{latex}{scrbook} can be used instead of \mintinline{latex}{book}. 
+In lieu of \mintinline{latex}{article} you can use \mintinline{latex}{scrartcl}, \mintinline{latex}{report} is replaced by \mintinline{latex}{scrreprt},\todo{Auf die fehlenden Vokale hinweisen? Anscheinend führt das zu Fehlern …} and \mintinline{latex}{scrbook} can be used instead of \mintinline{latex}{book}. 
 As a replacement for \mintinline{latex}{letter}, one can use \mintinline{latex}{scrlttr2}. 
 A complete list of all \acro{KOMA} script classes is available online.\footnote{Available at: \url{https://komascript.de/omascriptbestandteile}} 
 By using \acro{KOMA} document classes, the layout of the generated \acro{PDF} document is changed. 
 On top of that, they provide additional functionalities. 
-The standard document classes are designed according to the American-English 
-standards whereas \acro{KOMA} classes adhere to European norms, e.\,g., for 
+The standard document classes are designed according to \replaced[id=C]{US-American conventions}{the American-English standards}
+whereas \acro{KOMA} classes adhere to European norms, e.\,g., for 
 writing letters. 
 
 Each \mintinline{latex}{\documentclass} command can hold optional parameters in 
@@ -37,29 +37,28 @@ The language can be passed as an optional parameter, too (cf. \cref{sec:language
 \subsection{Digression: packages}
 \label{sec:packages}
 \todo{Muss ``packages'' hier jetzt groß oder klein?}
+\todo{Sollte beides gehen}
 
 \begin{minted}{latex}
 \usepackage[<options>]{<packagename>}
 \end{minted}
-
 Packages provide additional commands and functionalities that we can use within our \LaTeX{} source code. 
 There are numerous packages for different use cases (e.\,g., typesetting formulas, lists, \textellipsis). 
-In order to use a package, it must be included within the preamble. 
+\replaced[id=C]{For a package to be used}{In order to use a package}, it must be included within the preamble. 
 To do so, the above-mentioned command is used. 
-The most important \LaTeX{} packages can be found in the Comprehensive \TeX\ Archive Network,\footnote{Available at: \url{https://www.ctan.org/}} short: \acro{CTAN}. 
-You can also find the documentation for the packages there. 
+The most important \LaTeX{} packages can be found in the Comprehensive \TeX\ Archive Network, short: \acro{CTAN}.\footnote{Available at: \url{https://www.ctan.org/}} 
+You can also find \deleted[id=C]{the }documentation for the packages there. 
 
 \subsection{Encoding}
 \begin{minted}{latex}
 \usepackage[utf8]{inputenc}
 \usepackage[t1]
 \end{minted}
-
 One use case for packages is specifying the encoding of our \LaTeX{} document. 
 The character encoding\footnote{cf. \url{https://en.wikipedia.org/wiki/Character_encoding}} determines the available character set.
 The standard encoding in \LaTeX{} is \acro{ASCII}.\footnote{cf. \url{https://en.wikipedia.org/wiki/ASCII}}
-It is an American character encoding and therefore does, for instance, not contain German umlauts, or other special characters, which makes it unsuitable for most use cases. 
-As a consequence, \acro{UTF-8}\footnote{cf. \url{https://en.wikipedia.org/wiki/UTF-8}} can be used as a universal character encoding.
+It is an American character encoding and therefore does\deleted[id=C]{, for instance,} not contain German umlauts\deleted[id=C]{,} or \added[id=C]{most }other special characters, which makes it unsuitable \replaced[id=C]{at least for non-english}{for most} use cases. 
+\replaced[id=C]{Instead}{As a consequence}, \acro{UTF-8}\footnote{cf. \url{https://en.wikipedia.org/wiki/UTF-8}} can be used as a universal character encoding.
 
 In \LaTeX{}, we need to specify two character encodings: 
 The input encoding (short: \mintinline{latex}{inputenc}), which refers to our source code, and the font encoding (short: \mintinline{latex}{fontenc}), which concerns the choice of the file that is used to portray the content within our \acro{PDF} document, since we also need special characters there.
@@ -72,8 +71,7 @@ The input encoding (short: \mintinline{latex}{inputenc}), which refers to our so
 \begin{minted}{latex}
 \usepackage[ngerman]{babel}
 \end{minted}
-
-The package \mintinline{latex}{babel} provides language-specific information (e.\,g., on hyphenation, special characters, changing fonts, translation of labels\footnote{cf. \cref{sec:references}} like \enquote{Chapter}, \enquote{Table of Contents}, or \enquote{Figure}, \textellipsis).
+The package \mintinline{latex}{babel} provides language-specific information (e.\,g., on hyphenation, special characters, changing fonts, translation of labels\footnote{cf. \cref{sec:references}} like \enquote{Chapter,} \enquote{Table of Contents,} or \enquote{Figure.}
 The desired language can be passed as an optional parameter. 
 \mintinline{latex}{ngerman}, for instance, is used for the new German spelling. 
 Some packages require that the language is already passed as an optional parameter in the \mintinline{latex}{\documentclass} command. 
@@ -95,20 +93,21 @@ The actual content of the \acro{PDF} document needs to be put between \mintinlin
 The easiest content that we can integrate into the document environment is continuous text. 
 We can write it directly into our source code. 
 Line breaks and multiple \added[id=F]{consecutive} spaces are ignored by \LaTeX{}. 
-Blank lines create a new paragraph, that is indented by default.
-\footnote{The automatic indentation of new paragraphs can be prevented by using the command \mintinline{latex}{\noindent}.}
+Blank lines create a new paragraph, that is indented by default.\footnote{The automatic indentation of new paragraphs can be prevented by using the command \mintinline{latex}{\noindent}.}
 Manual line breaks can be enforced with two backslashes (\textbackslash\textbackslash). 
 This should be avoided, though. 
 
 \subsection{Comments}
 Some characters are reserved for \LaTeX-specific commands, for instance, the percent sign. 
-Using a percent sign tells the \LaTeX{} compiler to ignore the rest of the line, i.\,e., the text after the percent character will not appear in the generated \acro{PDF} document.
+Using a percent sign tells the \LaTeX{} compiler to ignore the rest of the line, \replaced[id=C]{so}{i.\,e.,} the text after the percent character will not appear in the generated \acro{PDF} document.
 This can be useful in order to take notes while working on a document without affecting the document itself. 
-\replaced[id=F]{It}{This} is called a comment.
+\replaced[id=F]{It}{This} is called a \emph{comment}\textit{.}
 
+\todo{Ab da wird es redundant zu Abschnitt 5.5. Reicht da nicht ein Verweis?}
 However, if we want the percent sign to actually appear in the text, we can achieve this by using a backslash: \mintinline{latex}{\%}.
 This solution is called escaping and also works for other reserved characters, like \#, \$, \&, \_, \{ and \}.
 
+\todo{Und spätestens hier hat es nichts mehr mit Kommentaren zu tun :D}
 In order to escape the backslash, the command \mintinline{latex}{\textbackslash} must be used.
 \footnote{An overview of additional special characters can be found in \cref{sec:special-characters}.}
 
@@ -120,7 +119,10 @@ The commands that are depicted in \cref{lst:headlines} can be used with any docu
 \Example{lst:headlines}{basic-document-structure/headlines}{basic-document-structure/headlines_crop}{Heading Levels}
 \todo{Beispiele neu generieren.}
 
-Depending on your specified document class, the commands \mintinline{latex}{\chapter{Chapter}} and \mintinline{latex}{\part{Part}} are additionally available -- for instance in books. 
+\added[id=C]{Komisches Konstrukt, weil \texttt{replaced} nicht mit enthaltenen mint-Dingen klarkommt. Geändert:} Some document classes provide additional commands. In a \texttt{report}, you get \mintinline{latex}{\chapter{Chapter}}, and in a \texttt{book}, additionally \mintinline{latex}{\part{Part}}.
+\added[id=C]{Vorher:}
+Depending on your specified document class, the commands \mintinline{latex}{\chapter{Chapter}} and \mintinline{latex}{\part{Part}} are additionally available -- for instance in books.
+\added[id=C]{Ende der Änderung.}
 You can mark the command with an asterisk if you want to omit the numbering of a section and exclude it from the table of contents:\footnote{cf. \cref{sec:table-of-contents}}
 
 \begin{minted}{latex}
@@ -146,10 +148,8 @@ The design of the front matter depends on the specified document class.
 
 The command \mintinline{latex}{\tableofcontents} generates an automatically numbered table of contents by making use of the above-mentioned commands for dividing our text into sections and chapters (this can bee seen in \cref{lst:main-file} on \cpageref{lst:main-file}).
 
-The numbering style and depth, and many other options can, of course, be specified manually.
-\footnote{We recommend the following blogpost: \url{https://texblog.org/2011/09/09/10-ways-to-customize-tocloflot/}}
+The numbering style and depth, and many other options can, of course, be specified manually.\footnote{We recommend the following blogpost: \url{https://texblog.org/2011/09/09/10-ways-to-customize-tocloflot/}}
 For \LaTeX{} to create our table of contents properly, the project has to be compiled twice.
 
 Besides the table of contents, you can also generate a \mintinline{latex}{\listoffigures} (list of figures) and a \mintinline{latex}{\listoftables} (list of tables). 
-The captions of your figures and tables will appear within those indices.
-\footnote{cf. \cref{sec:graphics} (Graphics) and \cref{sec:tables} (Tables) for more information on captions}
+The captions of your figures and tables will appear within those indices.\footnote{cf. \cref{sec:graphics} (Graphics) and \cref{sec:tables} (Tables) for more information on captions}

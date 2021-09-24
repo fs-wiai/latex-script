@@ -150,13 +150,13 @@
 	\ifthenelse{\equal{\exercisemode}{any}}{
 		\IfFileExists{#1.raw.tex}{
 			\IfFileExists{#1.done.tex}{
-				\subsubsection*{Vorschau des ungelösten Materials}
+				\subsubsection*{Preview of the raw material}
 			}{}
 			\input{#1.raw.tex}
 		}{}
 		\IfFileExists{#1.done.tex}{
 			\IfFileExists{#1.raw.tex}{
-				\subsubsection*{Vorschau des gelösten Materials}
+				\subsubsection*{Preview of the solution}
 			}{}
 			\input{#1.done.tex}
 		}{}
