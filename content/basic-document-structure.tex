@@ -3,7 +3,7 @@
 
 In essence, every \LaTeX{} document is composed of two parts: 
 We call the first commands within our \LaTeX{} document the \emph{preamble}.
-It \replaced[id=F]{specifies global properties of}{contains global information about} our document, such as the document class, the encoding, the language, the page format, and additional packages that we want to use.
+It specifies global properties of our document, such as the document class, the encoding, the language, the page format, and additional packages that we want to use.
 The \emph{document environment}, on the other hand, contains the actual content of our document, i.\,e., the things that we will later see in our generated \acro{PDF} file. 
 
 \Example{lst:latex-document-basic-structure}{basic-document-structure/hello-world}{basic-document-structure/hello-world_crop}{Exemplary structure of a simple \LaTeX{} document with preamble and document environment}
@@ -13,19 +13,18 @@ Let's take a closer look at the preamble.
 A minimal preamble should contain the following specifications: 
 
 \subsection{Document class}\label{sec:document-class}
-We can define a document class by using the command \mintinline[breaklines,breakafter=\]]{latex}|\documentclass[<parameter>]{<document class>}|. 
-\todo{Was verursacht diese komische Klammer nach dem Befehl?}
+We can define a document class by using the command \mintinline[breaklines,breakafter=-,breakaftersymbolpre={}]{latex}|\documentclass[<para-meter>]{<document class>}|. 
 The most commonly used document classes that are supported by default are \mintinline{latex}{article} for short documents, and \mintinline{latex}{report} for longer ones. 
 Furthermore, you can use \mintinline{latex}{book} for books, \mintinline{latex}{beamer}\footnote{We do not cover making presentations in \LaTeX{} in this tutorial. However, if you are interested in the topic, we recommend this introduction on Overleaf: \url{https://www.overleaf.com/learn/latex/Beamer}} for presentations, and \mintinline{latex}{letter}\footnote{We also do not cover letters in this script. An introduction can be found on WikiBooks: \url{https://en.wikibooks.org/wiki/LaTeX/Letters}} for letters.
 
 In addition to the standard document classes, the \acro{KOMA} script classes have been developed. 
 They provide alternatives to the document classes mentioned above: 
-In lieu of \mintinline{latex}{article} you can use \mintinline{latex}{scrartcl}, \mintinline{latex}{report} is replaced by \mintinline{latex}{scrreprt},\todo{Auf die fehlenden Vokale hinweisen? Anscheinend führt das zu Fehlern …} and \mintinline{latex}{scrbook} can be used instead of \mintinline{latex}{book}. 
+In lieu of \mintinline{latex}{article} you can use \mintinline{latex}{scrartcl}, \mintinline{latex}{report} is replaced by \mintinline{latex}{scrreprt},\footnote{Those vowels are indeed missing, do not try to insert them.} and \mintinline{latex}{scrbook} can be used instead of \mintinline{latex}{book}. 
 As a replacement for \mintinline{latex}{letter}, one can use \mintinline{latex}{scrlttr2}. 
 A complete list of all \acro{KOMA} script classes is available online.\footnote{Available at: \url{https://komascript.de/omascriptbestandteile}} 
 By using \acro{KOMA} document classes, the layout of the generated \acro{PDF} document is changed. 
 On top of that, they provide additional functionalities. 
-The standard document classes are designed according to \replaced[id=C]{US-American conventions}{the American-English standards}
+The standard document classes are designed according to US-American conventions
 whereas \acro{KOMA} classes adhere to European norms, e.\,g., for 
 writing letters. 
 
@@ -36,18 +35,16 @@ The language can be passed as an optional parameter, too (cf. \cref{sec:language
 
 \subsection{Digression: packages}
 \label{sec:packages}
-\todo{Muss ``packages'' hier jetzt groß oder klein?}
-\todo{Sollte beides gehen}
 
 \begin{minted}{latex}
 \usepackage[<options>]{<packagename>}
 \end{minted}
 Packages provide additional commands and functionalities that we can use within our \LaTeX{} source code. 
 There are numerous packages for different use cases (e.\,g., typesetting formulas, lists, \textellipsis). 
-\replaced[id=C]{For a package to be used}{In order to use a package}, it must be included within the preamble. 
+In order to use a package, it must be included within the preamble. 
 To do so, the above-mentioned command is used. 
 The most important \LaTeX{} packages can be found in the Comprehensive \TeX\ Archive Network, short: \acro{CTAN}.\footnote{Available at: \url{https://www.ctan.org/}} 
-You can also find \deleted[id=C]{the }documentation for the packages there. 
+You can also find documentation for the packages there. 
 
 \subsection{Encoding}
 \begin{minted}{latex}
@@ -57,14 +54,11 @@ You can also find \deleted[id=C]{the }documentation for the packages there.
 One use case for packages is specifying the encoding of our \LaTeX{} document. 
 The character encoding\footnote{cf. \url{https://en.wikipedia.org/wiki/Character_encoding}} determines the available character set.
 The standard encoding in \LaTeX{} is \acro{ASCII}.\footnote{cf. \url{https://en.wikipedia.org/wiki/ASCII}}
-It is an American character encoding and therefore does\deleted[id=C]{, for instance,} not contain German umlauts\deleted[id=C]{,} or \added[id=C]{most }other special characters, which makes it unsuitable \replaced[id=C]{at least for non-english}{for most} use cases. 
-\replaced[id=C]{Instead}{As a consequence}, \acro{UTF-8}\footnote{cf. \url{https://en.wikipedia.org/wiki/UTF-8}} can be used as a universal character encoding.
+It is an American character encoding and therefore does not contain German umlauts or most other special characters, which makes it unsuitable at least for non-english use cases. 
+Instead, \acro{UTF-8}\footnote{cf. \url{https://en.wikipedia.org/wiki/UTF-8}} can be used as a universal character encoding.
 
 In \LaTeX{}, we need to specify two character encodings: 
-The input encoding (short: \mintinline{latex}{inputenc}), which refers to our source code, and the font encoding (short: \mintinline{latex}{fontenc}), which concerns the choice of the file that is used to portray the content within our \acro{PDF} document, since we also need special characters there.
-\todo{fontenc wird hier sehr umständlich beschrieben bzw. ist in dieser Detailtiefe nicht unbedingt relevant}
-\todo{Wie wäre es mit \enquote{\[...\] and the font encoding, which determines how the content of our PDF document looks like.} oder so ähnlich?}
-\footnote{Details on \mintinline{latex}{fontenc} can be found at: \url{https://tex.stackexchange.com/questions/108417/font-encoding-in-latex}}
+The input encoding (\mintinline{latex}{inputenc}), which refers to our source code, and the font encoding (\mintinline{latex}{fontenc}), which determines what the content of our \acro{PDF} document looks like.\footnote{Details on \mintinline{latex}{fontenc} can be found at: \url{https://tex.stackexchange.com/questions/108417/font-encoding-in-latex}}
 \mintinline{latex}{T1} is an encoding that tries to cover most European languages with a limited number of characters. 
 
 \subsection{Language}\label{sec:language}
@@ -75,10 +69,10 @@ The package \mintinline{latex}{babel} provides language-specific information (e.
 The desired language can be passed as an optional parameter. 
 \mintinline{latex}{ngerman}, for instance, is used for the new German spelling. 
 Some packages require that the language is already passed as an optional parameter in the \mintinline{latex}{\documentclass} command. 
-In this case, just leave out the optional parameter for the language within the \mintinline{latex}{babel} \added[id=F]{inclusion} command.
+In this case, just leave out the optional parameter for the language within the \mintinline{latex}{babel} inclusion command.
 
 We can also use multiple languages in our document. 
-To do so, we pass the languages, separated by commas, as an optional parameter to the \replaced[id=F]{babel inclusion}{\mintinline{latex}{\babel}} command. 
+To do so, we pass the languages, separated by commas, as an optional parameter to the babel inclusion command. 
 Within our document, we can switch between languages with the \mintinline{latex}{\selectlanguage{<language>}} command. 
 Alternatively, foreign-language text can be declared by using the following command: 
 
@@ -92,24 +86,18 @@ The actual content of the \acro{PDF} document needs to be put between \mintinlin
 \subsection{Continuous text}
 The easiest content that we can integrate into the document environment is continuous text. 
 We can write it directly into our source code. 
-Line breaks and multiple \added[id=F]{consecutive} spaces are ignored by \LaTeX{}. 
+Line breaks and multiple consecutive spaces are ignored by \LaTeX{}. 
 Blank lines create a new paragraph, that is indented by default.\footnote{The automatic indentation of new paragraphs can be prevented by using the command \mintinline{latex}{\noindent}.}
 Manual line breaks can be enforced with two backslashes (\textbackslash\textbackslash). 
 This should be avoided, though. 
 
 \subsection{Comments}
 Some characters are reserved for \LaTeX-specific commands, for instance, the percent sign. 
-Using a percent sign tells the \LaTeX{} compiler to ignore the rest of the line, \replaced[id=C]{so}{i.\,e.,} the text after the percent character will not appear in the generated \acro{PDF} document.
-This can be useful in order to take notes while working on a document without affecting the document itself. 
-\replaced[id=F]{It}{This} is called a \emph{comment}\textit{.}
+Using a percent sign tells the \LaTeX{} compiler to ignore the rest of the line, so the text after the percent character will not appear in the generated \acro{PDF} document.
+This is called a \emph{comment}\textit{,}
+and it can be useful to take notes while working on a document without affecting the document itself. 
 
-\todo{Ab da wird es redundant zu Abschnitt 5.5. Reicht da nicht ein Verweis?}
-However, if we want the percent sign to actually appear in the text, we can achieve this by using a backslash: \mintinline{latex}{\%}.
-This solution is called escaping and also works for other reserved characters, like \#, \$, \&, \_, \{ and \}.
-
-\todo{Und spätestens hier hat es nichts mehr mit Kommentaren zu tun :D}
-In order to escape the backslash, the command \mintinline{latex}{\textbackslash} must be used.
-\footnote{An overview of additional special characters can be found in \cref{sec:special-characters}.}
+There are a few more of these reserved characters, as we will see and learn to deal with in \cref{sec:more-special-characters}.
 
 \subsection{Sections and chapters}
 Continuous text can be structured by headings that divide the document into sections and chapters. 
@@ -117,12 +105,8 @@ Needless to say, \LaTeX{} provides us with commands for that.
 The commands that are depicted in \cref{lst:headlines} can be used with any document class. 
 
 \Example{lst:headlines}{basic-document-structure/headlines}{basic-document-structure/headlines_crop}{Heading Levels}
-\todo{Beispiele neu generieren.}
 
-\added[id=C]{Komisches Konstrukt, weil \texttt{replaced} nicht mit enthaltenen mint-Dingen klarkommt. Geändert:} Some document classes provide additional commands. In a \texttt{report}, you get \mintinline{latex}{\chapter{Chapter}}, and in a \texttt{book}, additionally \mintinline{latex}{\part{Part}}.
-\added[id=C]{Vorher:}
-Depending on your specified document class, the commands \mintinline{latex}{\chapter{Chapter}} and \mintinline{latex}{\part{Part}} are additionally available -- for instance in books.
-\added[id=C]{Ende der Änderung.}
+Some document classes provide additional commands. In a \texttt{report}, you get \mintinline{latex}{\chapter{Chapter}}, and in a \texttt{book}, additionally \mintinline{latex}{\part{Part}}.
 You can mark the command with an asterisk if you want to omit the numbering of a section and exclude it from the table of contents:\footnote{cf. \cref{sec:table-of-contents}}
 
 \begin{minted}{latex}
@@ -137,7 +121,7 @@ An alternative title for the table of contents can be declared as an optional pa
 
 \subsection{Front matter}
 A simple front matter can be created by using the command \mintinline{latex}{\maketitle}. 
-The values \replaced[id=F]{to be}{that get} inserted into the front matter must be specified within the preamble. 
+The values to be inserted into the front matter must be specified within the preamble. 
 Multiple authors are joined by \mintinline{latex}{\and}.
 If the date is not specified by the \mintinline{latex}{\date} command, the current date will be inserted by default.
 The design of the front matter depends on the specified document class.
