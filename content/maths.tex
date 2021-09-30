@@ -12,7 +12,6 @@ As with many other environments, adding an asterisk turns off the numbering.
 
 \section{A few examples}
 %Die \cref{tbl:maths-common-commands,tbl:maths-logic-sets-braces} listen einige häufig in Formeln verwendeten Befehle auf.
-\todo{In diesem und dem nächsten Abschnitt fehlt mir ein bisschen die Orientierung durch Fließtext. Könnten wir nicht den Text der Tabellenunterschrift in einen Absatz vor der Tabelle umwandeln und die Tabellenunterschrift entsprechend kürzer halten?}
 
 \begin{table}[H]
   \centering
@@ -54,28 +53,28 @@ As with many other environments, adding an asterisk turns off the numbering.
 \section{Growing brackets}
 
 Especially in combination with fractions, brackets should grow according to their content.
-This can be achieved by pre-pendingnot each bracket (\mintinline{latex}{(}, \mintinline{latex}{)}, \mintinline{latex}{[}, \mintinline{latex}{]}, \mintinline{latex}{\lbrace} and \mintinline{latex}{\rbrace}) with a position marker (\mintinline{latex}{\left} oder \mintinline{latex}{\right}).
+This can be achieved by pre-pending each bracket (\mintinline{latex}{(}, \mintinline{latex}{)}, \mintinline{latex}{[}, \mintinline{latex}{]}, \mintinline{latex}{\lbrace} and \mintinline{latex}{\rbrace}) with a position marker (\mintinline{latex}{\left} or \mintinline{latex}{\right}).
 
 \example{lst:growing-brackets}{maths/growing-brackets}{Example for growing brackets}
 
 \section{Lower and upper bounds}
 
 The \mintinline{latex}{\limits} command renders lower and upper bounds of integrals above and below the integral sign.
-Sums, products, and \todo{quite confusing in English}limits do this 
-automatically (c.\,f. \cref{lst:limits}).
-For inline formulas, \mintinline{latex}{\limits} are of limited suitability.
+Sums, products, and limits do this 
+automatically (cf. \cref{lst:limits}).
+For inline formulas, \mintinline{latex}{\limits} are of bounded suitability.
 
 \example{lst:limits}{maths/limits}{Lower and upper bounds of sums, products, limits and integrals}
 
 \section{Aligning equations}
 
-The \texttt{align} environment allows to align multiple equations horizontally, e.\,g. at the \texttt{=} sign (\cref{lst:math-alignment-example}).
+The \texttt{align} environment allows to align multiple equations horizontally, e.\,g., at the \texttt{=} sign (\cref{lst:math-alignment-example}).
 As in tables, the \texttt{\&} sign is used to specify anchorage points.
 Line breaks are denoted by two backslashes.
 
 \Example{lst:math-alignment-example}{maths/align-example}{maths/align-example_crop}{Equations aligned at equals signs}
 
-\section{Intensional set notation}\todo{Is that really what this section is about? Looks rather like a “text within maths” section to me.}\todo{Ich kenne es nur als »Set-builder notation«, »text within maths« ist natürlich auch nicht falsch.}\todo{Diese Syntax mit den geschweifen Klammern und dem Strich, ja. Aber hier geht es doch eher um das mathrm, oder? Und das braucht man ja zum Beispiel auch für so ne Formeldefintion mit Fallunterscheidung und verbaler Beschreibung.}
+\section{Text in math mode}
 
 Sometimes sets have to be defined in terms of textual descriptions or longer function names.
 The \LaTeX{} math mode assumes that letters are variables rather than text, which creates problems when they are indeed supposed to be entire words.

@@ -1,7 +1,7 @@
 \chapter{References}
 \label{sec:references}
 
-If we want to make references, like \enquote{\textellipsis , which you can see in figure 21, \textellipsis}, \LaTeX{} by default provides us with the command \replaced[id=F]{\mintinline{latex}{\ref{<label>}}}{\mintinline{latex}{\ref{label}}}. No more adapting of the numbering for graphics, tables, etc. needed!
+If we want to make references, like \enquote{\textellipsis , which you can see in figure 21, \textellipsis}, \LaTeX{} by default provides us with the command \mintinline{latex}{\ref{<label>}}. No more adapting of the numbering for graphics, tables, etc. needed!
 The command expects a unique label as argument, that needs to be assigned to 
 the referenced element. After that, wherever we call the command, the number of 
 our referenced object appears in the text.
@@ -9,9 +9,9 @@ our referenced object appears in the text.
 
 A smarter package for references is \texttt{cleverref}.\footnote{with only one \enquote{r}!}
 It provides us with the command \mintinline{latex}{\cref{label}}, which can also handle multiple labels separated by commas.
-This automatically generates \replaced[id=C]{elegant references}{text} like \enquote{sections 1 to 3, and 5.}\footnote{for the source code \mintinline{latex}{\cref{sec:section1,sec:section2,
+This automatically generates elegant references like \enquote{sections 1 to 3, and 5.}\footnote{for the source code \mintinline{latex}{\cref{sec:section1,sec:section2,
 sec:section3,sec:section5}}}
-Furthermore, \replaced[id=F]{\mintinline{latex}{\ref{<label>}}}{\mintinline{latex}{\ref{label}}} automatically inserts a suited abbreviation, e.\,g., \enquote{fig.} for figures.
+Furthermore, \mintinline{latex}{\ref{<label>}} automatically inserts a suited abbreviation, e.\,g., \enquote{fig.} for figures.
 
 We can reference graphics, tables, sections, chapters, source code listings, and equations. 
 Many packages use the label in order to find out the object type of the referenced element.
@@ -31,7 +31,7 @@ For this reason, it is common to insert a prefix before each label (\cref{lst:re
   \label{lst:reference-prefixes}
 \end{table}
 
-Note that, if we use \mintinline{latex}{\cref{label}}, for some document classes, the generated passages only appear in the desired language (e.\,g., German) when the language is specified already within the document class command:\todo{Stimmen in dem Absatz die Kommas? Das ist zu komplex für mich.}
+Note that if we use \mintinline{latex}{\cref{label}}\,---\,for some document classes\,---\,the generated passages only appear in the desired language (e.\,g., German) when the language is specified already within the document class command:
 
 \begin{minted}{latex}
 \documentclass[ngerman]{article}
