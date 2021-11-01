@@ -13,10 +13,11 @@ The word space is not the only one, though\,---\,there are a few more types of s
 
 \paragraph{English Spacing}
 In documents written in English, \LaTeX{} uses traditional English Spacing by default. That is, double spaces after each sentence.
-We can prevent this by using the command \mintinline{tex}|\frenchspacing| above the first paragraph.
-With \mintinline{tex}|\nonfrenchspacing|, we can reset the behavior.
+We can prevent this by using the command \code{tex}{\textbackslash frenchspacing} above the first paragraph.
+With \code{latex}{\textbackslash nonfrenchspacing}, we can reset the behavior.
 When using English Spacing, \LaTeX{} tries to recognize abbreviations and to use normal spaces after those.
 We should still check this and\,---\,where necessary\,---\,enforce word spaces (\mintinline[showspaces]{tex}{.\ }) or sentence spaces (\mintinline[showspaces]{tex}{\@. }).
+\todo{Wie setzen wir showspaces um?}
 
 \section{Hyphens and dashes}
 There are different kinds of horizontal lines being used as punctuation,
@@ -30,9 +31,9 @@ as shown in \cref{tbl:bars}.
 	\toprule
 	Code       & Character            & Usage \\
 	\midrule
-	\mintinline{tex}|-|   & Hyphen  & a small-sized stroke \\
-	\mintinline{tex}|--|  & En dash & a range mark (8\,--\,10\,am) or an interruptor at sentence level – the latter surrounded by spaces and used in most European languages (including British English) \\
-	\mintinline{tex}|---| & Em dash & an interruptor at sentence level\,---\,mostly used in American English and without or with thin spaces \\
+	\code{latex}{-}   & Hyphen  & a small-sized stroke \\
+	\code{latex}{--}  & En dash & a range mark (8\,--\,10\,am) or an interruptor at sentence level – the latter surrounded by spaces and used in most European languages (including British English) \\
+	\code{latex}{---} & Em dash & an interrupter at sentence level\,---\,mostly used in American English and without or with thin spaces \\
 	\bottomrule
 	\caption{Hyphens and dashes in \LaTeX}
 	\label{tbl:bars}
@@ -47,12 +48,12 @@ In case something goes wrong, we can intervene using the codes from \cref{tbl:se
 	Code      & Explanation \\
 	\midrule
 	\endhead
-	\mintinline{tex}|\-| & Exclusive hyphenation: The word may only be hyphenated at this position (can also be used multiple times within one word\,---\,all of those positions are then allowed). \\
-	\mintinline{tex}|"-| & Additional hyphenation: The word may be hyphenated here, as well as at the default positions. \\
-	\mintinline{tex}|-|  & Exclusive hyphen: Is only used for compound words and prevents the automatic hyphenation for the rest of the word (which is typographically desirable). \\
-	\mintinline{tex}|"=| & Non-exclusive hyphen: Is used for long compound words when the text wrapping would not work without additional automatic hyphenation. \\
-	\mintinline{tex}|""| & Cut-off point without a hyphen: Allows something like a \textsc{url} to wrap without inserting a potentially misleading hyphen. \\
-	\mintinline{tex}|"~| & Non-wrapping hyphen: Keeps the hyphen together with the following word, very useful in German: \foreignlanguage{ngerman}{\emph{Vorlesungszeit und "~raum}} \\
+	\code{latex}{\textbackslash -} & Exclusive hyphenation: The word may only be hyphenated at this position (can also be used multiple times within one word\,---\,all of those positions are then allowed). \\
+	\code{latex}{"-} & Additional hyphenation: The word may be hyphenated here, as well as at the default positions. \\
+	\code{latex}{-}  & Exclusive hyphen: Is only used for compound words and prevents the automatic hyphenation for the rest of the word (which is typographically desirable). \\
+	\code{latex}{"=} & Non-exclusive hyphen: Is used for long compound words when the text wrapping would not work without additional automatic hyphenation. \\
+	\code{latex}{""} & Cut-off point without a hyphen: Allows something like a \acro{url} to wrap without inserting a potentially misleading hyphen. \\
+	\code{latex}{"~} & Non-wrapping hyphen: Keeps the hyphen together with the following word, very useful in German: \foreignlanguage{ngerman}{\emph{Vorlesungszeit und "~raum}} \\
 	\bottomrule
 	\caption{Exceptions for hyphenation}
 	\label{tbl:separators}
@@ -71,19 +72,19 @@ The decisive factor is the appearance, not the semantics, which is why the Frenc
 		\cmidrule(lr){2-3} \cmidrule(lr){4-5}
 		& Code & Result & Code & Result \\
 		\midrule
-		English (\acro{A.\,E.}) & \mintinline{tex}|``...''| & ``…'' & \mintinline{tex}|`...'| & `…' \\
-		English (\acro{B.\,E.}) & \mintinline{tex}|`...'| & `…' & \mintinline{tex}|``...''| & ``…'' \\
-		German & \mintinline{tex}|\glqq...\grqq| & \glqq…\grqq & \mintinline{tex}|\glq…\grq| & \glq…\grq \\
-		German (alternatively) & \mintinline{tex}|\frqq...\flqq| & \frqq…\flqq & \mintinline{tex}|\frq…\flq| & \frq…\flq \\
+		English (\acro{A.\,E.}) & \code{latex}{``...''} & ``…'' & \code{latex}{`...'} & `…' \\
+		English (\acro{B.\,E.}) & \code{latex}{`...'} & `…' & \code{latex}{``...''} & ``…'' \\
+		German & \code{latex}{\glqq...\grqq} & \glqq…\grqq & \code{latex}{\glq…\grq} & \glq…\grq \\
+		German (alternatively) & \code{latex}{\frqq...\flqq} & \frqq…\flqq & \code{latex}{\frq…\flq} & \frq…\flq \\
 		\bottomrule
 	\end{tabular}
 	\caption{Quotation marks}
 	\label{tbl:quotation-marks}
 \end{table}
 
-We can get more flexibility using the \mintinline{tex}{csquote} package, which provides the \mintinline{tex}|\enquote{<quote>}| command.
+We can get more flexibility using the \pkg{csquote} package, which provides the \code{latex}{\enquote{<quote>}} command.
 It chooses the correct quotation marks depending on the language being used; also, nested \texttt{enquote}s automatically switch back and forth between first and second level.
-When enabling the \mintinline{tex}|autostyle=true| option on package import, \mintinline{tex}|\foreignquote{<language>}{<quote>}| selects varying quotation marks for each quotation.
+When enabling the \code{latex}{autostyle=true} option on package import, \code{latex}{\textbackslash foreignquote\{<language>\}\{<quote>\}} selects varying quotation marks for each quotation.
 
 \section{Diacritics}
 If we are able to insert letters with diacritics via our keyboard\,---\,e.\,g., the German Umlauts or common accents\,---\,we can do this within our source code, as well:
@@ -95,12 +96,12 @@ If not, we can also create the diacritics via escape codes.
 	\center
 	\begin{tabular}{lccclccclcc}
 		\toprule
-			\verb|\`{o}| & -- & \`{o} & $\quad$ & \verb|\c{c}| & -- & \c{c} & $\quad$ & \verb|\d{u}| & -- & \d{u} \\
-			\verb|\'{o}| & -- & \'{o} & & \verb|\k{a}| & -- & \k{a} & & \verb|\r{a}| & -- & \r{a} \\
-			\verb|\^{o}| & -- & \^{o} & & \verb|\l{}| & -- & \l{} & & \verb|\u{o}| & -- & \u{o} \\
-			\verb|\"{o}| & -- & \"{o} & & \verb|\={o}| & -- & \={o} & & \verb|\v{s}| & -- & \v{s} \\
-			\verb|\H{o}| & -- & \H{o} & & \verb|\b{o}| & -- & \b{o} & & \verb|\t{oo}| & -- & \t{oo} \\
-			\verb|\~{o}| & -- & \~{o} & & \verb|\.{o}| & -- & \.{o} & & \verb|\o| & -- & \o \\
+			\code{latex}{\textbackslash `{o}} & -- & \`{o} & $\quad$ & \code{latex}{\textbackslash c{c}} & -- & \c{c} & $\quad$ & \code{latex}{\textbackslash d{u}} & -- & \d{u} \\
+			\code{latex}{\textbackslash '\{o\}} & -- & \'{o} & & \code{latex}{\textbackslash k\{a\}} & -- & \k{a} & & \code{latex}{\textbackslash r\{a\}} & -- & \r{a} \\
+			\code{latex}{\textbackslash \^\{o\}} & -- & \^{o} & & \code{latex}{\textbackslash l\{\}} & -- & \l{} & & \code{latex}{\textbackslash u\{o\}} & -- & \u{o} \\
+			\code{latex}{\textbackslash "\{o\}} & -- & \"{o} & & \code{latex}{\textbackslash =\{o\}} & -- & \={o} & & \code{latex}{\textbackslash v\{s\}} & -- & \v{s} \\
+			\code{latex}{\textbackslash H\{o\}} & -- & \H{o} & & \code{latex}{\textbackslash b\{o\}} & -- & \b{o} & & \code{latex}{\textbackslash t\{oo\}} & -- & \t{oo} \\
+			\code{latex}{\textbackslash ~\{o\}} & -- & \~{o} & & \code{latex}{\textbackslash .\{o\}} & -- & \.{o} & & \code{latex}{\textbackslash o} & -- & \o \\
 		\bottomrule
 	\end{tabular}
 	\caption{Diacritics}
@@ -119,23 +120,23 @@ Please note that some of them only work in maths environments (c.\,f. \cref{sec:
 		Sign & Code & Remarks \\
 		\midrule
 		?`/!` & \verb|?`/!`| & \\
-		\textasciicircum & \verb|\textasciicircum| & \\
-		\textasciitilde & \verb|\textasciitilde| & \\
-		\textasteriskcentered & \verb|\textasteriskcentered| & \\
-		\textbackslash & \verb|\textbackslash| & \\
-		%\textbar & \verb|\textbar| & \\
-		%\textbullet & \verb|\textbullet| & \\
-		\textcopyright & \verb|\textcopyright| & \\
-		\textdagger & \verb|\textdagger| & \\
-		%\textdaggerdbl & \verb|\textdaggerdbl| & \\
-		\textellipsis & \verb|\textellipsis| & \\
-		\textless/\textgreater & \verb|\textless/\textgreater| & \\
-		\textperthousand & \verb|\textperthousand| & \\
-		\textsection & \verb|\textsection| & \\
+		\textasciicircum & \code{latex}{\textbackslash textasciicircum} & \\
+		\textasciitilde & \code{latex}{\textbackslash textasciitilde} & \\
+		\textasteriskcentered & \code{latex}{\textbackslash textasteriskcentered} & \\
+		\textbackslash & \code{latex}{\textbackslash textbackslash} & \\
+		%\textbar & \code{latex}{\textbackslash textbar} & \\
+		%\textbullet & \code{latex}{\textbackslash textbullet} & \\
+		\textcopyright & \code{latex}{\textbackslash textcopyright} & \\
+		\textdagger & \code{latex}{\textbackslash textdagger} & \\
+		%\textdaggerdbl & \code{latex}{\textbackslash textdaggerdbl} & \\
+		\textellipsis & \code{latex}{\textbackslash textellipsis} & \\
+		\textless/\textgreater & \code{latex}{\textbackslash textless/\textbackslash textgreater} & \\
+		\textperthousand & \code{latex}{\textbackslash textperthousand} & \\
+		\textsection & \code{latex}{\textbackslash textsection} & \\
 		$\delta, \pi, \Sigma$ & \verb|\delta, \pi, \Sigma|, … & only in maths environments \\
-		\euro & \verb|\euro| & requires the \texttt{eurosym} package \\
-		\textteshlig & \verb|\textteshlig| & requires the \texttt{tipa} package \\
-		\textmusicalnote & \verb|\textmusicalnote| & requires the \texttt{textcomp} package \\
+		\euro & \code{latex}{\textbackslash euro} & requires the \pkg{eurosym} package \\
+		\textteshlig & \code{latex}{\textbackslash textteshlig} & requires the \pkg{tipa} package \\
+		\textmusicalnote & \code{latex}{\textbackslash textmusicalnote} & requires the \pkg{textcomp} package \\
 		\bottomrule
 	\end{tabular}
 	\caption{Some special characters}

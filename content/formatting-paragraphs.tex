@@ -5,10 +5,10 @@
 \label{sec:ragged-alignment}
 By default, \LaTeX{} sets continuous text in full justification. 
 However, we can also switch to ragged alignment by using the commands 
-\mintinline{tex}|\raggedright|, \mintinline{tex}|\raggedleft|, and 
-\mintinline{tex}|\centering|. 
+\code{latex}{\textbackslash raggedright}, \code{latex}{\textbackslash raggedleft}, and 
+\code{latex}{\textbackslash centering}. 
 These commands influence the environment that they are used in, e.\,g., the 
-\texttt{document} environment. Correspondingly, the text within the whole 
+\sh{document} environment. Correspondingly, the text within the whole 
 document is affected. 
 Alternatively, we can use dedicated environments in order to influence the 
 formatting
@@ -20,9 +20,9 @@ alignment}
 \section*{Indentation and spacing}
 \label{sec:indents-and-parskips}
 Usually, we illustrate a new paragraph by indenting the first line of it 
-(\mintinline{tex}{\parindent}). 
+(\code{latex}{\textbackslash parindent}). 
 Alternatively, paragraph spacing, i.\,e., vertical space between paragraphs, 
-can be used (\mintinline{tex}{\parskip}).
+can be used (\code{latex}{\textbackslash parskip}).
 For both variants, there are adjustable parameters:
 \begin{minted}{tex}
 \setlength{\parindent}{0pt}
@@ -32,7 +32,7 @@ For both variants, there are adjustable parameters:
 }
 \end{minted}
 
-\noindent We can use \mintinline{tex}{\noindent} to turn off the indentation for only one 
+\noindent We can use \code{latex}{\textbackslash noindent} to turn off the indentation for only one 
 paragraph. 
 For the first paragraph after a heading, there is usually no indentation. 
 

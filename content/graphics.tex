@@ -15,7 +15,7 @@ In order to be able to reference graphics, the package \texttt{graphicx} has to 
 \end{figure}
 \end{minted}
 
-\noindent The command \mintinline{latex}{includegraphics} can be used to change the image size. The desired height and width of the figure can be indicated separately, as illustrated by the following example:
+\noindent The command \sh{includegraphics} can be used to change the image size. The desired height and width of the figure can be indicated separately, as illustrated by the following example:
 
 \begin{minted}{latex}
 \includegraphics[width=0.5\textwidth,height=5cm]{<file path>}
@@ -58,5 +58,5 @@ On top of that, we can limit the positioning of our image more or less rigorousl
 
 Besides the vertical positioning, also the horizontal orientation may be of importance. 
 By default, graphics are left-justified. 
-The command \mintinline{latex}{\centering} centers all following objects in the current environment.
-If we want the centering to affect only one object, we can alternatively wrap it with \mintinline{latex}{\begin{center}} and \mintinline{latex}{\end{center}}.
+The command \code{latex}{\textbackslash centering} centers all following objects in the current environment.
+If we want the centering to affect only one object, we can alternatively wrap it with \code{latex}{\textbackslash begin\{center\}} and \code{latex}{\textbackslash end\{center\}}.

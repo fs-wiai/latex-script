@@ -14,23 +14,24 @@ A minimal preamble should contain the following specifications:
 
 \subsection{Document class}\label{sec:document-class}
 We can define a document class by using the command \mintinline[breaklines,breakafter=-,breakaftersymbolpre={}]{latex}|\documentclass[<para-meter>]{<document class>}|. 
-The most commonly used document classes that are supported by default are \mintinline{latex}{article} for short documents, and \mintinline{latex}{report} for longer ones. 
-Furthermore, you can use \mintinline{latex}{book} for books, \mintinline{latex}{beamer}\footnote{We do not cover making presentations in \LaTeX{} in this tutorial. However, if you are interested in the topic, we recommend this introduction on Overleaf: \url{https://www.overleaf.com/learn/latex/Beamer}} for presentations, and \mintinline{latex}{letter}\footnote{We also do not cover letters in this script. An introduction can be found on WikiBooks: \url{https://en.wikibooks.org/wiki/LaTeX/Letters}} for letters.
+\todo{Wie sollen wir das abbilden?}
+The most commonly used document classes that are supported by default are \pkg{article} for short documents, and \pkg{report} for longer ones. 
+Furthermore, you can use \pkg{book} for books, \pkg{beamer}\footnote{We do not cover making presentations in \LaTeX{} in this tutorial. However, if you are interested in the topic, we recommend this introduction on Overleaf: \url{https://www.overleaf.com/learn/latex/Beamer}} for presentations, and \mintinline{latex}{letter}\footnote{We also do not cover letters in this script. An introduction can be found on WikiBooks: \url{https://en.wikibooks.org/wiki/LaTeX/Letters}} for letters.
 
 In addition to the standard document classes, the \acro{KOMA} script classes have been developed. 
 They provide alternatives to the document classes mentioned above: 
-In lieu of \mintinline{latex}{article} you can use \mintinline{latex}{scrartcl}, \mintinline{latex}{report} is replaced by \mintinline{latex}{scrreprt},\footnote{Those vowels are indeed missing, do not try to insert them.} and \mintinline{latex}{scrbook} can be used instead of \mintinline{latex}{book}. 
-As a replacement for \mintinline{latex}{letter}, one can use \mintinline{latex}{scrlttr2}. 
-A complete list of all \acro{KOMA} script classes is available online.\footnote{Available at: \url{https://komascript.de/omascriptbestandteile}} 
+In lieu of \pkg{article} you can use \pkg{scrartcl}, \pkg{report} is replaced by \pkg{scrreprt},\footnote{Those vowels are indeed missing, do not try to insert them.} and \pkg{scrbook} can be used instead of \pkg{book}. 
+As a replacement for \pkg{letter}, one can use \pkg{scrlttr2}. 
+A complete list of all \acro{KOMA} script classes is available online.\footnote{Available at: \url{https://komascript.de/komascriptbestandteile}} 
 By using \acro{KOMA} document classes, the layout of the generated \acro{PDF} document is changed. 
 On top of that, they provide additional functionalities. 
 The standard document classes are designed according to US-American conventions
 whereas \acro{KOMA} classes adhere to European norms, e.\,g., for 
 writing letters. 
 
-Each \mintinline{latex}{\documentclass} command can hold optional parameters in 
+Each \code{latex}{\textbackslash documentclass} command can hold optional parameters in 
 square brackets. 
-\mintinline{latex}{\documentclass[10pt,a5paper,landscape]{scrartcl}}, for instance, configures a \acro{KOMA} script article and sets its font size to 10\,pt,\footnote{The standard font size is 12\,pt.} the page size to A5,\footnote{The default case would be A4.} and the orientation of the page to landscape. 
+\code{latex}{\textbackslash documentclass[10pt,a5paper,landscape]\{scrartcl\}}, for instance, configures a \acro{KOMA} script article and sets its font size to 10\,pt,\footnote{The standard font size is 12\,pt.} the page size to A5,\footnote{The default case would be A4.} and the orientation of the page to landscape. 
 The language can be passed as an optional parameter, too (cf. \cref{sec:language}). 
 
 \subsection{Digression: packages}
@@ -58,22 +59,22 @@ It is an American character encoding and therefore does not contain German umlau
 Instead, \acro{UTF-8}\footnote{cf. \url{https://en.wikipedia.org/wiki/UTF-8}} can be used as a universal character encoding.
 
 In \LaTeX{}, we need to specify two character encodings: 
-The input encoding (\mintinline{latex}{inputenc}), which refers to our source code, and the font encoding (\mintinline{latex}{fontenc}), which determines what the content of our \acro{PDF} document looks like.\footnote{Details on \mintinline{latex}{fontenc} can be found at: \url{https://tex.stackexchange.com/questions/108417/font-encoding-in-latex}}
-\mintinline{latex}{T1} is an encoding that tries to cover most European languages with a limited number of characters. 
+The input encoding (\sh{inputenc}), which refers to our source code, and the font encoding (\sh{fontenc}), which determines what the content of our \acro{PDF} document looks like.\footnote{Details on \sh{fontenc} can be found at: \url{https://tex.stackexchange.com/questions/108417/font-encoding-in-latex}}
+\pkg{T1} is an encoding that tries to cover most European languages with a limited number of characters. 
 
 \subsection{Language}\label{sec:language}
 \begin{minted}{latex}
 \usepackage[ngerman]{babel}
 \end{minted}
-The package \mintinline{latex}{babel} provides language-specific information (e.\,g., on hyphenation, special characters, changing fonts, translation of labels\footnote{cf. \cref{sec:references}} like \enquote{Chapter,} \enquote{Table of Contents,} or \enquote{Figure.}
+The package \pkg{babel} provides language-specific information (e.\,g., on hyphenation, special characters, changing fonts, translation of labels\footnote{cf. \cref{sec:references}} like \enquote{Chapter,} \enquote{Table of Contents,} or \enquote{Figure.}
 The desired language can be passed as an optional parameter. 
-\mintinline{latex}{ngerman}, for instance, is used for the new German spelling. 
-Some packages require that the language is already passed as an optional parameter in the \mintinline{latex}{\documentclass} command. 
-In this case, just leave out the optional parameter for the language within the \mintinline{latex}{babel} inclusion command.
+\pkg{ngerman}, for instance, is used for the new German spelling. 
+Some packages require that the language is already passed as an optional parameter in the \code{latex}{\textbackslash documentclass} command. 
+In this case, just leave out the optional parameter for the language within the \pkg{babel} inclusion command.
 
 We can also use multiple languages in our document. 
 To do so, we pass the languages, separated by commas, as an optional parameter to the babel inclusion command. 
-Within our document, we can switch between languages with the \mintinline{latex}{\selectlanguage{<language>}} command. 
+Within our document, we can switch between languages with the \code{latex}{\textbackslash selectlanguage\{<language>\}} command. 
 Alternatively, foreign-language text can be declared by using the following command: 
 
 \begin{minted}{latex}
@@ -81,13 +82,13 @@ Alternatively, foreign-language text can be declared by using the following comm
 \end{minted}
 
 \section{Document environment}
-The actual content of the \acro{PDF} document needs to be put between \mintinline{latex}{\begin{document}} and \mintinline{latex}{\end{document}}.
+The actual content of the \acro{PDF} document needs to be put between \code{latex}{\textbackslash begin\{document\}} and \code{latex}{\textbackslash end\{document\}}.
 
 \subsection{Continuous text}
 The easiest content that we can integrate into the document environment is continuous text. 
 We can write it directly into our source code. 
 Line breaks and multiple consecutive spaces are ignored by \LaTeX{}. 
-Blank lines create a new paragraph, that is indented by default.\footnote{The automatic indentation of new paragraphs can be prevented by using the command \mintinline{latex}{\noindent}.}
+Blank lines create a new paragraph, that is indented by default.\footnote{The automatic indentation of new paragraphs can be prevented by using the command \code{latex}{\textbackslash noindent}.}
 Manual line breaks can be enforced with two backslashes (\textbackslash\textbackslash). 
 This should be avoided, though. 
 
@@ -106,7 +107,7 @@ The commands that are depicted in \cref{lst:headlines} can be used with any docu
 
 \Example{lst:headlines}{basic-document-structure/headlines}{basic-document-structure/headlines_crop}{Heading Levels}
 
-Some document classes provide additional commands. In a \texttt{report}, you get \mintinline{latex}{\chapter{Chapter}}, and in a \texttt{book}, additionally \mintinline{latex}{\part{Part}}.
+Some document classes provide additional commands. In a \pkg{report}, you get \code{late}{\textbackslash chapter\{Chapter\}}, and in a \pkg{book}, additionally \code{latex}{\textbackslash part\{Part\}}.
 You can mark the command with an asterisk if you want to omit the numbering of a section and exclude it from the table of contents:\footnote{cf. \cref{sec:table-of-contents}}
 
 \begin{minted}{latex}
@@ -120,20 +121,20 @@ An alternative title for the table of contents can be declared as an optional pa
 \end{minted}
 
 \subsection{Front matter}
-A simple front matter can be created by using the command \mintinline{latex}{\maketitle}. 
+A simple front matter can be created by using the command \code{latex}{\textbackslash maketitle}. 
 The values to be inserted into the front matter must be specified within the preamble. 
-Multiple authors are joined by \mintinline{latex}{\and}.
-If the date is not specified by the \mintinline{latex}{\date} command, the current date will be inserted by default.
+Multiple authors are joined by \code{latex}{\textbackslash and}.
+If the date is not specified by the \code{latex}{\textbackslash date} command, the current date will be inserted by default.
 The design of the front matter depends on the specified document class.
 
 \Example{lst:titles}{basic-document-structure/titles}{basic-document-structure/titles_crop}{The front matter}
 
 \subsection{Indices}\label{sec:table-of-contents}
 
-The command \mintinline{latex}{\tableofcontents} generates an automatically numbered table of contents by making use of the above-mentioned commands for dividing our text into sections and chapters (this can bee seen in \cref{lst:main-file} on \cpageref{lst:main-file}).
+The command \code{latex}{\textbackslash tableofcontents} generates an automatically numbered table of contents by making use of the above-mentioned commands for dividing our text into sections and chapters (this can bee seen in \cref{lst:main-file} on \cpageref{lst:main-file}).
 
 The numbering style and depth, and many other options can, of course, be specified manually.\footnote{We recommend the following blogpost: \url{https://texblog.org/2011/09/09/10-ways-to-customize-tocloflot/}}
 For \LaTeX{} to create our table of contents properly, the project has to be compiled twice.
 
-Besides the table of contents, you can also generate a \mintinline{latex}{\listoffigures} (list of figures) and a \mintinline{latex}{\listoftables} (list of tables). 
+Besides the table of contents, you can also generate a \code{latex}{\textbackslash listoffigures} (list of figures) and a \code{latex}{\textbackslash listoftables} (list of tables). 
 The captions of your figures and tables will appear within those indices.\footnote{cf. \cref{sec:graphics} (Graphics) and \cref{sec:tables} (Tables) for more information on captions}

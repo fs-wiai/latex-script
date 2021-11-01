@@ -4,8 +4,8 @@
 Mathematical formulas are always set in \emph{math mode}, which, within a paragraph (referred to as \emph{inline}), can be turned on or off with a dollar sign.
 There is also a \emph{block} environment (cf. \cref{lst:sample-math-environment}).
 Important packages for mathematical features are the \texttt{amsmath}, 
-\texttt{amsthm}, and \texttt{amssymb} packages of the American Mathematical 
-Society, as well as \texttt{mathtools}.
+\pkg{amsthm}, and \pkg{amssymb} packages of the American Mathematical 
+Society, as well as \pkg{mathtools}.
 As with many other environments, adding an asterisk turns off the numbering.
 
 \example{lst:sample-math-environment}{maths/sample-math-environment}{Exemplary math environments}
@@ -18,16 +18,16 @@ As with many other environments, adding an asterisk turns off the numbering.
   \begin{tabular}{ll}
   \toprule
   Source code & Result \\ \midrule
-  \mintinline{latex}{\sqrt{16}} & $\sqrt{16}$ \\
-  \mintinline{latex}{\frac{3}{4}} & $\frac{3}{4}$ \\
-  \mintinline{latex}{e^{\pi}} & $e^{\pi}$ \\
-  \mintinline{latex}{\sum_{i=1}\^{n}x^2} & $\sum_{i=1}^{n}x^2$ \\
-  \mintinline{latex}{12 \leq 4 x^2 + 13} & $12 \leq 4 x^2 + 13$ \\
-  \mintinline{latex}{{n \choose k}} & ${n \choose k}$ \\
+  \code{latex}{\textbackslash sqrt\{16\}} & $\sqrt{16}$ \\
+  \code{latex}{\textbackslash frac\{3\}\{4\}} & $\frac{3}{4}$ \\
+  \code{latex}{e\textasciicircum\{\textbackslash pi\}} & $e^{\pi}$ \\
+  \code{latex}{\textbackslash sum\_\{i=1\}\textasciicircum\{n\}x\textasciicircum 2} & $\sum_{i=1}^{n}x^2$ \\
+  \code{latex}{12 \textbackslash leq 4 x\textasciicircum 2 + 13} & $12 \leq 4 x^2 + 13$ \\
+  \code{latex}{{n \textbackslash choose k}} & ${n \choose k}$ \\
   \bottomrule
   \end{tabular}
 	\caption{Frequently used commands (square root, fraction, power, sum, inequation, binomial coefficient). 
-	By \mintinline{latex}{^{…}} and \mintinline{latex}{_{…}}, the content is set in super- or subscript.}
+	By \code{latex}{\textasciicircum\{…\}} and \code{latex}{\_\{…\}}, the content is set in super- or subscript.}
   \label{tbl:maths-common-commands}
 \end{table}
 
@@ -37,13 +37,13 @@ As with many other environments, adding an asterisk turns off the numbering.
     \begin{tabular}{ll}
     \toprule
     Source code & Result \\ \midrule
-    \mintinline{latex}{(x), [x], \lbrace x \rbrace, \lvert x \rvert} & $(x), [x], \lbrace x\rbrace, \lvert x\rvert$\\
-    \mintinline{latex}{\exists,\forall,\in,\notin,\infty} & $\exists,\forall,\in,\notin,\infty$ \\
-    \mintinline{latex}{\alpha, \beta, \Gamma, \Delta, \varepsilon, \pi} & $\alpha, \beta, \Gamma, \Delta, \varepsilon, \pi$ \\
-    \mintinline{latex}{\rightarrow, \leftarrow, \Rightarrow, \Leftarrow, \Leftrightarrow} & $\rightarrow, \leftarrow, \Rightarrow, \Leftarrow, \Leftrightarrow$ \\
-    \mintinline{latex}{(A \cup B) \cap C} & $(A \cup B) \cap C$ \\
-    \mintinline{latex}{(A \lor B) \land C} & $(A \lor B) \land C$ \\
-    \mintinline{latex}{(A \cdot B) \times C} & $(A \cdot B) \times C$ \\ \bottomrule
+    \code{latex}{(x), [x], \textbackslash lbrace x \textbackslash rbrace, \textbackslash lvert x \textbackslash rvert} & $(x), [x], \lbrace x\rbrace, \lvert x\rvert$\\
+    \code{latex}{\textbackslash exists,\textbackslash forall,\textbackslash in,\textbackslash notin,\textbackslash infty} & $\exists,\forall,\in,\notin,\infty$ \\
+    \code{latex}{\textbackslash alpha, \textbackslash beta, \textbackslash Gamma, \textbackslash Delta, \textbackslash varepsilon, \textbackslash pi} & $\alpha, \beta, \Gamma, \Delta, \varepsilon, \pi$ \\
+    \code{latex}{\textbackslash rightarrow, \textbackslash leftarrow, \textbackslash Rightarrow, \textbackslash Leftarrow, \textbackslash Leftrightarrow} & $\rightarrow, \leftarrow, \Rightarrow, \Leftarrow, \Leftrightarrow$ \\
+    \code{latex}{(A \textbackslash cup B) \textbackslash cap C} & $(A \cup B) \cap C$ \\
+    \code{latex}{(A \textbackslash lor B) \textbackslash land C} & $(A \lor B) \land C$ \\
+    \code{latex}{(A \textbackslash cdot B) \textbackslash times C} & $(A \cdot B) \times C$ \\ \bottomrule
     \end{tabular}
     \caption{Brackets, quantifiers, greek letters, arrows, operators}
     \label{tbl:maths-logic-sets-braces}
@@ -53,23 +53,23 @@ As with many other environments, adding an asterisk turns off the numbering.
 \section{Growing brackets}
 
 Especially in combination with fractions, brackets should grow according to their content.
-This can be achieved by pre-pending each bracket (\mintinline{latex}{(}, \mintinline{latex}{)}, \mintinline{latex}{[}, \mintinline{latex}{]}, \mintinline{latex}{\lbrace} and \mintinline{latex}{\rbrace}) with a position marker (\mintinline{latex}{\left} or \mintinline{latex}{\right}).
+This can be achieved by pre-pending each bracket (\code{latex}{(}, \code{latex}{)}, \code{latex}{[}, \code{latex}{]}, \code{latex}{\textbackslash lbrace} and \code{latex}{\textbackslash rbrace}) with a position marker (\code{latex}{\textbackslash left} or \code{latex}{\textbackslash right}).
 
 \example{lst:growing-brackets}{maths/growing-brackets}{Example for growing brackets}
 
 \section{Lower and upper bounds}
 
-The \mintinline{latex}{\limits} command renders lower and upper bounds of integrals above and below the integral sign.
+The \code{latex}{\textbackslash limits} command renders lower and upper bounds of integrals above and below the integral sign.
 Sums, products, and limits do this 
 automatically (cf. \cref{lst:limits}).
-For inline formulas, \mintinline{latex}{\limits} are of bounded suitability.
+For inline formulas, \code{latex}{\textbackslash limits} are of bounded suitability.
 
 \example{lst:limits}{maths/limits}{Lower and upper bounds of sums, products, limits and integrals}
 
 \section{Aligning equations}
 
-The \texttt{align} environment allows to align multiple equations horizontally, e.\,g., at the \texttt{=} sign (\cref{lst:math-alignment-example}).
-As in tables, the \texttt{\&} sign is used to specify anchorage points.
+The \sh{align} environment allows to align multiple equations horizontally, e.\,g., at the \sh{=} sign (\cref{lst:math-alignment-example}).
+As in tables, the \sh{\&} sign is used to specify anchorage points.
 Line breaks are denoted by two backslashes.
 
 \Example{lst:math-alignment-example}{maths/align-example}{maths/align-example_crop}{Equations aligned at equals signs}
@@ -78,6 +78,6 @@ Line breaks are denoted by two backslashes.
 
 Sometimes sets have to be defined in terms of textual descriptions or longer function names.
 The \LaTeX{} math mode assumes that letters are variables rather than text, which creates problems when they are indeed supposed to be entire words.
-For this case, there is the \mintinline{latex}{\mathrm{}} command (\enquote{math roman}, c.\,f. \cref{lst:set-builder-notation}).
+For this case, there is the \code{latex}{\textbackslash mathrm\{\}} command (\enquote{math roman}, c.\,f. \cref{lst:set-builder-notation}).
 
 \example{lst:set-builder-notation}{maths/set-builder-notation}{Problems arising from intensional set notation and their solution}

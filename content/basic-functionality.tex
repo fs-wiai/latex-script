@@ -21,9 +21,9 @@ When all the source code has been processed by the compiler, we get the final do
 There are different export options, but most of the time we output the document as a \acro{PDF}\,---\,just like in Word.
 
 As a brief example for a command, we shall use the emphasis of words or sentences. 
-The command is \mintinline{latex}{\emph{}}. 
+The command is \code{latex}{\textbackslash emph\{\}}. 
 We write the text we want to emphasize inside the curly braces in the source code, like this: 
-\mintinline{latex}{\emph{Good morning!}}. 
+\code{latex}{\textbackslash emph\{Good morning!\}}. 
 In the resulting \acro{PDF}, this text will appear in italics: \emph{Good morning!} 
 There is no trace of the command identifier and the special characters. 
 You can see, we are not writing italic text inside the source code, we just tell the compiler that certain words should be emphasized by the use of a command.
@@ -31,7 +31,7 @@ You can see, we are not writing italic text inside the source code, we just tell
 This simple example illustrates a strength of the \acro{WYGIWYM} principle. 
 We mark text elements on a semantic level and can make the associated typographic adjustments centrally\,---\,or let \LaTeX{} do the configuration itself.
 For instance, if we want to change the way highlighting is done, we can configure this once. 
-At all places where \mintinline{latex}{\emph{}} is used, the final result will be adjusted accordingly. 
+At all places where \code{latex}{\textbackslash emph\{\}} is used, the final result will be adjusted accordingly. 
 There is no need to make adjustments at each occurrence of an emphasized word. 
 The principle is similar to style sheets in office programs, although more consistent and powerful.
 
@@ -77,11 +77,11 @@ Some examples are shown in \cref{tbl:latex-commands}.
 			\toprule
 			Command                                                  & Effect                             \\
 			\midrule
-			\mintinline{latex}{\newpage}                              & inserts a new page           \\
-			\mintinline{latex}{\textbf{Text}}                         & prints the text in bold font \\
-			\mintinline{latex}{\usepackage[utf8]{inputenc}}           & sets the text encoding to \acro{UTF-8}  \\
-			\mintinline{latex}{\documentclass[a4paper,12pt]{article}} & specifies the document class  \\
-			\mintinline{latex}{\frac{3}{4}}               & inserts a mathematical fraction  \\
+			\code{latex}{\textbackslash newpage}                              & inserts a new page           \\
+			\code{latex}{\textbackslash textbf\{Text\}}                         & prints the text in bold font \\
+			\code{latex}{\textbackslash usepackage[utf8]\{inputenc\}}           & sets the text encoding to \acro{UTF-8}  \\
+			\code{latex}{\textbackslash documentclass[a4paper,12pt]\{article\}} & specifies the document class  \\
+			\code{latex}{\textbackslash frac\{3\}\{4\}}               & inserts a mathematical fraction  \\
 			\bottomrule
 		\end{tabular}
 	}
@@ -91,7 +91,7 @@ Some examples are shown in \cref{tbl:latex-commands}.
 
 If a command allows multiple optional parameters that accept similar inputs, it is sometimes necessary to specify which parameter is meant. 
 For example, the command for embedding graphics accepts optional parameters for width and height. 
-If \mintinline{tex}|[12cm, 4cm]| were entered, it would be unclear which value is intended for which parameter. 
+If \sh{[12cm, 4cm]} were entered, it would be unclear which value is intended for which parameter. 
 To make the assignment more concrete, it is possible to specify the parameters explicitly:
 \begin{minted}{tex}
 \includegraphics[width=12cm, height=4cm]{picture.png}

@@ -25,14 +25,14 @@ We already have presented a selection of packages. However, there are thousands 
 		\colrules
 		% Left caption:
 		\begin{subfigure}[t]{\widefigurewidth}
-			\caption{Vector graphics with TikZ}
+			\caption{Vector graphics with \pkg{TikZ}}
 			\centering\tiny{\url{https://texample.net/tikz/examples/coffee-cup/}}
 			\label{fig:tikz-example}
 		\end{subfigure}
 		\hspace{\widefiguregap}
 		% Right caption:
 		\begin{subfigure}[t]{\widefigurewidth}
-			\caption{Parse trees with qtree}
+			\caption{Parse trees with \pkg{qtree}}
 			\centering\tiny{\url{https://www.ling.upenn.edu/advice/latex/qtree/}}
 			\label{fig:qtree-example}
 		\end{subfigure}
@@ -53,14 +53,14 @@ We already have presented a selection of packages. However, there are thousands 
 		\colrules
 		% Left caption:
 		\begin{subfigure}[t]{\widefigurewidth}
-			\caption{Proof trees with prftree}
+			\caption{Proof trees with \pkg{prftree}}
 			\centering\tiny{\url{https://ftp.gwdg.de/pub/ctan/macros/latex/contrib/prftree/}}
 			\label{fig:prftree-example}
 		\end{subfigure}
 		\hspace{\widefiguregap}
 		% Right caption:
 		\begin{subfigure}[t]{\widefigurewidth}
-			\caption{Chemical structural formulas with chemfig}
+			\caption{Chemical structural formulas with \pkg{chemfig}}
 			\centering\tiny{\url{http://latex-cookbook.net/cookbook/examples/benzene-ring/}}
 			\label{fig:chemfig-example}
 		\end{subfigure}
@@ -74,25 +74,25 @@ We already have presented a selection of packages. However, there are thousands 
 
 \begin{description}
 	\item[Indices]
-		can be created automatically with \texttt{makeidx}.\footnote{\url{https://www.ctan.org/pkg/makeidx}}
-		By using \mintinline{tex}{\index{…}}, one can mark entries for the index. With \mintinline{tex}{\printindex}, an index with references is compiled out of them.
+		can be created automatically with \pkg{makeidx}.\footnote{\url{https://www.ctan.org/pkg/makeidx}}
+		By using \code{latex}{\textbackslash index\{…\}}, one can mark entries for the index. With \code{latex}{\textbackslash printindex}, an index with references is compiled out of them.
 	\item[Vector graphics]
 		(\cref{fig:tikz-example})
-				can be \enquote{drawn} directly in the \LaTeX{} source code with \texttt{TikZ} (recursive acronym for \emph{TikZ ist kein Zeichenprogramm}, in English: \emph{TikZ is not a drawing program}).\footnote{\url{https://www.ctan.org/pkg/pgf}}
+				can be \enquote{drawn} directly in the \LaTeX{} source code with \pkg{TikZ} (recursive acronym for \emph{TikZ ist kein Zeichenprogramm}, in English: \emph{TikZ is not a drawing program}).\footnote{\url{https://www.ctan.org/pkg/pgf}}
 		Caution: This package is very powerful, but not necessarily beginner-friendly.
 		Before creating vector graphics from scratch, we recommend you to experiment with some of the examples at \TeX{}ample\footnote{\url{https://texample.net/tikz/examples/}}. 
 		Also, for certain use cases, there are special packages that are easier to handle than \enquote{raw} TikZ:
 	\item[Parse trees]
-		that divide sentences into their grammatical components (\cref{fig:qtree-example}) can be created with \texttt{qtree}.\footnote{\url{https://ctan.org/pkg/qtree}}
+		that divide sentences into their grammatical components (\cref{fig:qtree-example}) can be created with \pkg{qtree}.\footnote{\url{https://ctan.org/pkg/qtree}}
 	\item[Proof trees,]
-		that are often used in logics (\cref{fig:prftree-example}), can be drawn with the package \texttt{prftree}.\footnote{\url{https://www.ctan.org/pkg/prftree}}
+		that are often used in logics (\cref{fig:prftree-example}), can be drawn with the package \pkg{prftree}.\footnote{\url{https://www.ctan.org/pkg/prftree}}
 	\item[Chemical structural formulas]
 		(\cref{fig:chemfig-example})
-		can, amongst others, be created with  \texttt{chemfig}.\footnote{\url{https://www.ctan.org/pkg/chemfig}}
+		can, amongst others, be created with  \pkg{chemfig}.\footnote{\url{https://www.ctan.org/pkg/chemfig}}
 	\item[Colors]
-		for your documents are provided by \texttt{xcolor}.\footnote{\url{https://www.ctan.org/pkg/xcolor}}
+		for your documents are provided by \pkg{xcolor}.\footnote{\url{https://www.ctan.org/pkg/xcolor}}
 	\item[Notes]
-		that you cannot overlook can be created with \texttt{todonotes}.\footnote{\url{https://www.ctan.org/pkg/todonotes}}
+		that you cannot overlook can be created with \pkg{todonotes}.\footnote{\url{https://www.ctan.org/pkg/todonotes}}
 		With this package, you can mark what you still \todo{Please do not change. This is an example.} have to change within your document.
 	\item[Pages of other \acro{PDF} files]
 		can be integrated into the source code with \texttt{pdfpages}.\footnote{\url{https://www.ctan.org/pkg/pdfpages}}
@@ -100,18 +100,18 @@ We already have presented a selection of packages. However, there are thousands 
 		Just compile the document one more time and the appendix is up to date again, if the external program has changed something.
 	\item[Nested graphics]
 		and the positioning of captions at almost any place are provided by  
-		\texttt{subcaption}.\footnote{\url{https://www.ctan.org/pkg/subcaption}}
+		\pkg{subcaption}.\footnote{\url{https://www.ctan.org/pkg/subcaption}}
 		We also made extensive use of this package.
 	\item[Tables]
 		can be designed much more flexibly than what we have shown here. 
 		The following packages can help you with that:
-		\texttt{colortbl},\footnote{\url{https://www.ctan.org/pkg/colortbl}}
-		\texttt{tabularx},\footnote{\url{https://www.ctan.org/pkg/tabularx}}
-		\texttt{multirow},\footnote{\url{https://www.ctan.org/pkg/multirow}}
-		\texttt{makecell}.\footnote{\url{https://www.ctan.org/pkg/makecell}}
+		\pkg{colortbl},\footnote{\url{https://www.ctan.org/pkg/colortbl}}
+		\pkg{tabularx},\footnote{\url{https://www.ctan.org/pkg/tabularx}}
+		\pkg{multirow},\footnote{\url{https://www.ctan.org/pkg/multirow}}
+		\pkg{makecell}.\footnote{\url{https://www.ctan.org/pkg/makecell}}
 \end{description}
 
-\noindent \texttt{beamer}, which is not a package, but another document class, can be used to create \textbf{slide shows}
+\noindent \sh{beamer}, which is not a package, but another document class, can be used to create \textbf{slide shows}
 with \LaTeX{}. Information on the document class and examples are available at Overleaf,\footnote{\url{https://www.overleaf.com/learn/latex/Beamer}} which brings us to the next section:
 
 \section{Help and information}

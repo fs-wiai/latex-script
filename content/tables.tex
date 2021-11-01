@@ -2,26 +2,26 @@
 \label{sec:tables}
 
 There are two fundamental environments for tables.
-The first one, called \texttt{table}, is responsible for integrating the table as a whole into the document.
+The first one, called \sh{table}, is responsible for integrating the table as a whole into the document.
 Positioning is done the same way as it is with graphics.
-The \mintinline{tex}{\caption} command is the same, as well.
+The \code{latex}{\textbackslash caption} command is the same, as well.
 
 At the table \emph{content}, the similarities end:
 While graphics are embedded from external files and not interpreted by \LaTeX{},
 the inner structure of tables has to be encoded explicitly.
-This is done with the \texttt{tabular} environment that expects a column definition as an obligatory parameter.
+This is done with the \sh{tabular} environment that expects a column definition as an obligatory parameter.
 The column definition consists of one letter per column specifying its text alignment:
-\texttt{l} for left-justified, \texttt{r} for right-justified, \texttt{c} for centered.
+\sh{l} for left-justified, \sh{r} for right-justified, \sh{c} for centered.
 
-Within the \texttt{tabular} environment, the actual table content follows.
-Table rows are separated by \mintinline{tex}{\\}, just like line breaks, and cells by an \mintinline{tex}{&}.
+Within the \sh{tabular} environment, the actual table content follows.
+Table rows are separated by \code{latex}{\textbackslash \textbackslash}, just like line breaks, and cells by an \code{latex}{\&}.
 
-For typographically pleasing tables, we recommend the \texttt{booktabs} package.\footnote{All commands previously mentioned also work without this package, but the result will look far less professional.}
-This package brings along the commands \mintinline{tex}{\toprule}, \mintinline{tex}{\midrule} and \mintinline{tex}{\bottomrule} that draw appropriate horizontal lines above, within and below the table, respectively.
+For typographically pleasing tables, we recommend the \pkg{booktabs} package.\footnote{All commands previously mentioned also work without this package, but the result will look far less professional.}
+This package brings along the commands \code{latex}{\textbackslash toprule}, \code{tex}{\textbackslash midrule} and \code{tex}{\textbackslash bottomrule} that draw appropriate horizontal lines above, within and below the table, respectively.
 
-Vertical lines can be inserted as a vertical bar character (\texttt{|}) in the column definition, but this is \emph{not} recommended.\footnote{The
+Vertical lines can be inserted as a vertical bar character (\sh{|}) in the column definition, but this is \emph{not} recommended.\footnote{The
 whitespace within the table separates the columns clearly enough, additional lines just make for visual clutter.}
-If you want to remove the additional whitespace that surrounds the columns by default (e.\,g., to the left of the first column and to the right of the last), you can add the string \mintinline{tex}{@{}} at the corresponding places within the column definition.
+If you want to remove the additional whitespace that surrounds the columns by default (e.\,g., to the left of the first column and to the right of the last), you can add the string \sh{@\{\}} at the corresponding places within the column definition.
 
 A complete table can then look like the one shown in \cref{lst:sample-table}.
 
@@ -29,8 +29,8 @@ A complete table can then look like the one shown in \cref{lst:sample-table}.
 
 \paragraph{Excess length}
 For tables exceeding one page or requiring line breaks within individual cells,
-the \texttt{longtable} package can be used additionally (also supported by \texttt{booktabs}).
-The \texttt{longtable} environment combines the \texttt{table} and \texttt{tabular} environments.
+the \pkg{longtable} package can be used additionally (also supported by \pkg{booktabs}).
+The \pkg{longtable} environment combines the \sh{table} and \sh{tabular} environments.
 With it, you get the following basic structure:
 
 \begin{samepage}
@@ -44,9 +44,9 @@ With it, you get the following basic structure:
 
 \paragraph{Excess width}
 If you want to present a very wide table instead, it is preferable on pages in portrait orientation to turn the table by 90\textdegree{}.
-This can be done with the help of the \texttt{rotating} package.
-The only difference between this and a normal table is that the \texttt{table} environment gets replaced by a \texttt{sidewaystable} environment.
-Positioning and the \texttt{tabular} stay unaffected.
+This can be done with the help of the \pkg{rotating} package.
+The only difference between this and a normal table is that the \sh{table} environment gets replaced by a \sh{sidewaystable} environment.
+Positioning and the \sh{tabular} stay unaffected.
 
 \paragraph{More possibilities}
 Of course, \LaTeX{} offers lots of additional features for sophisticated tables, e.\,g., row- or column-spanning cells.

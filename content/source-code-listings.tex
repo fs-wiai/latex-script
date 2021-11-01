@@ -2,11 +2,11 @@
 \label{sec:source-code-listings}
 
 There are many ways in \LaTeX{} to display source code.
-We have come to appreciate the package \mintinline{latex}{minted}, which causes some additional installation overhead, but generates very appealing source code renderings.
+We have come to appreciate the package \pkg{minted}, which causes some additional installation overhead, but generates very appealing source code renderings.
 
 \section{Installation}
-Using \mintinline{latex}{minted} requires a working installation of the programming language Python 3 (henceforth referred to as Python).
-On some operating systems, Python comes pre-installed, in which case entering the command \mintinline{bash}{python --version} or \mintinline{bash}{python3 --version} in a terminal of your choice\footnote{Opening a terminal on Windows: \faWindows\ + R → Type \enquote{cmd} → Enter} should print out the installed Python version.
+Using \pkg{minted} requires a working installation of the programming language Python 3 (henceforth referred to as Python).
+On some operating systems, Python comes pre-installed, in which case entering the command \sh{python --version} or \sh{python3 --version} in a terminal of your choice\footnote{Opening a terminal on Windows: \faWindows\ + R → Type \enquote{cmd} → Enter} should print out the installed Python version.
 
 If Python is yet to be installed, then you can find the installation files on the project website\footnote{Available at \url{https://www.python.org/downloads/}.}.
 There are extensive articles that cover all relevant steps to install Python on 
@@ -26,43 +26,39 @@ Python 3.8.5
 \end{minted}
 
 \noindent If the version number is equal to the one stated here, or higher, then everything should be set up correctly.
-Next, enter the command \mintinline{bash}{pip install Pygments}\footnote{On some operating systems, you might have to use the command \mintinline{bash}{pip3 install Pygments}} in the same terminal window to install the Pygments package for Python.
-Once the installation is complete, you are ready to include the \LaTeX{} package \mintinline{latex}{minted} into your documents by adding \mintinline{latex}{\usepackage{minted}} to your preamble.
+Next, enter the command \sh{pip install Pygments}\footnote{On some operating systems, you might have to use the command \sh{pip3 install Pygments}} in the same terminal window to install the Pygments package for Python.
+Once the installation is complete, you are ready to include the \LaTeX{} package \pkg{minted} into your documents by adding \code{latex}{\textbackslash usepackage\{minted\}} to your preamble.
 
 
 \section{Changing the compiler command}
 There is one last adjustment needed before you can actually compile your documents---we will have to adjust the compile command.
 Out of the box, your editor will probably execute the following command after you clicked the green compile arrow:
 
-\begin{minted}[]{bash}
-$ pdflatex main.tex
-\end{minted}
+\shell{pdflatex main.tex}
 
 \noindent The exact command can be found and configured in \TeX{}studio under Options → Configure \TeX{}studio → Commands.
 It is stated next to the label Pdf\LaTeX{}.
-The file that is to be compiled will replace the placeholder \mintinline{bash}{%.tex} upon compilation.
+The file that is to be compiled will replace the placeholder \sh{\%.tex} upon compilation.
 Additionally, there are typically two additional options configured.
-You can recognize them by the hyphen before their names (\mintinline{bash}{-synctex=1 -interaction=nonstopmode}).
-These options are called flags and configure the program \mintinline{bash}{pdflatex}. 
+You can recognize them by the hyphen before their names (\sh{-synctex=1 -interaction=nonstopmode}).
+These options are called flags and configure the program \sh{pdflatex}. 
 We will have to add another flag.
-Place the string \mintinline{bash}{-shell-escape} before the file placeholder (\mintinline{bash}{%.tex}):
+Place the string \sh{-shell-escape} before the file placeholder (\sh{\%.tex}):
 
-\begin{minted}[]{bash}
-pdflatex -synctex=1 -interaction=nonstopmode -shell-escape %.tex
-\end{minted}
+\shell{pdflatex -synctex=1 -interaction=nonstopmode -shell-escape \%.tex}
 
 \noindent After a click on \enquote{Okay} the configuration is finished.
 Other editors usually provide similar options to configure the compilation command.
 We recommend you to have a look at the settings or to use of a search engine to figure it out.
 
-\paragraph{An important note on the shell-escape flag.} \mintinline{bash}{minted}'s syntax highlighting is done by a Python package, which adds the necessity to communicate between the compiler and the Python runtime.
+\paragraph{An important note on the shell-escape flag.} \pkg{minted}'s syntax highlighting is done by a Python package, which adds the necessity to communicate between the compiler and the Python runtime.
 The shell-escape flag adds this communication path.
 When enabled, \LaTeX{} can execute any command in a terminal, which can be very useful.
 Nonetheless, it would also be possible to execute malign code on your computer via \LaTeX{}, especially when you are compiling unknown documents from the Internet.
 Therefore, do not compile downloaded documents with the shell-escape flag if you do not trust the authors and did not check the packages and commands they include.
 
 \section{Defining listings}
-We are finally ready to marvel at the aesthetic quality of the listings \mintinline{bash}{minted} produces.
+We are finally ready to marvel at the aesthetic quality of the listings \pkg{minted} produces.
 You can define listings using a dedicated environment:
 
 \example{lst:minted-environment}{source-code-listings/minted-environment}{Exemplary source code listing}
@@ -71,7 +67,7 @@ You can define listings using a dedicated environment:
 
 \noindent There is also a shorthand and an inline variant of the command (cf.\ \cref{lst:minted-variants}).
 To avoid redundancy, it may be practical to import source code directly from the source file.
-To accomplish this, we only have to pass the programming language and the file path to the \mintinline{latex}{\inputminted} command (cf.\ \cref{lst:minted-external}).
+To accomplish this, we only have to pass the programming language and the file path to the \code{latex}{\textbackslash inputminted} command (cf.\ \cref{lst:minted-external}).
 
 \example{lst:minted-external}{source-code-listings/minted-import}{Including from a separate file}
 

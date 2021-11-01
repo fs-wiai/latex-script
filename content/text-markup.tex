@@ -3,7 +3,7 @@
 Text markup can be done in two ways: semantically or visually.
 We recommend that you use semantic markup whenever possible.
 In contrast to visual markup, it only states \emph{why} something is special and entrusts to \LaTeX{} \emph{how} it is going to look.
-The simplest semantic markup, that was also used in the previous sentence, is an emphasis: \mintinline{latex}{\emph{…}}.
+The simplest semantic markup, that was also used in the previous sentence, is an emphasis: \code{latex}{\textbackslash emph\{…\}}.
 By default, this command sets text in italics.
 When it is nested, the second level of emphasis is set straight again.
 This kind of formatting is only perceived when reading the text and does not attract attention beforehand, as colored or bold text does (which is more appropriate for higher-level structuring purposes).
@@ -20,14 +20,14 @@ So do not be surprised when your carefully nested selection of four different ma
 		\toprule
 		Markup & Command & Rendering \\
 		\midrule
-		bold & \mintinline{latex}{\textbf{bold face}} & \textbf{bold face} \\
-		italics & \mintinline{latex}{\textit{italics}} & \textit{italics} \\
-		small caps & \mintinline{latex}{\textsc{small caps}} & \textsc{small caps} \\
-		monospaced & \mintinline{latex}{\texttt{typewriter text}} & \texttt{typewriter text} \\
-		slanted & \mintinline{latex}{\textsl{slanted}} & \textsl{slanted} (please, don’t!) \\
-		underlined & \mintinline{latex}{\underline{underlined}} & \underline{underlined} \\
-		subscript & \mintinline{latex}{\textsubscript{subscript}} & x\textsubscript{subscript} \\
-		superscript & \mintinline{latex}{\textsubscript{superscript}} & x\textsuperscript{superscript} \\
+		bold & \code{latex}{\textbackslash textbf\{bold face\}} & \textbf{bold face} \\
+		italics & \code{latex}{\textbackslash textit\{italics\}} & \textit{italics} \\
+		small caps & \code{latex}{\textbackslash textsc\{small caps\}} & \textsc{small caps} \\
+		monospaced & \code{latex}{\textbackslash texttt\{typewriter text\}} & \texttt{typewriter text} \\
+		slanted & \code{latex}{\textbackslash textsl\{slanted\}} & \textsl{slanted} (please, don’t!) \\
+		underlined & \code{latex}{\textbackslash underline\{underlined\}} & \underline{underlined} \\
+		subscript & \code{latex}{\textbackslash textsubscript\{subscript\}} & x\textsubscript{subscript} \\
+		superscript & \code{latex}{\textbackslash textsubscript\{superscript\}} & x\textsuperscript{superscript} \\
 		\bottomrule
 	\end{tabular}
 	\caption{Visual markup commands}
@@ -35,8 +35,8 @@ So do not be surprised when your carefully nested selection of four different ma
 \end{table}
 
 Usually, you should not need these commands too often, as they appear by themselves when you are using semantic markup.
-For instance, the \texttt{hyperref} package provides the \mintinline{latex}{\url{…}} command.
-This command does not only use a monospaced font for \acro{URL}s, it also makes them clickable and, if necessary, wraps them without adding hyphens.
+For instance, the \pkg{hyperref} package provides the \code{latex}{\textbackslash url\{…\}} command.
+This command does not only use a mono-spaced font for \acro{URL}s, it also makes them clickable and, if necessary, wraps them without adding hyphens.
 
 The same applies for different font sizes.
 You can specify the body text font size with an option at the document class:
@@ -53,15 +53,15 @@ For the rest, you can trust the default settings and avoid the visual clutter.
 		\toprule
 		Command & Rendering \\
 		\midrule
-		\mintinline{latex}{{\tiny tiny}} & {\tiny tiny} \\
-		\mintinline{latex}{{\footnotesize footnote size}} & {\footnotesize footnote size} \\
-		\mintinline{latex}{{\small small}} & {\small small} \\
-		\mintinline{latex}{{\normalsize normal}} & {\normalsize normal} \\
-		\mintinline{latex}{{\large large}} & {\large large} \\
-		\mintinline{latex}{{\Large larger}} & {\Large larger} \\
-		\mintinline{latex}{{\LARGE largest}} & {\LARGE largest} \\
-		\mintinline{latex}{{\huge largest of all}} & {\huge largest of all} \\
-		\mintinline{latex}{{\Huge megalomania}} & {\Huge megalomania} \\
+		\code{latex}{\{\textbackslash tiny tiny\}} & {\tiny tiny} \\
+		\code{latex}{\{\textbackslash footnotesize footnote size\}} & {\footnotesize footnote size} \\
+		\code{latex}{\{\textbackslash small small\}} & {\small small} \\
+		\code{latex}{\{\textbackslash normalsize normal\}} & {\normalsize normal} \\
+		\code{latex}{\{\textbackslash large large\}} & {\large large} \\
+		\code{latex}{\{\textbackslash Large larger\}} & {\Large larger} \\
+		\code{latex}{\{\textbackslash LARGE largest\}} & {\LARGE largest} \\
+		\code{latex}{\{\textbackslash huge largest of all\}} & {\huge largest of all} \\
+		\code{latex}{\{\textbackslash Huge megalomania\}} & {\Huge megalomania} \\
 		\bottomrule
 	\end{tabular}
 	\caption{Font size commands}

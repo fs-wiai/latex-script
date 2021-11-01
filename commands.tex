@@ -34,6 +34,54 @@
 	\rule{\widefigurewidth}{0.4pt}
 }
 
+% Shell command
+% ==============
+% Mono-spaced text without syntax highlighting.
+% Intended for full commands. Wrapped by empty lines.
+\newcommand\shell[1]{%
+\vspace{.5cm}
+\noindent \hspace*{-1em}{\color{lightgray}\texttt{\$ }}\texttt{#1}
+\vspace{.5cm}
+}
+
+% Command parts
+% ===================
+% Mono-spaced text without syntax highlighting.
+% Intended for parts of shell commands.
+% Displayed inline.
+\newcommand\sh[1]{%
+	\texttt{#1}%
+}
+
+% Package names
+% =============
+% Mono-spaced text without syntax highlighting.
+% Intended for LaTeX package names.
+\newcommand\pkg[1]{%
+	\texttt{#1}%
+}
+
+% File paths
+% ==========
+% Mono-spaced text without syntax highlighting.
+% Intended for file names and paths.
+\newcommand\file[1]{%
+	\texttt{#1}%
+}
+
+% Inline code
+% ===========
+% Code snippets with syntax highlighting.
+% TODO: Fix special character mess.
+%
+% Arguments:
+% 1. Language.
+% 2. Source code.
+\newcommand\code[2]{%
+	% \mintinline{#1}{#2}
+	\texttt{#2}%
+}
+
 % Simple code examples
 % ====================
 % Box for example code next to the rendered example.
