@@ -80,6 +80,7 @@ _minted*
 *.swo
 
 main.pdf
+listings-mode.tex
 exercise-mode.tex
 public
 exercises/*/*.pdf

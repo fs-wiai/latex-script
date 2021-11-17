@@ -23,6 +23,7 @@ tasks: exercises/**/*
 # Compile a preview PDF containing all contents
 preview: main.tex
 	echo "\newcommand\exercisemode{any}" > exercise-mode.tex
+	echo "\newcommand\listingsmode{minted}" > listings-mode.tex
 	pdflatex -shell-escape main.tex
 	@echo
 	@echo
@@ -43,6 +44,7 @@ publication-dir:
 # Compile a printable PDF without exercises
 publication-pdf-without-exercises: clean publication-dir main.tex
 	echo "\newcommand\exercisemode{none}" > exercise-mode.tex
+	echo "\newcommand\listingsmode{minted}" > listings-mode.tex
 	pdflatex -shell-escape -jobname=script-only main.tex
 	pdflatex -shell-escape -jobname=script-only main.tex
 	pdflatex -shell-escape -jobname=script-only main.tex
@@ -51,6 +53,7 @@ publication-pdf-without-exercises: clean publication-dir main.tex
 # Compile a printable PDF with exercises and without solutions
 publication-pdf-with-exercises: clean publication-dir main.tex
 	echo "\newcommand\exercisemode{exercises}" > exercise-mode.tex
+	echo "\newcommand\listingsmode{minted}" > listings-mode.tex
 	pdflatex -shell-escape -jobname=script-with-exercises main.tex
 	pdflatex -shell-escape -jobname=script-with-exercises main.tex
 	pdflatex -shell-escape -jobname=script-with-exercises main.tex
@@ -59,6 +62,7 @@ publication-pdf-with-exercises: clean publication-dir main.tex
 # Compile a printable PDF with exercises and solutions
 publication-pdf-with-solutions: clean publication-dir main.tex
 	echo "\newcommand\exercisemode{solutions}" > exercise-mode.tex
+	echo "\newcommand\listingsmode{minted}" > listings-mode.tex
 	pdflatex -shell-escape -jobname=script-with-solutions main.tex
 	pdflatex -shell-escape -jobname=script-with-solutions main.tex
 	pdflatex -shell-escape -jobname=script-with-solutions main.tex
