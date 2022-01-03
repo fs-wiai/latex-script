@@ -98,6 +98,44 @@
 	\texttt{#2}%
 }
 
+% Code block 
+% ==========
+% Pastes in a non-inline code block using minted or lstlistings
+% first parameter: programming language
+% path to code file
+
+\lstdefinestyle{latex}{%
+	language=[LaTeX]TeX,
+	breaklines,
+	keywordstyle=\color{ForestGreen}
+}
+\newcommand\codeblock[2]{%
+	\ifthenelse{\equal{\listingsmode}{minted}}{%
+		\inputminted{#1}{#2}
+	}{%
+		\ifthenelse{\equal{#1}{latex}}{%
+		
+			\lstset{language=[LaTeX]TeX, 
+				basicstyle=\footnotesize,
+				breakatwhitespace=false,
+				keywordstyle=\color{ForestGreen}\bfseries,
+				emph={%  
+					subsection, subsubsection, url, includegraphics, toprule, 
+					midrule, bottomrule, cref%
+				},
+				emphstyle={\color{ForestGreen}\bfseries},
+				commentstyle=\color{darkgray}
+			}
+				
+			\lstinputlisting{#2}%
+		}{%
+			\lstset{language=#1}
+			\lstinputlisting{#2}
+			
+		}	
+	}
+}
+
 % Simple code examples
 % ====================
 % Box for example code next to the rendered example.
