@@ -1,7 +1,8 @@
+\newpage
 \section{Using listings}
 
 \subsection{Installation}
-\pkg{listings} is a \LaTeX{} package of itself and does not require any additional installation.
+\pkg{listings} is a \LaTeX{} package of itself and does not require any additional installation as long as the \pkg{xcolor} package is installed as well.
 We can therefore jump straight into typesetting source code.
 
 \subsection{Defining listings}
@@ -22,8 +23,10 @@ Once again, Overleaf and the package documentation\footnote{Available at \url{ht
 
 \subsection{Drawbacks and caveats}
 As mentioned earlier, \pkg{listings} is not our first choice for source code listings.
-Its renderings are of rather peculiar appearance and, unfortunately, it is not shipped with any pre-defined themes.
-This makes configuration rather tedious.\footnote{Speaking of configuration, if you would like to specify your own colors, this page might help you: \url{https://mmoredo.github.io/latex-color-converter/}}
+Its renderings are of rather peculiar appearance. 
 
-The package is also a bit older than its alternative, causing UTF8 special characters to break. 
-If this happens to you, have a look at the \mono{literate} option of the \mono{lstset} command.
+With some amount of configuration, we can overcome the most disturbing default settings.
+Although \pkg{listings} is not shipped with any pre-defined themes, you can define your own and use them throughout your project with the \mono{lstdefinestyle} command.\footnote{Have a look at it in the package documentation. For the very impatient, here is a solarized theme for \pkg{listings}: \url{https://github.com/jez/latex-solarized}}
+
+The package is also a bit older than its alternative, causing \acro{UTF8} special characters to break. 
+If this happens to you, have a look at the \mono{literate} option of the \pkg{listings} commands.

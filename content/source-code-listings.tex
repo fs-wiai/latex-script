@@ -3,8 +3,15 @@
 
 There are many ways in \LaTeX{} to display source code.
 We have come to appreciate the package \pkg{minted}, which causes some additional installation overhead, but generates very appealing source code renderings.
+
 However, especially on macOS, the installation of minted has caused a lot of headache in the early days of this workshop.
 That's why we will also have a look at an alternative called \pkg{lstlistings}.
 
+\paragraph{A note on colors.} Both of these packages require you to define colors. 
+We can recommend using the \pkg{xcolor} package.
+There are very helpful resources\footnote{If you would like to specify your own colors , these pages might help you: \url{https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX} for a list of pre-defined colors in the \pkg{xcolor} package, \url{https://mmoredo.github.io/latex-color-converter/} for defining your own colors} available online such that we will not go into details here.
+
 \input{./content/source-code-listings-minted}
 \input{./content/source-code-listings-listings}
+
+\todo{Are the files minted.done.tex and listings.done.tex available in the solution-free zip? They should not.}
