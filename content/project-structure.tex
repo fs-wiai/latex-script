@@ -19,8 +19,8 @@ The files that are included by the main file do not contain a preamble, since th
 
 Let us now turn to the differences between the two possible commands for including \LaTeX{} files. Briefly summarized, \code{latex}{\textbackslash include} and \code{latex}{\textbackslash input} have differences in the following three aspects: The way in which the path to the file to be included is specified, the possibility of nesting inclusions, and whether a new page is started for each section.
 
-If you use the command \code{latex}{\textbackslash input}, you can specify the file extension \sh{.tex}, but it is not mandatory. It is also possible to nest the inclusion of files: A file included with \code{latex}{\textbackslash input} can in turn include another file with the same command. The files that have been included are inserted in the finished document without starting a new page for the included section (cf. \cref{lst:main-file}).
+If you use the command \code{latex}{\textbackslash input}, you can specify the file extension \mono{.tex}, but it is not mandatory. It is also possible to nest the inclusion of files: A file included with \code{latex}{\textbackslash input} can in turn include another file with the same command. The files that have been included are inserted in the finished document without starting a new page for the included section (cf. \cref{lst:main-file}).
 
 The command \code{latex}{\textbackslash include} behaves differently: Here, the file 
-extension \sh{.tex} \emph{must} be omitted. Nesting of embeddings is not 
+extension \mono{.tex} \emph{must} be omitted. Nesting of embeddings is not 
 possible. Also, a new page is created for each included file.
