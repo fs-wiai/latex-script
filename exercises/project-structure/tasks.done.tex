@@ -1,51 +1,46 @@
 \begin{enumerate}
-  \item 
-       \textbf{Put the sections of the file into separate files, named 
-    	\file{section1.tex}, \file{section2.tex}, and 
-    	\file{section3.tex}. 
-    	Include them using the  \code{latex}{\textbackslash include} command.}
-    \begin{figure}[H]
-      \inputminted[linenos=true]{latex}{exercises/project-structure/main-with-preamble.done.tex}
-      \caption{\mintinline{latex}{main.tex}}
-    \end{figure}
-    \begin{figure}[H]
-      \inputminted[linenos=true,breaklines=true]{latex}{exercises/project-structure/section1.done.tex}
-      \caption{\mintinline{latex}{section1.tex} (analogous for the other 
-      sections)}
-  \end{figure}
-    \item \textbf{Which command becomes superfluous when you use 
-  	\code{latex}{\textbackslash include}?} \\
-  	\code{latex}{\textbackslash include} makes every included file appear on a 
-  	new 
-  	page. Hence the command \code{latex}{\textbackslash newpage} becomes 
-  	superfluous.
-  \item 
-    \textbf{Can the preamble also be excluded? If no, why? If yes, when can 
-    	outsourcing the preamble be useful?} \\
-    The preamble can also be outsourced, like in task 1. In real-world \LaTeX{} 
-    projects we often make use of numerous packages that need to be configured 
-    by additional commands within the preamble. Therefore, it is advisable to 
-    outsource the preamble. On top of that, this is useful because the file 
-    with the most-commonly used packages can be moved from one project to 
-    another without needing to rewrite the preamble every time.
-  \item 
-    \textbf{Add the command \code{latex}{\textbackslash 
-    includeonly\{section2\}} to the 
-    preamble. Compile the document again, and check what has changed. What does 
-    the command do and how can it be helpful in a larger project? } \\
+	\item First one
+	\begin{figure}[H]
+		\codeblock{latex}{exercises/project-structure/main-with-preamble.done.tex}
+		\caption{\file{main.tex}}
+	\end{figure}
+	\item Second one
+	\begin{figure}[H]
+		\codeblock{latex}{exercises/project-structure/section1.done.tex}
+		 \caption{\file{section1.tex} (analogous for the other 
+			sections)}
+	\end{figure}
+ 	\item \textbf{Which command becomes superfluous when you use 
+	\code{latex}{\textbackslash include}?} \\
+	\code{latex}{\textbackslash include} makes every included file appear on a 
+	new page. Hence the command \code{latex}{\textbackslash newpage} becomes 
+	superfluous.
+	
+	\item \textbf{Can the preamble also be excluded? If no, why? If yes, when 
+	can outsourcing the preamble be useful?} 
+
+	 The preamble can also be outsourced, like in task 1. In real-world 
+	 \LaTeX{} projects we often make use of numerous packages that need to be 
+	 configured by additional commands within the preamble. Therefore, it is 
+	 advisable to outsource the preamble. On top of that, this is useful 
+	 because the file with the most-commonly used packages can be moved from 
+	 one project to another without needing to rewrite the preamble every time.
+	 
+	\item 
+	\textbf{Add the command \code{latex}{\textbackslash 
+	includeonly\{section2\}} to the preamble. Compile the document again, and 
+	check what has changed. What does the command do and how can it be helpful 
+	in a larger project? }
+
 	The command \code{latex}{\textbackslash includeonly\{section2\}} does 
-	exactly what 
-	the name already says. During compilation, only the 
-	\code{latex}{\textbackslash include} 
-	statements that contain file names that appear in 
-	\code{latex}{\textbackslash includeonly\{file1,file2, …\}} are included.
+	exactly what the name already says. During compilation, only the 
+	\code{latex}{\textbackslash include} statements that contain file names 
+	that appear in \code{latex}{\textbackslash includeonly\{file1,file2, …\}} 
+	are included.
 	
 	This can be useful for larger projects, when the compile time becomes 
 	longer since by using the \code{latex}{\textbackslash includeonly} only the 
-	files 
-	can be included which we are currently working in. Before the final 
+	files can be included which we are currently working in. Before the final 
 	compilation we can delete the \code{latex}{\textbackslash includeonly} 
-	command and 
-	end up with our complete \acro{PDF}.
-    
+	command and end up with our complete \acro{PDF}.
 \end{enumerate}
