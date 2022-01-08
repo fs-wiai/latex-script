@@ -40,9 +40,7 @@ The language can be passed as an optional parameter, too (cf. \cref{sec:language
 \subsection{Digression: packages}
 \label{sec:packages}
 
-\begin{minted}{latex}
-\usepackage[<options>]{<packagename>}
-\end{minted}
+\codeblock{latex}{listings/basic-document-structure/packages.tex}
 Packages provide additional commands and functionalities that we can use within our \LaTeX{} source code. 
 There are numerous packages for different use cases (e.\,g., typesetting formulas, lists, \textellipsis). 
 In order to use a package, it must be included within the preamble. 
@@ -51,10 +49,7 @@ The most important \LaTeX{} packages can be found in the Comprehensive \TeX\ Arc
 You can also find documentation for the packages there. 
 
 \subsection{Encoding}
-\begin{minted}{latex}
-\usepackage[utf8]{inputenc}
-\usepackage[t1]
-\end{minted}
+\codeblock{latex}{listings/basic-document-structure/encoding.tex}
 One use case for packages is specifying the encoding of our \LaTeX{} document. 
 The character encoding\footnote{cf. \url{https://en.wikipedia.org/wiki/Character_encoding}} determines the available character set.
 The standard encoding in \LaTeX{} is \acro{ASCII}.\footnote{cf. \url{https://en.wikipedia.org/wiki/ASCII}}
@@ -66,9 +61,7 @@ The input encoding (\mono{inputenc}), which refers to our source code, and the f
 \pkg{T1} is an encoding that tries to cover most European languages with a limited number of characters. 
 
 \subsection{Language}\label{sec:language}
-\begin{minted}{latex}
-\usepackage[ngerman]{babel}
-\end{minted}
+\codeblock{latex}{listings/basic-document-structure/language.tex}
 The package \pkg{babel} provides language-specific information (e.\,g., on hyphenation, special characters, changing fonts, translation of labels\footnote{cf. \cref{sec:references}} like \enquote{Chapter,} \enquote{Table of Contents,} or \enquote{Figure.}
 The desired language can be passed as an optional parameter. 
 \pkg{ngerman}, for instance, is used for the new German spelling. 
@@ -80,9 +73,7 @@ To do so, we pass the languages, separated by commas, as an optional parameter t
 Within our document, we can switch between languages with the \code{latex}{\textbackslash selectlanguage\{<language>\}} command. 
 Alternatively, foreign-language text can be declared by using the following command: 
 
-\begin{minted}{latex}
-\foreignlanguage{<language>}{<text>}
-\end{minted}
+\codeblock{latex}{listings/basic-document-structure/foreign-language.tex}
 
 \section{Document environment}
 The actual content of the \acro{PDF} document needs to be put between \code{latex}{\textbackslash begin\{document\}} and \code{latex}{\textbackslash end\{document\}}.
@@ -113,15 +104,12 @@ The commands that are depicted in \cref{lst:headlines} can be used with any docu
 Some document classes provide additional commands. In a \pkg{report}, you get \code{late}{\textbackslash chapter\{Chapter\}}, and in a \pkg{book}, additionally \code{latex}{\textbackslash part\{Part\}}.
 You can mark the command with an asterisk if you want to omit the numbering of a section and exclude it from the table of contents:\footnote{cf. \cref{sec:table-of-contents}}
 
-\begin{minted}{latex}
-\section*{This section is excluded from the table of contents}
-\end{minted}
+\codeblock{latex}{listings/basic-document-structure/section.tex}
 
-An alternative title for the table of contents can be declared as an optional parameter in square brackets between the command and the actual title:
+An alternative title for the table of contents can be declared as an optional 
+parameter in square brackets between the command and the actual title:
 
-\begin{minted}{latex}
-\section[Title in the TOC]{Actual Chapter Title}
-\end{minted}
+\codeblock{latex}{listings/basic-document-structure/title-in-toc.tex}
 
 \subsection{Front matter}
 A simple front matter can be created by using the command \code{latex}{\textbackslash maketitle}. 

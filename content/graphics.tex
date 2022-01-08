@@ -7,19 +7,12 @@ Instead, we reference external image files by a command. The figure is then embe
 \section{Inserting graphics}
 \label{sec:display-graphics}
 In order to be able to reference graphics, the package \texttt{graphicx} has to be included. For inserting a figure, we can use the following commands:
-	
-\begin{minted}[tabsize=4]{latex}
-\begin{figure}
-	\includegraphics{<file path>}
-	\caption[<short title>]{<caption>}
-\end{figure}
-\end{minted}
+
+\codeblock{latex}{listings/graphics/insert-graphics.tex}	
 
 \noindent The command \mono{includegraphics} can be used to change the image size. The desired height and width of the figure can be indicated separately, as illustrated by the following example:
 
-\begin{minted}{latex}
-\includegraphics[width=0.5\textwidth,height=5cm]{<file path>}
-\end{minted}
+\codeblock{latex}{listings/graphics/image-size.tex}
 
 \section{Positioning}
 \label{sec:graphics-placement}
@@ -49,12 +42,7 @@ On top of that, we can limit the positioning of our image more or less rigorousl
 	\label{tbl:placement-abbreviations}
 \end{table}
 
-\begin{minted}[tabsize=4]{latex}
-\begin{figure}[<position shortcut>]
-	\centering
-	\includegraphics{<file path>}
-\end{figure}
-\end{minted}
+\codeblock{latex}{listings/graphics/positioning.tex}
 
 Besides the vertical positioning, also the horizontal orientation may be of importance. 
 By default, graphics are left-justified. 

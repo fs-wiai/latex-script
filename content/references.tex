@@ -33,13 +33,9 @@ For this reason, it is common to insert a prefix before each label (\cref{lst:re
 
 Note that if we use \code{latex}{\textbackslash cref\{<label>\}}\,---\,for some document classes\,---\,the generated passages only appear in the desired language (e.\,g., German) when the language is specified already within the document class command:
 
-\begin{minted}{latex}
-\documentclass[ngerman]{article}
-\end{minted}
+\codeblock{latex}{listings/references/set-language.tex}
 
 	\noindent Except for sections, captions\footnote{\code{latex}{\textbackslash caption\{…\}}} \emph{always need to be specified and positioned before the label}\textit{.} Otherwise, they cannot be referenced later on in the text.
 	Labels for sections are inserted directly after the command:
 
-\begin{minted}{latex}
-\section{Comments}\label{sec:hints}
-\end{minted}
+\codeblock{latex}{listings/references/sections.tex}
