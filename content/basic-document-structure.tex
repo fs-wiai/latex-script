@@ -13,10 +13,9 @@ Let's take a closer look at the preamble.
 A minimal preamble should contain the following specifications: 
 
 \subsection{Document class}\label{sec:document-class}
-We can define a document class by using the command \mintinline[breaklines,breakafter=-,breakaftersymbolpre={}]{latex}|\documentclass[<para-meter>]{<document class>}|. 
-\todo{Wie sollen wir das abbilden?}
+We can define a document class by using the command \code{latex}{\textbackslash documentclass[<para- meter>]\{<document class>\}}.
 The most commonly used document classes that are supported by default are \pkg{article} for short documents, and \pkg{report} for longer ones. 
-Furthermore, you can use \pkg{book} for books, \pkg{beamer}\footnote{We do not cover making presentations in \LaTeX{} in this tutorial. However, if you are interested in the topic, we recommend this introduction on Overleaf: \url{https://www.overleaf.com/learn/latex/Beamer}} for presentations, and \mintinline{latex}{letter}\footnote{We also do not cover letters in this script. An introduction can be found on WikiBooks: \url{https://en.wikibooks.org/wiki/LaTeX/Letters}} for letters.
+Furthermore, you can use \pkg{book} for books, \pkg{beamer}\footnote{We do not cover making presentations in \LaTeX{} in this tutorial. However, if you are interested in the topic, we recommend this introduction on Overleaf: \url{https://www.overleaf.com/learn/latex/Beamer}} for presentations, and \pkg{letter}\footnote{We also do not cover letters in this script. An introduction can be found on WikiBooks: \url{https://en.wikibooks.org/wiki/LaTeX/Letters}} for letters.
 
 In addition to the standard document classes, the \acro{KOMA} script classes have been developed. 
 They provide alternatives to the document classes mentioned above: 
@@ -63,7 +62,7 @@ It is an American character encoding and therefore does not contain German umlau
 Instead, \acro{UTF-8}\footnote{cf. \url{https://en.wikipedia.org/wiki/UTF-8}} can be used as a universal character encoding.
 
 In \LaTeX{}, we need to specify two character encodings: 
-The input encoding (\sh{inputenc}), which refers to our source code, and the font encoding (\sh{fontenc}), which determines what the content of our \acro{PDF} document looks like.\footnote{Details on \sh{fontenc} can be found at: \url{https://tex.stackexchange.com/questions/108417/font-encoding-in-latex}}
+The input encoding (\mono{inputenc}), which refers to our source code, and the font encoding (\mono{fontenc}), which determines what the content of our \acro{PDF} document looks like.\footnote{Details on \mono{fontenc} can be found at: \url{https://tex.stackexchange.com/questions/108417/font-encoding-in-latex}}
 \pkg{T1} is an encoding that tries to cover most European languages with a limited number of characters. 
 
 \subsection{Language}\label{sec:language}
