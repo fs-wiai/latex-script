@@ -1,26 +1,15 @@
-\usemintedstyle{native}
-\definecolor{ourBackgroundColor}{rgb}{0.1,0.1,0.2}
+% Show rendering with respect to the installed software
+\ifthenelse{\equal{\listingsmode}{minted}}{%
+  \subsubsection{Minted rendering}
+  \input{exercises/source-code-listings/minted.done.tex}
+}{%
+  \subsubsection{Listings rendering}
+  \input{exercises/source-code-listings/listings.done.tex}
+}
 
-\inputminted[
-  breaklines,
-  linenos=true,
-  bgcolor=ourBackgroundColor,
-  firstline=5,
-  lastline=7,
-  gobble=4
-]{java}{exercises/source-code-listings/Source.java}
+\subsubsection{Minted solution}
+\codeblock{latex}{./exercises/source-code-listings/minted.done.tex}
 
-\usemintedstyle{default}
-\begin{minted}{latex}
-\usemintedstyle{native}
-\definecolor{ourBackgroundColor}{rgb}{0.1,0.1,0.2}
+\subsubsection{Listings solution}
+\codeblock{latex}{./exercises/source-code-listings/listings.done.tex}
 
-\inputminted[
-  breaklines, % line breaks
-  linenos=true, % line numbers
-  bgcolor=ourBackgroundColor, % background color
-  firstline=5, % first line to be included
-  lastline=7, % last line to be included
-  gobble=4 % remove leading spaces
-]{java}{exercises/source-code-listings/Source.java}
-\end{minted}

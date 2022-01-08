@@ -1,0 +1,32 @@
+\newpage
+\section{Using listings}
+
+\subsection{Installation}
+\pkg{listings} is a \LaTeX{} package of itself and does not require any additional installation as long as the \pkg{xcolor} package is installed as well.
+We can therefore jump straight into typesetting source code.
+
+\subsection{Defining listings}
+Similar to \pkg{minted}, you can define listings using a dedicated environment (cf.\ \cref{lst:listings-environment}) and you can use another command to import source code directly from external files (cf.\ \cref{lst:listings-external}).
+
+\example{lst:listings-environment}{source-code-listings/listings-environment}{Exemplary source code listing}
+\example{lst:listings-external}{source-code-listings/listings-import}{Including from a separate file}
+
+\noindent Both commands need a language specification\footnote{See this guide on Overleaf for a list of all languages: \url{https://www.overleaf.com/learn/latex/Code_listing\#Reference_guide}} as an optional parameter to apply syntax highlighting.
+
+\subsection{Configuring listings}
+The \pkg{listings} package can also be tweaked in an almost infinite number of ways.
+Numerous optional parameters give you a lot of freedom.
+
+Once again, Overleaf and the package documentation\footnote{Available at \url{https://www.overleaf.com/learn/latex/Code_listing\#Code_styles_and_colours} and \url{https://ctan.org/pkg/listings}, respectively.} come in handy.
+
+\example{lst:listings-external-styled}{source-code-listings/listings-import-styled}{Themes and further options}
+
+\subsection{Drawbacks and caveats}
+As mentioned earlier, \pkg{listings} is not our first choice for source code listings.
+Its renderings are of rather peculiar appearance. 
+
+With some amount of configuration, we can overcome the most disturbing default settings.
+Although \pkg{listings} is not shipped with any pre-defined themes, you can define your own and use them throughout your project with the \mono{lstdefinestyle} command.\footnote{Have a look at it in the package documentation. For the very impatient, here is a solarized theme for \pkg{listings}: \url{https://github.com/jez/latex-solarized}}
+
+The package is also a bit older than its alternative, causing \acro{UTF8} special characters to break. 
+If this happens to you, have a look at the \mono{literate} option of the \pkg{listings} commands.
