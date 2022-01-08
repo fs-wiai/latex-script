@@ -104,18 +104,17 @@
 % first parameter: programming language
 % path to code file
 
-\lstdefinestyle{latex}{%
-	language=[LaTeX]TeX,
-	breaklines,
-	keywordstyle=\color{ForestGreen}
+\lstdefinelanguage{latex}{%
+	language=[LaTeX]TeX
 }
+
 \newcommand\codeblock[2]{%
 	\ifthenelse{\equal{\listingsmode}{minted}}{%
 		\inputminted[breaklines]{#1}{#2}
 	}{%
 		\ifthenelse{\equal{#1}{latex}}{%
 		
-			\lstset{language=[LaTeX]TeX, 
+			\lstset{language=#1, 
 				basicstyle=\footnotesize,
 				breaklines=true,
 				keywordstyle=\color{ForestGreen}\bfseries,
