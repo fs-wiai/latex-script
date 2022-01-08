@@ -117,6 +117,22 @@
 	language=[LaTeX]TeX
 }
 
+\lstdefinelanguage{csharp}{%
+	language=[Sharp]C
+}
+
+\lstdefinelanguage{bibtex}
+{keywords={%
+		@article,@book,@collectedbook,@conference,@electronic,@ieeetranbstctl,%
+		@inbook,@incollectedbook,@incollection,@injournal,@inproceedings,%
+		@manual,@mastersthesis,@misc,@patent,@periodical,@phdthesis,@preamble,%
+		@proceedings,@standard,@string,@techreport,@unpublished%
+	},
+	comment=[l][\itshape]{@comment},
+	sensitive=false,
+}
+
+
 \newcommand\codeblock[2]{%
 	\ifthenelse{\equal{\listingsmode}{minted}}{%
 		\inputminted[breaklines]{#1}{#2}
@@ -129,7 +145,10 @@
 				keywordstyle=\color{ForestGreen}\bfseries,
 				emph={%  
 					subsection, subsubsection, url, includegraphics, toprule, 
-					midrule, bottomrule, cref%
+					midrule, bottomrule, cref, setlength, maketitle, 
+					tableofcontents, foreignlanguage, paragraph, subparagraph, 
+					mint, mintinline, inputminted, usemintedstyle, definecolor, 
+					citep, enquote%
 				},
 			  	postbreak=\mbox{{$\hookrightarrow$}\space},
 				emphstyle={\color{ForestGreen}\bfseries},
