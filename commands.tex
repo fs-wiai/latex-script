@@ -126,12 +126,36 @@
 				},
 			  	postbreak=\mbox{{$\hookrightarrow$}\space},
 				emphstyle={\color{ForestGreen}\bfseries},
-				commentstyle=\color{darkgray}
+				commentstyle=\color{darkgray},
+				% Allow special characters in lstlistings.
+				literate=
+				{Ö}{{\"O}}1
+				{Ä}{{\"A}}1
+				{Ü}{{\"U}}1
+				{ß}{{\ss}}2
+				{ü}{{\"u}}1
+				{ä}{{\"a}}1
+				{ö}{{\"o}}1
+				{é}{{\'e}}1
+				{…}{{\textellipsis}}1
 			}
 					\lstinputlisting{#2}%
 %		
 		}{%
-			\lstset{language=#1}
+			\lstset{
+				language=#1,
+				% Allow special characters in lstlistings.
+				literate=
+				{Ö}{{\"O}}1
+				{Ä}{{\"A}}1
+				{Ü}{{\"U}}1
+				{ß}{{\ss}}2
+				{ü}{{\"u}}1
+				{ä}{{\"a}}1
+				{ö}{{\"o}}1
+				{é}{{\'e}}1
+				{…}{{\textellipsis}}1
+			}
 			\lstinputlisting{#2}
 			
 		}	
@@ -170,7 +194,7 @@
 			\colrules
 			% Left content: code listing:
 			\begin{subfigure}{\widefigurewidth}
-				\inputminted[breaklines]{tex}{listings/#2.tex}
+				\codeblock{latex}{listings/#2.tex}
 			\end{subfigure}
 			\hspace{\widefiguregap}
 			% Right content: image or rendered example:
