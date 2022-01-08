@@ -111,23 +111,25 @@
 }
 \newcommand\codeblock[2]{%
 	\ifthenelse{\equal{\listingsmode}{minted}}{%
-		\inputminted{#1}{#2}
+		\inputminted[breaklines]{#1}{#2}
 	}{%
 		\ifthenelse{\equal{#1}{latex}}{%
 		
 			\lstset{language=[LaTeX]TeX, 
 				basicstyle=\footnotesize,
-				breakatwhitespace=false,
+%				breakatwhitespace=false,
+				breaklines=true,
 				keywordstyle=\color{ForestGreen}\bfseries,
 				emph={%  
 					subsection, subsubsection, url, includegraphics, toprule, 
 					midrule, bottomrule, cref%
 				},
+			  	postbreak=\mbox{{$\hookrightarrow$}\space},
 				emphstyle={\color{ForestGreen}\bfseries},
 				commentstyle=\color{darkgray}
 			}
-				
-			\lstinputlisting{#2}%
+					\lstinputlisting{#2}%
+%		
 		}{%
 			\lstset{language=#1}
 			\lstinputlisting{#2}
@@ -135,6 +137,8 @@
 		}	
 	}
 }
+
+
 
 % Simple code examples
 % ====================
