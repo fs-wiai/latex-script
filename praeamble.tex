@@ -36,8 +36,7 @@
 \usepackage{todonotes}
 \usepackage{changes}
 
-% Sourcecode listings
-\usepackage{minted}
+% Source code listings
 \usepackage{listings}
 
 % Quotes (\enquote)
@@ -53,3 +52,11 @@
 \usepackage{changes}
 \definechangesauthor[color=blue, name={Christian}]{C}
 \definechangesauthor[color=purple, name={Florian}]{F}
+
+% Custom commands
+\input{commands.tex}
+
+% Optional: Minted for source code listings
+\ifthenelse{\equal{\listingsmode}{minted}}{%
+  \usepackage{minted}
+}{}
