@@ -34,18 +34,6 @@
 	\rule{\widefigurewidth}{0.4pt}
 }
 
-% Listings mode
-% =============
-% The listings mode can be chosen by writing one of the following to the listings-mode.tex file before compilation:
-% \newcommand\listingsmode{default}   % to use lstlistings
-% \newcommand\listingsmode{minted}    % for a script with exercises only
-% The following lines include that file or make \listingsmode default to 'default' so that any derivatives of this project will work even without the file.
-\IfFileExists{listings-mode.tex}{
-	\input{listings-mode.tex}
-}{
-	\newcommand\listingsmode{default}
-}
-
 % Shell command
 % ==============
 % Mono-spaced text without syntax highlighting.
@@ -148,7 +136,7 @@
 					midrule, bottomrule, cref, setlength, maketitle, 
 					tableofcontents, foreignlanguage, paragraph, subparagraph, 
 					mint, mintinline, inputminted, usemintedstyle, definecolor, 
-					citep, enquote%
+					citep, enquote, lstinputlisting%
 				},
 			  	postbreak=\mbox{{$\hookrightarrow$}\space},
 				emphstyle={\color{ForestGreen}\bfseries},

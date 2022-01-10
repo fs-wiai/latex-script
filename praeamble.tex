@@ -38,6 +38,7 @@
 
 % Source code listings
 \usepackage{listings}
+\ifthenelse{\equal{\listingsmode}{minted}}{\usepackage{minted}}{}
 
 % Quotes (\enquote)
 \usepackage[autostyle,autopunct=false]{csquotes}
@@ -52,11 +53,3 @@
 \usepackage{changes}
 \definechangesauthor[color=blue, name={Christian}]{C}
 \definechangesauthor[color=purple, name={Florian}]{F}
-
-% Custom commands
-\input{commands.tex}
-
-% Optional: Minted for source code listings
-\ifthenelse{\equal{\listingsmode}{minted}}{%
-  \usepackage{minted}
-}{}
