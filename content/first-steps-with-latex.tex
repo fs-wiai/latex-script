@@ -31,15 +31,19 @@ Any editor will do (notepad++, Atom, VS Code, etc.).
 However, for beginners, we do recommend using a program that supports you with \LaTeX-specific features.
 One of these programs is \TeX{}studio.\footnote{You find the latest version on \url{https://www.texstudio.org/}.}
 
-\section*{Changing the compiler command}
-\todo{Refactor after the code inclusion part is redone.}
-To prevent errors during the compilation of our document, you have to change the compiler command.
-In \TeX{}studio, click on the \emph{Options} button and then on \emph{Configure \TeX{}studio \textellipsis}\todo{Add the correct steps for Mac (these don’t apply)}.
-A new window will open up.
-Navigate to the \emph{Commands} area, and, next to \sh{pdflatex}, add the flag \sh{-shell-escape}.
-In other words: The command for \sh{pdflatex} should look like this:
-
-\shell{pdflatex -synctex=1 -interaction=nonstopmode -shell-escape \%.tex}
+%\section*{Changing the compiler command}
+%\todo{Refactor after the code inclusion part is redone.}
+%To prevent errors during the compilation of our document, you have to change 
+%the compiler command.
+%In \TeX{}studio, click on the \emph{Options} button and then on 
+%\emph{Configure \TeX{}studio \textellipsis}\todo{Add the correct steps for Mac 
+%(these don’t apply)}.
+%A new window will open up.
+%Navigate to the \emph{Commands} area, and, next to \sh{pdflatex}, add the flag 
+%\sh{-shell-escape}.
+%In other words: The command for \sh{pdflatex} should look like this:
+%
+%\shell{pdflatex -synctex=1 -interaction=nonstopmode -shell-escape \%.tex}
 
 \section*{Compiling for the first time}
 Open up the file \file{main.tex} in the root directory of the project and compile it by pressing \faForward. 
