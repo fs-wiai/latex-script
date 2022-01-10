@@ -71,7 +71,7 @@ publication-pdf-with-solutions: clean publication-dir main.tex
 # Build a ZIP file with tasks and without solutions
 publication-zip-with-exercises: clean publication-dir main.tex
 	rm -rf temp/*
-	cp --parents main.tex praeamble.tex commands.tex setup.tex content/* graphics/* listings/**/*.{tex,pdf,bib,java} temp/
+	cp --parents main.tex praeamble.tex commands.tex setup.tex content/* graphics/* listings/**/*.{tex,pdf,bib,java,txt} temp/
 	cp --parents exercises/**/* temp/
 	rm -f temp/exercises/**/*.done.{tex,bib}
 	rm -f temp/exercises/**/*.rend.tex
@@ -82,7 +82,7 @@ publication-zip-with-exercises: clean publication-dir main.tex
 # Build a ZIP file with tasks and solutions
 publication-zip-with-solutions: clean publication-dir main.tex
 	rm -rf temp/*
-	cp --parents main.tex praeamble.tex commands.tex setup.tex content/* graphics/* listings/**/*.{tex,pdf,bib,java} temp/
+	cp --parents main.tex praeamble.tex commands.tex setup.tex content/* graphics/* listings/**/*.{tex,pdf,bib,java,txt} temp/
 	cp --parents exercises/**/* temp/
 	rm -f temp/exercises/**/*.raw.{tex,bib}
 	find temp/ -name '*.done.*' -exec bash -c 'sed "s/\.done\./\./g" <<<{} | xargs mv {}' \;
