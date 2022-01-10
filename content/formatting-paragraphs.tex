@@ -24,13 +24,7 @@ Usually, we illustrate a new paragraph by indenting the first line of it
 Alternatively, paragraph spacing, i.\,e., vertical space between paragraphs, 
 can be used (\code{latex}{\textbackslash parskip}).
 For both variants, there are adjustable parameters:
-\begin{minted}{tex}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{1em
-    plus .5em   % admissible stretch
-    minus .5em  % admissible shrink
-}
-\end{minted}
+\codeblock{latex}{listings/formatting-paragraphs/indentation.tex}
 
 \noindent We can use \code{latex}{\textbackslash noindent} to turn off the indentation for only one 
 paragraph. 

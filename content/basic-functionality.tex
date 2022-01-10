@@ -64,9 +64,8 @@ Unfortunately, we cannot take away the decision if you would rather wait for the
 \section{The commands}
 \label{subsec:command-structure}
 The commands used in source code follow a general structure:
-\begin{minted}{xml}
-\<command>[<optional_parameters>]{<mandatory_parameters>}
-\end{minted}
+\codeblock{xml}{listings/basic-functionality/command-structure.xml}
+
 A command can use several optional and/or mandatory parameters. 
 Some commands have no mandatory parameters at all. 
 Some examples are shown in \cref{tbl:latex-commands}.
@@ -92,10 +91,9 @@ Some examples are shown in \cref{tbl:latex-commands}.
 If a command allows multiple optional parameters that accept similar inputs, it is sometimes necessary to specify which parameter is meant. 
 For example, the command for embedding graphics accepts optional parameters for width and height. 
 If \mono{[12cm, 4cm]} were entered, it would be unclear which value is intended for which parameter. 
-To make the assignment more concrete, it is possible to specify the parameters explicitly:
-\begin{minted}{tex}
-\includegraphics[width=12cm, height=4cm]{picture.png}
-\end{minted}
+To make the assignment more concrete, it is possible to specify the parameters 
+explicitly:
+\codeblock{latex}{listings/basic-functionality/parameters.tex}
 
 As the examples already show, many different commands can be used. 
 Some are intended for use in mathematical formulas, others allow the inclusion of graphics. 
