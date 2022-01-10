@@ -37,8 +37,8 @@
 \usepackage{changes}
 
 % Sourcecode listings
-\usepackage{minted}
 \usepackage{listings}
+\ifthenelse{\equal{\listingsmode}{minted}}{\usepackage{minted}}{}
 
 % Quotes (\enquote)
 \usepackage[autostyle,autopunct=false]{csquotes}
