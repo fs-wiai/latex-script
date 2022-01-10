@@ -15,10 +15,7 @@ or macOS.\footnote{\url{https://docs.python-guide.org/starting/install3/osx/}}
 
 After a successful installation, you should be able to execute the aforementioned command in a terminal, confirm by pressing Enter, and see approximately the following result: 
 
-\begin{minted}[]{bash}
-$ python --version
-Python 3.8.5
-\end{minted}
+\codeblock{bash}{listings/source-code-listings/python-version.txt}
 
 \noindent If the version number is equal to the one stated here, or higher, then everything should be set up correctly.
 Next, enter the command \sh{pip install Pygments}\footnote{On some operating systems, you might have to use the command \sh{pip3 install Pygments}} in the same terminal window to install the Pygments package for Python.
@@ -56,19 +53,43 @@ Therefore, do not compile downloaded documents with the shell-escape flag if you
 We are finally ready to marvel at the aesthetic quality of the listings \pkg{minted} produces.
 You can define listings using a dedicated environment:
 
-\example{lst:minted-environment}{source-code-listings/minted-environment}{Exemplary source code listing}
+% Render listing directly, if minted is available.
+% Otherwise, include pre-rendered images.
+\ifthenelse{\equal{\listingsmode}{minted}}{%
+  \example{lst:minted-environment}{source-code-listings/minted-environment}{Exemplary source code listing}
+  }{%
+  \Example{lst:minted-environment}{source-code-listings/minted-environment}{source-code-listings/minted-environment_crop}{Exemplary source code listing}
+}
 
-\example{lst:minted-variants}{source-code-listings/minted-variants}{Shorthand and inline listing}
+% Render listing directly, if minted is available.
+% Otherwise, include pre-rendered images.
+\ifthenelse{\equal{\listingsmode}{minted}}{%
+  \example{lst:minted-variants}{source-code-listings/minted-variants}{Shorthand and inline listing}
+  }{%
+  \Example{lst:minted-variants}{source-code-listings/minted-variants}{source-code-listings/minted-variants_crop}{Shorthand and inline listing}
+}
 
 \noindent There is also a shorthand and an inline variant of the command (cf.\ \cref{lst:minted-variants}).
 To avoid redundancy, it may be practical to import source code directly from the source file.
 To accomplish this, we only have to pass the programming language and the file path to the \code{latex}{\textbackslash inputminted} command (cf.\ \cref{lst:minted-external}).
 
-\example{lst:minted-external}{source-code-listings/minted-import}{Including from a separate file}
+% Render listing directly, if minted is available.
+% Otherwise, include pre-rendered images.
+\ifthenelse{\equal{\listingsmode}{minted}}{%
+  \example{lst:minted-external}{source-code-listings/minted-import}{Including from a separate file}
+  }{%
+  \Example{lst:minted-external}{source-code-listings/minted-import}{source-code-listings/minted-import_crop}{Including from a separate file}
+}
 
 \subsection{Configuring minted}
 Optional parameters allow us to add line numbers, line breaks, and colors.
 Moreover, there are numerous themes available (\cref{lst:minted-external-styled}).
 The introduction on Overleaf and the package documentation\footnote{Available at \url{https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted} and \url{https://ctan.kako-dev.de/macros/latex/contrib/minted/minted.pdf}, respectively.} give an extensive overview.
 
-\example{lst:minted-external-styled}{source-code-listings/minted-import-styled}{Themes and further options}
+% Render listing directly, if minted is available.
+% Otherwise, include pre-rendered images.
+\ifthenelse{\equal{\listingsmode}{minted}}{%
+  \example{lst:minted-external-styled}{source-code-listings/minted-import-styled}{Themes and further options}
+  }{%
+  \Example{lst:minted-external-styled}{source-code-listings/minted-import-styled}{source-code-listings/minted-import-styled_crop}{Themes and further options}
+}

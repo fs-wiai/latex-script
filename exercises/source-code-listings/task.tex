@@ -30,4 +30,8 @@ If you have questions, consult the \pkg{minted} or \pkg{listings} package docume
 \end{enumerate}
 
 \exercisematerial{exercises/source-code-listings/source-code-listings}
-\usemintedstyle{} % Reset experiments from exercise material
+
+% Reset experiments from exercise material if minted is used
+\ifthenelse{\equal{\listingsmode}{minted}}{%
+  \usemintedstyle{} 
+}{}

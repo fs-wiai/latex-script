@@ -1,0 +1,15 @@
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{minted}
+\begin{document}
+\thispagestyle{empty}
+
+\usemintedstyle{monokai}
+\definecolor{bg}{rgb}{0.1,0.1,0.2}
+\inputminted[
+  breaklines=true,
+  bgcolor=bg
+]{java}{Test.java}
+
+\end{document}

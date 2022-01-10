@@ -2,22 +2,30 @@
 for D in listings/*; do
     if [ -d "${D}" ]; then
 			# Compile without cropping.
+			# References to other files are interpreted relative to the
+			# root directory.
     	for F in ${D}/*_page.tex; do
     		if [ -f "${F}" ]; then
 					echo "###### Compiling ${F} ######"
-    			pdflatex --output-directory "${D}" "${F}"
+    			pdflatex --shell-escape --output-directory "${D}" "${F}"
 		    fi
 	    done
 			# Compile with cropping.
+			# Careful: References to other files are interpreted relative
+			# to the file, not to the root directory.
 	    for F in ${D}/*_crop.tex; do
 	    	if [ -f "${F}" ]; then
 	    		echo "###### Compiling and cropping ${F} ######"
-	    		pdflatex --output-directory "${D}" "${F}"
-	    		pdfcrop "${D}/$(basename -s .tex ${F}).pdf" \
-	    				"${D}/$(basename -s .tex ${F}).pdf"
+					pushd "${D}"
+	    		pdflatex --shell-escape "$(basename $F)"
+	    		pdfcrop "$(basename -s .tex ${F}).pdf" \
+	    				"$(basename -s .tex ${F}).pdf"
+					popd
 	    	fi
 	    done
 			# Compile with BibTeX and cropping.
+			# References to other files are interpreted relative to the
+			# root directory.
 			for F in ${D}/*_bib.tex; do
 	    	if [ -f "${F}" ]; then
 	    		echo "###### Compiling and cropping ${F} ######"
