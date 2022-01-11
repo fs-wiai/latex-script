@@ -62,7 +62,7 @@
 		\texttt{#1}%
 	}{%
 		\texttt{#1}%
-	}
+	}%
 }
 
 % File paths
@@ -128,7 +128,7 @@
 		\ifthenelse{\equal{#1}{latex}}{%
 		
 			\lstset{language=#1, 
-				basicstyle=\footnotesize,
+				basicstyle=\footnotesize\ttfamily,
 				breaklines=true,
 				keywordstyle=\color{ForestGreen}\bfseries,
 				emph={%  

@@ -2,7 +2,7 @@
 
 \subsection{Installation}
 Using \pkg{minted} requires a working installation of the programming language Python 3 (henceforth referred to as Python).
-On some operating systems, Python comes pre-installed, in which case entering the command \sh{python --version} or \sh{python3 --version} in a terminal of your choice\footnote{Opening a terminal on Windows: \faWindows\ + R → Type \enquote{cmd} → Enter} should print out the installed Python version.
+On some operating systems, Python comes pre-installed, in which case entering the command \sh{python -{}-version} or \sh{python3 -{}-version} in a terminal of your choice\footnote{Opening a terminal on Windows: \faWindows\ + R → Type \enquote{cmd} → Enter} should print out the installed Python version.
 
 If Python is yet to be installed, then you can find the installation files on the project website\footnote{Available at \url{https://www.python.org/downloads/}.}.
 There are extensive articles that cover all relevant steps to install Python on 
@@ -15,7 +15,7 @@ or macOS.\footnote{\url{https://docs.python-guide.org/starting/install3/osx/}}
 
 After a successful installation, you should be able to execute the aforementioned command in a terminal, confirm by pressing Enter, and see approximately the following result: 
 
-\shell{python $--$version \\ Python 3.8.5}
+\shell{python -{}-version \\ Python 3.8.5}
 
 \noindent If the version number is equal to the one stated here, or higher, then everything should be set up correctly.
 Next, enter the command \sh{pip install Pygments}\footnote{On some operating systems, you might have to use the command \sh{pip3 install Pygments}} in the same terminal window to install the Pygments package for Python.
@@ -28,11 +28,11 @@ Out of the box, your editor will probably execute the following command after yo
 
 \shell{pdflatex main.tex}
 
-\noindent The exact command can be found and configured in \TeX{}studio under Options → Configure \TeX{}studio → Commands.
+\noindent The exact command can be found and configured in \TeX{}studio under Options\,→\,Configure \TeX{}studio\,→\,Commands.
 It is stated next to the label Pdf\LaTeX{}.
 The file that is to be compiled will replace the placeholder \sh{\%.tex} upon compilation.
-Additionally, there are typically two additional options configured.
-You can recognize them by the hyphen before their names (\sh{-synctex=1 -interaction=nonstopmode}).
+Typically, there are two additional options configured.
+You can recognize them by the hyphen before their names (\sh{-synctex=1} and \sh{-interaction=\allowbreak{}nonstopmode}).
 These options are called flags and configure the program \sh{pdflatex}. 
 We will have to add another flag.
 Place the string \sh{-shell-escape} before the file placeholder (\sh{\%.tex}):
