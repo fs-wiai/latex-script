@@ -5,7 +5,7 @@ There are many ways in \LaTeX{} to display source code.
 We have come to appreciate the package \pkg{minted}, which causes some additional installation overhead, but generates very appealing source code renderings.
 
 However, especially on macOS, the installation of minted has caused a lot of headache in the early days of this workshop.
-That's why we will also have a look at an alternative called \pkg{lstlistings}.
+That's why we will also have a look at an alternative called \pkg{lstlistings}. 
 
 \paragraph{A note on colors.} Both of these packages require you to define colors. 
 We can recommend using the \pkg{xcolor} package.
@@ -13,3 +13,11 @@ There are very helpful resources\footnote{If you would like to specify your own 
 
 \input{./content/source-code-listings-minted}
 \input{./content/source-code-listings-listings}
+
+\section{Source code listings within this script}
+
+This script uses the package \pkg{listings} as default way for displaying source code listings, since, as mentioned above, it causes less installation overhead and headache, especially on macOS. As we introduced \pkg{minted} as an alternative package, naturally, this script can also display source code listings rendered by \pkg{minted}. If you want to experience more appealing source code renderings, you can change the listings mode to \pkg{minted} like so: First of all, follow the respective installation instructions. Afterwards, create a new file, called \file{listings-mode.tex}, in the root directory of this project, and insert the following command into the newly created file: 
+
+\codeblock{latex}{./listings/source-code-listings/change-listings-mode.tex}
+
+After compiling the script, you should see differently rendered source code listings. If you want to return to \pkg{listings} as package for rendering your source code listings, just replace \sh{minted} with \sh{default} in the \file{listings-mode.tex} file. Source code listings within this script are then displayed using the \pkg{listings} package again.
