@@ -5,52 +5,34 @@
 \chapter*{First steps with \LaTeX}
 \addcontentsline{toc}{section}{First steps with \LaTeX}
 
-This script serves as a short reference on handling \LaTeX{} and as exercise material for the \LaTeX{} workshop of the Fachschaft \acro{WIAI}.
-Many tasks require you to modify the script on your own.
-The project material with all of the source files and the latest version of this script can be found on Github.\footnote{\url{https://github.com/fs-wiai/latex-script/releases}}
+This script serves as a short \LaTeX{} reference and as exercise material for the Fachschaft \acro{WIAI} \LaTeX{} workshop.
+All of the source files and the latest version of this script can be found on Github.\footnote{\url{https://github.com/fs-wiai/latex-script/releases}}
 
-Before we can dive into \LaTeX{}, we will obviously have to install it.
-We will also need to do some configuration to be able to work with this project.
-All of this will be explained in more detail in the following chapters.
-Bit by bit, you will get an understanding of how to work with \LaTeX{}.
-For now, just follow our instructions.
+The following instructions will equip you with the programs necessary to create documents with \LaTeX{}---they will be explained in the following chapters.
 Please, make sure to install the \emph{compiler first} and the \emph{editor afterwards}\textit{.}
 
 \section*{Compiler}
 Let’s start with the compiler.
 (Seriously!)
-We will need it to convert the source code that we are going to write into a \acro{PDF}.
+We will need it to convert our \LaTeX{} documents into \acro{PDF}s.
 There are different compilers for different operating systems;
-for example, MikTeX for Windows,\footnote{\url{https://miktex.org/download}} Mac\TeX{} for macOS,\footnote{\url{http://tug.org/mactex/}} and \TeX{}Live for Linux distributions.\footnote{If you are using a Debian-based Linux distribution, you can install the compiler by executing \sh{sudo apt install texlive-full}
-For other distributions, you find instructions on \url{https://tug.org/texlive/doc/texlive-en/texlive-en.html\#installation}.}
+for example, MikTeX for Windows,\footnote{\url{https://miktex.org/download}} Mac\TeX{} for macOS,\footnote{\url{http://tug.org/mactex/}} and \TeX{}Live for Linux distributions.\footnote{On Debian-based Linux distributions, install the compiler by executing \sh{sudo apt install texlive-full.}
+For other distributions, see \url{https://tug.org/texlive/doc/texlive-en/texlive-en.html\#installation}.}
 In case you get to choose, it is best to install the full version with all packages.
 
 \section*{Editor}
 As soon as you have installed the compiler, you can download an editor that you are going to use to write your \LaTeX{} documents.
 Any editor will do (notepad++, Atom, VS Code, etc.).
-However, for beginners, we do recommend using a program that supports you with \LaTeX-specific features.
-One of these programs is \TeX{}studio.\footnote{You find the latest version on \url{https://www.texstudio.org/}.}
-
-%\section*{Changing the compiler command}
-%\todo{Refactor after the code inclusion part is redone.}
-%To prevent errors during the compilation of our document, you have to change 
-%the compiler command.
-%In \TeX{}studio, click on the \emph{Options} button and then on 
-%\emph{Configure \TeX{}studio \textellipsis}\todo{Add the correct steps for Mac 
-%(these don’t apply)}.
-%A new window will open up.
-%Navigate to the \emph{Commands} area, and, next to \sh{pdflatex}, add the flag 
-%\sh{-shell-escape}.
-%In other words: The command for \sh{pdflatex} should look like this:
-%
-%\shell{pdflatex -synctex=1 -interaction=nonstopmode -shell-escape \%.tex}
+However, for beginners, we recommend using \TeX{}studio.\footnote{You find the latest version on \url{https://www.texstudio.org/}.}, a program that supports you with \LaTeX-specific features.
 
 \section*{Compiling for the first time}
-Open up the file \file{main.tex} in the root directory of the project and compile it by pressing \faForward. 
-Looking at the directory in your file explorer, you should see a few new files.
-The \file{main.pdf} file contains the compiled document.
-The other files are auxiliary files that the compiler uses, for example, to generate the table of contents.
-You are now ready to go!
+Open up the file \file{main.tex} in \TeX{}studio. 
+It can be found in our project directory.
+By pressing \faForward, it is converted into a a file called \file{main.pdf}.
+You should be able to find the latter by looking at the project directory in your file explorer.
+If your installation is not working yet, \TeX{}studio will show you an error message.
+Feel free to contact us in this case.\footnote{Find us at \url{https://www.uni-bamberg.de/wiai/fs}.}
+Otherwise, you are now ready to go!
 
 \newpage
 \nopagecolor
