@@ -29,11 +29,11 @@ Out of the box, your editor will probably execute the following command after yo
 \shell{pdflatex main.tex}
 
 \noindent The exact command can be found and configured in \TeX{}studio under Options\,→\,Configure \TeX{}studio\,→\,Commands.
-It is stated next to the label Pdf\LaTeX{}.
+It is stated next to the Pdf\LaTeX{} label.
 The file that is to be compiled will replace the placeholder \sh{\%.tex} upon compilation.
 Typically, there are two additional options configured.
 You can recognize them by the hyphen before their names (\sh{-synctex=1} and \sh{-interaction=\allowbreak{}nonstopmode}).
-These options are called flags and configure the program \sh{pdflatex}. 
+These options are called flags and they configure the program \sh{pdflatex}. 
 We will have to add another flag.
 Place the string \sh{-shell-escape} before the file placeholder (\sh{\%.tex}):
 
