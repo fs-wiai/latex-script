@@ -1,26 +1,25 @@
 \chapter{Project structure}
 \label{sec:project-structure}
 
-In the previous chapters, we have only seen very short \LaTeX{} examples. \LaTeX{} can of course also be used to create larger documents and projects, such as a thesis. 
-In order not to lose the overview in the source code and to avoid that source files become too long, a reasonable structuring of a larger \LaTeX{} project is advisable. For this purpose, the source code is divided into different files, which will be discussed in more detail in the following sections.
+In the previous chapters, we have only seen very short \LaTeX{} examples. 
+\LaTeX{} can of course also be used to create larger documents and projects, such as a thesis. 
+In order not to lose the overview in the source code and to avoid that source files become too long, a reasonable structuring of a larger \LaTeX{} project is advisable.
+For this purpose, the source code is divided into different files, which will be discussed in more detail in the following sections.
 
 \section{Main file}
 
-In large projects, we typically use one main file, which is often called \file{main.tex}. It is, in a sense, the structural skeleton of the project, as it contains the basic structure including the preamble. The title, table of contents, as well as the individual chapters of a work are integrated in this main file (cf.\ \cref{lst:main-file}). The inclusion of the individual sections can be done either by \code{latex}{\textbackslash input\{...\}} or \code{latex}{\textbackslash include\{\textellipsis\}}. Both require the path to the file to be included as an argument. We will discuss the differences between the two commands later (see \cref{sec:input-vs-include}).
+In large projects, we typically use one main file, which is often called \file{main.tex}. 
+It is, in a sense, the structural skeleton of the project, as it contains the basic structure including the preamble. 
+The title, table of contents, as well as the individual chapters of a work are integrated in this main file (cf.\ \cref{lst:main-file}). 
+The inclusion of the individual sections is typically done by the \code{latex}{\textbackslash input\{...\}} command
+\footnote{There exists another command called \code{latex}{\textbackslash include\{\textellipsis\}} that works slightly differently. It requires you to specify the file to be included without a file extension. Besides this, a line break is added before the content of the partial file. Lastly, you cannot nest \code{latex}{\textbackslash include\{\textellipsis\}} statements. When you try to include a file that also includes a file, a compiler error will be thrown. \code{latex}{\textbackslash input\{\textellipsis\}} on the other hand is capable of such nested imports. In this script, we will present the \code{latex}{\textbackslash input\{\textellipsis\}} command only.}
+with the file to be included as an argument.
 
 \example{lst:main-file}{project-structure/main-file}{Typical structure in a main file \LaTeX{}}
 
-\section{Section files}
-Section files are files that are included within the main file. In a thesis, for example, these can be individual chapters. You are free to decide how granular the division of the content into individual files should be.
-The files that are included by the main file do not contain a preamble, since this is already present in the main file. Neither do the commands \code{latex}{\textbackslash begin\{document\}} and \code{latex}{\textbackslash end\{document\}} appear again.
-
-\section{Input or include?}
-\label{sec:input-vs-include}
-
-Let us now turn to the differences between the two possible commands for including \LaTeX{} files. Briefly summarized, \code{latex}{\textbackslash include} and \code{latex}{\textbackslash input} have differences in the following three aspects: The way in which the path to the file to be included is specified, the possibility of nesting inclusions, and whether a new page is started for each section.
-
-If you use the command \code{latex}{\textbackslash input}, you can specify the file extension \mono{.tex}, but it is not mandatory. It is also possible to nest the inclusion of files: A file included with \code{latex}{\textbackslash input} can in turn include another file with the same command. The files that have been included are inserted in the finished document without starting a new page for the included section (cf. \cref{lst:main-file}).
-
-The command \code{latex}{\textbackslash include} behaves differently: Here, the file 
-extension \mono{.tex} \emph{must} be omitted. Nesting of embeddings is not 
-possible. Also, a new page is created for each included file.
+\section{Partial files}
+Partial files are files that are included within another file, most often the main file.
+In a thesis, for example, these can represent individual chapters.
+You are free to decide how granular the division of the content into individual files should be.
+The files that are included by the main file do not contain a preamble, since this is already present in the main file.
+Neither do the commands \code{latex}{\textbackslash begin\{document\}} and \code{latex}{\textbackslash end\{document\}} appear again.
