@@ -28,11 +28,11 @@ as shown in \cref{tbl:bars}.
 
 \begin{longtable}{@{}llp{7.8cm}@{}}
 	\toprule
-	Code       & Character            & Usage \\
+	Code                  & Character            & Usage \\
 	\midrule
-	\code{latex}{-}   & Hyphen  & a small-sized stroke \\
-	\code{latex}{--}  & En dash & a range mark (8\,--\,10\,am) or an interruptor at sentence level – the latter surrounded by spaces and used in most European languages (including British English) \\
-	\code{latex}{---} & Em dash & an interrupter at sentence level\,---\,mostly used in American English and without or with thin spaces \\
+	\code{latex}{-}       & Hyphen  & a small-sized stroke \\
+	\code{latex}{-{}-}    & En dash & a range mark (8\,--\,10\,am) or an interruptor at sentence level – the latter surrounded by spaces and used in most European languages (including British English) \\
+	\code{latex}{-{}-{}-} & Em dash & an interrupter at sentence level\,---\,mostly used in American English and without or with thin spaces \\
 	\bottomrule
 	\caption{Hyphens and dashes in \LaTeX}
 	\label{tbl:bars}
@@ -42,17 +42,18 @@ The hyphen is obviously also used for hyphenation, but for this purpose, we shou
 In most places, \LaTeX{} does the hyphenation automatically if we are using the correct \texttt{babel} configuration.\footnote{c.\,f. \cref{sec:language}.}
 In case something goes wrong, we can intervene using the codes from \cref{tbl:separators}:\footnote{Those also require the \texttt{babel} package.}
 
-\begin{longtable}{@{}lp{11cm}@{}}
+\setlength\LTleft{-2cm}
+\begin{longtable}{@{}lp{8cm}p{3cm}p{3cm}@{}}
 	\toprule
-	Code      & Explanation \\
+	Code      & Explanation & English example & German example \\
 	\midrule
 	\endhead
-	\code{latex}{\textbackslash -} & Exclusive hyphenation: The word may only be hyphenated at this position (can also be used multiple times within one word\,---\,all of those positions are then allowed). \\
-	\code{latex}{"-} & Additional hyphenation: The word may be hyphenated here, as well as at the default positions. \\
-	\code{latex}{-}  & Exclusive hyphen: Is only used for compound words and prevents the automatic hyphenation for the rest of the word (which is typographically desirable). \\
-	\code{latex}{"=} & Non-exclusive hyphen: Is used for long compound words when the text wrapping would not work without additional automatic hyphenation. \\
-	\code{latex}{""} & Cut-off point without a hyphen: Allows something like a \acro{url} to wrap without inserting a potentially misleading hyphen. \\
-	\code{latex}{"~} & Non-wrapping hyphen: Keeps the hyphen together with the following word, very useful in German: \foreignlanguage{ngerman}{\emph{Vorlesungszeit und "~raum}} \\
+	\code{latex}{\textbackslash -} & Exclusive hyphenation: The word may only be hyphenated at this position (can also be used multiple times within one word\,---\,all of those positions are then allowed). & & $\qquad\qquad\qquad$~Vers\-endung, Ver\-sendung \\
+	\code{latex}{"-} & Additional hyphenation: The word may be hyphenated here, as well as at the default positions. & & $\qquad\quad$~Mecklen- burg-Vorpommern \\
+	\code{latex}{-}  & Exclusive hyphen: Is only used for compound words and prevents the automatic hyphenation for the rest of the word (which is typographically desirable). & $\qquad\qquad\quad$~stand-by & Hals-Nasen-Ohren-Arzt \\
+	\code{latex}{"=} & Non-exclusive hyphen: Is used for long compound words when the text wrapping would not work without additional automatic hyphenation. & & $\qquad\qquad$~Sonnen-auf- und -untergang \\
+	\code{latex}{""} & Cut-off point without a hyphen: Allows something like a \acro{url} to wrap without inserting a potentially misleading hyphen. Also useful in combination with parentheses. & $\qquad\qquad$~(sub-) module & $\qquad\qquad$~(Teil-) Prüfung \\
+	\code{latex}{"~} & Non-wrapping hyphen: Keeps the hyphen together with the following word, very useful for suspended hyphens when parts of compound words are omitted. & high-quality and \mbox{-priced products} & von Satzanfang bis \mbox{-ende} \\ % cannot be reproduced without german babel
 	\bottomrule
 	\caption{Exceptions for hyphenation}
 	\label{tbl:separators}
