@@ -1,10 +1,10 @@
 \begin{enumerate}
 	\item 
-	 \textbf{Put the sections of the file into separate files, named 
-	 \file{section1.tex}, \file{section2.tex}, and \file{section3.tex} and insert them using the} \code{latex}{\textbackslash input} \textbf{command. (In TeXstudio, make sure that you select the main file as the file to be compiled by right-clicking on it and selecting \enquote{Select as explicit root document.})}
+	 Put the sections of the file into separate files, named 
+	 \file{section1.tex}, \file{section2.tex}, and \file{section3.tex} and insert them using the \code{latex}{\textbackslash input} command. (In TeXstudio, make sure that you select the main file as the file to be compiled by right-clicking on it and selecting \enquote{Select as explicit root document.})
 		
 	\begin{figure}[H]
-		\codeblock{latex}{exercises/project-structure/main-with-preamble.done.tex}
+		\codeblock{latex}{exercises/project-structure/main.done.tex}
 		\caption{\file{main.tex}}
 	\end{figure}
 	
@@ -14,9 +14,9 @@
 			sections)}
 	\end{figure}
 	
-	\item \textbf{Can the preamble also be excluded? If no, why? If yes, when can outsourcing the preamble be useful?} 
+	\item Can the preamble also live in its own file? Find out by moving it analogously to the sections. If no, why? If yes, why can outsourcing the preamble be useful?
 
-	 The preamble can also be outsourced, like in task 1. In real-world \LaTeX{} projects, we often make use of numerous packages that need to be 
+	 The preamble can also be outsourced. In real-world \LaTeX{} projects, we often make use of numerous packages that need to be 
 	 configured by additional commands within the preamble. Therefore, it is 
 	 advisable to outsource the preamble. On top of that, this is useful 
 	 because the file with the most-commonly used packages can be moved from 
