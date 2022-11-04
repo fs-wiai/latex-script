@@ -1,5 +1,7 @@
 \chapter{Text markup}
 
+\section*{Text highlighting}
+
 Text markup can be done in two ways: semantically or visually.
 We recommend that you use semantic markup whenever possible.
 In contrast to visual markup, it only states \emph{why} something is special and entrusts to \LaTeX{} \emph{how} it is going to look.
@@ -65,5 +67,36 @@ For the rest, you can trust the default settings and avoid the visual clutter.
 	\caption{Font size commands}
 	\label{tbl:type-sizes}
 \end{table}
+
+\newpage
+
+\section*{Paragraph alignment}
+\label{sec:ragged-alignment}
+By default, \LaTeX{} sets continuous text in full justification. 
+However, we can also switch to ragged alignment by using the commands 
+\code{latex}{\textbackslash raggedright}, \code{latex}{\textbackslash raggedleft}, and 
+\code{latex}{\textbackslash centering}. 
+These commands influence the environment that they are used in, e.\,g., the 
+\mono{document} environment. Correspondingly, the text within the whole 
+document is affected. 
+Alternatively, we can use dedicated environments in order to influence the 
+formatting
+of certain paragraphs (\cref{lst:ragged-alignment}).
+
+\example{lst:ragged-alignment}{formatting-paragraphs/ragged-alignment}{Ragged 
+alignment}
+
+\section*{Indentation and spacing}
+\label{sec:indents-and-parskips}
+Usually, we illustrate a new paragraph by indenting the first line of it 
+(\code{latex}{\textbackslash parindent}). 
+Alternatively, paragraph spacing, i.\,e., vertical space between paragraphs, 
+can be used (\code{latex}{\textbackslash parskip}).
+For both variants, there are adjustable parameters:
+\codeblock{latex}{listings/formatting-paragraphs/indentation.tex}
+
+\noindent We can use \code{latex}{\textbackslash noindent} to turn off the indentation for only one 
+paragraph. 
+For the first paragraph after a heading, there is usually no indentation. 
 
 
