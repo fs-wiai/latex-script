@@ -1,5 +1,6 @@
-\chapter{Footnotes}
-\label{sec:footnotes}
+\chapter{References and Footnotes}
+\section{Footnotes}\label{sec:footnotes}
+
 
 Whenever we want to include footnotes into our \LaTeX{} document, we can use 
 the command \code{latex}{\textbackslash footnote{<text>}}. At the position where we use 
@@ -15,4 +16,63 @@ The package \pkg{footmisc} provides us with additional options for how to displa
   \item \code{latex}{\textbackslash usepackage[para]\{footmisc\}} lets the footnotes within the footer appear as continuous text (i.\,e., the footnotes can also appear next to each other).
   \item \code{latex}{\textbackslash usepackage[symbol]\{footmisc\}} causes a numbering with symbols (e.\,g.,  \textdagger, \textdaggerdbl) instead of numbers.
 \end{itemize}
+
+
+\section{References}\label{sec:references}
+
+If we want to make references, like \enquote{\textellipsis , which you can see 
+in figure 21, \textellipsis}, \LaTeX{} by default provides us with the command 
+\code{latex}{\textbackslash ref\{<label>\}}. No more adapting of the numbering 
+for graphics, tables, etc. needed!
+The command expects a unique label as argument, that needs to be assigned to 
+the referenced element. After that, wherever we call the command, the number of 
+our referenced object appears in the text.
+\Example{lst:fooboar-learning-latex}{references/ref}{references/ref_crop}{Example
+ for a reference}
+
+A smarter package for references is \pkg{cleverref}.\footnote{with only one 
+\enquote{r}!}
+It provides us with the command \code{latex}{\textbackslash cref\{<label>\}}, 
+which can also handle multiple labels separated by commas.
+This automatically generates elegant references like \enquote{sections 1 to 3, 
+and 5.}\footnote{for the source code \code{latex}{\textbackslash 
+cref\{sec:section1,sec:section2,
+		sec:section3,sec:section5\}}}
+Furthermore, \code{latex}{\textbackslash ref\{<label>\}} automatically inserts 
+a suited abbreviation, e.\,g., \enquote{fig.} for figures.
+
+We can reference graphics, tables, sections, chapters, source code listings, 
+and equations. 
+Many packages use the label in order to find out the object type of the 
+referenced element.
+For this reason, it is common to insert a prefix before each label 
+(\cref{lst:reference-prefixes}).
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{@{}llll@{}}
+		\toprule
+		Prefix & Object type & Prefix & Object type \\ \midrule
+		fig: & figures & tbl:    & tables            \\ 
+		sec: & sections  & subsec: & subsections     \\
+		ch:  & chapters     & itm:    & items \\
+		eq:  & equations & lst:    & source code listings  \\ \bottomrule
+	\end{tabular}
+	\caption{Prefixes for labels}
+	\label{lst:reference-prefixes}
+\end{table}
+
+Note that if we use \code{latex}{\textbackslash cref\{<label>\}}\,---\,for some 
+document classes\,---\,the generated passages only appear in the desired 
+language (e.\,g., German) when the language is specified already within the 
+document class command:
+
+\codeblock{latex}{listings/references/set-language.tex}
+
+\noindent Except for sections, captions\footnote{\code{latex}{\textbackslash 
+caption\{…\}}} \emph{always need to be specified and positioned before the 
+label}\textit{.} Otherwise, they cannot be referenced later on in the text.
+Labels for sections are inserted directly after the command:
+
+\codeblock{latex}{listings/references/sections.tex}
 
