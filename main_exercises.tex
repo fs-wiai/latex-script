@@ -5,6 +5,9 @@
 \title{Script for the Fachschaft \acro{WIAI} \LaTeX{} Workshop}
 \author{Evelyn Fradtschuk \and Florian Knoch \and Christian Kremitzl \and Bernhard Luedtke}
 
+% Custom headline prefix
+\renewcommand*\thesection{Exercise #1\@arabic\c@section}
+
 \begin{document}
 \selectlanguage{english}
 \frenchspacing
@@ -23,6 +26,10 @@
 \input{content/first-steps-with-latex.tex}
 \input{content/why-use-latex.tex}
 \input{content/basic-functionality.tex}
+
+% Align exercise numbers with chapters
+\setcounter{section}{3}
+
 \input{content/basic-document-structure.tex}
 \exercise{basic-document-structure}
 \input{content/project-structure.tex}

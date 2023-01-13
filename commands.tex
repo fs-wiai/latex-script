@@ -241,39 +241,6 @@
 	\end{figure}
 }
 
-% Exercise mode
-% =============
-% The exercise mode can be chosen by writing one of the following to the exercise-mode.tex file before compilation:
-% \newcommand\exercisemode{none}      % for a blank script without exercises
-% \newcommand\exercisemode{exercises} % for a script with exercises only
-% \newcommand\exercisemode{solutions} % for a script with solutions only
-% \newcommand\exercisemode{any}       % for a script containing all available material
-% The following lines include that file or make \exercisemode default to 'any' so that any derivatives of this project will work even without the file.
-\IfFileExists{exercise-mode.tex}{
-	\input{exercise-mode.tex}
-}{
-	\newcommand\exercisemode{any}
-}
-
-% Exercises
-% =========
-% Includes the task.tex file within the given subfolder of exercises and adds a heading.
-\newcommand\exercise[1]{
-	\ifthenelse{\equal{\exercisemode}{none}}{
-		% Exercises disabled.
-	}{
-		\newpage
-		\definecolor{latexblue}{rgb}{0.9,0.925,0.95}
-		\pagecolor{latexblue}
-		%\definecolor{latexblue}{rgb}{0.73,0.84,0.92}
-		\section*{Exercise \thechapter}
-		\addcontentsline{toc}{section}{Exercise}%
-		\input{exercises/#1/task.tex}
-		\newpage
-		\nopagecolor
-	}
-}
-
 % Exercise Material
 % =================
 % Takes a project-relative path, and inserts matching exercise material and/or solutions, depending on the exercise mode.
