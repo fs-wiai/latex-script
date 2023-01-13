@@ -1,0 +1,77 @@
+\input{setup.tex} % Setup
+\input{praeamble.tex} % Preamble
+\input{commands.tex} % Custom commands
+
+\title{Script for the Fachschaft \acro{WIAI} \LaTeX{} Workshop}
+\author{Evelyn Fradtschuk \and Florian Knoch \and Christian Kremitzl \and Bernhard Luedtke}
+
+\begin{document}
+\selectlanguage{english}
+\frenchspacing
+
+% Custom headline prefix
+\renewcommand{\thesection}{E\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+
+% Title page
+\input{content/titlepage.tex}
+% or simply 
+% \maketitle
+\thispagestyle{empty}
+\newpage
+\setcounter{page}{1} % Don't count title page.
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
+% Align exercise numbers with chapters
+\setcounter{section}{3}
+
+\input{exercises/basic-document-structure/task}
+\input{exercises/basic-document-structure/document-structure.raw}
+
+\newpage
+\input{exercises/project-structure/task}
+\input{exercises/project-structure/tasks.raw}
+
+\newpage
+\input{exercises/special-characters/task}
+\input{exercises/special-characters/special-characters.raw}
+
+\newpage
+\input{exercises/text-markup/task}
+\input{exercises/text-markup/markup.raw}
+
+\newpage
+\input{exercises/lists/task}
+\input{exercises/lists/lists.raw}
+
+\newpage
+\input{exercises/maths/task}
+\input{exercises/maths/math-formulas.raw}
+
+\newpage
+\input{exercises/graphics/task}
+\input{exercises/graphics/graphics.raw}
+
+\newpage
+\input{exercises/tables/task}
+\input{exercises/tables/tables.raw}
+
+\newpage
+\input{exercises/source-code-listings/task}
+\input{exercises/source-code-listings/source-code-listings.raw}
+
+\newpage
+\input{exercises/footnotes/task}
+\input{exercises/footnotes/footnotes.raw}
+
+\newpage
+\input{exercises/references/task}
+\input{exercises/references/references.raw}
+
+\newpage
+\input{exercises/literature/task}
+\input{exercises/literature/literature.raw}
+
+\end{document}

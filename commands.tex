@@ -241,36 +241,3 @@
 	\end{figure}
 }
 
-% Exercise Material
-% =================
-% Takes a project-relative path, and inserts matching exercise material and/or solutions, depending on the exercise mode.
-\newcommand\exercisematerial[1]{
-	% Mode 'exercises': raw material only
-	\ifthenelse{\equal{\exercisemode}{exercises}}{
-		\IfFileExists{#1.raw.tex}{
-			\input{#1.raw.tex}
-		}{}
-	}{}
-	% Mode 'solutions': completed material only
-	\ifthenelse{\equal{\exercisemode}{solutions}}{
-		\IfFileExists{#1.done.tex}{
-			\input{#1.done.tex}
-		}{}
-	}{}
-	% Mode 'any': all existing material. If both raw and completed material exist, headings are added for each.
-	\ifthenelse{\equal{\exercisemode}{any}}{
-		\IfFileExists{#1.raw.tex}{
-			\IfFileExists{#1.done.tex}{
-				\subsubsection*{Preview of the raw material}
-			}{}
-			\input{#1.raw.tex}
-		}{}
-		\IfFileExists{#1.done.tex}{
-			\IfFileExists{#1.raw.tex}{
-				\subsubsection*{Preview of the solution}
-			}{}
-			\input{#1.done.tex}
-		}{}
-	}{}
-}
-
