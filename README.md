@@ -1,6 +1,6 @@
 # LaTeX Script by Fachschaft WIAI
 
-This script introduces the most fundamental LaTeX mechanisms to get learners started. It is used both as a reference and as exercise material for our [LaTeX workshop](https://wiai.stuve-bamberg.de/latex-weekend), a **two-day tutorial aimed at students from various backgrounds**. The following topics are covered:
+The material contained in this repository introduces the most fundamental LaTeX mechanisms to get learners started. It comprises both a script and hands-on exercises for our [LaTeX workshop](https://wiai.stuve-bamberg.de/latex-weekend), a **LaTeX introduction aimed at students from various backgrounds**. The following topics are covered:
 
 * general introduction to the LaTeX system 
 * basic document structure
@@ -10,14 +10,14 @@ This script introduces the most fundamental LaTeX mechanisms to get learners sta
 * formatting paragraphs
 * lists
 * maths and formulas
-* source code listings (`minted` + `listings`)
+* source code listings (`listings` with an optional `minted` part)
 * graphics
 * tables
 * footnotes
 * references
 * literature management
 
-Most chapters contain exercises to be performed within the script itself, practically teaching the aspects that are introduced by the text.
+Most chapters contain exercises to practically apply the aspects that are introduced by the text.
 
 ## Getting started
 
@@ -64,28 +64,45 @@ latex-script/
 │   ├── basic-document-structure
 │   ├── footnotes
 │   └── …
+├── first-steps-with-latex.tex
 ├── graphics
 │   ├── benzene-ring.pdf
 │   ├── cc-by-sa.png
 │   └── …
+├── imprint.tex
+├── LICENSE
 ├── listings
 │   ├── basic-document-structure
 │   ├── formatting-paragraphs
 │   └── …
-├── main.tex
+├── main-exercises.tex
+├── main-script.tex
+├── main-solutions.tex
 ├── Makefile
 ├── praeamble.tex
 ├── public
 ├── setup.tex
-└── README.md
+├── README.md
+├── titlepage-exercises.tex
+└── titlepage.tex
 ```
 
 ## Relevant files for learners
-* **`main.tex`** is the entry point. It includes the preamble (`preamble.tex`), our custom commands (`commands.tex`) as well as all sections.
-* **`content`** comprises the individual chapters of this script.
-* Most chapters include a task that can be found in the **`exercises`** folder.
 
-Please don't feel overwhelmed by the amount of files in this repository. You will get to know the most important parts of the project step by step by [following the script](https://github.com/fs-wiai/latex-script/releases) or our workshop. What's more, by using this larger projects you get accustomed to the complexity of real LaTeX projects – bachelor's/master's theses and the like.
+In this repository, we provide an exercise script in which you can practically apply what you have learned. These files will be needed:
+
+* **`main-exercises.tex`** is the entry point for the exercise part. It includes the preamble (`preamble.tex`), our custom commands (`commands.tex`) as well as all sections. 
+* **`exercises`** contains one sub-folder for each chapter. Within these folders, there are the LaTeX files you will have to modify to complete an exercise.
+
+## Additional material
+
+Besides the exercise part, we also provide the script detailing all of the information we give you during our workshop. This script can be used as a reference, a refresher, and a source of inspiration. Moreover, it is a practical example of how LaTeX can be brought to good use. This is why we offer you the full source code, structured like this:
+
+* The **`content`** folder comprises the individual chapters of the script.
+* They are bound together by **`main-script.tex`**, which also includes our preamble (`preamble.tex`) and our custom commands (`commands.tex`). 
+* Further folders (e.g., `listings` and `graphics`) contain additional resources like images and source code listings used in the script.
+
+Please don't feel overwhelmed by the amount of files in this repository. You will get to know the most important parts of the project step by step by [following the script](https://github.com/fs-wiai/latex-script/releases) or our workshop. What's more, by using this larger project you get accustomed to the complexity of real LaTeX projects – bachelor's/master's theses and the like.
 
 ## Further information for maintainers
 
