@@ -125,9 +125,12 @@ You are welcome to contribute to this project by creating issues, opening pull r
 
 These are the main contributors so far:
 * Evelyn Fradtschuk
+* Jessica Klarmann
 * Florian Knoch
+* Theresa Knoll
 * Christian Kremitzl
 * Bernhard Luedtke
+* Jochen Mehlich
 
 ## License
 
