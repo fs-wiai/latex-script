@@ -74,28 +74,27 @@ publication-zip-without-exercises: clean publication-dir
 # Build a ZIP file with tasks and without solutions
 publication-zip-with-exercises: clean publication-dir
 	rm -rf temp/* exercises/**/_*
-	cp --parents main-exercises.tex praeamble.tex commands.tex setup.tex graphics/* listings/**/*.{tex,pdf,bib,java,txt} titlepage.tex imprint.tex first-steps-with-latex.tex temp/
+	cp --parents main-exercises.tex praeamble.tex commands.tex setup.tex graphics/* listings/**/*.{tex,pdf,bib,java,txt} titlepage-exercises.tex imprint.tex first-steps-with-latex.tex temp/
 	cp --parents exercises/**/* temp/
 	rm -f temp/exercises/**/*.done.{tex,bib,synctex.gz}
 	rm -f temp/exercises/**/*.rend.tex
 	rm -f temp/exercises/**/*.aux
 	find temp/ -name '*.raw.*' -exec bash -c 'sed "s/\.raw\./\./g" <<<{} | xargs mv {}' \;
 	find temp/ -name '*.tex' -exec sed -i -e 's/\.raw\./\./g' {} \;
-# TODO: Replacement of .raw not working.
-	sed -e 's/\.raw//g' temp/main-exercises.tex > temp/main-exercises.tex
+	sed -i 's/\.raw//g' temp/main-exercises.tex
 	cd temp && zip ../public/project-with-exercises * **/* **/**/*
 
 # Build a ZIP file with tasks and solutions
 publication-zip-with-solutions: clean publication-dir
 	rm -rf temp/* exercises/**/_*
-	cp --parents main-solutions.tex praeamble.tex commands.tex setup.tex graphics/* listings/**/*.{tex,pdf,bib,java,txt} titlepage.tex imprint.tex first-steps-with-latex.tex temp/
+	cp --parents main-solutions.tex praeamble.tex commands.tex setup.tex graphics/* listings/**/*.{tex,pdf,bib,java,txt} titlepage-exercises.tex imprint.tex first-steps-with-latex.tex temp/
 	cp --parents exercises/**/* temp/
 	rm -f temp/exercises/**/*.raw.{tex,bib,synctex.gz}
 	rm -f temp/exercises/**/*.aux
 	find temp/ -name '*.done.*' -exec bash -c 'sed "s/\.done\./\./g" <<<{} | xargs mv {}' \;
 	find temp/ -name '*.tex' -exec sed -i -e 's/(raw|done)//g' {} \;
-# TODO: Replacement of .done not working.
-	sed -e 's/\.done//g' temp/main-solutions.tex > temp/main-solutions.tex
+	sed -i 's/\.done//g' temp/main-solutions.tex
+	sed -i 's/\.done//g' temp/exercises/*/*.tex
 	cd temp && zip ../public/project-with-solutions  * **/* **/**/*
 
 	
