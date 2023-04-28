@@ -10,44 +10,53 @@ The material contained in this repository introduces the most fundamental LaTeX 
 * formatting paragraphs
 * lists
 * maths and formulas
-* source code listings (`listings` with an optional `minted` part)
 * graphics
 * tables
 * footnotes
 * references
 * literature management
+* source code listings (`listings` with an optional `minted` part)
 
 Most chapters contain exercises to practically apply the aspects that are introduced by the text.
 
 ## Getting started
 
 ### For beginners
-A PDF version of the script can be found [in the “releases” section](https://github.com/fs-wiai/latex-script/releases). It will give you an overview of how to approach any, but especially this LaTeX project. For this, have a look at the “First steps with LaTeX” section.
+
+This project contains three different documents:
+
+1. a **script** containing all of the chapters we cover in the workshop (`main-script`),
+2. an **exercise script** with practical tasks to apply what you have learned (`main-exercises`), and
+3. a **solution script** that you can refer to for your self-study (`main-solutions`).
+
+A PDF version of all of these documents can be found [in the “releases” section](https://github.com/fs-wiai/latex-script/releases). You may use the script to delve into the realms of LaTeX on your own. It will give you an overview of how to approach any, but especially this LaTeX project. To get your hands dirty, have a look at the exercise script, especially the “First steps with LaTeX” section.
 
 **Optionally**, the `minted` package can be used for source code listings. This requires some additional configuration (including the installation of [Python3](https://www.python.org/)). Please refer to the chapter on “Source code listings” in the aforementioned PDF file.
 
 ### Command line usage
 
-The project can be compiled by running a LaTeX compiler on `main.tex`. A simple command would be:
+Each document in this project can be compiled by running a LaTeX compiler on `main-script.tex` (or any of the other two main files, respectively). A simple command would be:
 
 ```sh
-$ pdflatex main.tex
+$ pdflatex main-script.tex
 ```
 
 Run the command twice to generate the table of contents and other registers. Once the literature tasks are being worked on, compilation requires an additional call to BibTeX:
 
 ```sh
-$ pdflatex main.tex
-$ bibtex main.aux
-$ pdflatex main.tex
-$ pdflatex main.tex
+$ pdflatex main-script.tex
+$ bibtex main-script.aux
+$ pdflatex main-script.tex
+$ pdflatex main-script.tex
 ```
 
-If you decide to use the optional `minted` package (see section above), don't forget to add the `--shell-escape` flag: 
+If you decide to use the optional `minted` package (see section above), don't forget to add the `--shell-escape` flag:
 
 ```sh
 $ pdflatex --shell-escape main.tex
 ```
+
+Read more about the potentially dangerous implications of this flag in the script.
 
 ## Project Structure
 
