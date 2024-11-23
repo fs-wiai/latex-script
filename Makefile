@@ -10,7 +10,8 @@ clean:
 	@echo Cleaning up temporary files.
 	@rm -rf public/*
 	@rm -rf temp/*
-	@rm -f main-{script,exercises,solutions}.{aux,loc,log,out,pdf,soc,toc}
+	@rm -f main-{script,exercises,solutions}.{aux,loc,log,out,pdf,soc,toc,synctex.gz}
+	@rm -f exercises/*/*.{aux,loc,log,out,pdf,soc,toc,synctex.gz}
 
 # Compile listings (only needed when listings have changed)
 listings: listings/**/*
