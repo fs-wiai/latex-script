@@ -1,6 +1,6 @@
 # Instructions for compiling LaTeX documents in Visual Studio Code
 
-This tutorial demonstrates how to set up VS Code to compile the LaTeX script.
+This tutorial demonstrates how to set up VS Code to compile the LaTeX script. Make sure to have a [LaTeX compiler installed](./README.md) before continuing.
 
 ## Software installation
 
