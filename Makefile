@@ -30,7 +30,7 @@ preview: main-script.tex
 	@echo Run \'make publication\' to generate PDF and ZIP file for publication.
 
 # Build all PDF and ZIP variants
-publication: publication-pdf-without-exercises publication-pdf-with-exercises publication-pdf-with-solutions publication-zip-with-exercises publication-zip-with-solutions
+publication: clean publication-pdf-without-exercises publication-pdf-with-exercises publication-pdf-with-solutions publication-zip-with-exercises publication-zip-with-solutions
 
 #
 # Building blocks from here on:
