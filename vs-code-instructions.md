@@ -18,13 +18,13 @@ LaTeX Workshop uses so-called recipes to compile documents. A recipe refers to a
 ```json
 "latex-workshop.latex.recipes": [
     {
-    {
         "name": "pdflatex × 2",
         "tools": [
             "pdflatex",
             "pdflatex"
         ]
     },
+    {
         "name": "pdflatex -> bibtex -> pdflatex × 2",
         "tools": [
             "pdflatex",
