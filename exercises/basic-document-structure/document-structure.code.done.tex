@@ -1,10 +1,37 @@
-\documentclass{article}
+% twocolumn parameter adds second column
+\documentclass[twocolumn]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[english]{babel}
+\usepackage[english,italian]{babel}
 \usepackage[hidelinks]{hyperref}
+
+% for headers and footers
+\usepackage{fancyhdr}
+
+% configure title components
+\title{Recipes}
+\date{\today}
+\author{It's you!}
 	
 \begin{document}
+
+% set headers and footers
+\pagestyle{fancy} % activate headers and footers in general
+\thispagestyle{fancy} % apply to the first page as well
+
+% clear and configure headers
+\fancyhead{}
+\fancyhead[R]{Recipes}
+
+% clear and configure footers
+\fancyfoot{}
+\fancyfoot[R]{\thepage}
+
+% switch language (needs optional parameter where the babel package is added), display title, then switch back
+\selectlanguage{italian}
+\maketitle
+\selectlanguage{english}
+
 \tableofcontents
 	
 \section{Beverages}
@@ -27,13 +54,14 @@ Place a sieve over the container that you want to store the lemonade in. Put the
 	
 When the liquid is cold, add the lemon juice, the cold water, and the ice cubes and stir everything. 
 	
-	
 Your lemonade is now ready to enjoy!
 	
-\subsection{Hot Chocolate}
+% short title for the table of contents via optional parameter
+\subsection[Chocoho!]{Hot Chocolate}
 Coming soon!
-	
-\section{Breakfast}
+
+% asterisk (*) hides the section title in the table of contents
+\section*{Breakfast}
 
 \subsubsection{Buckwheat Overnight Oats}
 Coming soon!
