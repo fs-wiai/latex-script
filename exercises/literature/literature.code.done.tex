@@ -1,5 +1,12 @@
-An introductory \LaTeX{} course can be found in \enquote{\LaTeX{} in 24 Hours} \cite{datta2017}.
+% Preamble adjustments
+
+% Literature
+\usepackage[style=numeric, citestyle=alpha, backend=biber]{biblatex}
+\addbibresource{exercises/literature/literature.bib}
+
+% Actual content
+
+An introductory \LaTeX{} course can be found in \enquote{\LaTeX{} in 24 Hours} \parencite{datta2017}.
 There is a plethora of further handbooks \cite*[e.\,g.,][]{goossensmittelbach2010}.
 
-\bibliographystyle{plain}
-\bibliography{exercises/literature/literature.done.bib}
+\printbibliography

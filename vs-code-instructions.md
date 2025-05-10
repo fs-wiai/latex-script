@@ -12,8 +12,8 @@ This tutorial demonstrates how to set up VS Code to compile the LaTeX script. Ma
 LaTeX Workshop uses so-called recipes to compile documents. A recipe refers to a list of commands that are executed one after the other. For our exercises, we will need one basic recipe which simply runs the compiler twice. Later on, we will need a second recipe to deal with bibliographic data.
 
 1. Launch the VS Code settings and search for “recipes.”
-2. In the “Latex: Recipes” section, click on “Edit in settings.json.”
-3. Go ahead and add the following two entries to the list. The first one just uses the `pdflatex` compiler twice to build our document, whereas the second one adds an intermediate round of `bibtex` compilation.
+2. In the “Latex-workshop > LaTeX: Recipes” section, click on “Edit in settings.json.”
+3. Go ahead and add the following two entries to the list. The first one just uses the `pdflatex` compiler twice to build our document, whereas the second one adds an intermediate round of `biber` compilation.
 
 ```json
 "latex-workshop.latex.recipes": [
@@ -25,10 +25,10 @@ LaTeX Workshop uses so-called recipes to compile documents. A recipe refers to a
         ]
     },
     {
-        "name": "pdflatex -> bibtex -> pdflatex × 2",
+        "name": "pdflatex -> biber -> pdflatex × 2",
         "tools": [
             "pdflatex",
-            "bibtex",
+            "biber",
             "pdflatex",
             "pdflatex"
         ]
@@ -37,8 +37,26 @@ LaTeX Workshop uses so-called recipes to compile documents. A recipe refers to a
 ]
 ```
 
-4. Save and close the settings file.
-5. For later convenience, set the “Recipe: Default” option to `lastUsed`.
+4. Now search for “latex tools” in the settings search.
+5. In the “Latex-workshop > LaTeX: Tools section, click on “Edit in settings.json.”
+6. Make sure the following entry is part of the list.
+
+```json
+"latex-workshop.latex.tools": [
+    {
+        "name": "biber",
+        "command": "biber",
+        "args": [
+            "%DOC%"
+        ],
+        "env": {}
+    },
+    // EXISTING ENTRIES GO HERE
+]
+```
+
+7. Save and close the settings file.
+8. For later convenience, set the “Latex-workshop > Latex > Recipe: Default” option to `lastUsed`.
 
 ## Compiling
 

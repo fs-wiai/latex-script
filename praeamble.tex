@@ -5,6 +5,9 @@
 \usepackage[T1]{fontenc}
 \usepackage[english,ngerman]{babel}
 
+% Headers and footers
+\usepackage{fancyhdr}
+
 % Special characters
 \usepackage{eurosym, tipa, textcomp, textgreek, upgreek}
 
@@ -29,6 +32,9 @@
 % Compact lists
 \usepackage{paralist}
 
+% Lists with different bullet points
+\usepackage{enumitem}
+
 % Tables
 \usepackage{longtable, array, tabularx, booktabs, colortbl}
 
@@ -47,7 +53,7 @@
 \usepackage[autostyle,autopunct=false]{csquotes}
 
 % Literature
-\usepackage{natbib}
+\usepackage[style=numeric, citestyle=ieee, backend=biber]{biblatex}
 
 % Line wraps in monospace font
 \usepackage[htt]{hyphenat}
